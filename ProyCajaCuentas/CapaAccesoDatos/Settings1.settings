@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CapaAccesoDatos" GeneratedClassName="Settings1">
+  <Profiles />
+  <Settings>
+    <Setting Name="Usuario" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ctzmx_sa</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Inttesi#2018</Value>
+    </Setting>
+    <Setting Name="Servidor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">65.99.252.110</Value>
+    </Setting>
+    <Setting Name="BaseDeDatos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ctzmx_tgcontrol</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
