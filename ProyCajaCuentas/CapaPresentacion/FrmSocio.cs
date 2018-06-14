@@ -23,6 +23,7 @@ namespace CapaPresentacion
         }
 
 
+
         //------------Methods
         private string Socio_createController(string numeroLicencia, string nombreComercial, string direccionSupmza, 
             string direccionManzana, string direccionLote, string direccionCalle, string direccionComplemento,
@@ -49,7 +50,50 @@ namespace CapaPresentacion
 
             return(clsSocio.Socio_create());
         }
-        
+
+        private DataTable Socio_BuscarXRFCPropietario(string rfcPropietarioBuscado)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.RFCPropietario = rfcPropietarioBuscado;
+
+            return (clsSocio.Socio_BuscarXRFCPropietario());
+        }
+
+        private DataTable Socio_BuscarXIdController(int idSocioBuscado)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Id = idSocioBuscado;
+
+            return (clsSocio.Socio_BuscarXId());
+        }
+
+        private string Socio_updateController(int idSocioBuscado, string numeroLicencia, string nombreComercial, string direccionSupmza,
+            string direccionManzana, string direccionLote, string direccionCalle, string direccionComplemento,
+            string propietarioPatente, string rFCPropietario, string comodatario, string rFCComodatario,
+            string telefono, string celular, string correoElectronico, int idUsuarioOperador
+            )
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Id = idSocioBuscado;
+            clsSocio.NumeroLicencia = numeroLicencia;
+            clsSocio.NombreComercial = nombreComercial;
+            clsSocio.DireccionSupmza = direccionSupmza;
+            clsSocio.DireccionManzana = direccionManzana;
+            clsSocio.DireccionLote = direccionLote;
+            clsSocio.DireccionCalle = direccionCalle;
+            clsSocio.DireccionComplemento = direccionComplemento;
+            clsSocio.PropietarioPatente = propietarioPatente;
+            clsSocio.RFCPropietario = rFCPropietario;
+            clsSocio.Comodatario = comodatario;
+            clsSocio.RFCComodatario = rFCComodatario;
+            clsSocio.Telefono = telefono;
+            clsSocio.Celular = celular;
+            clsSocio.CorreoElectronico = correoElectronico;
+            clsSocio.IdUsuarioModifico = idUsuarioOperador;
+
+            return (clsSocio.Socio_update());
+        }
+
 
         //------------Utils
         private void LimpiarTextBoxes()
@@ -70,6 +114,7 @@ namespace CapaPresentacion
             textBox11.Clear();
             textBox17.Clear();
             textBox12.Clear();
+            textBox20.Clear();
         }
 
 
@@ -85,6 +130,34 @@ namespace CapaPresentacion
 
         }
 
+        private void MostrarResultadoDeBusquedaXFiltro(DataTable tabla)
+        {
+            dataGridView1.DataSource = tabla;
+        }
+
+        private void MostrarEnTxtBoxsSocio(DataTable tabla)
+        {
+            DataRow fila = tabla.Rows[0];
+            textBox1.Text = fila["Id"].ToString();
+            textBox2.Text = fila["NumeroLicencia"].ToString();
+            textBox3.Text = fila["NombreComercial"].ToString();
+            textBox4.Text = fila["DireccionSupmza"].ToString();
+            textBox6.Text = fila["DireccionLote"].ToString();
+            textBox5.Text = fila["DireccionManzana"].ToString();
+            textBox7.Text = fila["DireccionCalle"].ToString();
+            textBox8.Text = fila["DireccionComplemento"].ToString();
+            textBox9.Text = fila["PropietarioPatente"].ToString();
+            textBox15.Text = fila["RFCPropietario"].ToString();
+            textBox10.Text = fila["Comodatario"].ToString();
+            textBox16.Text = fila["RFCComodatario"].ToString();
+            textBox11.Text = fila["Telefono"].ToString();
+            textBox17.Text = fila["Celular"].ToString();
+            textBox12.Text = fila["CorreoElectronico"].ToString();
+        }
+
+
+
+
         //-----------Events
 
         private void button2_Click(object sender, EventArgs e)
@@ -95,13 +168,36 @@ namespace CapaPresentacion
                 DialogResult res = MessageBox.Show("¿Estas usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(res == DialogResult.Yes)
                 {
-                    int idUsuarioOperador = 2;
+                    //Si esta vacio se va a insertar un Socio nuevo
+                    if(textBox1.Text == String.Empty)
+                    {
+                        int idUsuarioOperador = 2;
 
-                    string respuesta = Socio_createController(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text,
-                      textBox8.Text, textBox9.Text, textBox15.Text, textBox10.Text, textBox16.Text, textBox11.Text, textBox17.Text,
-                      textBox12.Text, idUsuarioOperador);
+                        string respuesta = Socio_createController(textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text, textBox7.Text,
+                          textBox8.Text, textBox9.Text, textBox15.Text, textBox10.Text, textBox16.Text, textBox11.Text, textBox17.Text,
+                          textBox12.Text, idUsuarioOperador);
 
-                    LimpiarTextBoxes();
+                        LimpiarTextBoxes();
+                        comboBox1.SelectedIndex = -1;
+                        dataGridView1.DataSource = null;
+                    }
+
+                    else
+                    {  //Es una actualización
+                        int idUsuarioOperador = 2;
+                        int idSocioBuscado = Int32.Parse(textBox1.Text);
+
+                        string respuesta = Socio_updateController(idSocioBuscado, textBox2.Text, textBox3.Text, textBox4.Text,
+                            textBox5.Text, textBox6.Text, textBox7.Text, textBox8.Text,
+                            textBox9.Text, textBox15.Text, textBox10.Text, textBox16.Text,
+                            textBox11.Text, textBox17.Text, textBox12.Text, idUsuarioOperador);
+
+                        LimpiarTextBoxes();
+                        comboBox1.SelectedIndex = -1;
+                        dataGridView1.DataSource = null;
+
+                    }
+
                 }
             }
 
@@ -114,6 +210,59 @@ namespace CapaPresentacion
         private void button3_Click(object sender, EventArgs e)
         {
             LimpiarTextBoxes();
+            comboBox1.SelectedIndex = -1;
+            dataGridView1.DataSource = null;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Limpiar los textBoxes que estan abajo del datagridview1 
+                textBox1.Clear();   textBox2.Clear();  textBox3.Clear();   textBox4.Clear();
+                textBox5.Clear(); textBox6.Clear();  textBox7.Clear();  textBox8.Clear();
+                textBox9.Clear(); textBox15.Clear();  textBox10.Clear(); textBox16.Clear();
+                textBox11.Clear(); textBox17.Clear();  textBox12.Clear();
+
+                dataGridView1.DataSource = null;
+
+                if(comboBox1.SelectedIndex == 3)
+                {
+                    DataTable respuesta = Socio_BuscarXRFCPropietario(textBox20.Text);
+                    MostrarResultadoDeBusquedaXFiltro(respuesta);
+                }
+
+
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.Source);
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                try
+                {
+
+                    string idSocioEnTexto = (dataGridView1.Rows[e.RowIndex].Cells[0].EditedFormattedValue).ToString();
+                    DataTable miTabla = Socio_BuscarXIdController(Int32.Parse(idSocioEnTexto));
+                    MostrarEnTxtBoxsSocio(miTabla);                   
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }              
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

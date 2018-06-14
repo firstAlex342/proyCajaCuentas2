@@ -104,5 +104,54 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public DataTable Socio_BuscarXRFCPropietario()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@RFCPropietario", this.RFCPropietario));
+
+
+            return (CLSManejador.Listado("Socio_BuscarXRFCPropietario", lst));
+        }
+
+        public DataTable Socio_BuscarXId()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@IdBuscado", this.Id));
+
+            return (CLSManejador.Listado("Socio_BuscarXId", lst));
+        }
+
+        public string Socio_update()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@IdSocioBuscado", this.Id));
+            lst.Add(new ClsParametros("@NumeroLicenciaNew", this.NumeroLicencia));
+            lst.Add(new ClsParametros("@NombreComercialNew", this.NombreComercial));
+            lst.Add(new ClsParametros("@DireccionSupmzaNew", this.DireccionSupmza));
+            lst.Add(new ClsParametros("@DireccionManzanaNew", this.DireccionManzana));
+            lst.Add(new ClsParametros("@DireccionLoteNew", this.DireccionLote));
+            lst.Add(new ClsParametros("@DireccionCalleNew", this.DireccionCalle));
+            lst.Add(new ClsParametros("@DireccionComplementoNew", this.DireccionComplemento));
+            lst.Add(new ClsParametros("@PropietarioPatenteNew", this.PropietarioPatente));
+            lst.Add(new ClsParametros("@RFCPropietarioNew", this.RFCPropietario));
+            lst.Add(new ClsParametros("@ComodatarioNew", this.Comodatario));
+            lst.Add(new ClsParametros("@RFCComodatarioNew", this.RFCComodatario));
+            lst.Add(new ClsParametros("@TelefonoNew", this.Telefono));
+            lst.Add(new ClsParametros("@CelularNew", this.Celular));
+            lst.Add(new ClsParametros("@CorreoElectronicoNew", this.CorreoElectronico));
+            lst.Add(new ClsParametros("@IdUsuarioOperador", this.IdUsuarioModifico));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Socio_update", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[16].Valor.ToString();
+
+            return (mensaje);
+        }
     }
 }
