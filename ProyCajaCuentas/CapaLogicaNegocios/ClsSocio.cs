@@ -153,5 +153,29 @@ namespace CapaLogicaNegocios
 
             return (mensaje);
         }
+
+        public DataTable Socio_BuscarXComodatario()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@comodatario", this.Comodatario));
+
+            return (CLSManejador.Listado("Socio_BuscarXComodatario", lst));
+        }
+
+        public DataTable Socio_BuscarXRFCComodatario()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@rfcComodatario", this.RFCComodatario));
+
+            return (CLSManejador.Listado("Socio_BuscarXRFCComodatario", lst));
+        }
+
+        public DataTable Socio_BuscarXPropietarioPatente()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@propietarioPatente", this.PropietarioPatente));
+
+            return (CLSManejador.Listado("Socio_BuscarXPropietarioPatente", lst));
+        }
     }
 }

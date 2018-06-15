@@ -51,7 +51,7 @@ namespace CapaPresentacion
             return(clsSocio.Socio_create());
         }
 
-        private DataTable Socio_BuscarXRFCPropietario(string rfcPropietarioBuscado)
+        private DataTable Socio_BuscarXRFCPropietarioController(string rfcPropietarioBuscado)
         {
             ClsSocio clsSocio = new ClsSocio();
             clsSocio.RFCPropietario = rfcPropietarioBuscado;
@@ -94,6 +94,29 @@ namespace CapaPresentacion
             return (clsSocio.Socio_update());
         }
 
+        private DataTable Socio_BuscarXComodatarioController(string comodatarioBuscado)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Comodatario = comodatarioBuscado;
+            return (clsSocio.Socio_BuscarXComodatario()  );
+        }
+
+
+        private DataTable Socio_BuscarXRFCComodatarioController(string rfcComodatarioBuscado)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.RFCComodatario = rfcComodatarioBuscado;
+
+            return (clsSocio.Socio_BuscarXRFCComodatario());
+        }
+
+        private DataTable Socio_BuscarXPropietarioPatenteController( string propietarioPatenteBuscado)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.PropietarioPatente = propietarioPatenteBuscado;
+
+            return (clsSocio.Socio_BuscarXPropietarioPatente());
+        }
 
         //------------Utils
         private void LimpiarTextBoxes()
@@ -121,13 +144,10 @@ namespace CapaPresentacion
         private void CargarComBoBoxOpcionesFiltro()
         {
             comboBox1.Items.Add("Direccion");
-            comboBox1.Items.Add("Propietario");
-            comboBox1.Items.Add("Patente");
+            comboBox1.Items.Add("Propietario patente");
             comboBox1.Items.Add("RFC propietario");
-            comboBox1.Items.Add("Propietario");
             comboBox1.Items.Add("Comodatario");
             comboBox1.Items.Add("RFC comodatario");
-
         }
 
         private void MostrarResultadoDeBusquedaXFiltro(DataTable tabla)
@@ -226,12 +246,29 @@ namespace CapaPresentacion
 
                 dataGridView1.DataSource = null;
 
-                if(comboBox1.SelectedIndex == 3)
+                if(comboBox1.SelectedIndex == 1)
                 {
-                    DataTable respuesta = Socio_BuscarXRFCPropietario(textBox20.Text);
+                    DataTable respuesta = Socio_BuscarXPropietarioPatenteController(textBox20.Text);
                     MostrarResultadoDeBusquedaXFiltro(respuesta);
                 }
 
+                if (comboBox1.SelectedIndex == 2 )
+                {
+                    DataTable respuesta = Socio_BuscarXRFCPropietarioController(textBox20.Text);
+                    MostrarResultadoDeBusquedaXFiltro(respuesta);
+                }
+
+                if(comboBox1.SelectedIndex == 3)
+                {
+                    DataTable respuesta = Socio_BuscarXComodatarioController(textBox20.Text);
+                    MostrarResultadoDeBusquedaXFiltro(respuesta);
+                }
+
+                if(comboBox1.SelectedIndex == 4)
+                {
+                    DataTable respuesta = Socio_BuscarXRFCComodatarioController(textBox20.Text);
+                    MostrarResultadoDeBusquedaXFiltro(respuesta);
+                }
 
             }
 
