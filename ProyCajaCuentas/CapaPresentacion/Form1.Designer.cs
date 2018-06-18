@@ -32,9 +32,11 @@
             this.cuentaPorPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaCuentaPorPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aportacionesACuentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.socioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +44,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cuentaPorPagarToolStripMenuItem,
-            this.socioToolStripMenuItem});
+            this.socioToolStripMenuItem,
+            this.productoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -72,17 +75,6 @@
             this.aportacionesACuentaToolStripMenuItem.Text = "Aportaciones a producto en cuenta";
             this.aportacionesACuentaToolStripMenuItem.Click += new System.EventHandler(this.aportacionesACuentaToolStripMenuItem_Click);
             // 
-            // panelContenedor
-            // 
-            this.panelContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelContenedor.BackColor = System.Drawing.Color.White;
-            this.panelContenedor.Location = new System.Drawing.Point(0, 27);
-            this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(800, 423);
-            this.panelContenedor.TabIndex = 1;
-            // 
             // socioToolStripMenuItem
             // 
             this.socioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -97,6 +89,32 @@
             this.editarSocioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editarSocioToolStripMenuItem.Text = "Editar Socio";
             this.editarSocioToolStripMenuItem.Click += new System.EventHandler(this.editarSocioToolStripMenuItem_Click);
+            // 
+            // panelContenedor
+            // 
+            this.panelContenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelContenedor.BackColor = System.Drawing.Color.White;
+            this.panelContenedor.Location = new System.Drawing.Point(0, 27);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(800, 423);
+            this.panelContenedor.TabIndex = 1;
+            // 
+            // productoToolStripMenuItem
+            // 
+            this.productoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarProductoToolStripMenuItem});
+            this.productoToolStripMenuItem.Name = "productoToolStripMenuItem";
+            this.productoToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.productoToolStripMenuItem.Text = "Producto";
+            // 
+            // editarProductoToolStripMenuItem
+            // 
+            this.editarProductoToolStripMenuItem.Name = "editarProductoToolStripMenuItem";
+            this.editarProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarProductoToolStripMenuItem.Text = "Editar Producto";
+            this.editarProductoToolStripMenuItem.Click += new System.EventHandler(this.editarProductoToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -124,6 +142,8 @@
         private System.Windows.Forms.ToolStripMenuItem aportacionesACuentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem socioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarSocioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarProductoToolStripMenuItem;
     }
 }
 

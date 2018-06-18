@@ -47,5 +47,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario(new FrmSocio());
         }
+
+        private void editarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProducto());
+        }
     }
 }

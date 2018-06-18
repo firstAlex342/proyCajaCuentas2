@@ -44,5 +44,32 @@ namespace CapaLogicaNegocios
 
             return CLSManejador.Listado("Producto_Select_Id_Nombre_DeTodos", lst);
         }
+
+        public string Producto_create()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@Nombre", this.Nombre));
+            lst.Add(new ClsParametros("@Descripcion", this.Nombre));
+            lst.Add(new ClsParametros("@IdUsuarioOperador", this.IdUsuarioAlta));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Producto_create", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[3].Valor.ToString();
+
+            return (mensaje);
+        }
+
+        public DataTable Producto_BuscarXId()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@idBuscado", this.Id));
+
+            return CLSManejador.Listado("Producto_BuscarXId", lst);
+        }
     }
 }
