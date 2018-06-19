@@ -31,13 +31,13 @@ namespace CapaPresentacion
             return (clsProducto.Producto_Select_Id_Nombre_DeTodos());
         }
 
-        private string InsertarProductoController(string nombre, string descripcion)
+        private string InsertarProductoController(string nombre, string descripcion, int idUsuarioOperador)
         {
 
             ClsProducto clsProducto = new ClsProducto();
             clsProducto.Nombre = nombre;
             clsProducto.Descripcion = descripcion;
-            clsProducto.IdUsuarioAlta = 99;
+            clsProducto.IdUsuarioAlta = idUsuarioOperador;
 
             return (clsProducto.Producto_create());
         }
@@ -47,6 +47,17 @@ namespace CapaPresentacion
             ClsProducto clsProducto = new ClsProducto();
             clsProducto.Id = idProductoBuscado;
             return (clsProducto.Producto_BuscarXId());
+        }
+
+        private string Producto_updateController(int idProductoBuscado, string newNombre, string newDescripcion, int idusuarioOperador)
+        {
+            ClsProducto clsProducto = new ClsProducto();
+            clsProducto.Id = idProductoBuscado;
+            clsProducto.Nombre = newNombre;
+            clsProducto.Descripcion = newDescripcion;
+            clsProducto.IdUsuarioModifico = idusuarioOperador;
+
+            return (clsProducto.Producto_update());
         }
 
 
@@ -69,18 +80,51 @@ namespace CapaPresentacion
 
         }
 
+        private void LimpiarTodosTextBoxs()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+        }
+
 
         //-------------------Events
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                InsertarProductoController(textBox2.Text, textBox3.Text);
+                DialogResult res = MessageBox.Show("¿Estas usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(res == DialogResult.Yes)
+                {
+                    if(textBox1.Text == String.Empty)
+                    {
+                        //Se inserta un nuevo producto
+                        int idUsuarioOperador = 99;
+
+                        InsertarProductoController(textBox2.Text, textBox3.Text, idUsuarioOperador);
+                        LimpiarTodosTextBoxs();
+                        DataTable respuesta = Producto_Select_Id_Nombre_DeTodosController();
+                        MostrarProducto_Id_Nombre_DeTodos(respuesta);
+                    }
+                    else
+                    {
+                        //Se actualiza un producto
+                        int idUsuarioOperador = 99;
+
+                        int idProductoAActualizar = Int32.Parse(textBox1.Text);
+                        string mensaje = Producto_updateController(idProductoAActualizar, textBox2.Text, textBox3.Text, idUsuarioOperador);
+
+                        LimpiarTodosTextBoxs();
+                        DataTable respuesta = Producto_Select_Id_Nombre_DeTodosController();
+                        MostrarProducto_Id_Nombre_DeTodos(respuesta);
+                    }
+
+                }
             }
 
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + ex.Source);
+                MessageBox.Show(ex.Message + " " + ex.Source);
             }
         }
 
@@ -98,8 +142,25 @@ namespace CapaPresentacion
 
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message + " " + ex.Source);
                 }               
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                LimpiarTodosTextBoxs();
+                DataTable respuesta = Producto_Select_Id_Nombre_DeTodosController();
+                MostrarProducto_Id_Nombre_DeTodos(respuesta);
+            }
+
+
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source);
             }
         }
     }
