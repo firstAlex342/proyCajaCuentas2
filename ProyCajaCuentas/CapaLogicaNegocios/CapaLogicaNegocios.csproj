@@ -45,6 +45,9 @@
     <Compile Include="ClsProductosAPagar.cs" />
     <Compile Include="ClsSocio.cs" />
     <Compile Include="ClsMovimientoSocioProducto.cs" />
+    <Compile Include="ClsProductoPosee.cs" />
+    <Compile Include="ClsTarifa.cs" />
+    <Compile Include="ClsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

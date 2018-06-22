@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
@@ -16,6 +17,9 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            ClsUsuario.Id = 99;
+
             Application.Run(new Form1());
         }
     }

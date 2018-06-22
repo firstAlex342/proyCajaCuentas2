@@ -18,6 +18,7 @@ namespace CapaLogicaNegocios
         public DateTime FechaAlta { set; get; }
         public int IdUsuarioModifico { set; get; }
         public DateTime FechaModificacion { set; get; }
+        public bool Activo { set; get; }
 
         public ClsManejador CLSManejador { set; get; }
 
@@ -32,6 +33,7 @@ namespace CapaLogicaNegocios
             this.FechaAlta = new DateTime();
             this.IdUsuarioModifico = 0;
             this.FechaModificacion = new DateTime();
+            this.Activo = true;
             this.CLSManejador = new ClsManejador();
         }
 
@@ -45,23 +47,19 @@ namespace CapaLogicaNegocios
             return CLSManejador.Listado("Producto_Select_Id_Nombre_DeTodos", lst);
         }
 
-        public string Producto_create()
+        public DataTable Producto_create()
         {
-            string mensaje = "";
+            
             List<ClsParametros> lst = new List<ClsParametros>();
 
             lst.Add(new ClsParametros("@Nombre", this.Nombre));
-            lst.Add(new ClsParametros("@Descripcion", this.Nombre));
+            lst.Add(new ClsParametros("@Descripcion", this.Descripcion));
             lst.Add(new ClsParametros("@IdUsuarioOperador", this.IdUsuarioAlta));
 
-            //Parametro de salida
-            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
-            CLSManejador.Ejecutar_sp("Producto_create", lst);
+            //el sp regresa una fila con una unica columna.
+            DataTable respuesta = CLSManejador.Listado("Producto_create", lst);
 
-            //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[3].Valor.ToString();
-
-            return (mensaje);
+            return (respuesta);
         }
 
         public DataTable Producto_BuscarXId()
