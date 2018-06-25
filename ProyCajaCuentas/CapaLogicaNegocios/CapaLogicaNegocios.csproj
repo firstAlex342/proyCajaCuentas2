@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsCuentaPorPagar.cs" />
+    <Compile Include="ClsPagoProducto.cs" />
     <Compile Include="ClsProducto.cs" />
     <Compile Include="ClsProductosAPagar.cs" />
     <Compile Include="ClsSocio.cs" />

@@ -57,6 +57,12 @@
     <Compile Include="FrmAportacionesAProductoEnCuenta.Designer.cs">
       <DependentUpon>FrmAportacionesAProductoEnCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPagoProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoProducto.Designer.cs">
+      <DependentUpon>FrmPagoProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAportacionesAProductoEnCuenta.resx">
       <DependentUpon>FrmAportacionesAProductoEnCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoProducto.resx">
+      <DependentUpon>FrmPagoProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
