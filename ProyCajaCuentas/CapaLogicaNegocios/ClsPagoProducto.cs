@@ -66,6 +66,14 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public DataTable PagoProducto_BuscarXMesAlta()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@MesBuscado", this.FechaAlta.Month));
+
+
+            return (CLSManejador.Listado("PagoProducto_BuscarXMesAlta", lst));
+        }
     }
 
 }

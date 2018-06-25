@@ -97,6 +97,20 @@ namespace CapaPresentacion
             return (clsProductoPosee.ProductoPosee_innerjoin_Tarifas());
         }
 
+        private string PagoProducto_CreateController( int idSocio, int idProducto, decimal cantidadPagada, 
+            string tipoDescuento, decimal cantidadDescuento, int idUsuarioOperador)
+        {
+            ClsPagoProducto clsPagoProducto = new ClsPagoProducto();
+            clsPagoProducto.IdSocio = idSocio;
+            clsPagoProducto.IdProducto = idProducto;
+            clsPagoProducto.CantidadPagada = cantidadPagada;
+            clsPagoProducto.TipoDescuento = tipoDescuento;
+            clsPagoProducto.CantidadDescuento = cantidadDescuento;
+            clsPagoProducto.IdUsuarioAlta = idUsuarioOperador;
+
+            return (clsPagoProducto.PagoProducto_create());
+        }
+
         //------------------Utils
         private void CargarComBoBoxOpcionesFiltro()
         {
@@ -342,7 +356,54 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if(EsposibleCambiarContenidoPanel2 == false)
+                {
 
+                    bool estaElegidoSocio = textBox2.Text.Length > 0 ? true : false;
+                    bool estaElegidoProducto = comboBox2.SelectedIndex >= 0 ? true : false;
+                    bool estaElegidoTarifa = comboBox3.SelectedIndex >= 0 ? true : false;
+                    bool estaElegidoTipoDescuento = comboBox4.SelectedIndex >= 0 ? true : false;
+                    decimal numero = 0.0M;
+                    bool esUnNumeroCantidadADescontar = Decimal.TryParse(textBox10.Text, out numero);
+
+                    if ((estaElegidoSocio == true) && (estaElegidoProducto == true)
+                        && (estaElegidoTarifa == true) && (estaElegidoTipoDescuento == false))
+                    {
+
+                        int idSocio = Int32.Parse(textBox2.Text);
+                        int idProducto = ((ProductoCompact)comboBox2.SelectedItem).Id;
+                        decimal tarifa = Decimal.Parse(comboBox3.SelectedItem.ToString());
+                        string tipoDescuento = String.Empty;
+                        decimal descuento = 0.0M;
+                        decimal cantidadAPagar = Decimal.Parse(textBox9.Text);
+
+                        string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsUsuario.Id);
+                        MessageBox.Show(respuesta, "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    else if(  (estaElegidoSocio == true) && (estaElegidoProducto == true) && (estaElegidoTarifa == true) && (estaElegidoTipoDescuento == true)
+                        && (esUnNumeroCantidadADescontar == true)   )
+                    {
+                        int idSocio = Int32.Parse(textBox2.Text);
+                        int idProducto = ((ProductoCompact)comboBox2.SelectedItem).Id;
+                        decimal tarifa = Decimal.Parse(comboBox3.SelectedItem.ToString());
+                        string tipoDescuento = comboBox4.SelectedItem.ToString();
+                        decimal descuento = Decimal.Parse(textBox10.Text);
+                        decimal cantidadAPagar = Decimal.Parse(textBox9.Text);
+
+                        string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsUsuario.Id);
+                        MessageBox.Show(respuesta, "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                }
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source);
+            }
         }
     }
 

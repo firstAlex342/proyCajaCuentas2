@@ -36,9 +36,10 @@
             this.editarSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.pagoDeProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.buscarPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -89,7 +90,7 @@
             // editarSocioToolStripMenuItem
             // 
             this.editarSocioToolStripMenuItem.Name = "editarSocioToolStripMenuItem";
-            this.editarSocioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarSocioToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.editarSocioToolStripMenuItem.Text = "Editar Socio";
             this.editarSocioToolStripMenuItem.Click += new System.EventHandler(this.editarSocioToolStripMenuItem_Click);
             // 
@@ -104,9 +105,25 @@
             // editarProductoToolStripMenuItem
             // 
             this.editarProductoToolStripMenuItem.Name = "editarProductoToolStripMenuItem";
-            this.editarProductoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarProductoToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.editarProductoToolStripMenuItem.Text = "Editar Producto";
             this.editarProductoToolStripMenuItem.Click += new System.EventHandler(this.editarProductoToolStripMenuItem_Click);
+            // 
+            // pagoDeProductoToolStripMenuItem
+            // 
+            this.pagoDeProductoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoPagoToolStripMenuItem,
+            this.buscarPagosToolStripMenuItem});
+            this.pagoDeProductoToolStripMenuItem.Name = "pagoDeProductoToolStripMenuItem";
+            this.pagoDeProductoToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
+            this.pagoDeProductoToolStripMenuItem.Text = "Pago de Producto";
+            // 
+            // nuevoPagoToolStripMenuItem
+            // 
+            this.nuevoPagoToolStripMenuItem.Name = "nuevoPagoToolStripMenuItem";
+            this.nuevoPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPagoToolStripMenuItem.Text = "Nuevo pago";
+            this.nuevoPagoToolStripMenuItem.Click += new System.EventHandler(this.nuevoPagoToolStripMenuItem_Click);
             // 
             // panelContenedor
             // 
@@ -119,20 +136,12 @@
             this.panelContenedor.Size = new System.Drawing.Size(800, 423);
             this.panelContenedor.TabIndex = 1;
             // 
-            // pagoDeProductoToolStripMenuItem
+            // buscarPagosToolStripMenuItem
             // 
-            this.pagoDeProductoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoPagoToolStripMenuItem});
-            this.pagoDeProductoToolStripMenuItem.Name = "pagoDeProductoToolStripMenuItem";
-            this.pagoDeProductoToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
-            this.pagoDeProductoToolStripMenuItem.Text = "Pago de Producto";
-            // 
-            // nuevoPagoToolStripMenuItem
-            // 
-            this.nuevoPagoToolStripMenuItem.Name = "nuevoPagoToolStripMenuItem";
-            this.nuevoPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nuevoPagoToolStripMenuItem.Text = "Nuevo pago";
-            this.nuevoPagoToolStripMenuItem.Click += new System.EventHandler(this.nuevoPagoToolStripMenuItem_Click);
+            this.buscarPagosToolStripMenuItem.Name = "buscarPagosToolStripMenuItem";
+            this.buscarPagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buscarPagosToolStripMenuItem.Text = "Buscar pagos";
+            this.buscarPagosToolStripMenuItem.Click += new System.EventHandler(this.buscarPagosToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -164,6 +173,7 @@
         private System.Windows.Forms.ToolStripMenuItem editarProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagoDeProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoPagoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buscarPagosToolStripMenuItem;
     }
 }
 

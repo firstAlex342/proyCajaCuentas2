@@ -185,7 +185,7 @@ namespace CapaPresentacion
             try
             {
 
-                DialogResult res = MessageBox.Show("¿Estas usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult res = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(res == DialogResult.Yes)
                 {
                     //Si esta vacio se va a insertar un Socio nuevo
