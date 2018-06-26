@@ -381,6 +381,7 @@ namespace CapaPresentacion
 
                         string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsUsuario.Id);
                         MessageBox.Show(respuesta, "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        checkBox1.Checked = false;  // Se dispara el evento checkBox1_CheckedChanged
                     }
 
                     else if(  (estaElegidoSocio == true) && (estaElegidoProducto == true) && (estaElegidoTarifa == true) && (estaElegidoTipoDescuento == true)
@@ -395,6 +396,7 @@ namespace CapaPresentacion
 
                         string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsUsuario.Id);
                         MessageBox.Show(respuesta, "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        checkBox1.Checked = false;  // Se dispara el evento checkBox1_CheckedChanged
                     }
 
                 }
@@ -404,6 +406,12 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + " " + ex.Source);
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            checkBox1.Checked = false;
+            //Se dispara de forma implicita el evento checkBox1_CheckedChanged, despues de la linea anterior
         }
     }
 
