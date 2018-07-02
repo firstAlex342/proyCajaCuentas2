@@ -69,6 +69,18 @@
     <Compile Include="FrmPagoProducto.Designer.cs">
       <DependentUpon>FrmPagoProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPagoProducto2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoProducto2.Designer.cs">
+      <DependentUpon>FrmPagoProducto2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagoProducto3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagoProducto3.Designer.cs">
+      <DependentUpon>FrmPagoProducto3.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +113,12 @@
     <EmbeddedResource Include="FrmPagoProducto.resx">
       <DependentUpon>FrmPagoProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoProducto2.resx">
+      <DependentUpon>FrmPagoProducto2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagoProducto3.resx">
+      <DependentUpon>FrmPagoProducto3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +136,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -137,6 +156,9 @@
       <Project>{5e442efc-cae9-4645-8eb4-d531745b0a03}</Project>
       <Name>CapaLogicaNegocios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\letra-x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

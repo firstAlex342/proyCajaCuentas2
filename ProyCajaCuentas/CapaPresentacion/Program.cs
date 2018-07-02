@@ -20,7 +20,8 @@ namespace CapaPresentacion
 
             ClsUsuario.Id = 99;
 
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Application.Run(new FrmPagoProducto3());
         }
     }
 }

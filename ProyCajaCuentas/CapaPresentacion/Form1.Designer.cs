@@ -38,8 +38,10 @@
             this.editarProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pagoDeProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelContenedor = new System.Windows.Forms.Panel();
             this.buscarPagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.ventanaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diseño1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,7 +51,8 @@
             this.cuentaPorPagarToolStripMenuItem,
             this.socioToolStripMenuItem,
             this.productoToolStripMenuItem,
-            this.pagoDeProductoToolStripMenuItem});
+            this.pagoDeProductoToolStripMenuItem,
+            this.ventanaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -121,9 +124,16 @@
             // nuevoPagoToolStripMenuItem
             // 
             this.nuevoPagoToolStripMenuItem.Name = "nuevoPagoToolStripMenuItem";
-            this.nuevoPagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nuevoPagoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.nuevoPagoToolStripMenuItem.Text = "Nuevo pago";
             this.nuevoPagoToolStripMenuItem.Click += new System.EventHandler(this.nuevoPagoToolStripMenuItem_Click);
+            // 
+            // buscarPagosToolStripMenuItem
+            // 
+            this.buscarPagosToolStripMenuItem.Name = "buscarPagosToolStripMenuItem";
+            this.buscarPagosToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.buscarPagosToolStripMenuItem.Text = "Buscar pagos";
+            this.buscarPagosToolStripMenuItem.Click += new System.EventHandler(this.buscarPagosToolStripMenuItem_Click);
             // 
             // panelContenedor
             // 
@@ -136,12 +146,20 @@
             this.panelContenedor.Size = new System.Drawing.Size(800, 423);
             this.panelContenedor.TabIndex = 1;
             // 
-            // buscarPagosToolStripMenuItem
+            // ventanaToolStripMenuItem
             // 
-            this.buscarPagosToolStripMenuItem.Name = "buscarPagosToolStripMenuItem";
-            this.buscarPagosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.buscarPagosToolStripMenuItem.Text = "Buscar pagos";
-            this.buscarPagosToolStripMenuItem.Click += new System.EventHandler(this.buscarPagosToolStripMenuItem_Click);
+            this.ventanaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.diseño1ToolStripMenuItem});
+            this.ventanaToolStripMenuItem.Name = "ventanaToolStripMenuItem";
+            this.ventanaToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.ventanaToolStripMenuItem.Text = "Ventana";
+            // 
+            // diseño1ToolStripMenuItem
+            // 
+            this.diseño1ToolStripMenuItem.Name = "diseño1ToolStripMenuItem";
+            this.diseño1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diseño1ToolStripMenuItem.Text = "diseño 1";
+            this.diseño1ToolStripMenuItem.Click += new System.EventHandler(this.diseño1ToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -174,6 +192,8 @@
         private System.Windows.Forms.ToolStripMenuItem pagoDeProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoPagoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarPagosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ventanaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diseño1ToolStripMenuItem;
     }
 }
 

@@ -6,7 +6,6 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaLogicaNegocios.pdb
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaAccesoDatos.pdb
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaAccesoDatos.dll.config
-C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.Form1.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmAportacionesAProductoEnCuenta.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmPagoProducto.resources
@@ -20,3 +19,6 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBuscarPagoProducto.resources
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.csprojAssemblyReference.cache
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmPagoProducto2.resources
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmPagoProducto3.resources

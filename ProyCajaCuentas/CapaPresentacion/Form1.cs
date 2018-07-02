@@ -62,5 +62,10 @@ namespace CapaPresentacion
         {
             AbrirFormulario(new FrmBuscarPagoProducto());
         }
+
+        private void diseño1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmPagoProducto2());
+        }
     }
 }
