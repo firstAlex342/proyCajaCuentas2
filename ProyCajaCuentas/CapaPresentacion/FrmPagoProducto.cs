@@ -379,7 +379,7 @@ namespace CapaPresentacion
                         decimal descuento = 0.0M;
                         decimal cantidadAPagar = Decimal.Parse(textBox9.Text);
 
-                        string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsUsuario.Id);
+                        string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsLogin.Id);
                         MessageBox.Show(respuesta, "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         checkBox1.Checked = false;  // Se dispara el evento checkBox1_CheckedChanged
                     }
@@ -394,7 +394,7 @@ namespace CapaPresentacion
                         decimal descuento = Decimal.Parse(textBox10.Text);
                         decimal cantidadAPagar = Decimal.Parse(textBox9.Text);
 
-                        string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsUsuario.Id);
+                        string respuesta = PagoProducto_CreateController(idSocio, idProducto, cantidadAPagar, tipoDescuento, descuento, ClsLogin.Id);
                         MessageBox.Show(respuesta, "Salida", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         checkBox1.Checked = false;  // Se dispara el evento checkBox1_CheckedChanged
                     }

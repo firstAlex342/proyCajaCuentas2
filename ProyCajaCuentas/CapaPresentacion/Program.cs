@@ -18,10 +18,9 @@ namespace CapaPresentacion
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ClsUsuario.Id = 99;
 
             //Application.Run(new Form1());
-            Application.Run(new FrmPagoProducto3());
+            Application.Run(new FrmInicioSesion());
         }
     }
 }

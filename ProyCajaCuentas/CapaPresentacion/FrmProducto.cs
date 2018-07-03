@@ -194,7 +194,7 @@ namespace CapaPresentacion
                     if (textBox1.Text == String.Empty)
                     {
                         //Se inserta un nuevo producto
-                       int idProductoCreado = InsertarProductoController(textBox2.Text, textBox3.Text, ClsUsuario.Id);
+                       int idProductoCreado = InsertarProductoController(textBox2.Text, textBox3.Text, ClsLogin.Id);
 
                         //Se insertan las tarifas si existen                        
                         foreach(DataGridViewRow row in dataGridView2.Rows)
@@ -203,10 +203,10 @@ namespace CapaPresentacion
                             {
                                 //Se inserta una Tarifa
                                 decimal cantidad = Decimal.Parse(row.Cells[1].EditedFormattedValue.ToString());
-                                int idTarifaCreada = Tarifa_createController(cantidad, ClsUsuario.Id);
+                                int idTarifaCreada = Tarifa_createController(cantidad, ClsLogin.Id);
 
                                 //Se inserta en la tabla ProductoPosee la relacion producto-tarifas
-                                ProductoPosee_createController(idProductoCreado, idTarifaCreada, ClsUsuario.Id);
+                                ProductoPosee_createController(idProductoCreado, idTarifaCreada, ClsLogin.Id);
                             }
                         }
 
@@ -221,7 +221,7 @@ namespace CapaPresentacion
                     {
                         //Se actualiza en la tabla Producto                        
                         int idProductoAActualizar = Int32.Parse(textBox1.Text);
-                        string mensaje = Producto_updateController(idProductoAActualizar, textBox2.Text, textBox3.Text, ClsUsuario.Id );
+                        string mensaje = Producto_updateController(idProductoAActualizar, textBox2.Text, textBox3.Text, ClsLogin.Id );
 
                         //Se recorre el grid y se actualizan las cantidades de las tarifas
                         foreach(DataGridViewRow row in dataGridView2.Rows)
@@ -234,9 +234,9 @@ namespace CapaPresentacion
 
                                     //Se inserta una Tarifa
                                     decimal cantidad = Decimal.Parse(row.Cells[1].EditedFormattedValue.ToString());
-                                    int idTarifaCreada = Tarifa_createController(cantidad, ClsUsuario.Id);
+                                    int idTarifaCreada = Tarifa_createController(cantidad, ClsLogin.Id);
                                     //Se inserta en la tabla ProductoPosee la relacion producto-tarifas
-                                    ProductoPosee_createController(idProductoAActualizar, idTarifaCreada, ClsUsuario.Id);
+                                    ProductoPosee_createController(idProductoAActualizar, idTarifaCreada, ClsLogin.Id);
                                 }
 
                                 else
@@ -245,7 +245,7 @@ namespace CapaPresentacion
                                     int idTarifa = Int32.Parse(row.Cells[0].EditedFormattedValue.ToString());
                                     decimal newCantidad = Decimal.Parse(row.Cells[1].EditedFormattedValue.ToString());
 
-                                    Tarifa_updateController(idTarifa, newCantidad, ClsUsuario.Id);
+                                    Tarifa_updateController(idTarifa, newCantidad, ClsLogin.Id);
                                 }
                             }
                         }
