@@ -104,6 +104,15 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public DataTable Socio_BuscarXDireccion()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@textoBuscado",this.DireccionSupmza));  
+
+            return (CLSManejador.Listado("Socio_BuscarXDireccion", lst));
+
+        }
+
         public DataTable Socio_BuscarXRFCPropietario()
         {
             List<ClsParametros> lst = new List<ClsParametros>();
@@ -176,6 +185,14 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@propietarioPatente", this.PropietarioPatente));
 
             return (CLSManejador.Listado("Socio_BuscarXPropietarioPatente", lst));
+        }
+
+        public DataTable Socio_BuscarXLicencia()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@numeroLicenciaBuscada", this.NumeroLicencia));
+
+            return (CLSManejador.Listado("Socio_BuscarXLicencia", lst));
         }
     }
 }

@@ -60,17 +60,41 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgregarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarUsuario.Designer.cs">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAportacionesAProductoEnCuenta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmAportacionesAProductoEnCuenta.Designer.cs">
       <DependentUpon>FrmAportacionesAProductoEnCuenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAsignarPrivilegios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAsignarPrivilegios.Designer.cs">
+      <DependentUpon>FrmAsignarPrivilegios.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarPagoProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmBuscarPagoProducto.Designer.cs">
       <DependentUpon>FrmBuscarPagoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal2.Designer.cs">
+      <DependentUpon>FrmPrincipal2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductoCrearTarifas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductoCrearTarifas.Designer.cs">
+      <DependentUpon>FrmProductoCrearTarifas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInicioSesion.cs">
       <SubType>Form</SubType>
@@ -96,11 +120,29 @@
     <Compile Include="FrmPagoProducto3.Designer.cs">
       <DependentUpon>FrmPagoProducto3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductoCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductoCrear.Designer.cs">
+      <DependentUpon>FrmProductoCrear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductoEditarTarifas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductoEditarTarifas.Designer.cs">
+      <DependentUpon>FrmProductoEditarTarifas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductosAPagar.cs">
       <SubType>Form</SubType>
@@ -114,16 +156,52 @@
     <Compile Include="FrmSocio.Designer.cs">
       <DependentUpon>FrmSocio.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSocioAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioAgregar.Designer.cs">
+      <DependentUpon>FrmSocioAgregar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSocioBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioBuscar.Designer.cs">
+      <DependentUpon>FrmSocioBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSocioModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioModificar.Designer.cs">
+      <DependentUpon>FrmSocioModificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarioModificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioModificar.Designer.cs">
+      <DependentUpon>FrmUsuarioModificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarUsuario.resx">
+      <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAportacionesAProductoEnCuenta.resx">
       <DependentUpon>FrmAportacionesAProductoEnCuenta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAsignarPrivilegios.resx">
+      <DependentUpon>FrmAsignarPrivilegios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarPagoProducto.resx">
       <DependentUpon>FrmBuscarPagoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal2.resx">
+      <DependentUpon>FrmPrincipal2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductoCrearTarifas.resx">
+      <DependentUpon>FrmProductoCrearTarifas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInicioSesion.resx">
       <DependentUpon>FrmInicioSesion.cs</DependentUpon>
@@ -137,14 +215,35 @@
     <EmbeddedResource Include="FrmPagoProducto3.resx">
       <DependentUpon>FrmPagoProducto3.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductoCrear.resx">
+      <DependentUpon>FrmProductoCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductoEditarTarifas.resx">
+      <DependentUpon>FrmProductoEditarTarifas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductosAPagar.resx">
       <DependentUpon>FrmProductosAPagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSocio.resx">
       <DependentUpon>FrmSocio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioAgregar.resx">
+      <DependentUpon>FrmSocioAgregar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioBuscar.resx">
+      <DependentUpon>FrmSocioBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioModificar.resx">
+      <DependentUpon>FrmSocioModificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarioModificar.resx">
+      <DependentUpon>FrmUsuarioModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

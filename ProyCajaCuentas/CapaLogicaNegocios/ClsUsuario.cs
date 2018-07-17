@@ -58,5 +58,64 @@ namespace CapaLogicaNegocios
             return (CLSManejador.Listado("Usuario_BuscarXId", lst));
         }
 
+        public DataTable Usuario_create()
+        {
+
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@nombre", this.Nombre));
+            lst.Add(new ClsParametros("@usuario", this.Usuario));
+            lst.Add(new ClsParametros("@password", this.Password));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
+
+
+ 
+            return(CLSManejador.Listado("Usuario_create", lst));
+
+
+        }
+
+        public DataTable Usuario_Select_Id_Nombre_Usuario_Pass_Activo_DeTodos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@parametroNoNecesario", 0));
+
+            return (CLSManejador.Listado("Usuario_Select_Id_Nombre_Usuario_Pass_Activo_DeTodos", lst));
+        }
+
+        public DataTable Usuario_BuscarXUsuario()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@usuarioBuscado", this.Usuario));
+
+            return (CLSManejador.Listado("Usuario_BuscarXUsuario", lst));
+        }
+
+
+        public string Usuario_update()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@idUsuarioBuscado", this.Id));
+            lst.Add(new ClsParametros("@newNombre", this.Nombre));
+            lst.Add(new ClsParametros("@newUsuario", this.Usuario));
+            lst.Add(new ClsParametros("@newPassword", this.Password));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
+
+
+
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Usuario_update", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[5].Valor.ToString();
+
+            return (mensaje);
+        }
     }
 }

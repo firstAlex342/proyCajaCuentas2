@@ -20,7 +20,9 @@ namespace CapaPresentacion
 
 
             //Application.Run(new Form1());
-            Application.Run(new FrmInicioSesion());
+            Application.Run(new FrmInicioSesion());   //con esta linea corr el programa en modo obscuro
+            //Application.Run(new FrmPrincipal2());    //corre en fondo blanco
+            //Application.Run(new FrmPagoProducto3());  // con esta liena inicia viendose menu con color rojo
         }
     }
 }

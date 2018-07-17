@@ -93,8 +93,14 @@ namespace CapaPresentacion
                     
 
                     ClsLogin.Id = idUsuario;
+                    ClsLogin.Usuario = tablaUsuario;
+                    ClsLogin.ModulosALosQueTieneAccesoUsuario = modulosALosQueTieneAccesoUsuario;
 
-                    MetroMessageBox.Show(this, "Aqui");
+                    this.Hide();
+                    FrmPrincipal frmPrincipal = new FrmPrincipal();
+                    frmPrincipal.ShowDialog(this);
+                    frmPrincipal.Dispose();
+                    Application.Exit();
                 }
 
                 else
@@ -108,6 +114,11 @@ namespace CapaPresentacion
             {
                 MetroMessageBox.Show(this, ex.Message + " " + ex.Source);
             }
+        }
+
+        private void FrmInicioSesion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

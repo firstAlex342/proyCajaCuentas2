@@ -43,6 +43,7 @@
     <Compile Include="ClsAccesoAModulo.cs" />
     <Compile Include="ClsCuentaPorPagar.cs" />
     <Compile Include="ClsLogin.cs" />
+    <Compile Include="ClsModulo.cs" />
     <Compile Include="ClsPagoProducto.cs" />
     <Compile Include="ClsProducto.cs" />
     <Compile Include="ClsProductosAPagar.cs" />
