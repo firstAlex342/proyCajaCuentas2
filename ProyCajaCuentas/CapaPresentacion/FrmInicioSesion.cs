@@ -20,8 +20,8 @@ namespace CapaPresentacion
         public FrmInicioSesion()
         {
             InitializeComponent();
-            this.MinimumSize = this.Size;
-            this.MaximumSize = this.Size;
+            //this.MinimumSize = this.Size;
+            //this.MaximumSize = this.Size;
         }
 
 
@@ -98,9 +98,14 @@ namespace CapaPresentacion
 
                     this.Hide();
                     FrmPrincipal frmPrincipal = new FrmPrincipal();
-                    frmPrincipal.ShowDialog(this);
+                    frmPrincipal.ShowDialog();
                     frmPrincipal.Dispose();
                     Application.Exit();
+
+                    //FrmPrincipal frmPrincipal = new FrmPrincipal();
+                    //frmPrincipal.Show(this);
+                    //this.Hide();
+
                 }
 
                 else

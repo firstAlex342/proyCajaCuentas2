@@ -47,9 +47,6 @@
             this.metroTile11 = new MetroFramework.Controls.MetroTile();
             this.metroTile10 = new MetroFramework.Controls.MetroTile();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile17 = new MetroFramework.Controls.MetroTile();
-            this.metroTile16 = new MetroFramework.Controls.MetroTile();
-            this.metroTile15 = new MetroFramework.Controls.MetroTile();
             this.metroTile14 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -343,61 +340,19 @@
             // 
             // metroPanel5
             // 
-            this.metroPanel5.Controls.Add(this.metroTile17);
-            this.metroPanel5.Controls.Add(this.metroTile16);
-            this.metroPanel5.Controls.Add(this.metroTile15);
             this.metroPanel5.Controls.Add(this.metroTile14);
             this.metroPanel5.HorizontalScrollbarBarColor = true;
             this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel5.HorizontalScrollbarSize = 10;
             this.metroPanel5.Location = new System.Drawing.Point(226, 522);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(342, 142);
+            this.metroPanel5.Size = new System.Drawing.Size(121, 75);
             this.metroPanel5.TabIndex = 7;
             this.metroPanel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel5.VerticalScrollbarBarColor = true;
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel5.VerticalScrollbarSize = 10;
             this.metroPanel5.Visible = false;
-            // 
-            // metroTile17
-            // 
-            this.metroTile17.ActiveControl = null;
-            this.metroTile17.Location = new System.Drawing.Point(229, 5);
-            this.metroTile17.Name = "metroTile17";
-            this.metroTile17.Size = new System.Drawing.Size(107, 62);
-            this.metroTile17.TabIndex = 5;
-            this.metroTile17.Text = "Ingresar a caja";
-            this.metroTile17.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile17.TileImage")));
-            this.metroTile17.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile17.UseSelectable = true;
-            this.metroTile17.UseTileImage = true;
-            // 
-            // metroTile16
-            // 
-            this.metroTile16.ActiveControl = null;
-            this.metroTile16.Location = new System.Drawing.Point(6, 74);
-            this.metroTile16.Name = "metroTile16";
-            this.metroTile16.Size = new System.Drawing.Size(107, 62);
-            this.metroTile16.TabIndex = 4;
-            this.metroTile16.Text = "Realizar cobro";
-            this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
-            this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile16.UseSelectable = true;
-            this.metroTile16.UseTileImage = true;
-            // 
-            // metroTile15
-            // 
-            this.metroTile15.ActiveControl = null;
-            this.metroTile15.Location = new System.Drawing.Point(118, 5);
-            this.metroTile15.Name = "metroTile15";
-            this.metroTile15.Size = new System.Drawing.Size(107, 62);
-            this.metroTile15.TabIndex = 3;
-            this.metroTile15.Text = "Retirar de caja";
-            this.metroTile15.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile15.TileImage")));
-            this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile15.UseSelectable = true;
-            this.metroTile15.UseTileImage = true;
             // 
             // metroTile14
             // 
@@ -406,11 +361,12 @@
             this.metroTile14.Name = "metroTile14";
             this.metroTile14.Size = new System.Drawing.Size(107, 62);
             this.metroTile14.TabIndex = 2;
-            this.metroTile14.Text = "Abrir caja";
+            this.metroTile14.Text = "Realizar cobro";
             this.metroTile14.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile14.TileImage")));
             this.metroTile14.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroTile14.UseSelectable = true;
             this.metroTile14.UseTileImage = true;
+            this.metroTile14.Click += new System.EventHandler(this.metroTile14_Click);
             // 
             // FrmPrincipal
             // 
@@ -424,7 +380,6 @@
             this.Controls.Add(this.metroPanel1);
             this.Name = "FrmPrincipal";
             this.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipal_FormClosed);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
@@ -455,9 +410,6 @@
         private MetroFramework.Controls.MetroTile metroTile10;
         private MetroFramework.Controls.MetroTile metroTile13;
         private MetroFramework.Controls.MetroPanel metroPanel5;
-        private MetroFramework.Controls.MetroTile metroTile17;
-        private MetroFramework.Controls.MetroTile metroTile16;
-        private MetroFramework.Controls.MetroTile metroTile15;
         private MetroFramework.Controls.MetroTile metroTile14;
     }
 }

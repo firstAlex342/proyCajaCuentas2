@@ -60,6 +60,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmRealizarCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmRealizarCobro.Designer.cs">
+      <DependentUpon>FrmRealizarCobro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductosAPagar.resx">
       <DependentUpon>FrmProductosAPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmRealizarCobro.resx">
+      <DependentUpon>FrmRealizarCobro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSocio.resx">
       <DependentUpon>FrmSocio.cs</DependentUpon>

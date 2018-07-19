@@ -8,10 +8,10 @@ using CapaAccesoDatos;
 
 namespace CapaLogicaNegocios
 {
-    public class ClsProductoPosee
+    public class ClsOperaCaja
     {
-        public int IdProducto { set; get; }
-        public int IdTarifa { set; get; }
+        public int IdUsuario { set; get; }
+        public int IdCaja { set; get; }
         public int IdUsuarioAlta { set; get; }
         public DateTime FechaAlta { set; get; }
         public int IdUsuarioModifico { set; get; }
@@ -20,12 +20,11 @@ namespace CapaLogicaNegocios
 
         public ClsManejador CLSManejador { set; get; }
 
-
-        //-------------Constructor
-        public ClsProductoPosee()
+        //----------------Constructor
+        public ClsOperaCaja()
         {
-            this.IdProducto = 0;
-            this.IdTarifa = 0;
+            this.IdUsuario = 0;
+            this.IdCaja = 0;
             this.IdUsuarioAlta = 0;
             this.FechaAlta = new DateTime();
             this.IdUsuarioModifico = 0;
@@ -33,43 +32,36 @@ namespace CapaLogicaNegocios
             this.Activo = true;
 
             this.CLSManejador = new ClsManejador();
-    }
+        }//parameterless constructor
 
-        //----------Methods
-        public DataTable ProductoPosee_innerjoin_Tarifas()
+
+        //---------------------Methods
+        public DataTable OperaCaja_BuscarCajasDelDiaDelUsuario()
         {
-
             List<ClsParametros> lst = new List<ClsParametros>();
-            lst.Add(new ClsParametros("@idProductoBuscado", this.IdProducto));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuario));
 
-            return CLSManejador.Listado("ProductoPosee_innerjoin_Tarifas", lst);
+            return (CLSManejador.Listado("OperaCaja_BuscarCajasDelDiaDelUsuario", lst));
         }
 
-        public string ProductoPosee_create()
+        public string OperaCaja_create()
         {
             string mensaje = "";
             List<ClsParametros> lst = new List<ClsParametros>();
 
-            lst.Add(new ClsParametros("@idProducto", this.IdProducto));
-            lst.Add(new ClsParametros("@idTarifa", this.IdTarifa));
-            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@idUsuario",this.IdUsuario));
+            lst.Add(new ClsParametros("@idCaja", this.IdCaja));
+            lst.Add(new ClsParametros("@idUsuarioOperador",this.IdUsuarioAlta));
 
             //Parametro de salida
             lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
-            CLSManejador.Ejecutar_sp("ProductoPosee_create", lst);
+            CLSManejador.Ejecutar_sp("OperaCaja_create", lst);
 
             //Regresar el valor almacenado en el parametro de salida
             mensaje = lst[3].Valor.ToString();
 
             return (mensaje);
-        }
-
-        public DataTable ProductoPosee_innerjoin_Tarifas_DeTodos()
-        {
-            List<ClsParametros> lst = new List<ClsParametros>();
-            lst.Add(new ClsParametros("@parametroNoNecesario", false));
-
-            return CLSManejador.Listado("ProductoPosee_innerjoin_Tarifas_DeTodos", lst);
         }
     }
 }
