@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ClsAccesoAModulo.cs" />
     <Compile Include="ClsCaja.cs" />
+    <Compile Include="ClsPagoBasico.cs" />
     <Compile Include="ClsCuentaPorPagar.cs" />
     <Compile Include="ClsLogin.cs" />
     <Compile Include="ClsModulo.cs" />
