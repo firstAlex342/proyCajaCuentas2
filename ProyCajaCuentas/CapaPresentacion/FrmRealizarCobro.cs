@@ -200,6 +200,24 @@ namespace CapaPresentacion
             return (suma);
         }
 
+
+        private bool ExisteProductoEnDataGridView(ClsProductoViewModel clsProductoViewModelAInsertar)
+        {
+            bool bandera = false;
+
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                ClsProductoViewModel clsProductoViewModelInsertado = (ClsProductoViewModel)fila.Cells[0].Value;
+                if(clsProductoViewModelInsertado.Id == clsProductoViewModelAInsertar.Id)
+                {
+                    bandera = true;
+                    break;
+                }              
+            }
+
+            return (bandera);
+        }
+
         //--------------------Events
         private void button1_Click(object sender, EventArgs e)
         {
@@ -218,8 +236,16 @@ namespace CapaPresentacion
                     decimal tarifaElegida = (decimal)listBox2.SelectedItem;
                     decimal cantidadAPagar = Decimal.Parse(textBox3.Text);
 
-                    AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, 0.0m, cantidadAPagar);
-                    label7.Text = CalcularSumaTotalEnDataGridView().ToString();
+                    if (ExisteProductoEnDataGridView (clsProductoViewModel) == false)
+                    {
+                        AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, 0.0m, cantidadAPagar);
+                        label7.Text = CalcularSumaTotalEnDataGridView().ToString();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Ya capturaste este producto", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
 
                 else if (listBox1Seleccionado && listBox2Seleccionado && textBox3ConContenido && (textBox2Vacio == false))
@@ -229,8 +255,16 @@ namespace CapaPresentacion
                     decimal descuento = Decimal.Parse(textBox2.Text);
                     decimal cantidadAPagar = Decimal.Parse(textBox3.Text);
 
-                    AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, descuento, cantidadAPagar);
-                    label7.Text = CalcularSumaTotalEnDataGridView().ToString();
+                    if(ExisteProductoEnDataGridView(clsProductoViewModel) == false)
+                    {
+                        AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, descuento, cantidadAPagar);
+                        label7.Text = CalcularSumaTotalEnDataGridView().ToString();
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Ya capturaste este producto", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
 
                 else
@@ -336,43 +370,51 @@ namespace CapaPresentacion
         {          
             try
             {
-                DialogResult res = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(res == DialogResult.Yes)
+                if(dataGridView1.Rows.Count >=1)
                 {
-                    DataTable infoDeSocio = Socio_BuscarXLicenciaController(textBox1.Text);
-                    int idSocio;
-                    if(infoDeSocio.Rows.Count == 1)
+                    DialogResult res = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (res == DialogResult.Yes)
                     {
-                        var x = (from s in infoDeSocio.AsEnumerable()
-                                select s ).ToList();
-
-                        DataRow filaUnica = x.First();
-                        idSocio = filaUnica.Field<int>("Id");  //Recupero de la datatable el valor de la columna IdSocio
-
-                        string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows);
-                        if (respuesta.Contains("ok"))
+                        DataTable infoDeSocio = Socio_BuscarXLicenciaController(textBox1.Text);
+                        int idSocio;
+                        if (infoDeSocio.Rows.Count == 1)
                         {
-                            MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dataGridView1.Rows.Clear();
-                            label7.Text = "0.0";
-                            textBox1.Text = "";
-                            listBox1.SelectedIndex = -1;
-                            listBox2.SelectedIndex = -1; listBox2.Items.Clear();
-                            textBox2.Text = "";
-                            textBox3.Text = "";
+                            var x = (from s in infoDeSocio.AsEnumerable()
+                                     select s).ToList();
+
+                            DataRow filaUnica = x.First();
+                            idSocio = filaUnica.Field<int>("Id");  //Recupero de la datatable el valor de la columna IdSocio
+
+                            string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows);
+                            if (respuesta.Contains("ok"))
+                            {
+                                MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                dataGridView1.Rows.Clear();
+                                label7.Text = "0.0";
+                                textBox1.Text = "";
+                                listBox1.SelectedIndex = -1;
+                                listBox2.SelectedIndex = -1; listBox2.Items.Clear();
+                                textBox2.Text = "";
+                                textBox3.Text = "";
+                            }
+
+                            else
+                            {
+                                throw new ArgumentException("No se pudo realizar la operación");
+                            }
                         }
 
                         else
                         {
-                            throw new ArgumentException("No se pudo realizar la operación");
+                            string mensaje = "Se encontro " + infoDeSocio.Rows.Count.ToString() + " coincidencias para la licencia " + textBox1.Text;
+                            MessageBox.Show(mensaje, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
-                    }    
-                     
-                    else 
-                    {
-                        string mensaje = "Se encontro " + infoDeSocio.Rows.Count.ToString() + " coincidencias para la licencia " + textBox1.Text;
-                        MessageBox.Show(mensaje, "Reglas de operación",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
+                }
+
+                else
+                {
+                    MessageBox.Show("Necesitas capturar algún producto", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 
