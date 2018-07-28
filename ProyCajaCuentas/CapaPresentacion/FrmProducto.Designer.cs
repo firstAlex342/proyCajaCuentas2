@@ -122,6 +122,7 @@
             this.label1.Size = new System.Drawing.Size(16, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Id";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -142,6 +143,7 @@
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Descripcion";
+            this.label3.Visible = false;
             // 
             // textBox1
             // 
@@ -151,6 +153,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(586, 20);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Visible = false;
             // 
             // textBox2
             // 
@@ -167,6 +170,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(586, 20);
             this.textBox3.TabIndex = 5;
+            this.textBox3.Visible = false;
             // 
             // tableLayoutPanel3
             // 

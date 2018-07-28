@@ -114,6 +114,7 @@ namespace CapaPresentacion
             dataGridView2.Columns.Add("Id_Tarifa", "Id_Tarifa");
             dataGridView2.Columns.Add("Cantidad", "Cantidad");
 
+            dataGridView2.Columns[0].Visible = false;
             dataGridView2.Columns[0].ReadOnly = true;          
             dataGridView2.Columns[1].ReadOnly = false;
         }
@@ -122,6 +123,7 @@ namespace CapaPresentacion
         private void MostrarProducto_Id_Nombre_DeTodos(DataTable tabla)
         {
             dataGridView1.DataSource = tabla;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         private void MostrarId_Nombre_Descrip_DeProducto(DataTable tabla)

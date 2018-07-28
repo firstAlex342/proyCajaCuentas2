@@ -87,16 +87,16 @@ namespace CapaPresentacion
             else { metroTile6.Enabled = false; }
 
             //Habilitar / deshabilitar la opcion Añadir Tarifa a Producto, del menu
-            respuesta = EsActivoModuloController(6) ? true : false;
-            if (respuesta)
-            { /*Permanece habilitada la opcion Añadir Tarifa a Producto, del menu*/}
-            else { metroTile8.Enabled = false; }
+            //respuesta = EsActivoModuloController(6) ? true : false;
+            //if (respuesta)
+            //{ /*Permanece habilitada la opcion Añadir Tarifa a Producto, del menu*/}
+            //else { metroTile8.Enabled = false; }
 
-            //Habilitar / deshabilitar la opcion  Modificar tarifas de producto
-            respuesta = EsActivoModuloController(7) ? true : false;
-            if (respuesta)
-            { /*Permanece habilitada la opcion Modificar tarifas a Producto, del menu*/}
-            else { metroTile7.Enabled = false; }
+            ////Habilitar / deshabilitar la opcion  Modificar tarifas de producto
+            //respuesta = EsActivoModuloController(7) ? true : false;
+            //if (respuesta)
+            //{ /*Permanece habilitada la opcion Modificar tarifas a Producto, del menu*/}
+            //else { metroTile7.Enabled = false; }
 
 
             //Habilitar / deshabilitar la opcion Abrir caja
@@ -217,9 +217,10 @@ namespace CapaPresentacion
 
         private void metroTile6_Click(object sender, EventArgs e)
         {
-            FrmProductoCrear c = new FrmProductoCrear();
+            FrmProducto c = new FrmProducto();
             c.ShowDialog(this);
             c.Dispose();
+
         }
 
         private void metroTile7_Click(object sender, EventArgs e)

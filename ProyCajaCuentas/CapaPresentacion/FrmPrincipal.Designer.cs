@@ -39,8 +39,6 @@
             this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile3 = new MetroFramework.Controls.MetroTile();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile8 = new MetroFramework.Controls.MetroTile();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroTile12 = new MetroFramework.Controls.MetroTile();
@@ -211,8 +209,6 @@
             // metroPanel4
             // 
             this.metroPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.metroPanel4.Controls.Add(this.metroTile8);
-            this.metroPanel4.Controls.Add(this.metroTile7);
             this.metroPanel4.Controls.Add(this.metroTile6);
             this.metroPanel4.HorizontalScrollbarBarColor = true;
             this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
@@ -227,38 +223,6 @@
             this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel4.VerticalScrollbarSize = 10;
             this.metroPanel4.Visible = false;
-            // 
-            // metroTile8
-            // 
-            this.metroTile8.ActiveControl = null;
-            this.metroTile8.BackColor = System.Drawing.Color.DarkRed;
-            this.metroTile8.Location = new System.Drawing.Point(13, 76);
-            this.metroTile8.Name = "metroTile8";
-            this.metroTile8.Size = new System.Drawing.Size(186, 60);
-            this.metroTile8.TabIndex = 4;
-            this.metroTile8.Text = "Añadir tarifa";
-            this.metroTile8.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile8.TileImage")));
-            this.metroTile8.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile8.UseCustomBackColor = true;
-            this.metroTile8.UseSelectable = true;
-            this.metroTile8.UseTileImage = true;
-            this.metroTile8.Click += new System.EventHandler(this.metroTile8_Click);
-            // 
-            // metroTile7
-            // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.BackColor = System.Drawing.Color.Green;
-            this.metroTile7.Location = new System.Drawing.Point(108, 10);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(91, 60);
-            this.metroTile7.TabIndex = 3;
-            this.metroTile7.Text = "Modificar";
-            this.metroTile7.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile7.TileImage")));
-            this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile7.UseCustomBackColor = true;
-            this.metroTile7.UseSelectable = true;
-            this.metroTile7.UseTileImage = true;
-            this.metroTile7.Click += new System.EventHandler(this.metroTile7_Click);
             // 
             // metroTile6
             // 
@@ -398,8 +362,6 @@
         private MetroFramework.Controls.MetroTile metroTile3;
         private MetroFramework.Controls.MetroTile metroTile5;
         private MetroFramework.Controls.MetroPanel metroPanel4;
-        private MetroFramework.Controls.MetroTile metroTile8;
-        private MetroFramework.Controls.MetroTile metroTile7;
         private MetroFramework.Controls.MetroTile metroTile6;
         private MetroFramework.Controls.MetroTile metroTile2;
         private MetroFramework.Controls.MetroTile metroTile1;
