@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaLogicaNegocios;
+using System.Threading;
 
 namespace CapaPresentacion
 {
@@ -29,8 +30,8 @@ namespace CapaPresentacion
             {
                 InicializarIdCajaDelDiaController();
                 MostrarProductos( Producto_Select_Id_Nombre_DeTodosController());
-                this.TarifasDeTodosProductos = ProductoPosee_innerjoin_Tarifas_DeTodosController();                
-
+                this.TarifasDeTodosProductos = ProductoPosee_innerjoin_Tarifas_DeTodosController();
+       
             }
 
             catch(Exception ex)
@@ -133,10 +134,10 @@ namespace CapaPresentacion
            
             foreach(DataGridViewRow fila in filas)
             {
-                ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)fila.Cells[0].Value;
-                decimal tarifa = Decimal.Parse(fila.Cells[1].EditedFormattedValue.ToString());
-                decimal descuento = Decimal.Parse(fila.Cells[2].EditedFormattedValue.ToString());
-                decimal cantidadAPagar = Decimal.Parse(fila.Cells[3].EditedFormattedValue.ToString());
+                ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)fila.Cells[1].Value;
+                decimal tarifa = Decimal.Parse(fila.Cells[2].EditedFormattedValue.ToString());
+                decimal descuento = Decimal.Parse(fila.Cells[3].EditedFormattedValue.ToString());
+                decimal cantidadAPagar = Decimal.Parse(fila.Cells[4].EditedFormattedValue.ToString());
 
                 clsPagoBasico.AddProductoAPagar(clsProductoViewModel.Id, tarifa, "campo no usado", descuento, cantidadAPagar);
                 
@@ -155,6 +156,28 @@ namespace CapaPresentacion
 
 
         //------------Utils
+        private void MostrarEnTxtBoxesInfoSocio(DataTable infoSocio)
+        {
+            var coleccion = from s in infoSocio.AsEnumerable()
+                            select s;
+
+            //En este punto ya se que solo tiene una fila la DataTable
+            DataRow unicaFila = coleccion.First();
+            textBox4.Text = unicaFila.Field<string>("NombreComercial");
+            textBox5.Text = unicaFila.Field<string>("DireccionSupmza");
+            textBox6.Text = unicaFila.Field<string>("DireccionLote");
+            textBox7.Text = unicaFila.Field<string>("DireccionManzana");
+            textBox8.Text = unicaFila.Field<string>("DireccionCalle");
+            textBox9.Text = unicaFila.Field<string>("DireccionComplemento");
+            textBox10.Text = unicaFila.Field<string>("PropietarioPatente");
+            textBox11.Text = unicaFila.Field<string>("RFCPropietario");
+            textBox12.Text = unicaFila.Field<string>("Comodatario");
+            textBox13.Text = unicaFila.Field<string>("RFCComodatario");
+            textBox14.Text = unicaFila.Field<string>("Telefono");
+            textBox15.Text = unicaFila.Field<string>("Celular");
+            textBox16.Text = unicaFila.Field<string>("CorreoElectronico");
+        }
+
         private void MostrarProductos(DataTable misProductos)
         {
             List<ClsProductoViewModel> lista = new List<ClsProductoViewModel>();
@@ -172,19 +195,28 @@ namespace CapaPresentacion
 
         private void CrearColumnasParaDataGridViewProductosAPagar()
         {
+            DataGridViewButtonColumn columnaBotonesEliminar = new DataGridViewButtonColumn();
+            columnaBotonesEliminar.Name = "columnaBotonesEliminar";
+            columnaBotonesEliminar.HeaderText = "";
+            columnaBotonesEliminar.Text = "X";
+            columnaBotonesEliminar.UseColumnTextForButtonValue = true;
+
+            dataGridView1.Columns.Add(columnaBotonesEliminar);
             dataGridView1.Columns.Add("Producto", "Producto");
             dataGridView1.Columns.Add("Tarifa", "Tarifa");
             dataGridView1.Columns.Add("Descuento", "Descuento");
             dataGridView1.Columns.Add("CantidadAPagar", "Cantidad a pagar");
+
+            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void AddFilaADataGridView_ProductosAPagar(ClsProductoViewModel clsProductoViewModel, decimal tarifa, decimal descuento,  decimal cantidadAPagar)
         {
             int n = dataGridView1.Rows.Add();
-            dataGridView1.Rows[n].Cells[0].Value = clsProductoViewModel;
-            dataGridView1.Rows[n].Cells[1].Value = tarifa;
-            dataGridView1.Rows[n].Cells[2].Value = descuento;
-            dataGridView1.Rows[n].Cells[3].Value = cantidadAPagar;
+            dataGridView1.Rows[n].Cells[1].Value = clsProductoViewModel;
+            dataGridView1.Rows[n].Cells[2].Value = tarifa;
+            dataGridView1.Rows[n].Cells[3].Value = descuento;
+            dataGridView1.Rows[n].Cells[4].Value = cantidadAPagar;
 
         }
 
@@ -193,7 +225,7 @@ namespace CapaPresentacion
               decimal suma = 0.0m;
               foreach(DataGridViewRow row in dataGridView1.Rows)
               {
-                DataGridViewCell celda = row.Cells[3];
+                DataGridViewCell celda = row.Cells[4];
                 suma += Decimal.Parse(celda.EditedFormattedValue.ToString());
               }
 
@@ -207,7 +239,7 @@ namespace CapaPresentacion
 
             foreach (DataGridViewRow fila in dataGridView1.Rows)
             {
-                ClsProductoViewModel clsProductoViewModelInsertado = (ClsProductoViewModel)fila.Cells[0].Value;
+                ClsProductoViewModel clsProductoViewModelInsertado = (ClsProductoViewModel)fila.Cells[1].Value;
                 if(clsProductoViewModelInsertado.Id == clsProductoViewModelAInsertar.Id)
                 {
                     bandera = true;
@@ -216,6 +248,23 @@ namespace CapaPresentacion
             }
 
             return (bandera);
+        }
+
+        private void LimpiarTextBoxesInfoSocio()
+        {
+            textBox4.Text = "";
+            textBox5.Text = ""; 
+            textBox6.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            textBox9.Text = "";
+            textBox10.Text = "";
+            textBox11.Text = "";
+            textBox12.Text = "";
+            textBox13.Text = "";
+            textBox14.Text = "";
+            textBox15.Text = "";
+            textBox16.Text = "";
         }
 
         //--------------------Events
@@ -360,10 +409,7 @@ namespace CapaPresentacion
 
         }
 
-        private void dataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
-        {
-            label7.Text = CalcularSumaTotalEnDataGridView().ToString();
-        }
+
 
 
         private void button2_Click(object sender, EventArgs e)
@@ -396,6 +442,7 @@ namespace CapaPresentacion
                                 listBox2.SelectedIndex = -1; listBox2.Items.Clear();
                                 textBox2.Text = "";
                                 textBox3.Text = "";
+                                LimpiarTextBoxesInfoSocio();
                             }
 
                             else
@@ -421,6 +468,49 @@ namespace CapaPresentacion
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source);
+            }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                LimpiarTextBoxesInfoSocio();
+
+                if (textBox1.Text.Length > 0)
+                {
+                    DataTable res = Socio_BuscarXLicenciaController(textBox1.Text);
+                    if (res.Rows.Count == 1)
+                        MostrarEnTxtBoxesInfoSocio(res);
+
+                    else
+                    {
+                        string mensaje = "Se encontro " + res.Rows.Count.ToString() + " coincidencias para la licencia " + textBox1.Text;
+                        MessageBox.Show(mensaje, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source);
+            }
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+                e.RowIndex >= 0)
+            {
+                dataGridView1.Rows.RemoveAt(e.RowIndex);
+                label7.Text = CalcularSumaTotalEnDataGridView().ToString();
             }
         }
     }
