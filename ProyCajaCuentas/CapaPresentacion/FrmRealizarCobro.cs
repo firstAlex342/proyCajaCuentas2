@@ -154,6 +154,11 @@ namespace CapaPresentacion
             return (clsSocio.Socio_BuscarXLicencia());
         }
 
+        private bool EstaVigenteFechaAfiliacionOEsNuevoSocioController()
+        {
+            return true;
+        }
+
 
         //------------Utils
         private void MostrarEnTxtBoxesInfoSocio(DataTable infoSocio)
@@ -265,6 +270,13 @@ namespace CapaPresentacion
             textBox14.Text = "";
             textBox15.Text = "";
             textBox16.Text = "";
+        }
+
+        private void EnviarImpresion(DataRow filaUnica, DataGridViewRowCollection filas, string totalAPagar,DataTable infoUsuarioTable)
+        {
+            FrmVisorReporte frmVisorReporte = new FrmVisorReporte(filaUnica, filas, totalAPagar, infoUsuarioTable);
+            frmVisorReporte.ShowDialog(this);
+            frmVisorReporte.Dispose();
         }
 
         //--------------------Events
@@ -431,24 +443,39 @@ namespace CapaPresentacion
                             DataRow filaUnica = x.First();
                             idSocio = filaUnica.Field<int>("Id");  //Recupero de la datatable el valor de la columna IdSocio
 
-                            string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows);
-                            if (respuesta.Contains("ok"))
+                            if(EstaVigenteFechaAfiliacionOEsNuevoSocioController())
                             {
-                                MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                dataGridView1.Rows.Clear();
-                                label7.Text = "0.0";
-                                textBox1.Text = "";
-                                listBox1.SelectedIndex = -1;
-                                listBox2.SelectedIndex = -1; listBox2.Items.Clear();
-                                textBox2.Text = "";
-                                textBox3.Text = "";
-                                LimpiarTextBoxesInfoSocio();
+                                string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows);
+                                if (respuesta.Contains("ok"))
+                                {
+                                    MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    
+                                    //La siguiente linea es para obtener la fecha que ira en el recibo
+                                    DataTable infoUsuarioTable = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
+                                    EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable);
+
+                                    dataGridView1.Rows.Clear();
+                                    label7.Text = "0.0";
+                                    textBox1.Text = "";
+                                    listBox1.SelectedIndex = -1;
+                                    listBox2.SelectedIndex = -1; listBox2.Items.Clear();
+                                    textBox2.Text = "";
+                                    textBox3.Text = "";
+                                    LimpiarTextBoxesInfoSocio();                     
+                                }
+
+                                else
+                                {
+                                    throw new ArgumentException("No se pudo realizar la operación");
+                                }
                             }
 
                             else
                             {
-                                throw new ArgumentException("No se pudo realizar la operación");
+                                string texto = "La última afiliación del socio " + textBox1.Text + " ya expiró";
+                                MessageBox.Show(texto, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
+
                         }
 
                         else
