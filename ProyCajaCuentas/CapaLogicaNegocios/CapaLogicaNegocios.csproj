@@ -55,6 +55,9 @@
     <Compile Include="ClsProductoPosee.cs" />
     <Compile Include="ClsTarifa.cs" />
     <Compile Include="ClsUsuario.cs" />
+    <Compile Include="ConvertNumALetras\ConversorATextoMonedaPesos.cs" />
+    <Compile Include="ConvertNumALetras\ReglaConstruccionCadenaATexto.cs" />
+    <Compile Include="ConvertNumALetras\TraductorATextoPesos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

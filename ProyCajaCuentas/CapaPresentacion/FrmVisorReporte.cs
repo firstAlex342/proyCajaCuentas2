@@ -11,6 +11,7 @@ using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Collections;
 using CapaLogicaNegocios;
+using CapaLogicaNegocios.ConvertNumALetras;
 
 namespace CapaPresentacion
 {
@@ -162,6 +163,9 @@ namespace CapaPresentacion
             TextObject nombreComercialTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text2"] as TextObject;
             nombreComercialTextObject.Text = filaUnicaDatosSocio.Field<string>("NombreComercial");
 
+            ConversorATextoMonedaPesos conversorATextoMonedaPesos = new ConversorATextoMonedaPesos();
+            TextObject totalAPagarEnLetrasTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text4"] as TextObject;
+            totalAPagarEnLetrasTextObject.Text = conversorATextoMonedaPesos.Analizar( (Decimal.Parse(totalAPagar)).ToString("0.00")  );
 
             //--------Rellenar el area donde aparece Afiliación - total a pagar
             TextObject afiliacionTextObject;
@@ -314,6 +318,10 @@ namespace CapaPresentacion
 
             TextObject nombreComercialTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text2"] as TextObject;
             nombreComercialTextObject.Text = filaUnicaDatosSocio.Field<string>("NombreComercial");
+
+            ConversorATextoMonedaPesos conversorATextoMonedaPesos = new ConversorATextoMonedaPesos();
+            TextObject totalAPagarEnLetrasTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text4"] as TextObject;
+            totalAPagarEnLetrasTextObject.Text = conversorATextoMonedaPesos.Analizar((Decimal.Parse(totalAPagar)).ToString("0.00"));
 
             //-------Rellenar el area donde aparece Concepto - Total a pagar
             Hashtable tablaHash = RecuperarEtiquetasConceptoDelReporte(crListaProductosPagados);
