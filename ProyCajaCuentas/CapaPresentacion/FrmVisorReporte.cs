@@ -157,8 +157,8 @@ namespace CapaPresentacion
             totalAPagarTextObject.Text = totalAPagar;
 
             //-------Rellenar el area superior
-            TextObject propietarioPatenteYComodatarioTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text1"] as TextObject;
-            propietarioPatenteYComodatarioTextObject.Text = filaUnicaDatosSocio.Field<string>("PropietarioPatente") + " " + filaUnicaDatosSocio.Field<string>("Comodatario");
+            TextObject propietarioPatenteTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text1"] as TextObject;
+            propietarioPatenteTextObject.Text = filaUnicaDatosSocio.Field<string>("PropietarioPatente"); //+ " " + filaUnicaDatosSocio.Field<string>("Comodatario");
 
             TextObject nombreComercialTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text2"] as TextObject;
             nombreComercialTextObject.Text = filaUnicaDatosSocio.Field<string>("NombreComercial");
@@ -166,6 +166,13 @@ namespace CapaPresentacion
             ConversorATextoMonedaPesos conversorATextoMonedaPesos = new ConversorATextoMonedaPesos();
             TextObject totalAPagarEnLetrasTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text4"] as TextObject;
             totalAPagarEnLetrasTextObject.Text = conversorATextoMonedaPesos.Analizar( (Decimal.Parse(totalAPagar)).ToString("0.00")  );
+
+            TextObject nombreComodatarioTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text25"] as TextObject;
+            nombreComodatarioTextObject.Text = filaUnicaDatosSocio.Field<string>("Comodatario");
+
+            TextObject rfcComodatarioTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text27"] as TextObject;
+            rfcComodatarioTextObject.Text = filaUnicaDatosSocio.Field<string>("RFCComodatario");
+
 
             //--------Rellenar el area donde aparece Afiliación - total a pagar
             TextObject afiliacionTextObject;
@@ -313,8 +320,8 @@ namespace CapaPresentacion
             totalAPagarTextObject.Text = totalAPagar;
 
             //-------Rellenar el area superior
-            TextObject propietarioPatenteYComodatarioTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text1"] as TextObject;
-            propietarioPatenteYComodatarioTextObject.Text = filaUnicaDatosSocio.Field<string>("PropietarioPatente") + " " + filaUnicaDatosSocio.Field<string>("Comodatario");
+            TextObject propietarioPatenteTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text1"] as TextObject;
+            propietarioPatenteTextObject.Text = filaUnicaDatosSocio.Field<string>("PropietarioPatente"); // + " " + filaUnicaDatosSocio.Field<string>("Comodatario");
 
             TextObject nombreComercialTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text2"] as TextObject;
             nombreComercialTextObject.Text = filaUnicaDatosSocio.Field<string>("NombreComercial");
@@ -322,6 +329,12 @@ namespace CapaPresentacion
             ConversorATextoMonedaPesos conversorATextoMonedaPesos = new ConversorATextoMonedaPesos();
             TextObject totalAPagarEnLetrasTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text4"] as TextObject;
             totalAPagarEnLetrasTextObject.Text = conversorATextoMonedaPesos.Analizar((Decimal.Parse(totalAPagar)).ToString("0.00"));
+
+            TextObject nombreComodatarioTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text25"] as TextObject;
+            nombreComodatarioTextObject.Text = filaUnicaDatosSocio.Field<string>("Comodatario");
+
+            TextObject rfcComodatarioTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text27"] as TextObject;
+            rfcComodatarioTextObject.Text = filaUnicaDatosSocio.Field<string>("RFCComodatario");
 
             //-------Rellenar el area donde aparece Concepto - Total a pagar
             Hashtable tablaHash = RecuperarEtiquetasConceptoDelReporte(crListaProductosPagados);
