@@ -10,7 +10,9 @@ using CapaAccesoDatos;
 namespace CapaLogicaNegocios
 {
     /*Esta clase se usa para invocar un SP, dicho sp 
-     * inserta info en 3 tablas
+      inserta info en 5 tablas.
+
+      Despues ese SP inserta en otras 2 opcionalmente.
    */
 
     public class ClsPagoBasico
@@ -19,6 +21,8 @@ namespace CapaLogicaNegocios
         public int IdSocio { set; get; }
         public decimal TotalPagado { set; get; }
         public int IdUsuarioOperador { set; get; }
+        public string FolioReciboListaPoductos { set; get; }
+        public string FolioReciboLicencia { set; get; }
 
         public DataTable ListaProductosAPagar { set; get; }
         public ClsManejador CLSManejador { set; get; }
@@ -43,6 +47,8 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@idSocio", this.IdSocio));
             lst.Add(new ClsParametros("@totalPagado", this.TotalPagado ));
             lst.Add(new ClsParametros("@productosAPagar",this.ListaProductosAPagar));
+            lst.Add(new ClsParametros("@folioReciboListaProductos", this.FolioReciboListaPoductos));
+            lst.Add(new ClsParametros("@folioReciboLicencia", this.FolioReciboLicencia));
             lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioOperador));
 
 
@@ -51,7 +57,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("MovsEnCaja_PagoProducto_DetallesProductosEnPago_create", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[5].Valor.ToString();
+            mensaje = lst[7].Valor.ToString();
 
             return (mensaje);
         }

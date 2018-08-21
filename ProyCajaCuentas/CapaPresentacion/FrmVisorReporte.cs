@@ -19,7 +19,8 @@ namespace CapaPresentacion
     {
 
         //-----------Constructor
-        public FrmVisorReporte(DataRow filaUnicaDatosSocio, DataGridViewRowCollection filasConProductos, string totalAPagar, DataTable infoUsuarioTable)
+        public FrmVisorReporte(DataRow filaUnicaDatosSocio, DataGridViewRowCollection filasConProductos, string totalAPagar, DataTable infoUsuarioTable, 
+            string folioReciboListaProductos, string folioReciboLicencia)
         {
             InitializeComponent();
 
@@ -29,21 +30,21 @@ namespace CapaPresentacion
                 {
                    
                     //Crear los 2 recibos, CRListaProductos con solo 1 elemento y CRAfiliacion
-                    ArmarReciboListaProductosConSolo1Elemento(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable);
-                    ArmarReciboLicencia(filaUnicaDatosSocio, infoUsuarioTable);
+                    ArmarReciboListaProductosConSolo1Elemento(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable, folioReciboLicencia);
+                    ArmarReciboLicencia(filaUnicaDatosSocio, infoUsuarioTable, folioReciboListaProductos);
                 }
 
                 else if (GridContieneAfiliacionYOtros(filasConProductos))
                 {
                     //Crear los 2 recibos, CRListaProductos con todos los elementos del Grid y CRAfiliacion
-                    ArmarReciboListaProductosConVariosElementos(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable);
-                    ArmarReciboLicencia(filaUnicaDatosSocio, infoUsuarioTable);
+                    ArmarReciboListaProductosConVariosElementos(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable, folioReciboLicencia);
+                    ArmarReciboLicencia(filaUnicaDatosSocio, infoUsuarioTable, folioReciboListaProductos);
                 }
 
                 else if (GridNoContieneAfiliacionSoloOtros(filasConProductos))
                 {
                     //Crear 1 recibo, CRListaProductos
-                    ArmarReciboListaProductosConVariosElementos(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable);
+                    ArmarReciboListaProductosConVariosElementos(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable, "");
                 }
 
                 else
@@ -148,9 +149,13 @@ namespace CapaPresentacion
         }
 
 
-        private void ArmarReciboListaProductosConSolo1Elemento(DataRow filaUnicaDatosSocio, DataGridViewRowCollection filasConProductos, string totalAPagar, DataTable infoUsuarioTable)
+        private void ArmarReciboListaProductosConSolo1Elemento(DataRow filaUnicaDatosSocio, DataGridViewRowCollection filasConProductos, string totalAPagar, DataTable infoUsuarioTable, string folioReciboLicencia)
         {
             CRListaProductosPagados crListaProductosPagados = new CRListaProductosPagados();
+
+            //-----Rellenar el area del recibo licencia
+            TextObject folioReciboLicenciaTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text29"] as TextObject;
+            folioReciboLicenciaTextObject.Text = "FOLIO DE RECIBO LICENCIA " + folioReciboLicencia;
 
             //-------Rellenar el area de total a pagar
             TextObject totalAPagarTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text5"] as TextObject;
@@ -246,9 +251,12 @@ namespace CapaPresentacion
 
         }
 
-        private void ArmarReciboLicencia(DataRow filaUnicaDatosSocio, DataTable infoUsuarioTable)
+        private void ArmarReciboLicencia(DataRow filaUnicaDatosSocio, DataTable infoUsuarioTable, string folioReciboListaProductos)
         {
             CRReciboLicencia crReciboLicencia = new CRReciboLicencia();
+
+            TextObject folioReciboListaProductosTextObject = crReciboLicencia.ReportDefinition.ReportObjects["Text16"] as TextObject;
+            folioReciboListaProductosTextObject.Text = folioReciboListaProductos;
 
             TextObject nombreComercialTextObject = crReciboLicencia.ReportDefinition.ReportObjects["Text1"] as TextObject;
             nombreComercialTextObject.Text = filaUnicaDatosSocio.Field<string>("NombreComercial");
@@ -311,9 +319,14 @@ namespace CapaPresentacion
             }
         }
 
-        private void ArmarReciboListaProductosConVariosElementos(DataRow filaUnicaDatosSocio, DataGridViewRowCollection filasConProductos, string totalAPagar, DataTable infoUsuarioTable)
+        private void ArmarReciboListaProductosConVariosElementos(DataRow filaUnicaDatosSocio, DataGridViewRowCollection filasConProductos, string totalAPagar, DataTable infoUsuarioTable,
+            string folioReciboLicencia)
         {
             CRListaProductosPagados crListaProductosPagados = new CRListaProductosPagados();
+
+            //-----Rellenar el area del recibo licencia
+            TextObject folioReciboLicenciaTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text29"] as TextObject;
+            folioReciboLicenciaTextObject.Text = folioReciboLicencia.Length > 0 ? "FOLIO DE RECIBO LICENCIA " + folioReciboLicencia : "";
 
             //-------Rellenar el area de total a pagar
             TextObject totalAPagarTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text5"] as TextObject;

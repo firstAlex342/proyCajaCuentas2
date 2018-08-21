@@ -123,14 +123,18 @@ namespace CapaPresentacion
 
 
         private string GuardarPagoBasicoDelSocioController(int idCaja,int idSocio, 
-            decimal TotalPagado, int idUsuarioOperador, DataGridViewRowCollection filas )
+            decimal TotalPagado, int idUsuarioOperador, DataGridViewRowCollection filas, 
+            string folioReciboListaPoductos, string folioReciboLicencia )
         {
 
             ClsPagoBasico clsPagoBasico = new ClsPagoBasico();
             clsPagoBasico.IdCaja = idCaja;
             clsPagoBasico.IdSocio = idSocio;
             clsPagoBasico.TotalPagado = TotalPagado;
+            clsPagoBasico.FolioReciboListaPoductos = folioReciboListaPoductos;
+            clsPagoBasico.FolioReciboLicencia = folioReciboLicencia;
             clsPagoBasico.IdUsuarioOperador = idUsuarioOperador;
+            
            
             foreach(DataGridViewRow fila in filas)
             {
@@ -272,12 +276,30 @@ namespace CapaPresentacion
             textBox16.Text = "";
         }
 
-        private void EnviarImpresion(DataRow filaUnica, DataGridViewRowCollection filas, string totalAPagar,DataTable infoUsuarioTable)
+        private void EnviarImpresion(DataRow filaUnica, DataGridViewRowCollection filas, string totalAPagar,DataTable infoUsuarioTable,
+            string folioReciboListaProductos, string folioReciboLicencia)
         {
-            FrmVisorReporte frmVisorReporte = new FrmVisorReporte(filaUnica, filas, totalAPagar, infoUsuarioTable);
+            FrmVisorReporte frmVisorReporte = new FrmVisorReporte(filaUnica, filas, totalAPagar, infoUsuarioTable, folioReciboListaProductos, folioReciboLicencia);
             frmVisorReporte.ShowDialog(this);
             frmVisorReporte.Dispose();
         }
+
+
+        private bool EsAfiliacion(ClsProductoViewModel clsProductoViewModel)
+        {
+            bool res = clsProductoViewModel.Nombre == "Afiliación" ? true: false;
+            bool res2 = clsProductoViewModel.Nombre == "afiliación" ? true : false;
+            bool res3 = clsProductoViewModel.Nombre == "Afiliacion" ? true : false; 
+            bool res4 = clsProductoViewModel.Nombre == "afiliacion" ? true : false;
+            bool res5 = clsProductoViewModel.Nombre == "AFILIACIÓN" ? true : false;
+            bool res6 = clsProductoViewModel.Nombre == "AFILIACION" ? true : false;
+
+            if (res || res2 || res3 || res4 || res5 || res6)
+                return true;
+            else
+                return false;           
+        }
+
 
         //--------------------Events
         private void button1_Click(object sender, EventArgs e)
@@ -301,6 +323,11 @@ namespace CapaPresentacion
                     {
                         AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, 0.0m, cantidadAPagar);
                         label7.Text = CalcularSumaTotalEnDataGridView().ToString();
+
+                        if(EsAfiliacion(clsProductoViewModel))
+                        { label22.Enabled = true;
+                          textBox18.Enabled = true; 
+                        }
                     }
 
                     else
@@ -320,6 +347,11 @@ namespace CapaPresentacion
                     {
                         AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, descuento, cantidadAPagar);
                         label7.Text = CalcularSumaTotalEnDataGridView().ToString();
+                        if (EsAfiliacion(clsProductoViewModel))
+                        {
+                            label22.Enabled = true;
+                            textBox18.Enabled = true;
+                        }
                     }
 
                     else
@@ -337,7 +369,7 @@ namespace CapaPresentacion
 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + " " + ex.Source);
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
@@ -445,14 +477,14 @@ namespace CapaPresentacion
 
                             if(EstaVigenteFechaAfiliacionOEsNuevoSocioController())
                             {
-                                string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows);
+                                string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows,textBox17.Text,textBox18.Text);
                                 if (respuesta.Contains("ok"))
                                 {
                                     MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     
                                     //La siguiente linea es para obtener la fecha que ira en el recibo
                                     DataTable infoUsuarioTable = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
-                                    EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable);
+                                    EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable, textBox17.Text, textBox18.Text);
 
                                     dataGridView1.Rows.Clear();
                                     label7.Text = "0.0";
@@ -461,7 +493,12 @@ namespace CapaPresentacion
                                     listBox2.SelectedIndex = -1; listBox2.Items.Clear();
                                     textBox2.Text = "";
                                     textBox3.Text = "";
-                                    LimpiarTextBoxesInfoSocio();                     
+                                    LimpiarTextBoxesInfoSocio();
+
+                                    textBox17.Text = "";  //Son los textBox y el label donde se capturan folios
+                                    textBox18.Text = "";
+                                    label22.Enabled = false;
+                                    textBox18.Enabled = false;
                                 }
 
                                 else
@@ -494,7 +531,7 @@ namespace CapaPresentacion
 
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + " " + ex.Source);
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
@@ -536,9 +573,27 @@ namespace CapaPresentacion
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
                 e.RowIndex >= 0)
             {
+                //Deshabilitar el label y el textBox de captura de Folio licencia, si la fila contíene el producto Afiliacion
+                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+                DataGridViewCell celda = fila.Cells[1];
+                ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)celda.Value;
+                if( EsAfiliacion(clsProductoViewModel) )
+                {
+                    label22.Enabled = false;
+                    textBox18.Enabled = false;
+                    textBox18.Text = "";
+                }
+
+
+                //Borrar la fila
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
                 label7.Text = CalcularSumaTotalEnDataGridView().ToString();
             }
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
