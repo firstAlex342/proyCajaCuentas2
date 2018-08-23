@@ -237,9 +237,13 @@ namespace CapaPresentacion
             c.Dispose();
         }
 
-        private void metroTile14_Click(object sender, EventArgs e)
+        private  async void metroTile14_Click(object sender, EventArgs e)
         {
-            FrmRealizarCobro c = new FrmRealizarCobro();
+            //Las siguientes 2 lineas aceleran la carga de crystal report
+            Func<CRReporteVacio> funcion = () => { return new CRReporteVacio(); };
+            await Task.Run(funcion);
+
+            FrmRealizarCobro c = new FrmRealizarCobro();         
             c.ShowDialog(this);
             c.Dispose();
         }

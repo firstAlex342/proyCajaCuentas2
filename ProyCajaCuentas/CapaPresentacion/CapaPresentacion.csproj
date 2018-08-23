@@ -73,6 +73,12 @@
       <DependentUpon>CRReciboLicencia.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteVacio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteVacio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,10 @@
     <EmbeddedResource Include="CRReciboLicencia.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReciboLicencia.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteVacio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteVacio.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
