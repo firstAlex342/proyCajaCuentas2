@@ -50,6 +50,7 @@ namespace CapaPresentacion
             return (clsOperaCaja.OperaCaja_BuscarCajasDelDiaDelUsuario());
         }
 
+      
 
         private int Caja_CreateController(int idUsuarioOperador)
         {
@@ -161,6 +162,27 @@ namespace CapaPresentacion
         private bool EstaVigenteFechaAfiliacionOEsNuevoSocioController()
         {
             return true;
+        }
+
+
+        private bool ExisteFolioReciboListaProductosController(string folioBuscado)
+        {
+            ClsReciboListaProductos clsReciboListaProductos = new ClsReciboListaProductos();
+            clsReciboListaProductos.Folio = folioBuscado;
+            DataTable resulBusqueda = clsReciboListaProductos.ReciboListaProductos_BuscarFolio();
+
+            bool res = resulBusqueda.Rows.Count >= 1 ? true : false;
+            return (res);
+        }
+
+        private bool ExisteFolioReciboLicenciaController(string folioBuscado)
+        {
+            ClsReciboLicencia clsReciboLicencia = new ClsReciboLicencia();
+            clsReciboLicencia.Folio = folioBuscado;
+            DataTable resulBusqueda = clsReciboLicencia.ReciboLicencia_BuscarFolio();
+
+            bool res = resulBusqueda.Rows.Count >= 1 ? true : false;
+            return (res);
         }
 
 
@@ -299,6 +321,8 @@ namespace CapaPresentacion
             else
                 return false;           
         }
+
+
 
 
         //--------------------Events
@@ -477,33 +501,66 @@ namespace CapaPresentacion
 
                             if(EstaVigenteFechaAfiliacionOEsNuevoSocioController())
                             {
-                                string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows,textBox17.Text,textBox18.Text);
-                                if (respuesta.Contains("ok"))
+
+                                if( ExisteFolioReciboListaProductosController(textBox17.Text) == false)
                                 {
-                                    MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    
-                                    //La siguiente linea es para obtener la fecha que ira en el recibo
-                                    DataTable infoUsuarioTable = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
-                                    EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable, textBox17.Text, textBox18.Text);
+                                    bool esOkReciboLicencia = true;
+                                    if(textBox18.Enabled == true)
+                                    {
+                                        if( textBox18.Text.Length >= 1)
+                                        {
+                                            if( ExisteFolioReciboLicenciaController( textBox18.Text) )
+                                            {
+                                                esOkReciboLicencia = false;
+                                                MessageBox.Show("El folio licencia " + textBox18.Text + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            }
+                                        }
 
-                                    dataGridView1.Rows.Clear();
-                                    label7.Text = "0.0";
-                                    textBox1.Text = "";
-                                    listBox1.SelectedIndex = -1;
-                                    listBox2.SelectedIndex = -1; listBox2.Items.Clear();
-                                    textBox2.Text = "";
-                                    textBox3.Text = "";
-                                    LimpiarTextBoxesInfoSocio();
+                                        else
+                                        {
+                                            esOkReciboLicencia = false;
+                                            MessageBox.Show("Capture el folio licencia", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                    }
 
-                                    textBox17.Text = "";  //Son los textBox y el label donde se capturan folios
-                                    textBox18.Text = "";
-                                    label22.Enabled = false;
-                                    textBox18.Enabled = false;
+
+
+                                    if(esOkReciboLicencia)
+                                    {
+                                        string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows, textBox17.Text, textBox18.Text);
+                                        if (respuesta.Contains("ok"))
+                                        {
+                                            MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                            //La siguiente linea es para obtener la fecha que ira en el recibo
+                                            DataTable infoUsuarioTable = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
+                                            EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable, textBox17.Text, textBox18.Text);
+
+                                            dataGridView1.Rows.Clear();
+                                            label7.Text = "0.0";
+                                            textBox1.Text = "";
+                                            listBox1.SelectedIndex = -1;
+                                            listBox2.SelectedIndex = -1; listBox2.Items.Clear();
+                                            textBox2.Text = "";
+                                            textBox3.Text = "";
+                                            LimpiarTextBoxesInfoSocio();
+
+                                            textBox17.Text = "";  //Son los textBox y el label donde se capturan folios
+                                            textBox18.Text = "";
+                                            label22.Enabled = false;
+                                            textBox18.Enabled = false;
+                                        }
+
+                                        else
+                                        {
+                                            throw new ArgumentException("No se pudo realizar la operación");
+                                        }
+                                    }                                  
                                 }
 
                                 else
                                 {
-                                    throw new ArgumentException("No se pudo realizar la operación");
+                                    MessageBox.Show("El folio de pago " + textBox17.Text + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 }
                             }
 
@@ -592,6 +649,11 @@ namespace CapaPresentacion
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
         {
 
         }

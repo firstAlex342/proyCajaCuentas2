@@ -50,6 +50,8 @@
     <Compile Include="ClsPagoProducto.cs" />
     <Compile Include="ClsProducto.cs" />
     <Compile Include="ClsProductosAPagar.cs" />
+    <Compile Include="ClsReciboLicencia.cs" />
+    <Compile Include="ClsReciboListaProductos.cs" />
     <Compile Include="ClsSocio.cs" />
     <Compile Include="ClsMovimientoSocioProducto.cs" />
     <Compile Include="ClsProductoPosee.cs" />
