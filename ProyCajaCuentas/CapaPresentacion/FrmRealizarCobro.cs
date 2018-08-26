@@ -159,9 +159,14 @@ namespace CapaPresentacion
             return (clsSocio.Socio_BuscarXLicencia());
         }
 
-        private bool EstaVigenteFechaAfiliacionOEsNuevoSocioController()
+        private bool Socio_BuscarAfiliacionActivaController( int idSocio)
         {
-            return true;
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Id = idSocio;
+
+            DataTable tabla = clsSocio.Socio_BuscarAfiliacionActiva();
+            bool res = (tabla.Rows.Count >= 1) ? true : false;
+            return (res);
         }
 
 
@@ -320,6 +325,23 @@ namespace CapaPresentacion
                 return true;
             else
                 return false;           
+        }
+
+        private bool ExisteAfiliacionEnDataGrid()
+        {
+            bool bandera = false;
+
+            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            {
+                ClsProductoViewModel clsProductoViewModelInsertado = (ClsProductoViewModel)fila.Cells[1].Value;
+                if (EsAfiliacion(clsProductoViewModelInsertado))
+                {
+                    bandera = true;
+                    break;
+                }
+            }
+
+            return (bandera);
         }
 
 
@@ -499,17 +521,44 @@ namespace CapaPresentacion
                             DataRow filaUnica = x.First();
                             idSocio = filaUnica.Field<int>("Id");  //Recupero de la datatable el valor de la columna IdSocio
 
-                            if(EstaVigenteFechaAfiliacionOEsNuevoSocioController())
-                            {
 
-                                if( ExisteFolioReciboListaProductosController(textBox17.Text) == false)
+                            bool esOkAfiliacionActiva = true;
+                            bool tieneAfiliacionActiva = Socio_BuscarAfiliacionActivaController(idSocio);                            
+                            if(tieneAfiliacionActiva)
+                            {
+                                if (ExisteAfiliacionEnDataGrid())
+                                {
+                                    esOkAfiliacionActiva = false;
+                                    MessageBox.Show("El socio ya realizo un pago de afiliación para el periodo actual", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+
+                                else
+                                { esOkAfiliacionActiva = true; }
+                            }
+
+                            else
+                            {
+                                if(ExisteAfiliacionEnDataGrid())
+                                    esOkAfiliacionActiva = true;
+                                else
+                                {
+                                    esOkAfiliacionActiva = false;
+                                    MessageBox.Show("El socio no tiene un pago de afiliación vigente para el periodo actual", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+                            }
+                                
+
+
+                            if(esOkAfiliacionActiva)
+                            {
+                                if (ExisteFolioReciboListaProductosController(textBox17.Text) == false)
                                 {
                                     bool esOkReciboLicencia = true;
-                                    if(textBox18.Enabled == true)
+                                    if (textBox18.Enabled == true)
                                     {
-                                        if( textBox18.Text.Length >= 1)
+                                        if (textBox18.Text.Length >= 1)
                                         {
-                                            if( ExisteFolioReciboLicenciaController( textBox18.Text) )
+                                            if (ExisteFolioReciboLicenciaController(textBox18.Text))
                                             {
                                                 esOkReciboLicencia = false;
                                                 MessageBox.Show("El folio licencia " + textBox18.Text + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -525,7 +574,7 @@ namespace CapaPresentacion
 
 
 
-                                    if(esOkReciboLicencia)
+                                    if (esOkReciboLicencia)
                                     {
                                         string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows, textBox17.Text, textBox18.Text);
                                         if (respuesta.Contains("ok"))
@@ -555,7 +604,7 @@ namespace CapaPresentacion
                                         {
                                             throw new ArgumentException("No se pudo realizar la operación");
                                         }
-                                    }                                  
+                                    }
                                 }
 
                                 else
@@ -564,11 +613,9 @@ namespace CapaPresentacion
                                 }
                             }
 
-                            else
-                            {
-                                string texto = "La última afiliación del socio " + textBox1.Text + " ya expiró";
-                                MessageBox.Show(texto, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
+
+                            
+
 
                         }
 

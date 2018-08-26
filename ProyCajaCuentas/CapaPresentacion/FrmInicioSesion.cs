@@ -80,8 +80,9 @@ namespace CapaPresentacion
         }
 
         //----------------Eventos
-        private void metroButton1_Click(object sender, EventArgs e)
+        private  void metroButton1_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 bool existeUsuarioYEsActivo = ExisteUsuarioYEsActivoController(metroTextBox1.Text, metroTextBox2.Text);
@@ -121,9 +122,10 @@ namespace CapaPresentacion
             }
         }
 
-        private void FrmInicioSesion_Load(object sender, EventArgs e)
+        private  void FrmInicioSesion_Load(object sender, EventArgs e)
         {
 
+           
         }
     }
 }
