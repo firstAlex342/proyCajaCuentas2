@@ -202,5 +202,13 @@ namespace CapaLogicaNegocios
 
             return (CLSManejador.Listado("Socio_BuscarAfiliacionActiva", lst));
         }
+
+        public DataTable Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@idSocioBuscado", this.Id));
+
+            return (CLSManejador.Listado("Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion", lst));
+        }
     }
 }

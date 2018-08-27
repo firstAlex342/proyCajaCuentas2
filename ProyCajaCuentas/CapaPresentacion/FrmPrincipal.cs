@@ -10,11 +10,15 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using MetroFramework;
 using CapaLogicaNegocios;
+//using CrystalDecisions.ReportSource;
+//using CrystalDecisions.CrystalReports.Engine;
 
 namespace CapaPresentacion
 {
     public partial class FrmPrincipal : MetroForm
     {
+        private Task<CRReporteVacio> tarea;
+
         //-----------------constructor
         public FrmPrincipal()
         {
@@ -25,6 +29,14 @@ namespace CapaPresentacion
             metroTile13.UseSelectable = false;
 
             DeshabilitarDeMenuOpciones();
+
+            Func<CRReporteVacio> funcion = () => {
+                FrmVisorReporteTonto tonto = new FrmVisorReporteTonto();
+                tonto.Dispose();
+                return new CRReporteVacio();
+            };
+
+            tarea = Task.Run(funcion);
         }
 
         //-------------Methods controller
@@ -237,11 +249,20 @@ namespace CapaPresentacion
             c.Dispose();
         }
 
-        private  async void metroTile14_Click(object sender, EventArgs e)
+        private async void metroTile14_Click(object sender, EventArgs e)
         {
-            //Las siguientes 2 lineas aceleran la carga de crystal report
-            Func<CRReporteVacio> funcion = () => { return new CRReporteVacio(); };
+
+            /* Las siguientes  lineas aceleran la carga de crystal report
+             private async void metroTile14_Click(object sender, EventArgs e) { 
+            Func<CRReporteVacio> funcion = () => {                       
+                return new CRReporteVacio();
+            };
+
             await Task.Run(funcion);
+            }
+            no olvides añadir la palabra async!! }*/
+
+            await tarea;
 
             FrmRealizarCobro c = new FrmRealizarCobro();         
             c.ShowDialog(this);

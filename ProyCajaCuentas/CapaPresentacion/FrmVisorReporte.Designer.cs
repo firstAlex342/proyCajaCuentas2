@@ -35,6 +35,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.label2 = new System.Windows.Forms.Label();
+            this.CRReporteVacio1 = new CapaPresentacion.CRReporteVacio();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,7 +82,7 @@
             // 
             // crystalReportViewer1
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.ActiveViewIndex = 0;
             this.crystalReportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -89,6 +90,7 @@
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(3, 49);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.ReportSource = this.CRReporteVacio1;
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
             this.crystalReportViewer1.ShowExportButton = false;
@@ -196,5 +198,6 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private CRReporteVacio CRReporteVacio1;
     }
 }

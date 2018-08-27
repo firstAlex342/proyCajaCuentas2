@@ -217,6 +217,12 @@
     <Compile Include="FrmVisorReporte.Designer.cs">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVisorReporteTonto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVisorReporteTonto.Designer.cs">
+      <DependentUpon>FrmVisorReporteTonto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CRListaProductosPagados.rpt">
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporte.resx">
       <DependentUpon>FrmVisorReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVisorReporteTonto.resx">
+      <DependentUpon>FrmVisorReporteTonto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -43,8 +43,20 @@ namespace CapaPresentacion
 
                 else if (GridNoContieneAfiliacionSoloOtros(filasConProductos))
                 {
-                    //Crear 1 recibo, CRListaProductos
-                    ArmarReciboListaProductosConVariosElementos(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable, "");
+                    DataTable res = Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion( filaUnicaDatosSocio.Field<int>("Id")  );
+                    if(res.Rows.Count == 1)
+                    {
+                        DataRow fila = (res.AsEnumerable()).First();
+
+                        //Crear 1 recibo, CRListaProductos
+                        ArmarReciboListaProductosConVariosElementos(filaUnicaDatosSocio, filasConProductos, totalAPagar, infoUsuarioTable, fila.Field<string>("Folio"));
+                    }
+
+                    else
+                    {
+                        throw new ArgumentException("FrmVisorReporte, el metodo Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion, regreso mas de una fila");
+                    }
+                    
                 }
 
                 else
@@ -62,7 +74,15 @@ namespace CapaPresentacion
 
         }
 
-        //----------------Methods
+        //----------------Methods controllers
+        private DataTable Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion (int idSocio)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Id = idSocio;
+
+            DataTable tabla = clsSocio.Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion();     
+            return (tabla);
+        }
 
         //---------Utils
         public bool GridContieneSoloAfiliacion( DataGridViewRowCollection filasConProductos)
@@ -492,7 +512,6 @@ namespace CapaPresentacion
 
             return (meses[mesBuscado].ToString());
         }
-
 
 
     }
