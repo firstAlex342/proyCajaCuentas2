@@ -165,7 +165,7 @@ namespace CapaPresentacion
             clsSocio.Id = idSocio;
 
             DataTable tabla = clsSocio.Socio_BuscarAfiliacionActiva();
-            bool res = (tabla.Rows.Count >= 1) ? true : false;
+            bool res = (tabla.Rows.Count == 1) ? true : false;
             return (res);
         }
 
