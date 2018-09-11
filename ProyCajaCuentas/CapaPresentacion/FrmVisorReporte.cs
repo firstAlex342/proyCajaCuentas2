@@ -43,7 +43,7 @@ namespace CapaPresentacion
 
                 else if (GridNoContieneAfiliacionSoloOtros(filasConProductos))
                 {
-                    DataTable res = Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion( filaUnicaDatosSocio.Field<int>("Id")  );
+                    DataTable res = Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacionController( filaUnicaDatosSocio.Field<string>("NumeroLicencia")  );
                     if(res.Rows.Count == 1)
                     {
                         DataRow fila = (res.AsEnumerable()).First();
@@ -75,10 +75,10 @@ namespace CapaPresentacion
         }
 
         //----------------Methods controllers
-        private DataTable Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion (int idSocio)
+        private DataTable Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacionController (string numeroLicencia)
         {
             ClsSocio clsSocio = new ClsSocio();
-            clsSocio.Id = idSocio;
+            clsSocio.NumeroLicencia = numeroLicencia;
 
             DataTable tabla = clsSocio.Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion();     
             return (tabla);

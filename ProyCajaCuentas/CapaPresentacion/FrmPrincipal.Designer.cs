@@ -46,16 +46,21 @@
             this.metroTile10 = new MetroFramework.Controls.MetroTile();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.metroTile14 = new MetroFramework.Controls.MetroTile();
+            this.metroTile7 = new MetroFramework.Controls.MetroTile();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile16 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.metroPanel5.SuspendLayout();
+            this.metroPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
             this.metroPanel1.BackColor = System.Drawing.Color.Black;
+            this.metroPanel1.Controls.Add(this.metroTile7);
             this.metroPanel1.Controls.Add(this.metroTile13);
             this.metroPanel1.Controls.Add(this.metroTile9);
             this.metroPanel1.Controls.Add(this.metroTile1);
@@ -65,7 +70,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(20, 60);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(205, 617);
+            this.metroPanel1.Size = new System.Drawing.Size(205, 705);
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel1.UseStyleColors = true;
@@ -77,7 +82,7 @@
             // metroTile13
             // 
             this.metroTile13.ActiveControl = null;
-            this.metroTile13.Location = new System.Drawing.Point(3, 460);
+            this.metroTile13.Location = new System.Drawing.Point(3, 441);
             this.metroTile13.Name = "metroTile13";
             this.metroTile13.Size = new System.Drawing.Size(196, 85);
             this.metroTile13.TabIndex = 6;
@@ -215,7 +220,7 @@
             this.metroPanel4.HorizontalScrollbarSize = 10;
             this.metroPanel4.Location = new System.Drawing.Point(225, 212);
             this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(210, 144);
+            this.metroPanel4.Size = new System.Drawing.Size(210, 95);
             this.metroPanel4.TabIndex = 3;
             this.metroPanel4.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel4.UseCustomBackColor = true;
@@ -246,7 +251,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(225, 362);
+            this.metroPanel3.Location = new System.Drawing.Point(225, 322);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(239, 153);
             this.metroPanel3.TabIndex = 6;
@@ -308,9 +313,9 @@
             this.metroPanel5.HorizontalScrollbarBarColor = true;
             this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel5.HorizontalScrollbarSize = 10;
-            this.metroPanel5.Location = new System.Drawing.Point(226, 522);
+            this.metroPanel5.Location = new System.Drawing.Point(226, 492);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(121, 75);
+            this.metroPanel5.Size = new System.Drawing.Size(140, 83);
             this.metroPanel5.TabIndex = 7;
             this.metroPanel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel5.VerticalScrollbarBarColor = true;
@@ -321,7 +326,7 @@
             // metroTile14
             // 
             this.metroTile14.ActiveControl = null;
-            this.metroTile14.Location = new System.Drawing.Point(6, 5);
+            this.metroTile14.Location = new System.Drawing.Point(11, 10);
             this.metroTile14.Name = "metroTile14";
             this.metroTile14.Size = new System.Drawing.Size(107, 62);
             this.metroTile14.TabIndex = 2;
@@ -332,11 +337,58 @@
             this.metroTile14.UseTileImage = true;
             this.metroTile14.Click += new System.EventHandler(this.metroTile14_Click);
             // 
+            // metroTile7
+            // 
+            this.metroTile7.ActiveControl = null;
+            this.metroTile7.Location = new System.Drawing.Point(3, 577);
+            this.metroTile7.Name = "metroTile7";
+            this.metroTile7.Size = new System.Drawing.Size(196, 85);
+            this.metroTile7.TabIndex = 7;
+            this.metroTile7.Text = "Consultas";
+            this.metroTile7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile7.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile7.TileImage")));
+            this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile7.UseCustomBackColor = true;
+            this.metroTile7.UseSelectable = true;
+            this.metroTile7.UseTileImage = true;
+            this.metroTile7.MouseEnter += new System.EventHandler(this.metroTile7_MouseEnter);
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.Controls.Add(this.metroTile16);
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            this.metroPanel6.Location = new System.Drawing.Point(226, 619);
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Size = new System.Drawing.Size(239, 103);
+            this.metroPanel6.TabIndex = 8;
+            this.metroPanel6.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            this.metroPanel6.Visible = false;
+            // 
+            // metroTile16
+            // 
+            this.metroTile16.ActiveControl = null;
+            this.metroTile16.Location = new System.Drawing.Point(7, 9);
+            this.metroTile16.Name = "metroTile16";
+            this.metroTile16.Size = new System.Drawing.Size(167, 62);
+            this.metroTile16.TabIndex = 2;
+            this.metroTile16.Text = "Buscar folios de socio";
+            this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
+            this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroTile16.UseSelectable = true;
+            this.metroTile16.UseTileImage = true;
+            this.metroTile16.Click += new System.EventHandler(this.metroTile16_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 700);
+            this.ClientSize = new System.Drawing.Size(891, 788);
+            this.Controls.Add(this.metroPanel6);
             this.Controls.Add(this.metroPanel5);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel3);
@@ -350,6 +402,7 @@
             this.metroPanel4.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
+            this.metroPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -373,5 +426,8 @@
         private MetroFramework.Controls.MetroTile metroTile13;
         private MetroFramework.Controls.MetroPanel metroPanel5;
         private MetroFramework.Controls.MetroTile metroTile14;
+        private MetroFramework.Controls.MetroTile metroTile7;
+        private MetroFramework.Controls.MetroPanel metroPanel6;
+        private MetroFramework.Controls.MetroTile metroTile16;
     }
 }

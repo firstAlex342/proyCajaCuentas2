@@ -136,8 +136,7 @@ namespace CapaLogicaNegocios
             List<ClsParametros> lst = new List<ClsParametros>();
 
             //Parametros de entrada
-            lst.Add(new ClsParametros("@IdSocioBuscado", this.Id));
-            lst.Add(new ClsParametros("@NumeroLicenciaNew", this.NumeroLicencia));
+            lst.Add(new ClsParametros("@numeroLicenciaBuscada", this.NumeroLicencia));
             lst.Add(new ClsParametros("@NombreComercialNew", this.NombreComercial));
             lst.Add(new ClsParametros("@DireccionSupmzaNew", this.DireccionSupmza));
             lst.Add(new ClsParametros("@DireccionManzanaNew", this.DireccionManzana));
@@ -158,7 +157,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("Socio_update", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[16].Valor.ToString();
+            mensaje = lst[15].Valor.ToString();
 
             return (mensaje);
         }
@@ -198,7 +197,7 @@ namespace CapaLogicaNegocios
         public DataTable Socio_BuscarAfiliacionActiva()
         {
             List<ClsParametros> lst = new List<ClsParametros>();
-            lst.Add(new ClsParametros("@idSocioBuscado", this.Id));
+            lst.Add(new ClsParametros("@licenciaBuscada", this.NumeroLicencia));
 
             return (CLSManejador.Listado("Socio_BuscarAfiliacionActiva", lst));
         }
@@ -206,9 +205,19 @@ namespace CapaLogicaNegocios
         public DataTable Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion()
         {
             List<ClsParametros> lst = new List<ClsParametros>();
-            lst.Add(new ClsParametros("@idSocioBuscado", this.Id));
+            lst.Add(new ClsParametros("@licenciaBuscada", this.NumeroLicencia));
 
             return (CLSManejador.Listado("Socio_BuscarFolioReciboLicenciaDondeSeImprimioMovimientoKContieneAfiliacion", lst));
+        }
+
+        public DataTable Socio_BuscarFoliosActivosDeReciboListaProductos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@licenciaBuscada", this.NumeroLicencia));
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("Socio_BuscarFoliosActivosDeReciboListaProductos", lst));
         }
     }
 }

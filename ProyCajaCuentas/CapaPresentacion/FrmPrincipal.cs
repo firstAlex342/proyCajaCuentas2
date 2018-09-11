@@ -27,6 +27,7 @@ namespace CapaPresentacion
             metroTile2.UseSelectable = false;
             metroTile9.UseSelectable = false;
             metroTile13.UseSelectable = false;
+            metroTile7.UseSelectable = false;
 
             DeshabilitarDeMenuOpciones();
 
@@ -118,6 +119,10 @@ namespace CapaPresentacion
             else { metroTile14.Enabled = false; }
 
 
+            respuesta = EsActivoModuloController(9) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion Buscar folios de socio*/}
+            else { metroTile16.Enabled = false; }
         }
 
 
@@ -136,6 +141,7 @@ namespace CapaPresentacion
             metroPanel4.Visible = false;
             metroPanel3.Visible = false;
             metroPanel5.Visible = false;
+            metroPanel6.Visible = false;
 
             //Hago visible lo que quiero mostrar
             metroPanel2.Visible = true;
@@ -147,6 +153,7 @@ namespace CapaPresentacion
             metroPanel2.Visible = false;
             metroPanel3.Visible = false;
             metroPanel5.Visible = false;
+            metroPanel6.Visible = false;
 
             //Hago visible lo que quiero mostrar
             metroPanel4.Visible = true;
@@ -158,6 +165,7 @@ namespace CapaPresentacion
             metroPanel2.Visible = false;
             metroPanel4.Visible = false;
             metroPanel5.Visible = false;
+            metroPanel6.Visible = false;
 
             //Hago visible lo que quiero mostrar
             metroPanel3.Visible = true;
@@ -170,9 +178,22 @@ namespace CapaPresentacion
             metroPanel2.Visible = false;
             metroPanel4.Visible = false;
             metroPanel3.Visible = false;
+            metroPanel6.Visible = false;
 
             //Hago visible lo que quiero mostrar
             metroPanel5.Visible = true;
+        }
+
+        private void metroTile7_MouseEnter(object sender, EventArgs e)
+        {
+            //Oculto lo que no quiero mostrar
+            metroPanel2.Visible = false;
+            metroPanel4.Visible = false;
+            metroPanel3.Visible = false;
+            metroPanel5.Visible = false;
+
+            //Hago visible lo que quiero mostrar
+            metroPanel6.Visible = true;
         }
 
 
@@ -182,7 +203,7 @@ namespace CapaPresentacion
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
-            FrmSocioAgregar c = new FrmSocioAgregar();
+            FrmSocioAdd c = new FrmSocioAdd();
             c.ShowDialog(this);
             c.Dispose();
         }
@@ -208,14 +229,14 @@ namespace CapaPresentacion
 
         private void metroTile5_Click(object sender, EventArgs e)
         {
-            FrmSocioBuscar c = new FrmSocioBuscar();
+            FrmSocioBusca c = new FrmSocioBusca();
             c.ShowDialog(this);
             c.Dispose();
         }
 
         private void metroTile4_Click(object sender, EventArgs e)
         {
-            FrmSocioModificar c = new FrmSocioModificar();
+            FrmSocioActualizar c = new FrmSocioActualizar();
             c.ShowDialog(this);
             c.Dispose();
         }
@@ -268,6 +289,15 @@ namespace CapaPresentacion
             c.ShowDialog(this);
             c.Dispose();
         }
+
+        private void metroTile16_Click(object sender, EventArgs e)
+        {
+            FrmBuscarFoliosDeSocio c = new FrmBuscarFoliosDeSocio();
+            c.ShowDialog(this);
+            c.Dispose();
+        }
+
+
 
 
 

@@ -37,7 +37,7 @@ namespace CapaPresentacion
             catch(Exception ex)
             {
                 tableLayoutPanel1.Enabled = false;
-                MessageBox.Show(ex.Message + " " + ex.Source);
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
@@ -159,10 +159,10 @@ namespace CapaPresentacion
             return (clsSocio.Socio_BuscarXLicencia());
         }
 
-        private bool Socio_BuscarAfiliacionActivaController( int idSocio)
+        private bool Socio_BuscarAfiliacionActivaController( string numeroLicencia)
         {
             ClsSocio clsSocio = new ClsSocio();
-            clsSocio.Id = idSocio;
+            clsSocio.NumeroLicencia = numeroLicencia;
 
             DataTable tabla = clsSocio.Socio_BuscarAfiliacionActiva();
             bool res = (tabla.Rows.Count == 1) ? true : false;
@@ -531,7 +531,7 @@ namespace CapaPresentacion
 
 
                             bool esOkAfiliacionActiva = true;
-                            bool tieneAfiliacionActiva = Socio_BuscarAfiliacionActivaController(idSocio);                            
+                            bool tieneAfiliacionActiva = Socio_BuscarAfiliacionActivaController( filaUnica.Field<string>("NumeroLicencia"));                            
                             if(tieneAfiliacionActiva)
                             {
                                 if (ExisteAfiliacionEnDataGrid())

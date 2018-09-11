@@ -60,6 +60,7 @@
     <Compile Include="ConvertNumALetras\ConversorATextoMonedaPesos.cs" />
     <Compile Include="ConvertNumALetras\ReglaConstruccionCadenaATexto.cs" />
     <Compile Include="ConvertNumALetras\TraductorATextoPesos.cs" />
+    <Compile Include="ClsMovsEnCaja.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -39,5 +39,7 @@ namespace CapaLogicaNegocios
 
             return (CLSManejador.Listado("ReciboListaProductos_BuscarFolio", lst));
         }
+
+
     }
 }

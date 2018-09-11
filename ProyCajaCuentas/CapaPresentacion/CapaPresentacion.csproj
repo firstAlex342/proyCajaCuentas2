@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBuscarFoliosDeSocio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosDeSocio.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosDeSocio.cs</DependentUpon>
+    </Compile>
     <Compile Include="CRListaProductosPagados.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,22 +193,40 @@
     <Compile Include="FrmSocio.Designer.cs">
       <DependentUpon>FrmSocio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSocioAgregar.cs">
+    <Compile Include="FrmSocioActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSocioAgregar.Designer.cs">
+    <Compile Include="FrmSocioActualizar.Designer.cs">
+      <DependentUpon>FrmSocioActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSocioAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioAdd.Designer.cs">
+      <DependentUpon>FrmSocioAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSocioBusca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioBusca.Designer.cs">
+      <DependentUpon>FrmSocioBusca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ventanasNoUsadas\FrmSocioAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ventanasNoUsadas\FrmSocioAgregar.Designer.cs">
       <DependentUpon>FrmSocioAgregar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSocioBuscar.cs">
+    <Compile Include="ventanasNoUsadas\FrmSocioBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSocioBuscar.Designer.cs">
+    <Compile Include="ventanasNoUsadas\FrmSocioBuscar.Designer.cs">
       <DependentUpon>FrmSocioBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSocioModificar.cs">
+    <Compile Include="ventanasNoUsadas\FrmSocioModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSocioModificar.Designer.cs">
+    <Compile Include="ventanasNoUsadas\FrmSocioModificar.Designer.cs">
       <DependentUpon>FrmSocioModificar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUsuarioModificar.cs">
@@ -225,6 +249,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBuscarFoliosDeSocio.resx">
+      <DependentUpon>FrmBuscarFoliosDeSocio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRListaProductosPagados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRListaProductosPagados.cs</LastGenOutput>
@@ -291,13 +318,22 @@
     <EmbeddedResource Include="FrmSocio.resx">
       <DependentUpon>FrmSocio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSocioAgregar.resx">
+    <EmbeddedResource Include="FrmSocioActualizar.resx">
+      <DependentUpon>FrmSocioActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioAdd.resx">
+      <DependentUpon>FrmSocioAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioBusca.resx">
+      <DependentUpon>FrmSocioBusca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventanasNoUsadas\FrmSocioAgregar.resx">
       <DependentUpon>FrmSocioAgregar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSocioBuscar.resx">
+    <EmbeddedResource Include="ventanasNoUsadas\FrmSocioBuscar.resx">
       <DependentUpon>FrmSocioBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSocioModificar.resx">
+    <EmbeddedResource Include="ventanasNoUsadas\FrmSocioModificar.resx">
       <DependentUpon>FrmSocioModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarioModificar.resx">
