@@ -219,5 +219,15 @@ namespace CapaLogicaNegocios
 
             return (CLSManejador.Listado("Socio_BuscarFoliosActivosDeReciboListaProductos", lst));
         }
+
+        public DataTable Socio_BuscarFoliosActivosDeTodosEnReciboListaProductos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("Socio_BuscarFoliosActivosDeTodosEnReciboListaProductos", lst));
+
+        }
     }
 }

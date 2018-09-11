@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile7 = new MetroFramework.Controls.MetroTile();
             this.metroTile13 = new MetroFramework.Controls.MetroTile();
             this.metroTile9 = new MetroFramework.Controls.MetroTile();
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
@@ -46,9 +47,9 @@
             this.metroTile10 = new MetroFramework.Controls.MetroTile();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.metroTile14 = new MetroFramework.Controls.MetroTile();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
             this.metroTile16 = new MetroFramework.Controls.MetroTile();
+            this.metroTile8 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel4.SuspendLayout();
@@ -78,6 +79,22 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.MouseLeave += new System.EventHandler(this.metroPanel1_MouseLeave);
+            // 
+            // metroTile7
+            // 
+            this.metroTile7.ActiveControl = null;
+            this.metroTile7.Location = new System.Drawing.Point(3, 577);
+            this.metroTile7.Name = "metroTile7";
+            this.metroTile7.Size = new System.Drawing.Size(196, 85);
+            this.metroTile7.TabIndex = 7;
+            this.metroTile7.Text = "Consultas";
+            this.metroTile7.Theme = MetroFramework.MetroThemeStyle.Dark;
+            this.metroTile7.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile7.TileImage")));
+            this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile7.UseCustomBackColor = true;
+            this.metroTile7.UseSelectable = true;
+            this.metroTile7.UseTileImage = true;
+            this.metroTile7.MouseEnter += new System.EventHandler(this.metroTile7_MouseEnter);
             // 
             // metroTile13
             // 
@@ -260,6 +277,7 @@
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
             this.metroPanel3.Visible = false;
+            this.metroPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel3_Paint);
             // 
             // metroTile12
             // 
@@ -326,7 +344,7 @@
             // metroTile14
             // 
             this.metroTile14.ActiveControl = null;
-            this.metroTile14.Location = new System.Drawing.Point(11, 10);
+            this.metroTile14.Location = new System.Drawing.Point(7, 10);
             this.metroTile14.Name = "metroTile14";
             this.metroTile14.Size = new System.Drawing.Size(107, 62);
             this.metroTile14.TabIndex = 2;
@@ -337,31 +355,16 @@
             this.metroTile14.UseTileImage = true;
             this.metroTile14.Click += new System.EventHandler(this.metroTile14_Click);
             // 
-            // metroTile7
-            // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.Location = new System.Drawing.Point(3, 577);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(196, 85);
-            this.metroTile7.TabIndex = 7;
-            this.metroTile7.Text = "Consultas";
-            this.metroTile7.Theme = MetroFramework.MetroThemeStyle.Dark;
-            this.metroTile7.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile7.TileImage")));
-            this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile7.UseCustomBackColor = true;
-            this.metroTile7.UseSelectable = true;
-            this.metroTile7.UseTileImage = true;
-            this.metroTile7.MouseEnter += new System.EventHandler(this.metroTile7_MouseEnter);
-            // 
             // metroPanel6
             // 
+            this.metroPanel6.Controls.Add(this.metroTile8);
             this.metroPanel6.Controls.Add(this.metroTile16);
             this.metroPanel6.HorizontalScrollbarBarColor = true;
             this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel6.HorizontalScrollbarSize = 10;
-            this.metroPanel6.Location = new System.Drawing.Point(226, 619);
+            this.metroPanel6.Location = new System.Drawing.Point(226, 612);
             this.metroPanel6.Name = "metroPanel6";
-            this.metroPanel6.Size = new System.Drawing.Size(239, 103);
+            this.metroPanel6.Size = new System.Drawing.Size(462, 83);
             this.metroPanel6.TabIndex = 8;
             this.metroPanel6.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel6.VerticalScrollbarBarColor = true;
@@ -374,14 +377,30 @@
             this.metroTile16.ActiveControl = null;
             this.metroTile16.Location = new System.Drawing.Point(7, 9);
             this.metroTile16.Name = "metroTile16";
-            this.metroTile16.Size = new System.Drawing.Size(167, 62);
+            this.metroTile16.Size = new System.Drawing.Size(220, 62);
             this.metroTile16.TabIndex = 2;
-            this.metroTile16.Text = "Buscar folios de socio";
+            this.metroTile16.Text = "Buscar folios de pago de socio";
             this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
             this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.metroTile16.UseSelectable = true;
             this.metroTile16.UseTileImage = true;
             this.metroTile16.Click += new System.EventHandler(this.metroTile16_Click);
+            // 
+            // metroTile8
+            // 
+            this.metroTile8.ActiveControl = null;
+            this.metroTile8.BackColor = System.Drawing.Color.Purple;
+            this.metroTile8.Location = new System.Drawing.Point(233, 9);
+            this.metroTile8.Name = "metroTile8";
+            this.metroTile8.Size = new System.Drawing.Size(220, 62);
+            this.metroTile8.TabIndex = 3;
+            this.metroTile8.Text = "Buscar folios de todos los socios";
+            this.metroTile8.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile8.TileImage")));
+            this.metroTile8.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroTile8.UseCustomBackColor = true;
+            this.metroTile8.UseSelectable = true;
+            this.metroTile8.UseTileImage = true;
+            this.metroTile8.Click += new System.EventHandler(this.metroTile8_Click_1);
             // 
             // FrmPrincipal
             // 
@@ -429,5 +448,6 @@
         private MetroFramework.Controls.MetroTile metroTile7;
         private MetroFramework.Controls.MetroPanel metroPanel6;
         private MetroFramework.Controls.MetroTile metroTile16;
+        private MetroFramework.Controls.MetroTile metroTile8;
     }
 }

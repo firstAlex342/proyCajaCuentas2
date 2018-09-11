@@ -123,6 +123,11 @@ namespace CapaPresentacion
             if (respuesta)
             { /*Permanece habilitada la opcion Buscar folios de socio*/}
             else { metroTile16.Enabled = false; }
+
+            respuesta = EsActivoModuloController(10) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion Buscar folios de socio*/}
+            else { metroTile8.Enabled = false; }
         }
 
 
@@ -295,6 +300,18 @@ namespace CapaPresentacion
             FrmBuscarFoliosDeSocio c = new FrmBuscarFoliosDeSocio();
             c.ShowDialog(this);
             c.Dispose();
+        }
+
+        private void metroTile8_Click_1(object sender, EventArgs e)
+        {
+            FrmBuscarFoliosDeTodos c = new FrmBuscarFoliosDeTodos();
+            c.ShowDialog(this);
+            c.Dispose();
+        }
+
+        private void metroPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
 

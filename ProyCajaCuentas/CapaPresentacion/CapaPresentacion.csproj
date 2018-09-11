@@ -91,6 +91,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarFoliosDeTodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosDeTodos.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosDeTodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRealizarCobro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAsignarPrivilegios.resx">
       <DependentUpon>FrmAsignarPrivilegios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarFoliosDeTodos.resx">
+      <DependentUpon>FrmBuscarFoliosDeTodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarPagoProducto.resx">
       <DependentUpon>FrmBuscarPagoProducto.cs</DependentUpon>
