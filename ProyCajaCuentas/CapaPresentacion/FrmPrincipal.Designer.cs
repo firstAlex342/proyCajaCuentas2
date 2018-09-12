@@ -48,8 +48,9 @@
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.metroTile14 = new MetroFramework.Controls.MetroTile();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile16 = new MetroFramework.Controls.MetroTile();
             this.metroTile8 = new MetroFramework.Controls.MetroTile();
+            this.metroTile16 = new MetroFramework.Controls.MetroTile();
+            this.metroTile15 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel4.SuspendLayout();
@@ -277,7 +278,6 @@
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
             this.metroPanel3.Visible = false;
-            this.metroPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel3_Paint);
             // 
             // metroTile12
             // 
@@ -327,13 +327,14 @@
             // 
             // metroPanel5
             // 
+            this.metroPanel5.Controls.Add(this.metroTile15);
             this.metroPanel5.Controls.Add(this.metroTile14);
             this.metroPanel5.HorizontalScrollbarBarColor = true;
             this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel5.HorizontalScrollbarSize = 10;
             this.metroPanel5.Location = new System.Drawing.Point(226, 492);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(140, 83);
+            this.metroPanel5.Size = new System.Drawing.Size(346, 83);
             this.metroPanel5.TabIndex = 7;
             this.metroPanel5.Theme = MetroFramework.MetroThemeStyle.Dark;
             this.metroPanel5.VerticalScrollbarBarColor = true;
@@ -372,20 +373,6 @@
             this.metroPanel6.VerticalScrollbarSize = 10;
             this.metroPanel6.Visible = false;
             // 
-            // metroTile16
-            // 
-            this.metroTile16.ActiveControl = null;
-            this.metroTile16.Location = new System.Drawing.Point(7, 9);
-            this.metroTile16.Name = "metroTile16";
-            this.metroTile16.Size = new System.Drawing.Size(220, 62);
-            this.metroTile16.TabIndex = 2;
-            this.metroTile16.Text = "Buscar folios de pago de socio";
-            this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
-            this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metroTile16.UseSelectable = true;
-            this.metroTile16.UseTileImage = true;
-            this.metroTile16.Click += new System.EventHandler(this.metroTile16_Click);
-            // 
             // metroTile8
             // 
             this.metroTile8.ActiveControl = null;
@@ -401,6 +388,36 @@
             this.metroTile8.UseSelectable = true;
             this.metroTile8.UseTileImage = true;
             this.metroTile8.Click += new System.EventHandler(this.metroTile8_Click_1);
+            // 
+            // metroTile16
+            // 
+            this.metroTile16.ActiveControl = null;
+            this.metroTile16.Location = new System.Drawing.Point(7, 9);
+            this.metroTile16.Name = "metroTile16";
+            this.metroTile16.Size = new System.Drawing.Size(220, 62);
+            this.metroTile16.TabIndex = 2;
+            this.metroTile16.Text = "Buscar folios de pago de socio";
+            this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
+            this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroTile16.UseSelectable = true;
+            this.metroTile16.UseTileImage = true;
+            this.metroTile16.Click += new System.EventHandler(this.metroTile16_Click);
+            // 
+            // metroTile15
+            // 
+            this.metroTile15.ActiveControl = null;
+            this.metroTile15.BackColor = System.Drawing.Color.Green;
+            this.metroTile15.Location = new System.Drawing.Point(120, 9);
+            this.metroTile15.Name = "metroTile15";
+            this.metroTile15.Size = new System.Drawing.Size(216, 62);
+            this.metroTile15.TabIndex = 4;
+            this.metroTile15.Text = "Cancelar folio de recibo de pago";
+            this.metroTile15.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile15.TileImage")));
+            this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metroTile15.UseCustomBackColor = true;
+            this.metroTile15.UseSelectable = true;
+            this.metroTile15.UseTileImage = true;
+            this.metroTile15.Click += new System.EventHandler(this.metroTile15_Click);
             // 
             // FrmPrincipal
             // 
@@ -449,5 +466,6 @@
         private MetroFramework.Controls.MetroPanel metroPanel6;
         private MetroFramework.Controls.MetroTile metroTile16;
         private MetroFramework.Controls.MetroTile metroTile8;
+        private MetroFramework.Controls.MetroTile metroTile15;
     }
 }

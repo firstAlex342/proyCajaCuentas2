@@ -124,7 +124,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker3, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.radioButton2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 15);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -132,14 +132,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(831, 142);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(831, 136);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(124, 16);
             this.label1.TabIndex = 0;
@@ -150,7 +150,7 @@
             this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 32);
+            this.radioButton1.Location = new System.Drawing.Point(3, 30);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(47, 20);
             this.radioButton1.TabIndex = 1;
@@ -172,7 +172,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Location = new System.Drawing.Point(418, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(160, 22);
+            this.button1.Size = new System.Drawing.Size(160, 21);
             this.button1.TabIndex = 10;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
@@ -182,7 +182,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 119);
+            this.label2.Location = new System.Drawing.Point(94, 114);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 16);
             this.label2.TabIndex = 5;
@@ -192,7 +192,7 @@
             // 
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Location = new System.Drawing.Point(169, 116);
+            this.dateTimePicker2.Location = new System.Drawing.Point(169, 111);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(243, 22);
             this.dateTimePicker2.TabIndex = 8;
@@ -201,7 +201,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(534, 119);
+            this.label3.Location = new System.Drawing.Point(534, 114);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 16);
             this.label3.TabIndex = 6;
@@ -211,7 +211,7 @@
             // 
             this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Location = new System.Drawing.Point(584, 116);
+            this.dateTimePicker3.Location = new System.Drawing.Point(584, 111);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.Size = new System.Drawing.Size(244, 22);
             this.dateTimePicker3.TabIndex = 9;
@@ -220,7 +220,7 @@
             // 
             this.radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 88);
+            this.radioButton2.Location = new System.Drawing.Point(3, 84);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(100, 20);
             this.radioButton2.TabIndex = 2;
@@ -230,7 +230,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(169, 59);
+            this.dateTimePicker1.Location = new System.Drawing.Point(169, 57);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(243, 22);
             this.dateTimePicker1.TabIndex = 7;

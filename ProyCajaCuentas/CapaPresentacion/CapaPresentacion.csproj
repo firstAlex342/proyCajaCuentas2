@@ -97,6 +97,12 @@
     <Compile Include="FrmBuscarFoliosDeTodos.Designer.cs">
       <DependentUpon>FrmBuscarFoliosDeTodos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCancelarFolioReciboDePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCancelarFolioReciboDePago.Designer.cs">
+      <DependentUpon>FrmCancelarFolioReciboDePago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmRealizarCobro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarPagoProducto.resx">
       <DependentUpon>FrmBuscarPagoProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCancelarFolioReciboDePago.resx">
+      <DependentUpon>FrmCancelarFolioReciboDePago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal2.resx">
       <DependentUpon>FrmPrincipal2.cs</DependentUpon>

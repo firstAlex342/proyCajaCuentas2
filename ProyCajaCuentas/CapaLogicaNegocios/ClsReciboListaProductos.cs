@@ -40,6 +40,23 @@ namespace CapaLogicaNegocios
             return (CLSManejador.Listado("ReciboListaProductos_BuscarFolio", lst));
         }
 
+        public string ReciboListaProductos_UpdateActivoACero()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@folioBuscado", this.Folio));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("ReciboListaProductos_UpdateActivoACero", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[1].Valor.ToString();
+
+            return (mensaje);
+        }
 
     }
 }
