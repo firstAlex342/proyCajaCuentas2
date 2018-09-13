@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBuscarFoliosCanceladosDeTodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosCanceladosDeTodos.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosCanceladosDeTodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarFoliosDeSocio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +267,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBuscarFoliosCanceladosDeTodos.resx">
+      <DependentUpon>FrmBuscarFoliosCanceladosDeTodos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarFoliosDeSocio.resx">
       <DependentUpon>FrmBuscarFoliosDeSocio.cs</DependentUpon>
     </EmbeddedResource>

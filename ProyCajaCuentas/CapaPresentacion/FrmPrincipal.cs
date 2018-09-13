@@ -134,6 +134,11 @@ namespace CapaPresentacion
             if (respuesta)
             { /*Permanece habilitada la opcion Cancelar folio de recibo de pago */}
             else { metroTile15.Enabled = false;  }
+
+            respuesta = EsActivoModuloController(12) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion Buscar folios de pago cancelados */}
+            else { metroTile17.Enabled = false; }
         }
 
 
@@ -318,6 +323,13 @@ namespace CapaPresentacion
         private void metroTile15_Click(object sender, EventArgs e)
         {
             FrmCancelarFolioReciboDePago c = new FrmCancelarFolioReciboDePago();
+            c.ShowDialog(this);
+            c.Dispose();
+        }
+
+        private void metroTile17_Click(object sender, EventArgs e)
+        {
+            FrmBuscarFoliosCanceladosDeTodos c = new FrmBuscarFoliosCanceladosDeTodos();
             c.ShowDialog(this);
             c.Dispose();
         }
