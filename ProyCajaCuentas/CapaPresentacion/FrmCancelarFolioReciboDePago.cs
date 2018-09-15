@@ -30,17 +30,22 @@ namespace CapaPresentacion
 
         }
 
-        private bool EstaCanceladoFolioReciboListaProductosController(string folioBuscado)
+        private bool SePuedeCancelarFolioReciboListaProductosController(string folioBuscado)
         {
             ClsReciboListaProductos clsReciboListaProductos = new ClsReciboListaProductos();
             clsReciboListaProductos.Folio = folioBuscado;
             DataTable resulBusqueda = clsReciboListaProductos.ReciboListaProductos_BuscarFolio();
 
-            DataRow filaUnica = (resulBusqueda.AsEnumerable()).Single<DataRow>();
+            if(resulBusqueda.Rows.Count  == 1 )
+            {
+                DataRow filaUnica = (resulBusqueda.AsEnumerable()).Single<DataRow>();
+                bool ActivoONo = filaUnica.Field<bool>("Activo") == true ? true : false;
+                return (ActivoONo);
+            }
 
-            bool ActivoONo = filaUnica.Field<bool>("Activo") == false ? true : false;
-
-            return (ActivoONo);
+            else
+            { return (false);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -50,12 +55,7 @@ namespace CapaPresentacion
                 DialogResult respuesta = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
-                    if(EstaCanceladoFolioReciboListaProductosController(textBox1.Text))
-                    {
-                        MessageBox.Show("Ya esta cancelado el folio " + textBox1.Text , "Reglas de operación", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                    }
-
-                    else
+                    if(SePuedeCancelarFolioReciboListaProductosController(textBox1.Text))
                     {
                         //Proceder a cancelarlo
                         string res = CancelarFolioReciboListaProductosController(textBox1.Text);
@@ -74,6 +74,11 @@ namespace CapaPresentacion
                         {
                             MessageBox.Show(res, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("El folio " + textBox1.Text + " no se encuentra disponible" , "Reglas de operación", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                     }
                 }
             }
