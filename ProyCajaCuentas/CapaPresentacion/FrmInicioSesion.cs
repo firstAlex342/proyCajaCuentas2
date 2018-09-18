@@ -98,14 +98,15 @@ namespace CapaPresentacion
                     ClsLogin.ModulosALosQueTieneAccesoUsuario = modulosALosQueTieneAccesoUsuario;
 
                     this.Hide();
-                    FrmPrincipal frmPrincipal = new FrmPrincipal();
+                    //FrmPrincipal frmPrincipal = new FrmPrincipal();
+                    //frmPrincipal.ShowDialog();
+                    //frmPrincipal.Dispose();
+                    //Application.Exit();
+
+                    FrmPrincipal3 frmPrincipal = new FrmPrincipal3();
                     frmPrincipal.ShowDialog();
                     frmPrincipal.Dispose();
                     Application.Exit();
-
-                    //FrmPrincipal frmPrincipal = new FrmPrincipal();
-                    //frmPrincipal.Show(this);
-                    //this.Hide();
 
                 }
 

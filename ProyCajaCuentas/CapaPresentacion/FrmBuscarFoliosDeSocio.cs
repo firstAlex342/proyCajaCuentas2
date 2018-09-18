@@ -278,5 +278,10 @@ namespace CapaPresentacion
                 dateTimePicker3.Enabled = false;
             }
         }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
