@@ -17,6 +17,9 @@ namespace CapaPresentacion
 {
     public partial class FrmPrincipal3 : MetroForm
     {
+        private Task<CRReporteVacio> tarea;
+
+        //--------------------Constructor
         public FrmPrincipal3()
         {
             InitializeComponent();
@@ -25,6 +28,15 @@ namespace CapaPresentacion
             metroComboBox1.SelectedIndex = 0;
             DeshabilitarDeMenuOpciones();
             MostrarUsuarioDeSesionEnMetroLabel();
+
+
+            Func<CRReporteVacio> funcion = () => {
+                FrmVisorReporteTonto tonto = new FrmVisorReporteTonto();
+                tonto.Dispose();
+                return new CRReporteVacio();
+            };
+
+            tarea = Task.Run(funcion);
         }
 
         //-------------Methods controller
@@ -200,8 +212,9 @@ namespace CapaPresentacion
             AbrirFormulario(new FrmSocioAdd());
         }
 
-        private void metroTile4_Click(object sender, EventArgs e)
+        private async void metroTile4_Click(object sender, EventArgs e)
         {
+            await tarea;
             AbrirFormulario(new FrmRealizarCobro());
         }
 

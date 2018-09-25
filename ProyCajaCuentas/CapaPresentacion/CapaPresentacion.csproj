@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmBuscarYSeleccionarNombreProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarYSeleccionarNombreProveedor.Designer.cs">
+      <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal3.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,10 +157,10 @@
     <Compile Include="FrmBuscarPagoProducto.Designer.cs">
       <DependentUpon>FrmBuscarPagoProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal2.cs">
+    <Compile Include="ventanasNoUsadas\FrmPrincipal2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipal2.Designer.cs">
+    <Compile Include="ventanasNoUsadas\FrmPrincipal2.Designer.cs">
       <DependentUpon>FrmPrincipal2.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductoCrearTarifas.cs">
@@ -187,10 +193,10 @@
     <Compile Include="FrmPagoProducto3.Designer.cs">
       <DependentUpon>FrmPagoProducto3.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal.cs">
+    <Compile Include="ventanasNoUsadas\FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
+    <Compile Include="ventanasNoUsadas\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProducto.cs">
@@ -279,6 +285,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmBuscarYSeleccionarNombreProveedor.resx">
+      <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal3.resx">
       <DependentUpon>FrmPrincipal3.cs</DependentUpon>
     </EmbeddedResource>
@@ -324,7 +333,7 @@
     <EmbeddedResource Include="FrmInfoCheque.resx">
       <DependentUpon>FrmInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal2.resx">
+    <EmbeddedResource Include="ventanasNoUsadas\FrmPrincipal2.resx">
       <DependentUpon>FrmPrincipal2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductoCrearTarifas.resx">
@@ -342,7 +351,7 @@
     <EmbeddedResource Include="FrmPagoProducto3.resx">
       <DependentUpon>FrmPagoProducto3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal.resx">
+    <EmbeddedResource Include="ventanasNoUsadas\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProducto.resx">

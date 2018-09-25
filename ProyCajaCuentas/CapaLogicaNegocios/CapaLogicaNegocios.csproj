@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="ClsAccesoAModulo.cs" />
     <Compile Include="ClsCaja.cs" />
+    <Compile Include="ClsChequeInfoBasico.cs" />
     <Compile Include="ClsPagoBasico.cs" />
     <Compile Include="ClsCuentaPorPagar.cs" />
     <Compile Include="ClsLogin.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="ClsPagoProducto.cs" />
     <Compile Include="ClsProducto.cs" />
     <Compile Include="ClsProductosAPagar.cs" />
+    <Compile Include="ClsProveedor.cs" />
     <Compile Include="ClsReciboLicencia.cs" />
     <Compile Include="ClsReciboListaProductos.cs" />
     <Compile Include="ClsSocio.cs" />
