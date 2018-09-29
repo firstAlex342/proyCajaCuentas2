@@ -60,6 +60,31 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public string Cheque__DescripcionDeCheque_ConceptoEnCheque_Update()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@numChequeAActualizar", this.NumCheque));
+            lst.Add(new ClsParametros("@beneficiario", this.Beneficiario));
+            lst.Add(new ClsParametros("@cantidad", this.Cantidad));
+            lst.Add(new ClsParametros("@fechaDeCheque", this.FechaDeCheque));
+            lst.Add(new ClsParametros("@fechaDeCobro", this.FechaDeCobro));
+            lst.Add(new ClsParametros("@conceptosEnCheque", this.ListaConceptosEnCheque));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioOperador));
+
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Cheque__DescripcionDeCheque_ConceptoEnCheque_Update", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[7].Valor.ToString();
+
+            return (mensaje);
+        }
+
 
 
         private DataTable MakeDataTable()
