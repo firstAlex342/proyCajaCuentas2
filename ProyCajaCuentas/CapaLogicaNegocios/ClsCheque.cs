@@ -49,5 +49,24 @@ namespace CapaLogicaNegocios
             return CLSManejador.Listado("Cheque_BuscarDetallesCheque", lst);
         }
 
+        public string Cheque_DescripcionDeCheque_ConceptoEnCheque_UpdateActivo()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@numCheque", this.NumCheque));
+            lst.Add(new ClsParametros("@nuevoValorDeActivo",this.Activo));
+
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Cheque_DescripcionDeCheque_ConceptoEnCheque_UpdateActivo", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[2].Valor.ToString();
+
+            return (mensaje);
+        }
+
     }
 }

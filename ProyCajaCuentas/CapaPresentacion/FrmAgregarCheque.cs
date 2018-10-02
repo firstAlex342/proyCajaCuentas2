@@ -12,11 +12,11 @@ using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class FrmInfoCheque : Form
+    public partial class FrmAgregarCheque : Form
     {
 
         //----------------constructor
-        public FrmInfoCheque()
+        public FrmAgregarCheque()
         {
             InitializeComponent();
             CrearColumnasParaDataGridViewConceptosEnCheque();

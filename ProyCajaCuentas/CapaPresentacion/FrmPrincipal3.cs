@@ -187,6 +187,8 @@ namespace CapaPresentacion
             if (respuesta)
             {  /*Permanece habilitada la opcion modificar gastos */}
             else { metroTile14.Enabled = false; }
+
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -246,7 +248,7 @@ namespace CapaPresentacion
 
         private void metroTile11_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmInfoCheque());
+            AbrirFormulario(new FrmAgregarCheque());
         }
 
         private void metroTile14_Click(object sender, EventArgs e)
@@ -254,6 +256,10 @@ namespace CapaPresentacion
             AbrirFormulario(new FrmActualizarInfoCheque());
         }
 
+        private void metroTile10_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmCancelarChequeCapturado());
+        }
 
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile14 = new MetroFramework.Controls.MetroTile();
             this.metroTile13 = new MetroFramework.Controls.MetroTile();
             this.metroTile12 = new MetroFramework.Controls.MetroTile();
             this.metroTile11 = new MetroFramework.Controls.MetroTile();
@@ -52,7 +53,6 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile14 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -95,6 +95,21 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
+            // 
+            // metroTile14
+            // 
+            this.metroTile14.ActiveControl = null;
+            this.metroTile14.Location = new System.Drawing.Point(169, 843);
+            this.metroTile14.Name = "metroTile14";
+            this.metroTile14.Size = new System.Drawing.Size(136, 97);
+            this.metroTile14.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile14.TabIndex = 17;
+            this.metroTile14.Text = "Modificar gastos";
+            this.metroTile14.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile14.TileImage")));
+            this.metroTile14.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile14.UseSelectable = true;
+            this.metroTile14.UseTileImage = true;
+            this.metroTile14.Click += new System.EventHandler(this.metroTile14_Click);
             // 
             // metroTile13
             // 
@@ -146,13 +161,14 @@
             this.metroTile10.Location = new System.Drawing.Point(169, 732);
             this.metroTile10.Name = "metroTile10";
             this.metroTile10.Size = new System.Drawing.Size(146, 97);
-            this.metroTile10.Style = MetroFramework.MetroColorStyle.Brown;
+            this.metroTile10.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile10.TabIndex = 13;
-            this.metroTile10.Text = "Modificar proveedor";
+            this.metroTile10.Text = "Cancelar cheque ";
             this.metroTile10.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile10.TileImage")));
             this.metroTile10.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile10.UseSelectable = true;
             this.metroTile10.UseTileImage = true;
+            this.metroTile10.Click += new System.EventHandler(this.metroTile10_Click);
             // 
             // metroTile9
             // 
@@ -408,21 +424,6 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // metroTile14
-            // 
-            this.metroTile14.ActiveControl = null;
-            this.metroTile14.Location = new System.Drawing.Point(169, 843);
-            this.metroTile14.Name = "metroTile14";
-            this.metroTile14.Size = new System.Drawing.Size(136, 97);
-            this.metroTile14.Style = MetroFramework.MetroColorStyle.Lime;
-            this.metroTile14.TabIndex = 17;
-            this.metroTile14.Text = "Modificar gastos";
-            this.metroTile14.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile14.TileImage")));
-            this.metroTile14.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile14.UseSelectable = true;
-            this.metroTile14.UseTileImage = true;
-            this.metroTile14.Click += new System.EventHandler(this.metroTile14_Click);
             // 
             // FrmPrincipal3
             // 

@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CRReporteChequesNoCobrados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteChequesNoCobrados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,18 @@
     </Compile>
     <Compile Include="FrmBuscarYSeleccionarNombreProveedor.Designer.cs">
       <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCancelarChequeCapturado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCancelarChequeCapturado.Designer.cs">
+      <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarChequesNoCobrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarChequesNoCobrados.Designer.cs">
+      <DependentUpon>FrmBuscarChequesNoCobrados.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal3.cs">
       <SubType>Form</SubType>
@@ -127,11 +145,11 @@
     <Compile Include="FrmCancelarFolioReciboDePago.Designer.cs">
       <DependentUpon>FrmCancelarFolioReciboDePago.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInfoCheque.cs">
+    <Compile Include="FrmAgregarCheque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmInfoCheque.Designer.cs">
-      <DependentUpon>FrmInfoCheque.cs</DependentUpon>
+    <Compile Include="FrmAgregarCheque.Designer.cs">
+      <DependentUpon>FrmAgregarCheque.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmRealizarCobro.cs">
       <SubType>Form</SubType>
@@ -291,11 +309,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CRReporteChequesNoCobrados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteChequesNoCobrados.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarChequesNoCobrados.resx">
+      <DependentUpon>FrmBuscarChequesNoCobrados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarYSeleccionarNombreProveedor.resx">
       <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCancelarChequeCapturado.resx">
+      <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal3.resx">
       <DependentUpon>FrmPrincipal3.cs</DependentUpon>
@@ -339,8 +367,8 @@
     <EmbeddedResource Include="FrmCancelarFolioReciboDePago.resx">
       <DependentUpon>FrmCancelarFolioReciboDePago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInfoCheque.resx">
-      <DependentUpon>FrmInfoCheque.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAgregarCheque.resx">
+      <DependentUpon>FrmAgregarCheque.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ventanasNoUsadas\FrmPrincipal2.resx">
       <DependentUpon>FrmPrincipal2.cs</DependentUpon>
