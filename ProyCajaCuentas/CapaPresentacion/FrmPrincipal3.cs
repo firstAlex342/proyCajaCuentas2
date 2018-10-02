@@ -188,7 +188,16 @@ namespace CapaPresentacion
             {  /*Permanece habilitada la opcion modificar gastos */}
             else { metroTile14.Enabled = false; }
 
+            respuesta = EsActivoModuloController(15) ? true : false;
+            if(respuesta)
+            { /*Permanece habilitada la opcion cancelar cheque capturado*/   }
+            else { metroTile10.Enabled = false; }
 
+
+            respuesta = EsActivoModuloController(16) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion cheques no cobrados en el periodo*/ }
+            else { metroTile12.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -287,6 +296,11 @@ namespace CapaPresentacion
                     AbrirFormulario(new FrmProducto());
                 }
             }
+        }
+
+        private void metroTile12_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmVisorReporteChequesNoCobrados());
         }
 
         private void FrmPrincipal3_Load(object sender, EventArgs e)

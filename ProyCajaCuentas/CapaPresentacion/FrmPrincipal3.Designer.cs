@@ -131,14 +131,15 @@
             this.metroTile12.ActiveControl = null;
             this.metroTile12.Location = new System.Drawing.Point(24, 954);
             this.metroTile12.Name = "metroTile12";
-            this.metroTile12.Size = new System.Drawing.Size(216, 97);
+            this.metroTile12.Size = new System.Drawing.Size(236, 97);
             this.metroTile12.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTile12.TabIndex = 15;
-            this.metroTile12.Text = "Cheques pendientes de cobro";
+            this.metroTile12.Text = "Cheques no cobrados en el periodo";
             this.metroTile12.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile12.TileImage")));
             this.metroTile12.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile12.UseSelectable = true;
             this.metroTile12.UseTileImage = true;
+            this.metroTile12.Click += new System.EventHandler(this.metroTile12_Click);
             // 
             // metroTile11
             // 

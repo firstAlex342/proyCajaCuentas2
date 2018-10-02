@@ -85,11 +85,11 @@
     <Compile Include="FrmCancelarChequeCapturado.Designer.cs">
       <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBuscarChequesNoCobrados.cs">
+    <Compile Include="FrmVisorReporteChequesNoCobrados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBuscarChequesNoCobrados.Designer.cs">
-      <DependentUpon>FrmBuscarChequesNoCobrados.cs</DependentUpon>
+    <Compile Include="FrmVisorReporteChequesNoCobrados.Designer.cs">
+      <DependentUpon>FrmVisorReporteChequesNoCobrados.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrincipal3.cs">
       <SubType>Form</SubType>
@@ -316,8 +316,8 @@
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBuscarChequesNoCobrados.resx">
-      <DependentUpon>FrmBuscarChequesNoCobrados.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisorReporteChequesNoCobrados.resx">
+      <DependentUpon>FrmVisorReporteChequesNoCobrados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarYSeleccionarNombreProveedor.resx">
       <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
