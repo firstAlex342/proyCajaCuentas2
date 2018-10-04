@@ -203,6 +203,11 @@ namespace CapaPresentacion
             if (respuesta)
             {  /*Permance habilitada la opcion cheques cobrados en el periodo*/ }
             else { metroTile13.Enabled = false; }
+
+            respuesta = EsActivoModuloController(18) ? true : false;
+            if (respuesta)
+            {   /*Permanece habilitada la opcion cheques capturados en el periodo*/  }
+            else { metroTile15.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -309,15 +314,22 @@ namespace CapaPresentacion
         }
 
 
-
         private void metroTile13_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmVisorReporteChequesCobrados());
+        }
+
+        private void metroTile15_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmVisorReporteChequesCapturados());
         }
 
         private void FrmPrincipal3_Load(object sender, EventArgs e)
         {
 
         }
+
+
+
     }
 }

@@ -128,6 +128,15 @@ namespace CapaPresentacion
                 return false;
         }
 
+        private bool EsPositivo(string numero)
+        {
+            decimal valorReal = 0.0m;
+            valorReal = Decimal.Parse(numero);
+
+            bool res = valorReal >= 0 ? true : false;
+            return (res);
+        }
+
         //------------------Events
 
 
@@ -143,7 +152,7 @@ namespace CapaPresentacion
                 decimal importeDecimal;
                 bool importeEstaEnFormatoValido = Decimal.TryParse(textBox6.Text, out importeDecimal);
 
-                if(importeEstaEnFormatoValido)
+                if(importeEstaEnFormatoValido && EsPositivo(textBox6.Text) )
                 {
                     if (ExisteFacturaEnGrid(textBox7.Text))
                     {
@@ -196,7 +205,7 @@ namespace CapaPresentacion
                             decimal cantidadDecimal;
                             bool cantidadEstaEnFormatoValido = Decimal.TryParse(textBox3.Text, out cantidadDecimal);
 
-                            if(cantidadEstaEnFormatoValido)
+                            if(cantidadEstaEnFormatoValido && EsPositivo(textBox3.Text) )
                             {
                                 DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
 

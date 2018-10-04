@@ -53,6 +53,7 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile15 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroTile15);
             this.metroPanel1.Controls.Add(this.metroTile14);
             this.metroPanel1.Controls.Add(this.metroTile13);
             this.metroPanel1.Controls.Add(this.metroTile12);
@@ -88,7 +90,7 @@
             this.metroPanel1.Location = new System.Drawing.Point(16, 141);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(297, 432);
-            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Yellow;
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbar = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
@@ -426,6 +428,21 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // metroTile15
+            // 
+            this.metroTile15.ActiveControl = null;
+            this.metroTile15.Location = new System.Drawing.Point(24, 1176);
+            this.metroTile15.Name = "metroTile15";
+            this.metroTile15.Size = new System.Drawing.Size(236, 97);
+            this.metroTile15.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroTile15.TabIndex = 18;
+            this.metroTile15.Text = "Cheques capturados en periodo";
+            this.metroTile15.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile15.TileImage")));
+            this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile15.UseSelectable = true;
+            this.metroTile15.UseTileImage = true;
+            this.metroTile15.Click += new System.EventHandler(this.metroTile15_Click);
+            // 
             // FrmPrincipal3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,5 +488,6 @@
         private MetroFramework.Controls.MetroTile metroTile13;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTile metroTile14;
+        private MetroFramework.Controls.MetroTile metroTile15;
     }
 }

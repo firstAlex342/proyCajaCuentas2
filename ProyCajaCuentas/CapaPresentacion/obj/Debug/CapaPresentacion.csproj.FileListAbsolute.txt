@@ -73,3 +73,4 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteChequesCobrados.resources
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteChequesCapturados.resources
