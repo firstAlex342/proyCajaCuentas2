@@ -52,7 +52,7 @@ namespace CapaPresentacion
                 crReporte.SetParameterValue("@fechaInicio", fechaInicio);
                 crReporte.SetParameterValue("@fechaFin", fechaFin);
 
-                TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text11"] as TextObject;
+                TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text12"] as TextObject;
                 periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
                 crystalReportViewer1.ReportSource = crReporte;
 
