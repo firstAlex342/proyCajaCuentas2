@@ -62,7 +62,7 @@ namespace CapaPresentacion
             this.dataGridView1.Columns[5].Visible = false;
 
             dataGridView1.Columns[4].HeaderText = "Fecha alta";
-            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 

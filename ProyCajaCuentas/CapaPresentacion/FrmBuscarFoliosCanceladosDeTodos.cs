@@ -85,7 +85,7 @@ namespace CapaPresentacion
             dataGridView1.Columns[4].HeaderText = "Fecha alta";
 
             dataGridView1.Columns[5].HeaderText = "Fecha cancelación";
-            dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void MostrarProductosDeMovEnGrid(DataTable detallesMovimientoTabla)
