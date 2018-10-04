@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmVisorReporteChequesNoCobrados
+    partial class FrmVisorReporteChequesCobrados
     {
         /// <summary>
         /// Required designer variable.
@@ -51,13 +51,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.crystalReportViewer1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(15, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(849, 426);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -71,7 +71,7 @@
             this.groupBox1.Size = new System.Drawing.Size(843, 100);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar cheques capturados y no cobrados";
+            this.groupBox1.Text = "Buscar cheques  capturados y cobrados";
             // 
             // tableLayoutPanel2
             // 
@@ -162,15 +162,14 @@
             this.crystalReportViewer1.Size = new System.Drawing.Size(843, 314);
             this.crystalReportViewer1.TabIndex = 3;
             // 
-            // FrmVisorReporteChequesNoCobrados
+            // FrmVisorReporteChequesCobrados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FrmVisorReporteChequesNoCobrados";
-            this.Text = "FrmVisorReporteChequesNoCobrados";
-            this.Load += new System.EventHandler(this.FrmBuscarChequesCobrados_Load);
+            this.Name = "FrmVisorReporteChequesCobrados";
+            this.Text = "FrmVisorReporteChequesCobrados";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

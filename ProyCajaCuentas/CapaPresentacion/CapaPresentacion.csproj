@@ -67,6 +67,12 @@
       <DependentUpon>CRReporteChequesNoCobrados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteChequesCobrados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteChequesCobrados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,12 @@
     </Compile>
     <Compile Include="FrmCancelarChequeCapturado.Designer.cs">
       <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVisorReporteChequesCobrados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVisorReporteChequesCobrados.Designer.cs">
+      <DependentUpon>FrmVisorReporteChequesCobrados.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVisorReporteChequesNoCobrados.cs">
       <SubType>Form</SubType>
@@ -313,8 +325,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesNoCobrados.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteChequesCobrados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteChequesCobrados.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVisorReporteChequesCobrados.resx">
+      <DependentUpon>FrmVisorReporteChequesCobrados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteChequesNoCobrados.resx">
       <DependentUpon>FrmVisorReporteChequesNoCobrados.cs</DependentUpon>

@@ -116,10 +116,10 @@
             this.metroTile13.ActiveControl = null;
             this.metroTile13.Location = new System.Drawing.Point(24, 1065);
             this.metroTile13.Name = "metroTile13";
-            this.metroTile13.Size = new System.Drawing.Size(275, 97);
+            this.metroTile13.Size = new System.Drawing.Size(236, 97);
             this.metroTile13.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile13.TabIndex = 16;
-            this.metroTile13.Text = "Cheques cobrados de periodos anteriores";
+            this.metroTile13.Text = "Cheques cobrados en periodo";
             this.metroTile13.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile13.TileImage")));
             this.metroTile13.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile13.UseSelectable = true;
