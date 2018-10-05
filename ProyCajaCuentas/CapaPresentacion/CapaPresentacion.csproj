@@ -97,6 +97,18 @@
     <Compile Include="FrmCancelarChequeCapturado.Designer.cs">
       <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCrearTarifaAProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCrearTarifaAProducto.Designer.cs">
+      <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductoCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductoCrear.Designer.cs">
+      <DependentUpon>FrmProductoCrear.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisorReporteChequesCobrados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,12 +217,6 @@
     <Compile Include="ventanasNoUsadas\FrmPrincipal2.Designer.cs">
       <DependentUpon>FrmPrincipal2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmProductoCrearTarifas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProductoCrearTarifas.Designer.cs">
-      <DependentUpon>FrmProductoCrearTarifas.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmInicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,24 +246,6 @@
     </Compile>
     <Compile Include="ventanasNoUsadas\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProducto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProducto.Designer.cs">
-      <DependentUpon>FrmProducto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProductoCrear.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProductoCrear.Designer.cs">
-      <DependentUpon>FrmProductoCrear.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmProductoEditarTarifas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmProductoEditarTarifas.Designer.cs">
-      <DependentUpon>FrmProductoEditarTarifas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductosAPagar.cs">
       <SubType>Form</SubType>
@@ -348,6 +336,12 @@
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCrearTarifaAProducto.resx">
+      <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductoCrear.resx">
+      <DependentUpon>FrmProductoCrear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteChequesCapturados.resx">
       <DependentUpon>FrmVisorReporteChequesCapturados.cs</DependentUpon>
     </EmbeddedResource>
@@ -411,9 +405,6 @@
     <EmbeddedResource Include="ventanasNoUsadas\FrmPrincipal2.resx">
       <DependentUpon>FrmPrincipal2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductoCrearTarifas.resx">
-      <DependentUpon>FrmProductoCrearTarifas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmInicioSesion.resx">
       <DependentUpon>FrmInicioSesion.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,15 +419,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ventanasNoUsadas\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProducto.resx">
-      <DependentUpon>FrmProducto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductoCrear.resx">
-      <DependentUpon>FrmProductoCrear.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmProductoEditarTarifas.resx">
-      <DependentUpon>FrmProductoEditarTarifas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductosAPagar.resx">
       <DependentUpon>FrmProductosAPagar.cs</DependentUpon>

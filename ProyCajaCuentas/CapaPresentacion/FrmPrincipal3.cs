@@ -60,7 +60,9 @@ namespace CapaPresentacion
         private void CargarMetroComBoBox()
         {
             metroComboBox1.Items.Add("Mas opciones");
-            metroComboBox1.Items.Add("Productos y tarifas");
+            metroComboBox1.Items.Add("Crear producto");
+            metroComboBox1.Items.Add("Crear tarifas de producto");
+            metroComboBox1.Items.Add("Editar tarifas de producto");
             metroComboBox1.Items.Add("Agregar usuario");
             metroComboBox1.Items.Add("Modificar usuario");
             metroComboBox1.Items.Add("Privilegios de usuario");           
@@ -94,9 +96,9 @@ namespace CapaPresentacion
                 privilegios de usuario*/ }
             else
             {
-                metroComboBox1.Items.RemoveAt(4);
-                metroComboBox1.Items.RemoveAt(3);
-                metroComboBox1.Items.RemoveAt(2);
+                metroComboBox1.Items.Remove("Agregar usuario");
+                metroComboBox1.Items.Remove("Modificar usuario");
+                metroComboBox1.Items.Remove("Privilegios de usuario");
             }
 
 
@@ -105,13 +107,13 @@ namespace CapaPresentacion
             respuesta = EsActivoModuloController(5) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion Crear Producto del menu*/}
-            else { metroComboBox1.Items.RemoveAt(1); }
+            else { metroComboBox1.Items.Remove("Crear producto"); }
 
-            //Habilitar / deshabilitar la opcion Añadir Tarifa a Producto, del menu
-            //respuesta = EsActivoModuloController(6) ? true : false;
-            //if (respuesta)
-            //{ /*Permanece habilitada la opcion Añadir Tarifa a Producto, del menu*/}
-            //else { metroTile8.Enabled = false; }
+            //Habilitar / deshabilitar la opcion crear tarifas de Producto, del menu
+            respuesta = EsActivoModuloController(6) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion crear tarifas de Producto, del menu*/}
+            else { metroComboBox1.Items.Remove("Crear tarifas de producto"); }
 
             ////Habilitar / deshabilitar la opcion  Modificar tarifas de producto
             //respuesta = EsActivoModuloController(7) ? true : false;
@@ -284,27 +286,35 @@ namespace CapaPresentacion
         {
             if(metroComboBox1.SelectedIndex > 0 )
             {
-
-
-                if(metroComboBox1.SelectedIndex == 2)
+                if(metroComboBox1.SelectedItem.ToString() == "Crear producto")
                 {
-                    AbrirFormulario(new FrmAgregarUsuario());
+                    AbrirFormulario(new FrmProductoCrear());
                 }
 
-                else if(metroComboBox1.SelectedIndex == 3)
+                else if(metroComboBox1.SelectedItem.ToString() == "Crear tarifas de producto")
                 {
-                    AbrirFormulario(new FrmUsuarioModificar());
+                    AbrirFormulario(new FrmCrearTarifaAProducto());
                 }
 
-                else if(metroComboBox1.SelectedIndex == 4)
-                {
-                    AbrirFormulario(new FrmAsignarPrivilegios());
-                }
+                //if(metroComboBox1.SelectedIndex == 2)
+                //{
+                //    AbrirFormulario(new FrmAgregarUsuario());
+                //}
 
-                else if(metroComboBox1.SelectedIndex == 1)
-                {
-                    AbrirFormulario(new FrmProducto());
-                }
+                //else if(metroComboBox1.SelectedIndex == 3)
+                //{
+                //    AbrirFormulario(new FrmUsuarioModificar());
+                //}
+
+                //else if(metroComboBox1.SelectedIndex == 4)
+                //{
+                //    AbrirFormulario(new FrmAsignarPrivilegios());
+                //}
+
+                
+                
+                    
+                
             }
         }
 

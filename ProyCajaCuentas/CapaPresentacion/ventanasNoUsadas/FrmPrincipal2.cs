@@ -97,23 +97,23 @@ namespace CapaPresentacion
 
         private void metroTile6_Click(object sender, EventArgs e)
         {
-            FrmProductoCrear c = new FrmProductoCrear();
-            c.ShowDialog(this);
-            c.Dispose();
+            //FrmProductoCrear c = new FrmProductoCrear();
+            //c.ShowDialog(this);
+            //c.Dispose();
         }
 
         private void metroTile7_Click(object sender, EventArgs e)
         {
-            FrmProductoEditarTarifas c = new FrmProductoEditarTarifas();
-            c.ShowDialog(this);
-            c.Dispose();
+            //FrmProductoEditarTarifas c = new FrmProductoEditarTarifas();
+            //c.ShowDialog(this);
+            //c.Dispose();
         }
 
         private void metroTile8_Click(object sender, EventArgs e)
         {
-            FrmProductoCrearTarifas c = new FrmProductoCrearTarifas();
-            c.ShowDialog(this);
-            c.Dispose();
+            //FrmProductoCrearTarifas c = new FrmProductoCrearTarifas();
+            //c.ShowDialog(this);
+            //c.Dispose();
         }
 
         private void metroTile10_Click(object sender, EventArgs e)

@@ -47,19 +47,24 @@ namespace CapaLogicaNegocios
             return CLSManejador.Listado("Producto_Select_Id_Nombre_DeTodos", lst);
         }
 
-        public DataTable Producto_create()
+        public string Producto_create()
         {
-            
+            string mensaje = "";
             List<ClsParametros> lst = new List<ClsParametros>();
 
+            //Parametros de entrada
             lst.Add(new ClsParametros("@Nombre", this.Nombre));
             lst.Add(new ClsParametros("@Descripcion", this.Descripcion));
             lst.Add(new ClsParametros("@IdUsuarioOperador", this.IdUsuarioAlta));
 
-            //el sp regresa una fila con una unica columna.
-            DataTable respuesta = CLSManejador.Listado("Producto_create", lst);
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Producto_create", lst);
 
-            return (respuesta);
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[3].Valor.ToString();
+
+            return (mensaje);
         }
 
         public DataTable Producto_BuscarXId()

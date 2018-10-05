@@ -266,24 +266,24 @@ namespace CapaPresentacion
 
         private void metroTile6_Click(object sender, EventArgs e)
         {
-            FrmProducto c = new FrmProducto();
-            c.ShowDialog(this);
-            c.Dispose();
+            //FrmProducto c = new FrmProducto();
+            //c.ShowDialog(this);
+            //c.Dispose();
 
         }
 
         private void metroTile7_Click(object sender, EventArgs e)
         {
-            FrmProductoEditarTarifas c = new FrmProductoEditarTarifas();
-            c.ShowDialog(this);
-            c.Dispose();
+            //FrmProductoEditarTarifas c = new FrmProductoEditarTarifas();
+            //c.ShowDialog(this);
+            //c.Dispose();
         }
 
         private void metroTile8_Click(object sender, EventArgs e)
         {
-            FrmProductoCrearTarifas c = new FrmProductoCrearTarifas();
-            c.ShowDialog(this);
-            c.Dispose();
+            //FrmProductoCrearTarifas c = new FrmProductoCrearTarifas();
+            //c.ShowDialog(this);
+            //c.Dispose();
         }
 
         private async void metroTile14_Click(object sender, EventArgs e)

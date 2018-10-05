@@ -50,7 +50,7 @@ namespace CapaPresentacion
 
         private void editarProductoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmProducto());
+            //AbrirFormulario(new FrmProducto());
         }
 
         private void nuevoPagoToolStripMenuItem_Click(object sender, EventArgs e)
