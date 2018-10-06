@@ -33,7 +33,7 @@ namespace CapaLogicaNegocios
             this.Activo = true;
 
             this.CLSManejador = new ClsManejador();
-    }
+        }
 
         //----------Methods
         public DataTable ProductoPosee_innerjoin_Tarifas()
@@ -70,6 +70,25 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@parametroNoNecesario", false));
 
             return CLSManejador.Listado("ProductoPosee_innerjoin_Tarifas_DeTodos", lst);
+        }
+
+        public string ProductoPosee_Tarifa_updateActivoACero ()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@idProductoBuscado", this.IdProducto));
+            lst.Add(new ClsParametros("@idTarifaBuscada", this.IdTarifa));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("ProductoPosee_Tarifa_updateActivoACero", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[3].Valor.ToString();
+
+            return (mensaje);
         }
     }
 }

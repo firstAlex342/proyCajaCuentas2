@@ -115,11 +115,11 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opcion crear tarifas de Producto, del menu*/}
             else { metroComboBox1.Items.Remove("Crear tarifas de producto"); }
 
-            ////Habilitar / deshabilitar la opcion  Modificar tarifas de producto
-            //respuesta = EsActivoModuloController(7) ? true : false;
-            //if (respuesta)
-            //{ /*Permanece habilitada la opcion Modificar tarifas a Producto, del menu*/}
-            //else { metroTile7.Enabled = false; }
+            //Habilitar / deshabilitar la opcion  Modificar tarifas de producto
+            respuesta = EsActivoModuloController(7) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion Modificar tarifas a Producto, del menu*/}
+            else { metroComboBox1.Items.Remove("Editar tarifas de producto"); }
 
 
             //Habilitar / deshabilitar la opcion agregar socio del menu
@@ -294,6 +294,11 @@ namespace CapaPresentacion
                 else if(metroComboBox1.SelectedItem.ToString() == "Crear tarifas de producto")
                 {
                     AbrirFormulario(new FrmCrearTarifaAProducto());
+                }
+
+                else if(metroComboBox1.SelectedItem.ToString() == "Editar tarifas de producto")
+                {
+                    AbrirFormulario(new FrmEditarTarifasDeProducto());
                 }
 
                 //if(metroComboBox1.SelectedIndex == 2)

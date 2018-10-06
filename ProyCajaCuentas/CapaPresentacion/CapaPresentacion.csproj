@@ -103,6 +103,12 @@
     <Compile Include="FrmCrearTarifaAProducto.Designer.cs">
       <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEditarTarifasDeProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarTarifasDeProducto.Designer.cs">
+      <DependentUpon>FrmEditarTarifasDeProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProductoCrear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearTarifaAProducto.resx">
       <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarTarifasDeProducto.resx">
+      <DependentUpon>FrmEditarTarifasDeProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductoCrear.resx">
       <DependentUpon>FrmProductoCrear.cs</DependentUpon>
