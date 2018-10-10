@@ -210,6 +210,17 @@ namespace CapaPresentacion
             if (respuesta)
             {   /*Permanece habilitada la opcion cheques capturados en el periodo*/  }
             else { metroTile15.Enabled = false; }
+
+
+            respuesta = EsActivoModuloController(19) ? true : false;
+            if (respuesta)
+            {   /*Permanece habilitada la opcion insertar proveedor*/  }
+            else { metroTile9.Enabled = false; }
+
+            respuesta = EsActivoModuloController(20) ? true : false;
+            if (respuesta)
+            {   /*Permanece habilitada la opcion actualizar proveedor*/  }
+            else { metroTile16.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -344,7 +355,14 @@ namespace CapaPresentacion
 
         }
 
+        private void metroTile9_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProveedorAgregar());
+        }
 
-
+        private void metroTile16_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProveedorActualizar());
+        }
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile15 = new MetroFramework.Controls.MetroTile();
             this.metroTile14 = new MetroFramework.Controls.MetroTile();
             this.metroTile13 = new MetroFramework.Controls.MetroTile();
             this.metroTile12 = new MetroFramework.Controls.MetroTile();
@@ -53,7 +54,8 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile15 = new MetroFramework.Controls.MetroTile();
+            this.metroTile16 = new MetroFramework.Controls.MetroTile();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +66,8 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroLabel6);
+            this.metroPanel1.Controls.Add(this.metroTile16);
             this.metroPanel1.Controls.Add(this.metroTile15);
             this.metroPanel1.Controls.Add(this.metroTile14);
             this.metroPanel1.Controls.Add(this.metroTile13);
@@ -98,10 +102,25 @@
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
             // 
+            // metroTile15
+            // 
+            this.metroTile15.ActiveControl = null;
+            this.metroTile15.Location = new System.Drawing.Point(24, 1178);
+            this.metroTile15.Name = "metroTile15";
+            this.metroTile15.Size = new System.Drawing.Size(236, 97);
+            this.metroTile15.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroTile15.TabIndex = 18;
+            this.metroTile15.Text = "Cheques capturados en periodo";
+            this.metroTile15.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile15.TileImage")));
+            this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile15.UseSelectable = true;
+            this.metroTile15.UseTileImage = true;
+            this.metroTile15.Click += new System.EventHandler(this.metroTile15_Click);
+            // 
             // metroTile14
             // 
             this.metroTile14.ActiveControl = null;
-            this.metroTile14.Location = new System.Drawing.Point(169, 843);
+            this.metroTile14.Location = new System.Drawing.Point(154, 732);
             this.metroTile14.Name = "metroTile14";
             this.metroTile14.Size = new System.Drawing.Size(136, 97);
             this.metroTile14.Style = MetroFramework.MetroColorStyle.Lime;
@@ -116,7 +135,7 @@
             // metroTile13
             // 
             this.metroTile13.ActiveControl = null;
-            this.metroTile13.Location = new System.Drawing.Point(24, 1065);
+            this.metroTile13.Location = new System.Drawing.Point(24, 1067);
             this.metroTile13.Name = "metroTile13";
             this.metroTile13.Size = new System.Drawing.Size(236, 97);
             this.metroTile13.Style = MetroFramework.MetroColorStyle.Green;
@@ -131,7 +150,7 @@
             // metroTile12
             // 
             this.metroTile12.ActiveControl = null;
-            this.metroTile12.Location = new System.Drawing.Point(24, 954);
+            this.metroTile12.Location = new System.Drawing.Point(24, 956);
             this.metroTile12.Name = "metroTile12";
             this.metroTile12.Size = new System.Drawing.Size(236, 97);
             this.metroTile12.Style = MetroFramework.MetroColorStyle.Teal;
@@ -146,9 +165,9 @@
             // metroTile11
             // 
             this.metroTile11.ActiveControl = null;
-            this.metroTile11.Location = new System.Drawing.Point(24, 843);
+            this.metroTile11.Location = new System.Drawing.Point(24, 732);
             this.metroTile11.Name = "metroTile11";
-            this.metroTile11.Size = new System.Drawing.Size(136, 97);
+            this.metroTile11.Size = new System.Drawing.Size(121, 97);
             this.metroTile11.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile11.TabIndex = 14;
             this.metroTile11.Text = "Gastos";
@@ -161,9 +180,9 @@
             // metroTile10
             // 
             this.metroTile10.ActiveControl = null;
-            this.metroTile10.Location = new System.Drawing.Point(169, 732);
+            this.metroTile10.Location = new System.Drawing.Point(24, 844);
             this.metroTile10.Name = "metroTile10";
-            this.metroTile10.Size = new System.Drawing.Size(146, 97);
+            this.metroTile10.Size = new System.Drawing.Size(121, 97);
             this.metroTile10.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile10.TabIndex = 13;
             this.metroTile10.Text = "Cancelar cheque ";
@@ -176,16 +195,17 @@
             // metroTile9
             // 
             this.metroTile9.ActiveControl = null;
-            this.metroTile9.Location = new System.Drawing.Point(24, 732);
+            this.metroTile9.Location = new System.Drawing.Point(24, 1347);
             this.metroTile9.Name = "metroTile9";
-            this.metroTile9.Size = new System.Drawing.Size(136, 97);
+            this.metroTile9.Size = new System.Drawing.Size(121, 97);
             this.metroTile9.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroTile9.TabIndex = 12;
-            this.metroTile9.Text = "Alta de proveedor";
+            this.metroTile9.Text = "Nuevo";
             this.metroTile9.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile9.TileImage")));
             this.metroTile9.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile9.UseSelectable = true;
             this.metroTile9.UseTileImage = true;
+            this.metroTile9.Click += new System.EventHandler(this.metroTile9_Click);
             // 
             // metroLabel4
             // 
@@ -428,20 +448,31 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
-            // metroTile15
+            // metroTile16
             // 
-            this.metroTile15.ActiveControl = null;
-            this.metroTile15.Location = new System.Drawing.Point(24, 1176);
-            this.metroTile15.Name = "metroTile15";
-            this.metroTile15.Size = new System.Drawing.Size(236, 97);
-            this.metroTile15.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroTile15.TabIndex = 18;
-            this.metroTile15.Text = "Cheques capturados en periodo";
-            this.metroTile15.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile15.TileImage")));
-            this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile15.UseSelectable = true;
-            this.metroTile15.UseTileImage = true;
-            this.metroTile15.Click += new System.EventHandler(this.metroTile15_Click);
+            this.metroTile16.ActiveControl = null;
+            this.metroTile16.Location = new System.Drawing.Point(154, 1347);
+            this.metroTile16.Name = "metroTile16";
+            this.metroTile16.Size = new System.Drawing.Size(121, 97);
+            this.metroTile16.Style = MetroFramework.MetroColorStyle.Silver;
+            this.metroTile16.TabIndex = 19;
+            this.metroTile16.Text = "Modificar";
+            this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
+            this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile16.UseSelectable = true;
+            this.metroTile16.UseTileImage = true;
+            this.metroTile16.Click += new System.EventHandler(this.metroTile16_Click);
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.Location = new System.Drawing.Point(7, 1316);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(94, 25);
+            this.metroLabel6.TabIndex = 20;
+            this.metroLabel6.Text = "Proveedor";
             // 
             // FrmPrincipal3
             // 
@@ -489,5 +520,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTile metroTile14;
         private MetroFramework.Controls.MetroTile metroTile15;
+        private MetroFramework.Controls.MetroTile metroTile16;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
     }
 }

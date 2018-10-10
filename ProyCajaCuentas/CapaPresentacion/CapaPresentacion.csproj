@@ -115,6 +115,12 @@
     <Compile Include="FrmProductoCrear.Designer.cs">
       <DependentUpon>FrmProductoCrear.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProveedorAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedorAgregar.Designer.cs">
+      <DependentUpon>FrmProveedorAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisorReporteChequesCobrados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,12 @@
     </Compile>
     <Compile Include="FrmBuscarPagoProducto.Designer.cs">
       <DependentUpon>FrmBuscarPagoProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProveedorActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedorActualizar.Designer.cs">
+      <DependentUpon>FrmProveedorActualizar.cs</DependentUpon>
     </Compile>
     <Compile Include="ventanasNoUsadas\FrmPrincipal2.cs">
       <SubType>Form</SubType>
@@ -350,6 +362,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductoCrear.resx">
       <DependentUpon>FrmProductoCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedorActualizar.resx">
+      <DependentUpon>FrmProveedorActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedorAgregar.resx">
+      <DependentUpon>FrmProveedorAgregar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteChequesCapturados.resx">
       <DependentUpon>FrmVisorReporteChequesCapturados.cs</DependentUpon>

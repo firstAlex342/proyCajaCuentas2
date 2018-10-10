@@ -68,5 +68,69 @@ namespace CapaLogicaNegocios
             return (CLSManejador.Listado("Proveedor_BuscarXNombreYQueEstenActivos", lst));
         }
 
+        public string Proveedor_create()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@nombre", this.Nombre));
+            lst.Add(new ClsParametros("@direccionSupmza", this.DireccionSupmza));
+            lst.Add(new ClsParametros("@direccionManzana", this.DireccionManzana));
+            lst.Add(new ClsParametros("@direccionLote", this.DireccionLote));
+            lst.Add(new ClsParametros("@direccionCalle", this.DireccionCalle));
+            lst.Add(new ClsParametros("@direccionComplemento", this.DireccionComplemento));
+            lst.Add(new ClsParametros("@telefono", this.Telefono));
+            lst.Add(new ClsParametros("@celular", this.Celular));
+            lst.Add(new ClsParametros("@correolectronico", this.CorreoElectronico));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+
+            CLSManejador.Ejecutar_sp("Proveedor_create", lst);
+
+            ////Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[10].Valor.ToString();
+
+            return (mensaje);
+        }
+
+        public DataTable Proveedor_BuscarPrimerProveedorConNombreActivo()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@nombreProveedor", this.Nombre));
+
+            return (CLSManejador.Listado("Proveedor_BuscarPrimerProveedorConNombreActivo", lst));
+        }
+
+        public string Proveedor_update()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@idProveedorAActualizar", this.Id));
+            lst.Add(new ClsParametros("@nombre", this.Nombre));
+            lst.Add(new ClsParametros("@direccionSupmza", this.DireccionSupmza));
+            lst.Add(new ClsParametros("@direccionManzana", this.DireccionManzana));
+            lst.Add(new ClsParametros("@direccionLote", this.DireccionLote));
+            lst.Add(new ClsParametros("@direccionCalle", this.DireccionCalle));
+            lst.Add(new ClsParametros("@direccionComplemento", this.DireccionComplemento));
+            lst.Add(new ClsParametros("@telefono", this.Telefono));
+            lst.Add(new ClsParametros("@celular", this.Celular));
+            lst.Add(new ClsParametros("@correolectronico", this.CorreoElectronico));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
+
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+
+            CLSManejador.Ejecutar_sp("Proveedor_update", lst);
+
+            ////Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[11].Valor.ToString();
+            return (mensaje);
+        }
     }
 }
