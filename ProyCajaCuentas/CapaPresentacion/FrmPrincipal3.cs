@@ -221,6 +221,11 @@ namespace CapaPresentacion
             if (respuesta)
             {   /*Permanece habilitada la opcion actualizar proveedor*/  }
             else { metroTile16.Enabled = false; }
+
+            respuesta = EsActivoModuloController(21) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion eliminar proveedor*/ }
+            else { metroTile17.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -363,6 +368,11 @@ namespace CapaPresentacion
         private void metroTile16_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmProveedorActualizar());
+        }
+
+        private void metroTile17_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProveedorEliminar());
         }
     }
 }

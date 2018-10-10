@@ -128,8 +128,28 @@ namespace CapaLogicaNegocios
 
             CLSManejador.Ejecutar_sp("Proveedor_update", lst);
 
-            ////Regresar el valor almacenado en el parametro de salida
+            //Regresar el valor almacenado en el parametro de salida
             mensaje = lst[11].Valor.ToString();
+            return (mensaje);
+        }
+
+        public string Proveedor_updateActivoACero()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@idProveedorAActualizar", this.Id));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+
+            CLSManejador.Ejecutar_sp("Proveedor_updateActivoACero", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[2].Valor.ToString();
+
             return (mensaje);
         }
     }
