@@ -68,6 +68,7 @@ namespace CapaPresentacion
             dataGridView1.Columns.Add("Celular", "Celular");
             dataGridView1.Columns.Add("CorreoElectronico", "Correo electrónico");
 
+            dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[1].ReadOnly = true;
             dataGridView1.Columns[2].ReadOnly = true;
             dataGridView1.Columns[3].ReadOnly = true;

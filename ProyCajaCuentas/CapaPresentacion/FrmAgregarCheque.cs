@@ -290,5 +290,16 @@ namespace CapaPresentacion
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
+            frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
+
+            textBox2.Text = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
+
+            frmBuscarYSeleccionarNombreProveedor.Dispose();
+
+        }
     }
 }
