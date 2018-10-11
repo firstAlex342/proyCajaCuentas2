@@ -137,6 +137,18 @@ namespace CapaPresentacion
             return (res);
         }
 
+
+        private decimal SumarContenidoEnGrid()
+        {
+            IEnumerable<DataGridViewRow> filasGrid = dataGridView1.Rows.Cast<DataGridViewRow>();
+           
+            var x = ( from s in filasGrid
+                    select (Decimal.Parse(s.Cells[3].EditedFormattedValue.ToString()))
+                    ).ToList();
+
+            return (x.Sum());
+        }
+
         //------------------Events
 
 
@@ -168,6 +180,7 @@ namespace CapaPresentacion
                         dataGridView1.Rows[n].Cells[4].Value = textBox7.Text;
 
                         LimpiarGroupBoxAniadirConceptos();
+                        textBox3.Text = (SumarContenidoEnGrid()).ToString();
                     }
                 }
 
@@ -288,6 +301,7 @@ namespace CapaPresentacion
                 e.RowIndex >= 0)
             {
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
+                textBox3.Text = (SumarContenidoEnGrid()).ToString();
             }
         }
 
