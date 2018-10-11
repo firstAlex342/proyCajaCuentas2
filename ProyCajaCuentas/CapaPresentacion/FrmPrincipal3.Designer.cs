@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile18 = new MetroFramework.Controls.MetroTile();
+            this.metroTile17 = new MetroFramework.Controls.MetroTile();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroTile16 = new MetroFramework.Controls.MetroTile();
             this.metroTile15 = new MetroFramework.Controls.MetroTile();
@@ -56,7 +58,6 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile17 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +68,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroTile18);
             this.metroPanel1.Controls.Add(this.metroTile17);
             this.metroPanel1.Controls.Add(this.metroLabel6);
             this.metroPanel1.Controls.Add(this.metroTile16);
@@ -103,6 +105,36 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
+            // 
+            // metroTile18
+            // 
+            this.metroTile18.ActiveControl = null;
+            this.metroTile18.Location = new System.Drawing.Point(154, 1455);
+            this.metroTile18.Name = "metroTile18";
+            this.metroTile18.Size = new System.Drawing.Size(121, 97);
+            this.metroTile18.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTile18.TabIndex = 22;
+            this.metroTile18.Text = "Ver todos";
+            this.metroTile18.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile18.TileImage")));
+            this.metroTile18.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile18.UseSelectable = true;
+            this.metroTile18.UseTileImage = true;
+            this.metroTile18.Click += new System.EventHandler(this.metroTile18_Click);
+            // 
+            // metroTile17
+            // 
+            this.metroTile17.ActiveControl = null;
+            this.metroTile17.Location = new System.Drawing.Point(24, 1455);
+            this.metroTile17.Name = "metroTile17";
+            this.metroTile17.Size = new System.Drawing.Size(121, 97);
+            this.metroTile17.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile17.TabIndex = 21;
+            this.metroTile17.Text = "Eliminar";
+            this.metroTile17.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile17.TileImage")));
+            this.metroTile17.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile17.UseSelectable = true;
+            this.metroTile17.UseTileImage = true;
+            this.metroTile17.Click += new System.EventHandler(this.metroTile17_Click);
             // 
             // metroLabel6
             // 
@@ -476,21 +508,6 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
-            // metroTile17
-            // 
-            this.metroTile17.ActiveControl = null;
-            this.metroTile17.Location = new System.Drawing.Point(24, 1455);
-            this.metroTile17.Name = "metroTile17";
-            this.metroTile17.Size = new System.Drawing.Size(121, 97);
-            this.metroTile17.Style = MetroFramework.MetroColorStyle.Lime;
-            this.metroTile17.TabIndex = 21;
-            this.metroTile17.Text = "Eliminar";
-            this.metroTile17.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile17.TileImage")));
-            this.metroTile17.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile17.UseSelectable = true;
-            this.metroTile17.UseTileImage = true;
-            this.metroTile17.Click += new System.EventHandler(this.metroTile17_Click);
-            // 
             // FrmPrincipal3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -540,5 +557,6 @@
         private MetroFramework.Controls.MetroTile metroTile16;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroTile metroTile17;
+        private MetroFramework.Controls.MetroTile metroTile18;
     }
 }

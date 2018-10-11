@@ -127,6 +127,12 @@
     <Compile Include="FrmProveedorEliminar.Designer.cs">
       <DependentUpon>FrmProveedorEliminar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProveedoresVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedoresVer.Designer.cs">
+      <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisorReporteChequesCobrados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -377,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedorEliminar.resx">
       <DependentUpon>FrmProveedorEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedoresVer.resx">
+      <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteChequesCapturados.resx">
       <DependentUpon>FrmVisorReporteChequesCapturados.cs</DependentUpon>
