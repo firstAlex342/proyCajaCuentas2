@@ -133,6 +133,18 @@
     <Compile Include="FrmProveedoresVer.Designer.cs">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUsuarioActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioActualizar.Designer.cs">
+      <DependentUpon>FrmUsuarioActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarioAgregar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarioAgregar.Designer.cs">
+      <DependentUpon>FrmUsuarioAgregar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmVisorReporteChequesCobrados.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,10 +223,10 @@
     <Compile Include="FrmRealizarCobro.Designer.cs">
       <DependentUpon>FrmRealizarCobro.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarUsuario.cs">
+    <Compile Include="ventanasNoUsadas\FrmAgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAgregarUsuario.Designer.cs">
+    <Compile Include="ventanasNoUsadas\FrmAgregarUsuario.Designer.cs">
       <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAportacionesAProductoEnCuenta.cs">
@@ -325,10 +337,10 @@
     <Compile Include="ventanasNoUsadas\FrmSocioModificar.Designer.cs">
       <DependentUpon>FrmSocioModificar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarioModificar.cs">
+    <Compile Include="ventanasNoUsadas\FrmUsuarioModificar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUsuarioModificar.Designer.cs">
+    <Compile Include="ventanasNoUsadas\FrmUsuarioModificar.Designer.cs">
       <DependentUpon>FrmUsuarioModificar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVisorReporte.cs">
@@ -387,6 +399,12 @@
     <EmbeddedResource Include="FrmProveedoresVer.resx">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarioActualizar.resx">
+      <DependentUpon>FrmUsuarioActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarioAgregar.resx">
+      <DependentUpon>FrmUsuarioAgregar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteChequesCapturados.resx">
       <DependentUpon>FrmVisorReporteChequesCapturados.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,7 +444,7 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarUsuario.resx">
+    <EmbeddedResource Include="ventanasNoUsadas\FrmAgregarUsuario.resx">
       <DependentUpon>FrmAgregarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAportacionesAProductoEnCuenta.resx">
@@ -492,7 +510,7 @@
     <EmbeddedResource Include="ventanasNoUsadas\FrmSocioModificar.resx">
       <DependentUpon>FrmSocioModificar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUsuarioModificar.resx">
+    <EmbeddedResource Include="ventanasNoUsadas\FrmUsuarioModificar.resx">
       <DependentUpon>FrmUsuarioModificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporte.resx">

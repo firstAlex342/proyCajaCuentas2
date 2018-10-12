@@ -322,25 +322,16 @@ namespace CapaPresentacion
                     AbrirFormulario(new FrmEditarTarifasDeProducto());
                 }
 
-                //if(metroComboBox1.SelectedIndex == 2)
-                //{
-                //    AbrirFormulario(new FrmAgregarUsuario());
-                //}
+                else if (metroComboBox1.SelectedItem.ToString() == "Agregar usuario")
+                {
+                    AbrirFormulario(new FrmUsuarioAgregar());
+                }
 
-                //else if(metroComboBox1.SelectedIndex == 3)
-                //{
-                //    AbrirFormulario(new FrmUsuarioModificar());
-                //}
+                else if (metroComboBox1.SelectedItem.ToString() == "Modificar usuario")
+                {
+                    AbrirFormulario(new FrmUsuarioActualizar());
+                }
 
-                //else if(metroComboBox1.SelectedIndex == 4)
-                //{
-                //    AbrirFormulario(new FrmAsignarPrivilegios());
-                //}
-
-                
-                
-                    
-                
             }
         }
 
