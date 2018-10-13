@@ -18,8 +18,8 @@ namespace CapaPresentacion
         public FrmAsignarPrivilegios()
         {
             InitializeComponent();
-            this.MinimumSize = this.Size;
-            this.MaximumSize = this.Size;
+            //this.MinimumSize = this.Size;
+            //this.MaximumSize = this.Size;
 
             DataTable tabla = RecuperarIdNombreUsuarioPassActivoDeTodosController();
             MostrarNombreUsuarioPassActivoDeTodos(tabla);

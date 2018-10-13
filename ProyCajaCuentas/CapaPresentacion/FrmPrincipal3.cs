@@ -332,6 +332,12 @@ namespace CapaPresentacion
                     AbrirFormulario(new FrmUsuarioActualizar());
                 }
 
+                else if (metroComboBox1.SelectedItem.ToString() == "Privilegios de usuario")
+                {
+                    AbrirFormulario(new FrmUsuarioAsignarPrivilegios());
+                }
+
+                metroComboBox1.SelectedIndex = 0;
             }
         }
 
