@@ -105,9 +105,6 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@newPassword", this.Password));
             lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
 
-
-
-
             //Parametro de salida
             lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
             CLSManejador.Ejecutar_sp("Usuario_update", lst);
@@ -116,6 +113,15 @@ namespace CapaLogicaNegocios
             mensaje = lst[5].Valor.ToString();
 
             return (mensaje);
+        }
+
+        public DataTable Usuario_SumarContenidosDeFolio()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("Usuario_SumarContenidosDeFolio", lst));
         }
     }
 }

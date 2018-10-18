@@ -44,6 +44,15 @@ namespace CapaPresentacion
         {
             dataGridView1.DataSource = tabla;
             dataGridView1.Columns[0].Visible = false;
+
+            dataGridView1.Columns[2].HeaderText = "Supermanzana";
+            dataGridView1.Columns[3].HeaderText = "Manzana";
+            dataGridView1.Columns[4].HeaderText = "Lote";
+            dataGridView1.Columns[5].HeaderText = "Calle";
+            dataGridView1.Columns[6].HeaderText = "Complemento";
+            dataGridView1.Columns[7].HeaderText = "Teléfono";
+            dataGridView1.Columns[8].HeaderText = "Celular";
+            dataGridView1.Columns[9].HeaderText = "Correo eléctronico";
         }
     }
 }

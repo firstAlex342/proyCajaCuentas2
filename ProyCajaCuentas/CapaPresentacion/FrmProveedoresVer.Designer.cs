@@ -68,7 +68,7 @@
             this.groupBox2.Size = new System.Drawing.Size(916, 511);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Provedores";
+            this.groupBox2.Text = "Proveedores";
             // 
             // tableLayoutPanel4
             // 
@@ -99,6 +99,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(877, 429);
             this.dataGridView1.TabIndex = 0;

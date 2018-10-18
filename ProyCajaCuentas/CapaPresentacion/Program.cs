@@ -19,7 +19,6 @@ namespace CapaPresentacion
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new FrmInicioSesion());   //con esta linea corr el programa en modo obscuro, este es el que estoy probando todo el tiempo
-            
 
             //Application.Run(new FrmPagoProducto3());  // con esta liena inicia viendose menu con color rojo
         }

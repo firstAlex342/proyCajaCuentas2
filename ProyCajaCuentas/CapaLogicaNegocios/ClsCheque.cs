@@ -68,5 +68,31 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public DataTable Cheque_RecuperarDetallesDeChequesCapturadosActivos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return CLSManejador.Listado("Cheque_RecuperarDetallesDeChequesCapturadosActivos", lst);
+        }
+
+        public DataTable Cheque_RecuperarDetallesDeChequesNoCobrados()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return CLSManejador.Listado("Cheque_RecuperarDetallesDeChequesNoCobrados", lst);
+        }
+
+        public DataTable Cheque_RecuperarDetallesDeChequesCobrados()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return CLSManejador.Listado("Cheque_RecuperarDetallesDeChequesCobrados", lst);
+        }
     }
 }

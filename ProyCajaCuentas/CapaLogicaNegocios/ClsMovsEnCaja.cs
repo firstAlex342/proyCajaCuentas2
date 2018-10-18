@@ -57,5 +57,34 @@ namespace CapaLogicaNegocios
 
             return (CLSManejador.Listado("MovsEnCaja_BuscarReciboLicenciaXIdMovimiento", lst));
         }
+
+        public DataTable MovsEnCaja_SumarPagoDeAfiliaciones()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("MovsEnCaja_SumarPagoDeAfiliaciones", lst));
+        }
+
+        public DataTable MovsEnCaja_SumarPagoDeTodosProductos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("MovsEnCaja_SumarPagoDeTodosProductos", lst));
+        }
+
+        public DataTable MovsEnCaja_SumarPagoDeProductosXProducto()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("MovsEnCaja_SumarPagoDeProductosXProducto", lst));
+        }
+
+
     }
 }

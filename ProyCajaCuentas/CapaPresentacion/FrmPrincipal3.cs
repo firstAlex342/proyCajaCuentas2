@@ -231,6 +231,22 @@ namespace CapaPresentacion
             if (respuesta)
             {  /*Permanece habilitada la opcion ver proveedores*/  }
             else { metroTile18.Enabled = false; }
+
+            respuesta = EsActivoModuloController(23) ? true : false;
+            if(respuesta)
+            {   /*Permanece habilitada la opcion sumar folios de usuario*/ }
+            else { metroTile19.Enabled = false; }
+
+
+            respuesta = EsActivoModuloController(24) ? true : false;
+            if (respuesta)
+            {   /*Permanece habilitada la opcion ver informe egresos- ingresos*/ }
+            else { metroTile21.Enabled = false; }
+
+            respuesta = EsActivoModuloController(25) ? true : false;
+            if(respuesta)
+            {  /*Permanece habilitada la opción sumar productos*/}
+            else { metroTile20.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -380,6 +396,21 @@ namespace CapaPresentacion
         private void metroTile18_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmProveedoresVer());
+        }
+
+        private void metroTile19_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmSumarFoliosDePagoPorUsuario());
+        }
+
+        private void metroTile21_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmReporteIngresosEgresos());
+        }
+
+        private void metroTile20_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmSumarProductosPorProducto());
         }
     }
 }

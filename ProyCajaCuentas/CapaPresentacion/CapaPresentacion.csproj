@@ -133,6 +133,24 @@
     <Compile Include="FrmProveedoresVer.Designer.cs">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmReporteIngresosEgresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReporteIngresosEgresos.Designer.cs">
+      <DependentUpon>FrmReporteIngresosEgresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSumarFoliosDePagoPorUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSumarFoliosDePagoPorUsuario.Designer.cs">
+      <DependentUpon>FrmSumarFoliosDePagoPorUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSumarProductosPorProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSumarProductosPorProducto.Designer.cs">
+      <DependentUpon>FrmSumarProductosPorProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuarioActualizar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -404,6 +422,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedoresVer.resx">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReporteIngresosEgresos.resx">
+      <DependentUpon>FrmReporteIngresosEgresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSumarFoliosDePagoPorUsuario.resx">
+      <DependentUpon>FrmSumarFoliosDePagoPorUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSumarProductosPorProducto.resx">
+      <DependentUpon>FrmSumarProductosPorProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarioActualizar.resx">
       <DependentUpon>FrmUsuarioActualizar.cs</DependentUpon>
