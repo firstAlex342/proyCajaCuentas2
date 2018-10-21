@@ -85,6 +85,24 @@
     <Compile Include="FrmActualizarInfoCheque.Designer.cs">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBancosActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBancosActualizar.Designer.cs">
+      <DependentUpon>FrmBancosActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBancosCrearPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBancosCrearPeriodo.Designer.cs">
+      <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBancosVerPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBancosVerPeriodos.Designer.cs">
+      <DependentUpon>FrmBancosVerPeriodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscarYSeleccionarNombreProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -401,6 +419,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBancosActualizar.resx">
+      <DependentUpon>FrmBancosActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBancosCrearPeriodo.resx">
+      <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBancosVerPeriodos.resx">
+      <DependentUpon>FrmBancosVerPeriodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearTarifaAProducto.resx">
       <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>

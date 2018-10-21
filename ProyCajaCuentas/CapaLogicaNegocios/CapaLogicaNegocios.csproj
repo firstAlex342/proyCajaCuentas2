@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsAccesoAModulo.cs" />
+    <Compile Include="ClsBancos.cs" />
     <Compile Include="ClsCaja.cs" />
     <Compile Include="ClsCheque.cs" />
     <Compile Include="ClsChequeInfoBasico.cs" />
