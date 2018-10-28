@@ -79,6 +79,12 @@
       <DependentUpon>CRReporteChequesCobrados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteEgresosIngresos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteEgresosIngresos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,11 +157,11 @@
     <Compile Include="FrmProveedoresVer.Designer.cs">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReporteIngresosEgresos.cs">
+    <Compile Include="FrmVisorReporteIngresosEgresos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReporteIngresosEgresos.Designer.cs">
-      <DependentUpon>FrmReporteIngresosEgresos.cs</DependentUpon>
+    <Compile Include="FrmVisorReporteIngresosEgresos.Designer.cs">
+      <DependentUpon>FrmVisorReporteIngresosEgresos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSumarFoliosDePagoPorUsuario.cs">
       <SubType>Form</SubType>
@@ -417,6 +423,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesCobrados.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteEgresosIngresos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteEgresosIngresos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -450,8 +460,8 @@
     <EmbeddedResource Include="FrmProveedoresVer.resx">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReporteIngresosEgresos.resx">
-      <DependentUpon>FrmReporteIngresosEgresos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVisorReporteIngresosEgresos.resx">
+      <DependentUpon>FrmVisorReporteIngresosEgresos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSumarFoliosDePagoPorUsuario.resx">
       <DependentUpon>FrmSumarFoliosDePagoPorUsuario.cs</DependentUpon>

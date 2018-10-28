@@ -646,6 +646,7 @@
             this.Controls.Add(this.metroPanelContenedor);
             this.Controls.Add(this.metroPanel1);
             this.Name = "FrmPrincipal3";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPrincipal3_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

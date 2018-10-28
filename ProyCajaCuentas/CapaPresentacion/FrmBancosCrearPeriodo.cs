@@ -42,10 +42,6 @@ namespace CapaPresentacion
             anios.Add(2020);
             anios.Add(2021);
             anios.Add(2022);
-            anios.Add(2023);
-            anios.Add(2024);
-            anios.Add(2025);
-            anios.Add(2026);
 
             Action<int> delegateAction1 = item => {
                 comboBox1.Items.Add(item);

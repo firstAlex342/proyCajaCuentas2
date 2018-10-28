@@ -422,7 +422,7 @@ namespace CapaPresentacion
 
         private void metroTile21_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmReporteIngresosEgresos());
+            AbrirFormulario(new FrmVisorReporteIngresosEgresos());
         }
 
         private void metroTile20_Click(object sender, EventArgs e)

@@ -90,5 +90,16 @@ namespace CapaLogicaNegocios
 
             return (mensaje);
         }
+
+        public DataTable Bancos_BuscarPeriodoActivo()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@periodoMes", this.PeriodoMes));
+            lst.Add(new ClsParametros("@periodoAnio", this.PeriodoAnio));
+
+            return (CLSManejador.Listado("Bancos_BuscarPeriodoActivo", lst));
+        }
     }
 }
