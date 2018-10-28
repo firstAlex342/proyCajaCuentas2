@@ -113,8 +113,8 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(16, 141);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(297, 432);
-            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Yellow;
+            this.metroPanel1.Size = new System.Drawing.Size(297, 502);
+            this.metroPanel1.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbar = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
@@ -131,7 +131,7 @@
             this.metroTile24.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile24.TabIndex = 29;
             this.metroTile24.Text = "Modificar saldo";
-            this.metroTile24.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile24.TileImage")));
+            this.metroTile24.TileImage = global::CapaPresentacion.Properties.Resources.refrescarflecha;
             this.metroTile24.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile24.UseSelectable = true;
             this.metroTile24.UseTileImage = true;
@@ -146,7 +146,7 @@
             this.metroTile23.Style = MetroFramework.MetroColorStyle.Black;
             this.metroTile23.TabIndex = 28;
             this.metroTile23.Text = "Ver periodos";
-            this.metroTile23.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile23.TileImage")));
+            this.metroTile23.TileImage = global::CapaPresentacion.Properties.Resources.calendario;
             this.metroTile23.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile23.UseSelectable = true;
             this.metroTile23.UseTileImage = true;
@@ -172,7 +172,7 @@
             this.metroTile22.Style = MetroFramework.MetroColorStyle.Brown;
             this.metroTile22.TabIndex = 27;
             this.metroTile22.Text = "Crear periodo";
-            this.metroTile22.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile22.TileImage")));
+            this.metroTile22.TileImage = global::CapaPresentacion.Properties.Resources.mas;
             this.metroTile22.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile22.UseSelectable = true;
             this.metroTile22.UseTileImage = true;
@@ -198,7 +198,7 @@
             this.metroTile21.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTile21.TabIndex = 25;
             this.metroTile21.Text = "Ver informe";
-            this.metroTile21.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile21.TileImage")));
+            this.metroTile21.TileImage = global::CapaPresentacion.Properties.Resources.reportar;
             this.metroTile21.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile21.UseSelectable = true;
             this.metroTile21.UseTileImage = true;
@@ -213,7 +213,7 @@
             this.metroTile20.Style = MetroFramework.MetroColorStyle.Pink;
             this.metroTile20.TabIndex = 24;
             this.metroTile20.Text = "Sumar productos";
-            this.metroTile20.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile20.TileImage")));
+            this.metroTile20.TileImage = global::CapaPresentacion.Properties.Resources.calculadorawb;
             this.metroTile20.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile20.UseSelectable = true;
             this.metroTile20.UseTileImage = true;
@@ -228,7 +228,7 @@
             this.metroTile19.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile19.TabIndex = 23;
             this.metroTile19.Text = "Sumar folios de usuario";
-            this.metroTile19.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile19.TileImage")));
+            this.metroTile19.TileImage = global::CapaPresentacion.Properties.Resources.calculadorawa;
             this.metroTile19.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile19.UseSelectable = true;
             this.metroTile19.UseTileImage = true;
@@ -243,7 +243,7 @@
             this.metroTile18.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTile18.TabIndex = 22;
             this.metroTile18.Text = "Ver todos";
-            this.metroTile18.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile18.TileImage")));
+            this.metroTile18.TileImage = global::CapaPresentacion.Properties.Resources.prueba;
             this.metroTile18.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile18.UseSelectable = true;
             this.metroTile18.UseTileImage = true;
@@ -255,10 +255,10 @@
             this.metroTile17.Location = new System.Drawing.Point(24, 1539);
             this.metroTile17.Name = "metroTile17";
             this.metroTile17.Size = new System.Drawing.Size(121, 97);
-            this.metroTile17.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile17.Style = MetroFramework.MetroColorStyle.Brown;
             this.metroTile17.TabIndex = 21;
             this.metroTile17.Text = "Eliminar";
-            this.metroTile17.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile17.TileImage")));
+            this.metroTile17.TileImage = global::CapaPresentacion.Properties.Resources.cancelar;
             this.metroTile17.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile17.UseSelectable = true;
             this.metroTile17.UseTileImage = true;
@@ -284,7 +284,7 @@
             this.metroTile16.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile16.TabIndex = 19;
             this.metroTile16.Text = "Modificar";
-            this.metroTile16.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile16.TileImage")));
+            this.metroTile16.TileImage = global::CapaPresentacion.Properties.Resources.refrescarflecha;
             this.metroTile16.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile16.UseSelectable = true;
             this.metroTile16.UseTileImage = true;
@@ -299,7 +299,7 @@
             this.metroTile15.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile15.TabIndex = 18;
             this.metroTile15.Text = "Cheques capturados en periodo";
-            this.metroTile15.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile15.TileImage")));
+            this.metroTile15.TileImage = global::CapaPresentacion.Properties.Resources.investigacion;
             this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile15.UseSelectable = true;
             this.metroTile15.UseTileImage = true;
@@ -314,7 +314,7 @@
             this.metroTile14.Style = MetroFramework.MetroColorStyle.Lime;
             this.metroTile14.TabIndex = 17;
             this.metroTile14.Text = "Modificar gastos";
-            this.metroTile14.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile14.TileImage")));
+            this.metroTile14.TileImage = global::CapaPresentacion.Properties.Resources.refrescarflecha;
             this.metroTile14.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile14.UseSelectable = true;
             this.metroTile14.UseTileImage = true;
@@ -329,7 +329,7 @@
             this.metroTile13.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile13.TabIndex = 16;
             this.metroTile13.Text = "Cheques cobrados en periodo";
-            this.metroTile13.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile13.TileImage")));
+            this.metroTile13.TileImage = global::CapaPresentacion.Properties.Resources.busqueda_paloma;
             this.metroTile13.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile13.UseSelectable = true;
             this.metroTile13.UseTileImage = true;
@@ -341,10 +341,10 @@
             this.metroTile12.Location = new System.Drawing.Point(24, 1054);
             this.metroTile12.Name = "metroTile12";
             this.metroTile12.Size = new System.Drawing.Size(236, 97);
-            this.metroTile12.Style = MetroFramework.MetroColorStyle.Teal;
+            this.metroTile12.Style = MetroFramework.MetroColorStyle.Black;
             this.metroTile12.TabIndex = 15;
             this.metroTile12.Text = "Cheques no cobrados en el periodo";
-            this.metroTile12.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile12.TileImage")));
+            this.metroTile12.TileImage = global::CapaPresentacion.Properties.Resources.error;
             this.metroTile12.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile12.UseSelectable = true;
             this.metroTile12.UseTileImage = true;
@@ -359,7 +359,7 @@
             this.metroTile11.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile11.TabIndex = 14;
             this.metroTile11.Text = "Gastos";
-            this.metroTile11.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile11.TileImage")));
+            this.metroTile11.TileImage = global::CapaPresentacion.Properties.Resources.mas;
             this.metroTile11.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile11.UseSelectable = true;
             this.metroTile11.UseTileImage = true;
@@ -371,10 +371,10 @@
             this.metroTile10.Location = new System.Drawing.Point(24, 942);
             this.metroTile10.Name = "metroTile10";
             this.metroTile10.Size = new System.Drawing.Size(121, 97);
-            this.metroTile10.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroTile10.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTile10.TabIndex = 13;
             this.metroTile10.Text = "Cancelar cheque ";
-            this.metroTile10.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile10.TileImage")));
+            this.metroTile10.TileImage = global::CapaPresentacion.Properties.Resources.cancelar;
             this.metroTile10.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile10.UseSelectable = true;
             this.metroTile10.UseTileImage = true;
@@ -386,10 +386,10 @@
             this.metroTile9.Location = new System.Drawing.Point(24, 1431);
             this.metroTile9.Name = "metroTile9";
             this.metroTile9.Size = new System.Drawing.Size(121, 97);
-            this.metroTile9.Style = MetroFramework.MetroColorStyle.Orange;
+            this.metroTile9.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTile9.TabIndex = 12;
             this.metroTile9.Text = "Nuevo";
-            this.metroTile9.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile9.TileImage")));
+            this.metroTile9.TileImage = global::CapaPresentacion.Properties.Resources.mas;
             this.metroTile9.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile9.UseSelectable = true;
             this.metroTile9.UseTileImage = true;
@@ -415,7 +415,7 @@
             this.metroTile8.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTile8.TabIndex = 10;
             this.metroTile8.Text = "Cancelados";
-            this.metroTile8.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile8.TileImage")));
+            this.metroTile8.TileImage = global::CapaPresentacion.Properties.Resources.portapapeles;
             this.metroTile8.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile8.UseSelectable = true;
             this.metroTile8.UseTileImage = true;
@@ -430,7 +430,7 @@
             this.metroTile7.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroTile7.TabIndex = 9;
             this.metroTile7.Text = "De todos los socios";
-            this.metroTile7.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile7.TileImage")));
+            this.metroTile7.TileImage = global::CapaPresentacion.Properties.Resources.colaboracion;
             this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile7.UseSelectable = true;
             this.metroTile7.UseTileImage = true;
@@ -445,7 +445,7 @@
             this.metroTile6.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroTile6.TabIndex = 8;
             this.metroTile6.Text = "De socio";
-            this.metroTile6.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile6.TileImage")));
+            this.metroTile6.TileImage = global::CapaPresentacion.Properties.Resources.jefe;
             this.metroTile6.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile6.UseSelectable = true;
             this.metroTile6.UseTileImage = true;
@@ -468,10 +468,10 @@
             this.metroTile5.Location = new System.Drawing.Point(154, 312);
             this.metroTile5.Name = "metroTile5";
             this.metroTile5.Size = new System.Drawing.Size(216, 97);
-            this.metroTile5.Style = MetroFramework.MetroColorStyle.Teal;
+            this.metroTile5.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile5.TabIndex = 6;
             this.metroTile5.Text = "Cancelar folio de recibo de pago";
-            this.metroTile5.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile5.TileImage")));
+            this.metroTile5.TileImage = global::CapaPresentacion.Properties.Resources.cancelar;
             this.metroTile5.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile5.UseSelectable = true;
             this.metroTile5.UseTileImage = true;
@@ -506,9 +506,9 @@
             // metroTile3
             // 
             this.metroTile3.ActiveControl = null;
-            this.metroTile3.Location = new System.Drawing.Point(24, 159);
+            this.metroTile3.Location = new System.Drawing.Point(24, 146);
             this.metroTile3.Name = "metroTile3";
-            this.metroTile3.Size = new System.Drawing.Size(95, 97);
+            this.metroTile3.Size = new System.Drawing.Size(121, 97);
             this.metroTile3.TabIndex = 5;
             this.metroTile3.Text = "Buscar";
             this.metroTile3.TileImage = ((System.Drawing.Image)(resources.GetObject("metroTile3.TileImage")));
@@ -520,9 +520,9 @@
             // metroTile2
             // 
             this.metroTile2.ActiveControl = null;
-            this.metroTile2.Location = new System.Drawing.Point(139, 37);
+            this.metroTile2.Location = new System.Drawing.Point(154, 37);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(95, 97);
+            this.metroTile2.Size = new System.Drawing.Size(121, 97);
             this.metroTile2.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile2.TabIndex = 4;
             this.metroTile2.Text = "Modificar";
@@ -537,7 +537,7 @@
             this.metroTile1.ActiveControl = null;
             this.metroTile1.Location = new System.Drawing.Point(24, 37);
             this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(95, 97);
+            this.metroTile1.Size = new System.Drawing.Size(121, 97);
             this.metroTile1.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile1.TabIndex = 3;
             this.metroTile1.Text = "Nuevo";
@@ -569,7 +569,7 @@
             this.metroPanelContenedor.HorizontalScrollbarSize = 10;
             this.metroPanelContenedor.Location = new System.Drawing.Point(319, 141);
             this.metroPanelContenedor.Name = "metroPanelContenedor";
-            this.metroPanelContenedor.Size = new System.Drawing.Size(472, 432);
+            this.metroPanelContenedor.Size = new System.Drawing.Size(797, 502);
             this.metroPanelContenedor.Style = MetroFramework.MetroColorStyle.Black;
             this.metroPanelContenedor.TabIndex = 1;
             this.metroPanelContenedor.VerticalScrollbarBarColor = true;
@@ -585,7 +585,7 @@
             this.metroPanel3.HorizontalScrollbarBarColor = true;
             this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(572, 39);
+            this.metroPanel3.Location = new System.Drawing.Point(897, 39);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(219, 87);
             this.metroPanel3.TabIndex = 2;
@@ -628,7 +628,7 @@
             this.metroPanel2.HorizontalScrollbarBarColor = true;
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
-            this.metroPanel2.Location = new System.Drawing.Point(302, 12);
+            this.metroPanel2.Location = new System.Drawing.Point(627, 12);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(264, 123);
             this.metroPanel2.TabIndex = 3;
@@ -640,13 +640,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 587);
+            this.ClientSize = new System.Drawing.Size(1125, 657);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel3);
             this.Controls.Add(this.metroPanelContenedor);
             this.Controls.Add(this.metroPanel1);
             this.Name = "FrmPrincipal3";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmPrincipal3_Load);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();

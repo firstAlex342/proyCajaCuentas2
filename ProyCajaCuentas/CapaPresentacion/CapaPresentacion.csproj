@@ -630,6 +630,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\17602632474271CA94.png" />
+    <None Include="Resources\reportar.png" />
+    <None Include="Resources\calendario.png" />
+    <None Include="Resources\prueba.png" />
+    <None Include="Resources\investigacion.png" />
+    <None Include="Resources\busqueda_paloma.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\refrescarflecha.png" />
+    <None Include="Resources\mas.png" />
+    <None Include="Resources\calculadorawb.png" />
+    <None Include="Resources\calculadorawa.png" />
+    <None Include="Resources\portapapeles.png" />
+    <None Include="Resources\colaboracion.png" />
+    <None Include="Resources\jefe.png" />
+    <None Include="Resources\cancelar.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
