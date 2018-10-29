@@ -274,7 +274,7 @@
             this.textBox2.Location = new System.Drawing.Point(128, 43);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(286, 22);
-            this.textBox2.TabIndex = 15;
+            this.textBox2.TabIndex = 16;
             // 
             // textBox3
             // 
@@ -282,7 +282,7 @@
             this.textBox3.Location = new System.Drawing.Point(128, 79);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(286, 22);
-            this.textBox3.TabIndex = 16;
+            this.textBox3.TabIndex = 18;
             // 
             // textBox4
             // 
@@ -290,7 +290,7 @@
             this.textBox4.Location = new System.Drawing.Point(128, 115);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(286, 22);
-            this.textBox4.TabIndex = 17;
+            this.textBox4.TabIndex = 20;
             // 
             // textBox5
             // 
@@ -298,7 +298,7 @@
             this.textBox5.Location = new System.Drawing.Point(128, 151);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(286, 22);
-            this.textBox5.TabIndex = 18;
+            this.textBox5.TabIndex = 22;
             // 
             // textBox6
             // 
@@ -306,7 +306,7 @@
             this.textBox6.Location = new System.Drawing.Point(128, 187);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(286, 22);
-            this.textBox6.TabIndex = 19;
+            this.textBox6.TabIndex = 24;
             // 
             // textBox7
             // 
@@ -314,7 +314,7 @@
             this.textBox7.Location = new System.Drawing.Point(128, 223);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(286, 22);
-            this.textBox7.TabIndex = 20;
+            this.textBox7.TabIndex = 26;
             // 
             // textBox8
             // 
@@ -322,7 +322,7 @@
             this.textBox8.Location = new System.Drawing.Point(545, 7);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(289, 22);
-            this.textBox8.TabIndex = 21;
+            this.textBox8.TabIndex = 15;
             // 
             // textBox9
             // 
@@ -330,7 +330,7 @@
             this.textBox9.Location = new System.Drawing.Point(545, 43);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(289, 22);
-            this.textBox9.TabIndex = 22;
+            this.textBox9.TabIndex = 17;
             // 
             // textBox10
             // 
@@ -338,7 +338,7 @@
             this.textBox10.Location = new System.Drawing.Point(545, 79);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(289, 22);
-            this.textBox10.TabIndex = 23;
+            this.textBox10.TabIndex = 19;
             // 
             // textBox11
             // 
@@ -346,7 +346,7 @@
             this.textBox11.Location = new System.Drawing.Point(545, 115);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(289, 22);
-            this.textBox11.TabIndex = 24;
+            this.textBox11.TabIndex = 21;
             // 
             // textBox12
             // 
@@ -354,7 +354,7 @@
             this.textBox12.Location = new System.Drawing.Point(545, 151);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(289, 22);
-            this.textBox12.TabIndex = 25;
+            this.textBox12.TabIndex = 23;
             // 
             // textBox13
             // 
@@ -362,7 +362,7 @@
             this.textBox13.Location = new System.Drawing.Point(545, 187);
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(289, 22);
-            this.textBox13.TabIndex = 26;
+            this.textBox13.TabIndex = 25;
             // 
             // textBox14
             // 

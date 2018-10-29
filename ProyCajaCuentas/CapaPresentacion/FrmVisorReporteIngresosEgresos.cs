@@ -129,6 +129,12 @@ namespace CapaPresentacion
             textBox.Text = filaUnica.Field<decimal>("DisponibleEnBancos").ToString();
         }
 
+        private void MostrarEnTextBoxDisponibleEnBancosReal(DataTable periodo, TextObject textBox)
+        {
+            DataRow filaUnica = periodo.AsEnumerable().Single();
+            textBox.Text = filaUnica.Field<decimal>("DisponibleEnBancosReal").ToString();
+        }
+
         private void MostrarEnTextBoxSumaDeTodosLosProductos(DataTable tabla, TextObject textBox) 
         {
             DataRow filaUnica = tabla.Rows[0];
@@ -307,6 +313,9 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text152"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_enero", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text24"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_enero", textObject);
+
             //Febrero
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text50"] as TextObject;
             tablaHash.Add("disponibleEnBancos_febrero", textObject);
@@ -328,6 +337,9 @@ namespace CapaPresentacion
 
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text153"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_febrero", textObject);
+
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text25"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_febrero", textObject);
 
             //marzo
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text51"] as TextObject;
@@ -351,6 +363,9 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text154"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_marzo", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text26"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_marzo", textObject);
+
             //Abril
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text52"] as TextObject;
             tablaHash.Add("disponibleEnBancos_abril", textObject);
@@ -372,6 +387,9 @@ namespace CapaPresentacion
 
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text155"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_abril", textObject);
+
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text27"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_abril", textObject);
 
             //Mayo
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text53"] as TextObject;
@@ -395,6 +413,9 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text156"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_mayo", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text28"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_mayo", textObject);
+
             //Junio
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text54"] as TextObject;
             tablaHash.Add("disponibleEnBancos_junio", textObject);
@@ -416,6 +437,9 @@ namespace CapaPresentacion
 
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text157"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_junio", textObject);
+
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text29"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_junio", textObject);
 
             //julio
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text55"] as TextObject;
@@ -439,6 +463,9 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text158"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_julio", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text30"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_julio", textObject);
+
             //agosto
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text56"] as TextObject;
             tablaHash.Add("disponibleEnBancos_agosto", textObject);
@@ -460,6 +487,9 @@ namespace CapaPresentacion
 
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text159"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_agosto", textObject);
+
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text31"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_agosto", textObject);
 
             //septiembre
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text57"] as TextObject;
@@ -483,6 +513,9 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text160"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_septiembre", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text32"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_septiembre", textObject);
+
             //Octubre
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text58"] as TextObject;
             tablaHash.Add("disponibleEnBancos_octubre", textObject);
@@ -505,6 +538,8 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text161"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_octubre", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text33"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_octubre", textObject);
 
             //Noviembre
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text48"] as TextObject;
@@ -528,6 +563,9 @@ namespace CapaPresentacion
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text151"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_noviembre", textObject);
 
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text34"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_noviembre", textObject);
+
             //Diciembre
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text59"] as TextObject;
             tablaHash.Add("disponibleEnBancos_diciembre", textObject);
@@ -549,6 +587,9 @@ namespace CapaPresentacion
 
             textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text162"] as TextObject;
             tablaHash.Add("saldoDisponibleEnCuentaBancaria_diciembre", textObject);
+
+            textObject = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text35"] as TextObject;
+            tablaHash.Add("saldoRealEnCuenta_diciembre", textObject);
 
             return (tablaHash);
         }
@@ -632,6 +673,10 @@ namespace CapaPresentacion
                         string llave = QuitarAnioYUnirConTexto(item, "disponibleEnBancos_");
                         TextObject textObject = (TextObject)tablaConTextObjectsDeCrystalReport[llave];
                         MostrarEnTextBoxDisponibleEnBancos(periodoBancos, textObject);
+
+                        string llaveX = QuitarAnioYUnirConTexto(item, "saldoRealEnCuenta_");
+                        TextObject textObjectX = (TextObject)tablaConTextObjectsDeCrystalReport[llaveX];
+                        MostrarEnTextBoxDisponibleEnBancosReal(periodoBancos, textObjectX);
 
                         DataTable sumaDeProductosDelMes = MovsEnCaja_SumarPagoDeTodosProductosController(rango.FechaInicio, rango.FechaFin);
                         string llave2 = QuitarAnioYUnirConTexto(item, "totalIngresos_");

@@ -22,12 +22,13 @@ namespace CapaPresentacion
         }
 
         //---------------Controllers Methods
-        private string Bancos_createController(int anio, string mes, decimal disponibleEnBancos, int idUsuarioOperador)
+        private string Bancos_createController(int anio, string mes, decimal disponibleEnBancos, decimal disponibleEnBancosReal, int idUsuarioOperador)
         {
             ClsBancos clsBancos = new ClsBancos();
             clsBancos.PeriodoAnio = anio;
             clsBancos.PeriodoMes = mes;
             clsBancos.DisponibleEnBancos = disponibleEnBancos;
+            clsBancos.DisponibleEnBancosReal = disponibleEnBancosReal;
             clsBancos.IdUsuarioAlta = idUsuarioOperador;
 
             return (clsBancos.Bancos_create());
@@ -105,6 +106,7 @@ namespace CapaPresentacion
             comboBox2.Text = null;
 
             textBox1.Text = "";
+            textBox2.Text = "";
         }
         //----------------------------Events
 
@@ -118,17 +120,20 @@ namespace CapaPresentacion
                     bool seSeleccionoAlgoDeComboBoxAnios = SeSeleccionoAlgoDeComBoBox(comboBox1);
                     bool seSeleccionoAlgoDeComBoBoxMeses = SeSeleccionoAlgoDeComBoBox(comboBox2);
                     bool seCapturoAlgoEnTextBox = TieneAlgoMasQueEspaciosEnBlanco(textBox1.Text);
+                    bool seCapturoAlgoEnOtroTextBox = TieneAlgoMasQueEspaciosEnBlanco(textBox2.Text);
 
-                    if (seSeleccionoAlgoDeComboBoxAnios && seSeleccionoAlgoDeComBoBoxMeses && seCapturoAlgoEnTextBox)
+                    if (seSeleccionoAlgoDeComboBoxAnios && seSeleccionoAlgoDeComBoBoxMeses && seCapturoAlgoEnTextBox && seCapturoAlgoEnOtroTextBox)
                     {
                         decimal cantidadDecimal;
+                        decimal otraCantidadDecimal;
                         bool cantidadEstaEnFormatoValido = Decimal.TryParse(textBox1.Text, out cantidadDecimal);
+                        bool otraCantidadEstaEnFormatoValido = Decimal.TryParse(textBox2.Text, out otraCantidadDecimal);
 
-                        if (cantidadEstaEnFormatoValido)
+                        if (cantidadEstaEnFormatoValido && otraCantidadEstaEnFormatoValido)
                         {
                             int anio = Int32.Parse(comboBox1.SelectedItem.ToString());
                             string mes = comboBox2.SelectedItem.ToString();
-                            string mensaje = Bancos_createController(anio, mes, cantidadDecimal, ClsLogin.Id);
+                            string mensaje = Bancos_createController(anio, mes, cantidadDecimal, otraCantidadDecimal, ClsLogin.Id);
                             if (mensaje.Contains("ok"))
                             {
                                 StringBuilder strB = new StringBuilder();
@@ -171,6 +176,11 @@ namespace CapaPresentacion
             LimpiarGroupBox();
             CargarComboBoxAnios();
             CargarComBoBoxMeses();
+        }
+
+        private void FrmBancosCrearPeriodo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

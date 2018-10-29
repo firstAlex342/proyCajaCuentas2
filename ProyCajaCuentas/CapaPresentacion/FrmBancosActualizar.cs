@@ -32,13 +32,14 @@ namespace CapaPresentacion
 
         //------------methods controller
         private string Bancos_Update_DisponibleEnBancosController(int idBuscado, string mesPeriodo, 
-            int anioPeriodo, decimal disponibleEnBancos, int idUsuarioOperador)
+            int anioPeriodo, decimal disponibleEnBancos, decimal disponibleEnBancosReal, int idUsuarioOperador)
         {
             ClsBancos clsBancos = new ClsBancos();
             clsBancos.Id = idBuscado;
             clsBancos.PeriodoMes = mesPeriodo;
             clsBancos.PeriodoAnio = anioPeriodo;
             clsBancos.DisponibleEnBancos = disponibleEnBancos;
+            clsBancos.DisponibleEnBancosReal = disponibleEnBancosReal;
             clsBancos.IdUsuarioModifico = idUsuarioOperador;
 
             return (clsBancos.Bancos_Update_DisponibleEnBancos());
@@ -53,19 +54,22 @@ namespace CapaPresentacion
         //-----------Utils
         private void MostrarEnGridPeriodos(DataTable origen)
         {
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = origen;
 
             dataGridView1.Columns[1].HeaderText = "Mes";
             dataGridView1.Columns[2].HeaderText = "Año";
             dataGridView1.Columns[3].HeaderText = "Disponible en bancos";
+            dataGridView1.Columns[4].HeaderText = "Disponible en bancos (real)";
 
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[4].Visible = false;
             dataGridView1.Columns[5].Visible = false;
             dataGridView1.Columns[6].Visible = false;
             dataGridView1.Columns[7].Visible = false;
             dataGridView1.Columns[8].Visible = false;
             dataGridView1.Columns[9].Visible = false;
+            dataGridView1.Columns[10].Visible = false;
+
         }
 
 
@@ -75,6 +79,7 @@ namespace CapaPresentacion
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
+            textBox5.Text = "";
         }
         //-----------------Events
 
@@ -86,6 +91,7 @@ namespace CapaPresentacion
                 textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells["PeriodoAnio"].EditedFormattedValue.ToString();
                 textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["PeriodoMes"].EditedFormattedValue.ToString();
                 textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["DisponibleEnBancos"].EditedFormattedValue.ToString();
+                textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells["DisponibleEnBancosReal"].EditedFormattedValue.ToString();
             }
         }
 
@@ -105,9 +111,10 @@ namespace CapaPresentacion
                     int anio = Int32.Parse(textBox2.Text);
                     string mes = textBox3.Text;
                     decimal disponibleEnBancos = Decimal.Parse(textBox4.Text);
+                    decimal disponibleEnBancosReal = Decimal.Parse(textBox5.Text);
 
                     string mensaje = Bancos_Update_DisponibleEnBancosController(id, mes, anio,
-                        disponibleEnBancos, ClsLogin.Id);
+                        disponibleEnBancos, disponibleEnBancosReal, ClsLogin.Id);
 
                     if (mensaje.Contains("ok"))
                     {

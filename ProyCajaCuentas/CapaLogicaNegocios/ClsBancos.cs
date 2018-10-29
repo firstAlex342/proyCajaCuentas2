@@ -14,6 +14,7 @@ namespace CapaLogicaNegocios
         public string PeriodoMes { set; get; }
         public int PeriodoAnio { set; get; }
         public decimal DisponibleEnBancos { set; get; }
+        public decimal DisponibleEnBancosReal { set; get; }
         public int IdUsuarioAlta { set; get; }
         public DateTime FechaAlta { set; get; }
         public int IdUsuarioModifico { set; get; }
@@ -29,6 +30,7 @@ namespace CapaLogicaNegocios
             this.PeriodoMes = "";
             this.PeriodoAnio = 0;
             this.DisponibleEnBancos = 0.0m;
+            this.DisponibleEnBancosReal = 0.0m;
             this.IdUsuarioAlta = 0;
             this.FechaAlta = new DateTime();
             this.IdUsuarioModifico = 0;
@@ -48,6 +50,7 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@mesPeriodo", this.PeriodoMes));
             lst.Add(new ClsParametros("@anioPeriodo", this.PeriodoAnio));
             lst.Add(new ClsParametros("@disponibleEnBancos", this.DisponibleEnBancos));
+            lst.Add(new ClsParametros("@disponibleEnBancosReal", this.DisponibleEnBancosReal));
             lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
 
 
@@ -56,7 +59,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("Bancos_create", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[4].Valor.ToString();
+            mensaje = lst[5].Valor.ToString();
 
             return (mensaje);
         }
@@ -79,6 +82,7 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@newMesPeriodo", this.PeriodoMes));
             lst.Add(new ClsParametros("@newAnioPeriodo", this.PeriodoAnio));
             lst.Add(new ClsParametros("@newDisponibleEnBancos", this.DisponibleEnBancos));
+            lst.Add(new ClsParametros("@newDisponibleEnBancosReal", this.DisponibleEnBancosReal));
             lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
 
             //Parametro de salida
@@ -86,7 +90,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("Bancos_Update_DisponibleEnBancos", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[5].Valor.ToString();
+            mensaje = lst[6].Valor.ToString();
 
             return (mensaje);
         }
