@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
+using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
@@ -24,6 +25,16 @@ namespace CapaPresentacion
         private string MuestraFechaDeBusquedaSinLaHora(DateTime fecha)
         {
             return (fecha.ToShortDateString());
+        }
+
+        //------------------Methods controller
+        private DataTable Cheque_RecuperarDetallesDeChequesNoCobradosController(DateTime fechaInicio, DateTime fechaFin)
+        {
+            ClsCheque clsCheque = new ClsCheque();
+            clsCheque.FechaAlta = fechaInicio;
+            clsCheque.FechaModificacion = fechaFin;
+
+            return (clsCheque.Cheque_RecuperarDetallesDeChequesNoCobrados());
         }
 
         //---------------------------Events
@@ -45,17 +56,26 @@ namespace CapaPresentacion
 
                 fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
                         dateTimePicker3.Value.Day, 23, 59, 58);
-                
-                //https://www.codeproject.com/Articles/10173/Loading-Crystal-Report-reports-which-use-Stored-Pr
-                CRReporteChequesNoCobrados crReporte = new CRReporteChequesNoCobrados();
-                crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
-                crReporte.SetParameterValue("@fechaInicio", fechaInicio);
-                crReporte.SetParameterValue("@fechaFin", fechaFin);
 
-                TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text12"] as TextObject;
-                periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
-                crystalReportViewer1.ReportSource = crReporte;
+                DataTable tablaNatural = Cheque_RecuperarDetallesDeChequesNoCobradosController(fechaInicio, fechaFin);
+                if(tablaNatural.Rows.Count == 0)
+                {
+                    crystalReportViewer1.ReportSource = null;
+                    MessageBox.Show("Se encontraron 0 cheques sin fecha de cobro, en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
+                else
+                {
+                    //https://www.codeproject.com/Articles/10173/Loading-Crystal-Report-reports-which-use-Stored-Pr
+                    CRReporteChequesNoCobrados crReporte = new CRReporteChequesNoCobrados();
+                    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    crReporte.SetParameterValue("@fechaInicio", fechaInicio);
+                    crReporte.SetParameterValue("@fechaFin", fechaFin);
+
+                    TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text12"] as TextObject;
+                    periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
+                    crystalReportViewer1.ReportSource = crReporte;
+                }                
             }
 
             catch (Exception ex)

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
+using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
@@ -19,6 +20,17 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        //--------------------Methods controller
+        private DataTable Cheque_RecuperarDetallesDeChequesCobradosController(DateTime fechaInicio, DateTime fechaFin)
+        {
+            ClsCheque clsCheque = new ClsCheque();
+            clsCheque.FechaAlta = fechaInicio;
+            clsCheque.FechaModificacion = fechaFin;
+
+            return (clsCheque.Cheque_RecuperarDetallesDeChequesCobrados());
+        }
+
 
         //------------------------Utils
         private string MuestraFechaDeBusquedaSinLaHora(DateTime fecha)
@@ -42,16 +54,24 @@ namespace CapaPresentacion
                 fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
                         dateTimePicker3.Value.Day, 23, 59, 58);
 
-                
-                CRReporteChequesCobrados crReporte = new CRReporteChequesCobrados();
-                crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
-                crReporte.SetParameterValue("@fechaInicio", fechaInicio);
-                crReporte.SetParameterValue("@fechaFin", fechaFin);
+                DataTable tablaNatural = Cheque_RecuperarDetallesDeChequesCobradosController(fechaInicio, fechaFin);
+                if(tablaNatural.Rows.Count == 0)
+                {
+                    crystalReportViewer1.ReportSource = null;
+                    MessageBox.Show("No se encontraron cheques con fecha de cobro en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text12"] as TextObject;
-                periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
-                crystalReportViewer1.ReportSource = crReporte;
+                else
+                {
+                    CRReporteChequesCobrados crReporte = new CRReporteChequesCobrados();
+                    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    crReporte.SetParameterValue("@fechaInicio", fechaInicio);
+                    crReporte.SetParameterValue("@fechaFin", fechaFin);
 
+                    TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text12"] as TextObject;
+                    periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
+                    crystalReportViewer1.ReportSource = crReporte;
+                }
             }
 
             catch (Exception ex)
