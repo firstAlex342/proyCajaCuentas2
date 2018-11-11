@@ -32,7 +32,6 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmActualizarInfoCheque.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBancosActualizar.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBancosCrearPeriodo.resources
-C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBancosVerPeriodos.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmCrearTarifaAProducto.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmEditarTarifasDeProducto.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmProductoCrear.resources

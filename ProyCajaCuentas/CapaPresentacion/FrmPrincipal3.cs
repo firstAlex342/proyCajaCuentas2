@@ -253,11 +253,6 @@ namespace CapaPresentacion
             {    /*Permanece habilitada la opción Bancos - crear periodo*/ }
             else { metroTile22.Enabled = false; }
 
-            respuesta = EsActivoModuloController(27) ? true : false;
-            if (respuesta)
-            { /*Permanece habilitada la opcion Bancos - ver periodos */}
-            else { metroTile23.Enabled = false; }
-
 
             respuesta = EsActivoModuloController(28) ? true : false;
             if (respuesta)
@@ -435,10 +430,6 @@ namespace CapaPresentacion
             AbrirFormulario(new FrmBancosCrearPeriodo());
         }
 
-        private void metroTile23_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new FrmBancosVerPeriodos());
-        }
 
         private void metroTile24_Click(object sender, EventArgs e)
         {

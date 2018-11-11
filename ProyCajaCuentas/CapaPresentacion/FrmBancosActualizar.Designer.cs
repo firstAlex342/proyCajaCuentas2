@@ -41,10 +41,10 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -228,6 +228,24 @@
             this.textBox4.Size = new System.Drawing.Size(104, 22);
             this.textBox4.TabIndex = 7;
             // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(333, 54);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 32);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Disponible en bancos (real)";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(333, 106);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(107, 22);
+            this.textBox5.TabIndex = 9;
+            // 
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -246,27 +264,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 31);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Guardar";
+            this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(333, 54);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 32);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Disponible en bancos (real)";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(333, 106);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(107, 22);
-            this.textBox5.TabIndex = 9;
             // 
             // FrmBancosActualizar
             // 

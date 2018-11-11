@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroTile24 = new MetroFramework.Controls.MetroTile();
-            this.metroTile23 = new MetroFramework.Controls.MetroTile();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroTile22 = new MetroFramework.Controls.MetroTile();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
@@ -77,7 +76,6 @@
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
             this.metroPanel1.Controls.Add(this.metroTile24);
-            this.metroPanel1.Controls.Add(this.metroTile23);
             this.metroPanel1.Controls.Add(this.metroLabel8);
             this.metroPanel1.Controls.Add(this.metroTile22);
             this.metroPanel1.Controls.Add(this.metroLabel7);
@@ -125,10 +123,10 @@
             // metroTile24
             // 
             this.metroTile24.ActiveControl = null;
-            this.metroTile24.Location = new System.Drawing.Point(24, 1801);
+            this.metroTile24.Location = new System.Drawing.Point(154, 1693);
             this.metroTile24.Name = "metroTile24";
             this.metroTile24.Size = new System.Drawing.Size(121, 97);
-            this.metroTile24.Style = MetroFramework.MetroColorStyle.Green;
+            this.metroTile24.Style = MetroFramework.MetroColorStyle.Black;
             this.metroTile24.TabIndex = 29;
             this.metroTile24.Text = "Modificar saldo";
             this.metroTile24.TileImage = global::CapaPresentacion.Properties.Resources.refrescarflecha;
@@ -136,21 +134,6 @@
             this.metroTile24.UseSelectable = true;
             this.metroTile24.UseTileImage = true;
             this.metroTile24.Click += new System.EventHandler(this.metroTile24_Click);
-            // 
-            // metroTile23
-            // 
-            this.metroTile23.ActiveControl = null;
-            this.metroTile23.Location = new System.Drawing.Point(154, 1693);
-            this.metroTile23.Name = "metroTile23";
-            this.metroTile23.Size = new System.Drawing.Size(121, 97);
-            this.metroTile23.Style = MetroFramework.MetroColorStyle.Black;
-            this.metroTile23.TabIndex = 28;
-            this.metroTile23.Text = "Ver periodos";
-            this.metroTile23.TileImage = global::CapaPresentacion.Properties.Resources.calendario;
-            this.metroTile23.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile23.UseSelectable = true;
-            this.metroTile23.UseTileImage = true;
-            this.metroTile23.Click += new System.EventHandler(this.metroTile23_Click);
             // 
             // metroLabel8
             // 
@@ -183,7 +166,7 @@
             this.metroLabel7.AutoSize = true;
             this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(7, 1922);
+            this.metroLabel7.Location = new System.Drawing.Point(7, 1819);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(226, 25);
             this.metroLabel7.TabIndex = 25;
@@ -192,7 +175,7 @@
             // metroTile21
             // 
             this.metroTile21.ActiveControl = null;
-            this.metroTile21.Location = new System.Drawing.Point(24, 1950);
+            this.metroTile21.Location = new System.Drawing.Point(24, 1850);
             this.metroTile21.Name = "metroTile21";
             this.metroTile21.Size = new System.Drawing.Size(121, 97);
             this.metroTile21.Style = MetroFramework.MetroColorStyle.Purple;
@@ -692,7 +675,6 @@
         private MetroFramework.Controls.MetroTile metroTile21;
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroTile metroTile22;
-        private MetroFramework.Controls.MetroTile metroTile23;
         private MetroFramework.Controls.MetroTile metroTile24;
     }
 }

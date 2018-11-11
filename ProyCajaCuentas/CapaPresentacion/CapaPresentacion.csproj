@@ -103,12 +103,6 @@
     <Compile Include="FrmBancosCrearPeriodo.Designer.cs">
       <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBancosVerPeriodos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBancosVerPeriodos.Designer.cs">
-      <DependentUpon>FrmBancosVerPeriodos.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmBuscarYSeleccionarNombreProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -435,9 +429,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBancosCrearPeriodo.resx">
       <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBancosVerPeriodos.resx">
-      <DependentUpon>FrmBancosVerPeriodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearTarifaAProducto.resx">
       <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>
