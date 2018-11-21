@@ -259,6 +259,11 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opcion Bancos - modificar saldo*/}
             else { metroTile24.Enabled = false; }
 
+            respuesta = EsActivoModuloController(29) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opcion: Consultar folios de recibo de pago , imprimir exportar*/}
+            else { metroTile23.Enabled = false; }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -434,6 +439,11 @@ namespace CapaPresentacion
         private void metroTile24_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmBancosActualizar());
+        }
+
+        private void metroTile23_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmBuscarFoliosDeTodosImprimirExportar());
         }
     }
 }

@@ -85,6 +85,12 @@
       <DependentUpon>CRReporteEgresosIngresos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteProductosEnReciboListaProductos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteProductosEnReciboListaProductos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,12 @@
     </Compile>
     <Compile Include="FrmBancosCrearPeriodo.Designer.cs">
       <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosDeTodosImprimirExportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosDeTodosImprimirExportar.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosDeTodosImprimirExportar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBuscarYSeleccionarNombreProveedor.cs">
       <SubType>Form</SubType>
@@ -421,6 +433,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteEgresosIngresos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteProductosEnReciboListaProductos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteProductosEnReciboListaProductos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBancosCrearPeriodo.resx">
       <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarFoliosDeTodosImprimirExportar.resx">
+      <DependentUpon>FrmBuscarFoliosDeTodosImprimirExportar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearTarifaAProducto.resx">
       <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>
@@ -621,6 +640,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\17602632474271CA94.png" />
+    <None Include="Resources\exportar.png" />
     <None Include="Resources\reportar.png" />
     <None Include="Resources\calendario.png" />
     <None Include="Resources\prueba.png" />

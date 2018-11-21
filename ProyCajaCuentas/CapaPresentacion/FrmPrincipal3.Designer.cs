@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile23 = new MetroFramework.Controls.MetroTile();
             this.metroTile24 = new MetroFramework.Controls.MetroTile();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroTile22 = new MetroFramework.Controls.MetroTile();
@@ -75,6 +76,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroTile23);
             this.metroPanel1.Controls.Add(this.metroTile24);
             this.metroPanel1.Controls.Add(this.metroLabel8);
             this.metroPanel1.Controls.Add(this.metroTile22);
@@ -120,6 +122,21 @@
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
             // 
+            // metroTile23
+            // 
+            this.metroTile23.ActiveControl = null;
+            this.metroTile23.Location = new System.Drawing.Point(154, 683);
+            this.metroTile23.Name = "metroTile23";
+            this.metroTile23.Size = new System.Drawing.Size(159, 97);
+            this.metroTile23.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroTile23.TabIndex = 30;
+            this.metroTile23.Text = "Imprimir-exportar";
+            this.metroTile23.TileImage = global::CapaPresentacion.Properties.Resources.exportar;
+            this.metroTile23.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile23.UseSelectable = true;
+            this.metroTile23.UseTileImage = true;
+            this.metroTile23.Click += new System.EventHandler(this.metroTile23_Click);
+            // 
             // metroTile24
             // 
             this.metroTile24.ActiveControl = null;
@@ -152,7 +169,7 @@
             this.metroTile22.Location = new System.Drawing.Point(24, 1693);
             this.metroTile22.Name = "metroTile22";
             this.metroTile22.Size = new System.Drawing.Size(121, 97);
-            this.metroTile22.Style = MetroFramework.MetroColorStyle.Brown;
+            this.metroTile22.Style = MetroFramework.MetroColorStyle.Silver;
             this.metroTile22.TabIndex = 27;
             this.metroTile22.Text = "Crear periodo";
             this.metroTile22.TileImage = global::CapaPresentacion.Properties.Resources.mas;
@@ -178,7 +195,7 @@
             this.metroTile21.Location = new System.Drawing.Point(24, 1850);
             this.metroTile21.Name = "metroTile21";
             this.metroTile21.Size = new System.Drawing.Size(121, 97);
-            this.metroTile21.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTile21.Style = MetroFramework.MetroColorStyle.Orange;
             this.metroTile21.TabIndex = 25;
             this.metroTile21.Text = "Ver informe";
             this.metroTile21.TileImage = global::CapaPresentacion.Properties.Resources.reportar;
@@ -676,5 +693,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel8;
         private MetroFramework.Controls.MetroTile metroTile22;
         private MetroFramework.Controls.MetroTile metroTile24;
+        private MetroFramework.Controls.MetroTile metroTile23;
     }
 }
