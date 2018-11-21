@@ -68,7 +68,7 @@ namespace CapaPresentacion
                 if(res.Rows.Count == 0)
                 {
                     crystalReportViewer1.ReportSource = null;
-                    MessageBox.Show("No se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 else
