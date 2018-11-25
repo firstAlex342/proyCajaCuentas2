@@ -71,6 +71,12 @@ namespace CapaPresentacion
             return (clsSocio.Socio_BuscarXDireccion());
         }
 
+        private DataTable Socio_BuscarTodosActivosController()
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            return (clsSocio.Socio_BuscarTodosActivos());
+        }
+
         //---------------Utils
         private void MostrarEnGridResultadoDeBusqueda(DataTable tabla)
         {
@@ -154,6 +160,14 @@ namespace CapaPresentacion
                 //buscar por licencia
                 DataTable respuesta = Socio_BuscarXLicenciaController(textBox1.Text);
                 MostrarEnGridResultadoDeBusqueda(respuesta);
+                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+            }
+
+            else if(radioButton7.Checked)
+            {
+                //buscar todos
+                DataTable respuesta = Socio_BuscarTodosActivosController();
+                dataGridView1.DataSource = respuesta;
                 label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
             }
         }
