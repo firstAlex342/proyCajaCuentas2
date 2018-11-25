@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile25 = new MetroFramework.Controls.MetroTile();
             this.metroTile23 = new MetroFramework.Controls.MetroTile();
             this.metroTile24 = new MetroFramework.Controls.MetroTile();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
@@ -76,6 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroTile25);
             this.metroPanel1.Controls.Add(this.metroTile23);
             this.metroPanel1.Controls.Add(this.metroTile24);
             this.metroPanel1.Controls.Add(this.metroLabel8);
@@ -121,6 +123,21 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             this.metroPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.metroPanel1_Paint);
+            // 
+            // metroTile25
+            // 
+            this.metroTile25.ActiveControl = null;
+            this.metroTile25.Location = new System.Drawing.Point(154, 146);
+            this.metroTile25.Name = "metroTile25";
+            this.metroTile25.Size = new System.Drawing.Size(159, 97);
+            this.metroTile25.Style = MetroFramework.MetroColorStyle.Black;
+            this.metroTile25.TabIndex = 31;
+            this.metroTile25.Text = "Imprimir-exportar";
+            this.metroTile25.TileImage = global::CapaPresentacion.Properties.Resources.exportar;
+            this.metroTile25.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile25.UseSelectable = true;
+            this.metroTile25.UseTileImage = true;
+            this.metroTile25.Click += new System.EventHandler(this.metroTile25_Click);
             // 
             // metroTile23
             // 
@@ -522,7 +539,7 @@
             this.metroTile2.ActiveControl = null;
             this.metroTile2.Location = new System.Drawing.Point(154, 37);
             this.metroTile2.Name = "metroTile2";
-            this.metroTile2.Size = new System.Drawing.Size(121, 97);
+            this.metroTile2.Size = new System.Drawing.Size(159, 97);
             this.metroTile2.Style = MetroFramework.MetroColorStyle.Green;
             this.metroTile2.TabIndex = 4;
             this.metroTile2.Text = "Modificar";
@@ -694,5 +711,6 @@
         private MetroFramework.Controls.MetroTile metroTile22;
         private MetroFramework.Controls.MetroTile metroTile24;
         private MetroFramework.Controls.MetroTile metroTile23;
+        private MetroFramework.Controls.MetroTile metroTile25;
     }
 }

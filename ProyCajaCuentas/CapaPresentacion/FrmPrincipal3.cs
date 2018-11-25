@@ -264,6 +264,14 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opcion: Consultar folios de recibo de pago , imprimir exportar*/}
             else { metroTile23.Enabled = false; }
 
+
+            respuesta = EsActivoModuloController(30) ? true : false;
+            if(respuesta)
+            { /* Permanece habilitada la opción: Socio, imprimir exportar*/}
+            else
+            {
+                metroTile25.Enabled = false;
+            }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -444,6 +452,11 @@ namespace CapaPresentacion
         private void metroTile23_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmBuscarFoliosDeTodosImprimirExportar());
+        }
+
+        private void metroTile25_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmSocioImprimirExportar());
         }
     }
 }

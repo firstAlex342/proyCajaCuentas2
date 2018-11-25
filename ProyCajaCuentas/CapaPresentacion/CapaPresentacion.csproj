@@ -91,6 +91,12 @@
       <DependentUpon>CRReporteProductosEnReciboListaProductos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteSocios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteSocios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,12 @@
     </Compile>
     <Compile Include="FrmProveedoresVer.Designer.cs">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSocioImprimirExportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioImprimirExportar.Designer.cs">
+      <DependentUpon>FrmSocioImprimirExportar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVisorReporteIngresosEgresos.cs">
       <SubType>Form</SubType>
@@ -437,6 +449,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteSocios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteSocios.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -469,6 +485,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedoresVer.resx">
       <DependentUpon>FrmProveedoresVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioImprimirExportar.resx">
+      <DependentUpon>FrmSocioImprimirExportar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteIngresosEgresos.resx">
       <DependentUpon>FrmVisorReporteIngresosEgresos.cs</DependentUpon>
