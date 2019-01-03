@@ -65,7 +65,7 @@ namespace CapaPresentacion
             
 
             dataGridView1.Columns.Add(columnaBotonesEliminar);
-            dataGridView1.Columns.Add("Proveedor", "Título");
+            dataGridView1.Columns.Add("Proveedor", "Proveedor");
             dataGridView1.Columns.Add("Concepto", "Detalles");
             dataGridView1.Columns.Add("Importe", "Importe");
             dataGridView1.Columns.Add("Factura", "Factura");

@@ -94,7 +94,7 @@ namespace CapaPresentacion
 
 
             dataGridView1.Columns.Add(columnaBotonesEliminar);
-            dataGridView1.Columns.Add("Proveedor", "Título");
+            dataGridView1.Columns.Add("Proveedor", "Proveedor");
             dataGridView1.Columns.Add("Concepto", "Detalles");
             dataGridView1.Columns.Add("Importe", "Importe");
             dataGridView1.Columns.Add("Factura", "Factura");
@@ -400,7 +400,12 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
+            FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
+            frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
 
+            textBox4.Text = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
+
+            frmBuscarYSeleccionarNombreProveedor.Dispose();
         }
 
         private void button6_Click(object sender, EventArgs e)

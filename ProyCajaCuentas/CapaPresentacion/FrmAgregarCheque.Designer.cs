@@ -191,7 +191,6 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(271, 34);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(262, 22);
             this.textBox2.TabIndex = 7;
             // 
@@ -220,6 +219,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(262, 22);
             this.dateTimePicker2.TabIndex = 10;
+            this.dateTimePicker2.Visible = false;
             // 
             // radioButton1
             // 
@@ -231,6 +231,7 @@
             this.radioButton1.TabIndex = 4;
             this.radioButton1.Text = "Fecha de cobro";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.Visible = false;
             // 
             // radioButton2
             // 
@@ -244,6 +245,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Sin fecha de cobro";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.Visible = false;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // button4
@@ -255,6 +257,7 @@
             this.button4.TabIndex = 11;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox2
@@ -307,9 +310,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(3, 5);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Título";
+            this.label5.Text = "Proveedor";
             // 
             // label6
             // 
@@ -346,6 +349,7 @@
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Location = new System.Drawing.Point(3, 31);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(196, 22);
             this.textBox4.TabIndex = 4;
             // 
@@ -393,7 +397,6 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Visible = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox3
