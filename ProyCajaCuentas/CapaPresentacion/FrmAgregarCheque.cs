@@ -116,6 +116,7 @@ namespace CapaPresentacion
 
         private bool ExisteFacturaEnGrid(string facturaCapturada)
         {
+            facturaCapturada = facturaCapturada.Trim();
             IEnumerable<DataGridViewRow> filas = dataGridView1.Rows.Cast<DataGridViewRow>();
 
             var res = from s in filas
@@ -159,14 +160,14 @@ namespace CapaPresentacion
             bool seCapturoImporte = TieneAlgoMasQueEspaciosEnBlanco(textBox6.Text);
             bool seCapturoFactura = TieneAlgoMasQueEspaciosEnBlanco(textBox7.Text);
 
-            if(seCapturoTitulo && seCapturoDetalles && seCapturoImporte && seCapturoFactura)
+            if(seCapturoTitulo && seCapturoDetalles && seCapturoImporte)
             {
                 decimal importeDecimal;
                 bool importeEstaEnFormatoValido = Decimal.TryParse(textBox6.Text, out importeDecimal);
 
                 if(importeEstaEnFormatoValido && EsPositivo(textBox6.Text) )
                 {
-                    if (ExisteFacturaEnGrid(textBox7.Text))
+                    if (seCapturoFactura && ExisteFacturaEnGrid(textBox7.Text))
                     {
                         MessageBox.Show("Ya capturo la factura " + textBox7.Text, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
@@ -177,7 +178,7 @@ namespace CapaPresentacion
                         dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
                         dataGridView1.Rows[n].Cells[2].Value = textBox5.Text;
                         dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
-                        dataGridView1.Rows[n].Cells[4].Value = textBox7.Text;
+                        dataGridView1.Rows[n].Cells[4].Value = (seCapturoFactura) ? textBox7.Text.Trim() : "";
 
                         LimpiarGroupBoxAniadirConceptos();
                         textBox3.Text = (SumarContenidoEnGrid()).ToString();
@@ -192,10 +193,9 @@ namespace CapaPresentacion
 
             else
             {
-                MostrarMensajeSiNoSeCapturo("Titulo", seCapturoTitulo);
+                MostrarMensajeSiNoSeCapturo("Proveedor", seCapturoTitulo);
                 MostrarMensajeSiNoSeCapturo("Detalles", seCapturoDetalles);
                 MostrarMensajeSiNoSeCapturo("Importe", seCapturoImporte);
-                MostrarMensajeSiNoSeCapturo("Factura", seCapturoFactura);
             }
         }
 
