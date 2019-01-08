@@ -97,6 +97,12 @@
       <DependentUpon>CRReporteSocios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteSociosParaExportar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteSociosParaExportar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -452,6 +458,10 @@
     <EmbeddedResource Include="CRReporteSocios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteSocios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteSociosParaExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteSociosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
