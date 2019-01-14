@@ -39,7 +39,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -93,7 +95,8 @@
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker3, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.button2, 3, 4);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
@@ -179,13 +182,24 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(588, 107);
+            this.button1.Location = new System.Drawing.Point(170, 107);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(246, 25);
+            this.button1.Size = new System.Drawing.Size(245, 25);
             this.button1.TabIndex = 10;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(588, 107);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(246, 25);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Exportar a excel";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // crystalReportViewer1
             // 
@@ -199,11 +213,20 @@
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
+            this.crystalReportViewer1.ShowExportButton = false;
             this.crystalReportViewer1.ShowLogo = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
             this.crystalReportViewer1.Size = new System.Drawing.Size(949, 356);
             this.crystalReportViewer1.TabIndex = 2;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "xls";
+            this.saveFileDialog1.Filter = "xls files (*.xls)|*.xls|All files (*.*)|*.*";
+            this.saveFileDialog1.InitialDirectory = "c:\\";
+            this.saveFileDialog1.RestoreDirectory = true;
+            this.saveFileDialog1.Title = "Guardar como";
             // 
             // FrmBuscarFoliosDeTodosImprimirExportar
             // 
@@ -235,5 +258,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.Button button1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
