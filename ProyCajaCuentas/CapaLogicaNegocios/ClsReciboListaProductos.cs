@@ -47,13 +47,15 @@ namespace CapaLogicaNegocios
 
             //Parametros de entrada
             lst.Add(new ClsParametros("@folioBuscado", this.Folio));
+            lst.Add(new ClsParametros("@idUsuarioModifico", this.IdUsuarioModifico));
+
 
             //Parametro de salida
             lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
             CLSManejador.Ejecutar_sp("ReciboListaProductos_UpdateActivoACero", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[1].Valor.ToString();
+            mensaje = lst[2].Valor.ToString();
 
             return (mensaje);
         }

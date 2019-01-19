@@ -21,10 +21,11 @@ namespace CapaPresentacion
         }
 
         //--------------Methods controller
-        private string CancelarFolioReciboListaProductosController(string folioBuscado)
+        private string CancelarFolioReciboListaProductosController(string folioBuscado, int idUsuarioOperador)
         {
             ClsReciboListaProductos clsReciboListaProductos = new ClsReciboListaProductos();
             clsReciboListaProductos.Folio = folioBuscado;
+            clsReciboListaProductos.IdUsuarioModifico = idUsuarioOperador;
 
             return (clsReciboListaProductos.ReciboListaProductos_UpdateActivoACero());
 
@@ -58,7 +59,7 @@ namespace CapaPresentacion
                     if(SePuedeCancelarFolioReciboListaProductosController(textBox1.Text))
                     {
                         //Proceder a cancelarlo
-                        string res = CancelarFolioReciboListaProductosController(textBox1.Text);
+                        string res = CancelarFolioReciboListaProductosController(textBox1.Text, ClsLogin.Id);
                         if (res.Contains("ok"))
                         {
                             StringBuilder mensaje = new StringBuilder();
