@@ -109,6 +109,12 @@
       <DependentUpon>CRReporteProductosEnReciboListaProductosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,11 +133,17 @@
     <Compile Include="FrmBancosCrearPeriodo.Designer.cs">
       <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBuscarFoliosDeTodosImprimirExportar.cs">
+    <Compile Include="FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBuscarFoliosDeTodosImprimirExportar.Designer.cs">
-      <DependentUpon>FrmBuscarFoliosDeTodosImprimirExportar.cs</DependentUpon>
+    <Compile Include="FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosActivosDeTodosImprimirExportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosActivosDeTodosImprimirExportar.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosActivosDeTodosImprimirExportar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBuscarYSeleccionarNombreProveedor.cs">
       <SubType>Form</SubType>
@@ -473,6 +485,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -482,8 +498,11 @@
     <EmbeddedResource Include="FrmBancosCrearPeriodo.resx">
       <DependentUpon>FrmBancosCrearPeriodo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBuscarFoliosDeTodosImprimirExportar.resx">
-      <DependentUpon>FrmBuscarFoliosDeTodosImprimirExportar.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar.resx">
+      <DependentUpon>FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarFoliosActivosDeTodosImprimirExportar.resx">
+      <DependentUpon>FrmBuscarFoliosActivosDeTodosImprimirExportar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCrearTarifaAProducto.resx">
       <DependentUpon>FrmCrearTarifaAProducto.cs</DependentUpon>

@@ -261,7 +261,7 @@ namespace CapaPresentacion
 
             respuesta = EsActivoModuloController(29) ? true : false;
             if (respuesta)
-            { /*Permanece habilitada la opcion: Consultar folios de recibo de pago , imprimir exportar*/}
+            { /*Permanece habilitada la opcion: Consultar folios de recibo de pago , imprimir exportar activos*/}
             else { metroTile23.Enabled = false; }
 
 
@@ -269,9 +269,13 @@ namespace CapaPresentacion
             if(respuesta)
             { /* Permanece habilitada la opción: Socio, imprimir exportar*/}
             else
-            {
-                metroTile25.Enabled = false;
-            }
+            {   metroTile25.Enabled = false;  }
+
+            respuesta = EsActivoModuloController(31) ? true : false;
+            if(respuesta)
+            { /*Permanece habilitada la opción: Consular folios de recibo de pago, imprimir-exportar activos y cancelados*/}
+            else
+            {  metroTile26.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -282,11 +286,6 @@ namespace CapaPresentacion
 
 
         //------------------------Events
-
-        private void metroPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void metroTile3_Click(object sender, EventArgs e)
         {
@@ -451,12 +450,17 @@ namespace CapaPresentacion
 
         private void metroTile23_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmBuscarFoliosDeTodosImprimirExportar());
+            AbrirFormulario(new FrmBuscarFoliosActivosDeTodosImprimirExportar());
         }
 
         private void metroTile25_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmSocioImprimirExportar());
+        }
+
+        private void metroTile26_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar());
         }
     }
 }

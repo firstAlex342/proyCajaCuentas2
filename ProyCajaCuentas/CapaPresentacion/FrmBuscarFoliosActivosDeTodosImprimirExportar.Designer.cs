@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmBuscarFoliosDeTodosImprimirExportar
+    partial class FrmBuscarFoliosActivosDeTodosImprimirExportar
     {
         /// <summary>
         /// Required designer variable.
@@ -228,14 +228,14 @@
             this.saveFileDialog1.RestoreDirectory = true;
             this.saveFileDialog1.Title = "Guardar como";
             // 
-            // FrmBuscarFoliosDeTodosImprimirExportar
+            // FrmBuscarFoliosActivosDeTodosImprimirExportar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 555);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Name = "FrmBuscarFoliosDeTodosImprimirExportar";
-            this.Text = "FrmBuscarFoliosDeTodosImprimirExportar";
+            this.Name = "FrmBuscarFoliosActivosDeTodosImprimirExportar";
+            this.Text = "FrmBuscarFoliosActivosDeTodosImprimirExportar";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

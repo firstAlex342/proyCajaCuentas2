@@ -14,10 +14,10 @@ using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class FrmBuscarFoliosDeTodosImprimirExportar : Form
+    public partial class FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar : Form
     {
         //-------------------constructor
-        public FrmBuscarFoliosDeTodosImprimirExportar()
+        public FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar()
         {
             InitializeComponent();
         }
@@ -44,45 +44,45 @@ namespace CapaPresentacion
         {
             try
             {
-                DateTime fechaInicio;
-                DateTime fechaFin;
+                //DateTime fechaInicio;
+                //DateTime fechaFin;
 
-                if (radioButton1.Checked == true)
-                {
-                    fechaInicio = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
-                        dateTimePicker1.Value.Day, 0, 1, 0);
+                //if (radioButton1.Checked == true)
+                //{
+                //    fechaInicio = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
+                //        dateTimePicker1.Value.Day, 0, 1, 0);
 
-                    fechaFin = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
-                        dateTimePicker1.Value.Day, 23, 59, 58);
-                }
+                //    fechaFin = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
+                //        dateTimePicker1.Value.Day, 23, 59, 58);
+                //}
 
-                else
-                {
-                    fechaInicio = new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month,
-                        dateTimePicker2.Value.Day, 0, 1, 0);
+                //else
+                //{
+                //    fechaInicio = new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month,
+                //        dateTimePicker2.Value.Day, 0, 1, 0);
 
-                    fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
-                        dateTimePicker3.Value.Day, 23, 59, 58);
-                }
+                //    fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
+                //        dateTimePicker3.Value.Day, 23, 59, 58);
+                //}
 
-                DataTable res = Socio_BuscarFoliosActivosDeTodosEnReciboListaProductosController(fechaInicio, fechaFin);
-                if(res.Rows.Count == 0)
-                {
-                    crystalReportViewer1.ReportSource = null;
-                    MessageBox.Show("Se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                //DataTable res = Socio_BuscarFoliosActivosDeTodosEnReciboListaProductosController(fechaInicio, fechaFin);
+                //if(res.Rows.Count == 0)
+                //{
+                //    crystalReportViewer1.ReportSource = null;
+                //    MessageBox.Show("Se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //}
 
-                else
-                {
-                    CRReporteProductosEnReciboListaProductos crReporte = new CRReporteProductosEnReciboListaProductos();
-                    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
-                    crReporte.SetParameterValue("@fechaInicio", fechaInicio);
-                    crReporte.SetParameterValue("@fechaFin", fechaFin);
+                //else
+                //{
+                //    CRReporteProductosEnReciboListaProductos crReporte = new CRReporteProductosEnReciboListaProductos();
+                //    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                //    crReporte.SetParameterValue("@fechaInicio", fechaInicio);
+                //    crReporte.SetParameterValue("@fechaFin", fechaFin);
 
-                    TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text25"] as TextObject;
-                    periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
-                    crystalReportViewer1.ReportSource = crReporte;
-                }
+                //    TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text25"] as TextObject;
+                //    periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
+                //    crystalReportViewer1.ReportSource = crReporte;
+                //}
 
             }
 
@@ -142,13 +142,13 @@ namespace CapaPresentacion
 
                     //http://aspalliance.com/478_Exporting_to_Excel_in_Crystal_Reports_NET__Perfect_Excel_Exports.3
                     //https://www.c-sharpcorner.com/UploadFile/mahesh/savefiledialog-in-C-Sharp/
-                    CRReporteProductosEnReciboListaProductosParaExportar reporte = new CRReporteProductosEnReciboListaProductosParaExportar();
+                    CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar reporte = new CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar();
                     reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
                     reporte.SetParameterValue("@fechaInicio", fechaInicio);
                     reporte.SetParameterValue("@fechaFin", fechaFin);
 
                     //Ponerle las fechas de busqueda al reporte
-                    TextObject periodoDeBusquedaTextObject = reporte.ReportDefinition.ReportObjects["Text24"] as TextObject;
+                    TextObject periodoDeBusquedaTextObject = reporte.ReportDefinition.ReportObjects["Text6"] as TextObject;
                     periodoDeBusquedaTextObject.Text = MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
 
 
