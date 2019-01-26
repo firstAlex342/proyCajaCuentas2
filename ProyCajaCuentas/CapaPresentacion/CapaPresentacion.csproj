@@ -97,12 +97,6 @@
       <DependentUpon>CRReporteSocios.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CRReporteSociosParaExportar.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CRReporteSociosParaExportar.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CRReporteProductosEnReciboListaProductosParaExportar.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -119,6 +113,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRReporteProductosEnReciboListaProductosActivosYCancelados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRReporteSociosParaExportar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteSociosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
@@ -483,10 +483,6 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteSocios.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CRReporteSociosParaExportar.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CRReporteSociosParaExportar.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductosParaExportar.cs</LastGenOutput>
@@ -498,6 +494,10 @@
     <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosActivosYCancelados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductosActivosYCancelados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteSociosParaExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteSociosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
