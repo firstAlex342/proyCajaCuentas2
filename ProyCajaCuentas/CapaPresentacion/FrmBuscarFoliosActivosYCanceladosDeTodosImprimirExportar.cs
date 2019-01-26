@@ -23,13 +23,13 @@ namespace CapaPresentacion
         }
 
         //----------------Methods controller
-        private DataTable Socio_BuscarFoliosActivosDeTodosEnReciboListaProductosController(DateTime fechaInicio, DateTime fechaFin)
+        private DataTable Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetalladoController(DateTime fechaInicio, DateTime fechaFin)
         {
             ClsSocio clsSocio = new ClsSocio();
             clsSocio.FechaAlta = fechaInicio;
             clsSocio.FechaModificacion = fechaFin;
 
-            return (clsSocio.Socio_BuscarFoliosActivosDeTodosEnReciboListaProductos());
+            return (clsSocio.Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetallado());
         }
 
         //------------------------Utils
@@ -44,46 +44,45 @@ namespace CapaPresentacion
         {
             try
             {
-                //DateTime fechaInicio;
-                //DateTime fechaFin;
+                DateTime fechaInicio;
+                DateTime fechaFin;
 
-                //if (radioButton1.Checked == true)
-                //{
-                //    fechaInicio = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
-                //        dateTimePicker1.Value.Day, 0, 1, 0);
+                if (radioButton1.Checked == true)
+                {
+                    fechaInicio = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
+                        dateTimePicker1.Value.Day, 0, 1, 0);
 
-                //    fechaFin = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
-                //        dateTimePicker1.Value.Day, 23, 59, 58);
-                //}
+                    fechaFin = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
+                        dateTimePicker1.Value.Day, 23, 59, 58);
+                }
 
-                //else
-                //{
-                //    fechaInicio = new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month,
-                //        dateTimePicker2.Value.Day, 0, 1, 0);
+                else
+                {
+                    fechaInicio = new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month,
+                        dateTimePicker2.Value.Day, 0, 1, 0);
 
-                //    fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
-                //        dateTimePicker3.Value.Day, 23, 59, 58);
-                //}
+                    fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
+                        dateTimePicker3.Value.Day, 23, 59, 58);
+                }
 
-                //DataTable res = Socio_BuscarFoliosActivosDeTodosEnReciboListaProductosController(fechaInicio, fechaFin);
-                //if(res.Rows.Count == 0)
-                //{
-                //    crystalReportViewer1.ReportSource = null;
-                //    MessageBox.Show("Se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //}
+                DataTable res = Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetalladoController(fechaInicio, fechaFin);
+                if (res.Rows.Count == 0)
+                {
+                    crystalReportViewer1.ReportSource = null;
+                    MessageBox.Show("Se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
-                //else
-                //{
-                //    CRReporteProductosEnReciboListaProductos crReporte = new CRReporteProductosEnReciboListaProductos();
-                //    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
-                //    crReporte.SetParameterValue("@fechaInicio", fechaInicio);
-                //    crReporte.SetParameterValue("@fechaFin", fechaFin);
+                else
+                {
+                    CRReporteProductosEnReciboListaProductosActivosYCancelados crReporte = new CRReporteProductosEnReciboListaProductosActivosYCancelados();
+                    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    crReporte.SetParameterValue("@fechaInicio", fechaInicio);
+                    crReporte.SetParameterValue("@fechaFin", fechaFin);
 
-                //    TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text25"] as TextObject;
-                //    periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
-                //    crystalReportViewer1.ReportSource = crReporte;
-                //}
-
+                    TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text6"] as TextObject;
+                    periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
+                    crystalReportViewer1.ReportSource = crReporte;
+                }
             }
 
             catch (Exception ex)

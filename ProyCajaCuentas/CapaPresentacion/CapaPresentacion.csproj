@@ -115,6 +115,12 @@
       <DependentUpon>CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteProductosEnReciboListaProductosActivosYCancelados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteProductosEnReciboListaProductosActivosYCancelados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmActualizarInfoCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -488,6 +494,10 @@
     <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosActivosYCancelados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteProductosEnReciboListaProductosActivosYCancelados.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
