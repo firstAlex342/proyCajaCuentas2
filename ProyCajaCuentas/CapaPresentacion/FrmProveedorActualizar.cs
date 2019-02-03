@@ -105,7 +105,7 @@ namespace CapaPresentacion
         {
             try
             {
-                DataTable res = Proveedor_BuscarPrimerProveedorConNombreActivoController(textBox8.Text);
+                DataTable res = Proveedor_BuscarPrimerProveedorConNombreActivoController(textBox8.Text.Trim());
                 if(res.Rows.Count > 0)
                 {
                     LimpiarTextBoxes();
@@ -119,7 +119,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    MessageBox.Show("Proveedor " + textBox8.Text + " no encontrado", "Resultado de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Proveedor " + textBox8.Text.Trim() + " no encontrado", "Resultado de búsqueda", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
 

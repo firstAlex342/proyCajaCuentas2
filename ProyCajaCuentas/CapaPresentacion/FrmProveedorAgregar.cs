@@ -82,7 +82,7 @@ namespace CapaPresentacion
                     bool capturoNombreProveedor = TieneAlgoMasQueEspaciosEnBlanco(textBox8.Text);
                     if(capturoNombreProveedor)
                     {
-                        string mensaje = Proveedor_create_Controller(textBox8.Text, textBox2.Text, textBox9.Text,
+                        string mensaje = Proveedor_create_Controller(textBox8.Text.Trim(), textBox2.Text, textBox9.Text,
                             textBox3.Text, textBox10.Text, textBox4.Text, textBox13.Text, textBox7.Text, textBox14.Text);
                         
                         if( mensaje.Contains("ok") )
