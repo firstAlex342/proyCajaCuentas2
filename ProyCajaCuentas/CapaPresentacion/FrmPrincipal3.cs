@@ -276,6 +276,13 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opción: Consular folios de recibo de pago, imprimir-exportar activos y cancelados*/}
             else
             {  metroTile26.Enabled = false; }
+
+
+            respuesta = EsActivoModuloController(32) ? true : false;
+            if(respuesta)
+            { /*Permanece habilitada la opción: Proveedor, agregar producto o servicio*/}
+            else
+            {  metroTile27.Enabled = false;   }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -461,6 +468,11 @@ namespace CapaPresentacion
         private void metroTile26_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmBuscarFoliosActivosYCanceladosDeTodosImprimirExportar());
+        }
+
+        private void metroTile27_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProveedorAgregarElemento());
         }
     }
 }

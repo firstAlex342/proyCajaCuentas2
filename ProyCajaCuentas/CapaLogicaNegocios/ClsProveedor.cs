@@ -152,5 +152,16 @@ namespace CapaLogicaNegocios
 
             return (mensaje);
         }
+
+
+        public DataTable Proveedor_BuscarElementosProveidosActivos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@idProveedor", this.Id));
+
+            return (CLSManejador.Listado("Proveedor_BuscarElementosProveidosActivos", lst));
+        }
+
+
     }
 }
