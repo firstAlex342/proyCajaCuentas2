@@ -193,6 +193,12 @@
     <Compile Include="FrmProveedorAgregar.Designer.cs">
       <DependentUpon>FrmProveedorAgregar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProveedorEditarElemento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProveedorEditarElemento.Designer.cs">
+      <DependentUpon>FrmProveedorEditarElemento.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProveedorEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -538,6 +544,9 @@
     <EmbeddedResource Include="FrmProveedorAgregar.resx">
       <DependentUpon>FrmProveedorAgregar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmProveedorEditarElemento.resx">
+      <DependentUpon>FrmProveedorEditarElemento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedorEliminar.resx">
       <DependentUpon>FrmProveedorEliminar.cs</DependentUpon>
     </EmbeddedResource>
@@ -717,6 +726,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\17602632474271CA94.png" />
+    <None Include="Resources\editarX.png" />
     <None Include="Resources\exportar.png" />
     <None Include="Resources\reportar.png" />
     <None Include="Resources\calendario.png" />

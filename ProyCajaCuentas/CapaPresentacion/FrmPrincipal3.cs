@@ -283,6 +283,13 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opción: Proveedor, agregar producto o servicio*/}
             else
             {  metroTile27.Enabled = false;   }
+
+
+            respuesta = EsActivoModuloController(33) ? true : false;
+            if(respuesta)
+            { /*Permanece habilitada la opción: Proveedor, editar producto o servicio*/}
+            else
+            { metroTile28.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -473,6 +480,11 @@ namespace CapaPresentacion
         private void metroTile27_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmProveedorAgregarElemento());
+        }
+
+        private void metroTile28_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmProveedorEditarElemento());
         }
     }
 }

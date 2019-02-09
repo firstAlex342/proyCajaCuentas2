@@ -54,6 +54,7 @@
     <Compile Include="ClsProducto.cs" />
     <Compile Include="ClsProductosAPagar.cs" />
     <Compile Include="ClsProveedor.cs" />
+    <Compile Include="ClsProveedorProveeElemento.cs" />
     <Compile Include="ClsReciboLicencia.cs" />
     <Compile Include="ClsReciboListaProductos.cs" />
     <Compile Include="ClsSocio.cs" />
