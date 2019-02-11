@@ -52,6 +52,14 @@ namespace CapaPresentacion
         }
 
 
+        public DataTable Proveedor_BuscarElementosProveidosActivosController(int idProveedor)
+        {
+            ClsProveedor clsProveedor = new ClsProveedor();
+            clsProveedor.Id = idProveedor;
+
+            return (clsProveedor.Proveedor_BuscarElementosProveidosActivos());
+        }
+
 
         //------------------Utils
         private void CrearColumnasParaDataGridViewConceptosEnCheque()
@@ -80,7 +88,9 @@ namespace CapaPresentacion
         private void LimpiarGroupBoxAniadirConceptos()
         {
             textBox4.Text = "";
-            textBox5.Text = "";
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            comboBox1.ResetText();
             textBox6.Text = "";
             textBox7.Text = "";
         }
@@ -150,17 +160,40 @@ namespace CapaPresentacion
             return (x.Sum());
         }
 
+        private void CargarElementosProveidosEnComboBox(DataTable elementosProveidos)
+        {
+            //https://www.c-sharpcorner.com/UploadFile/0f68f2/programmatically-binding-datasource-to-combobox-in-multiple/
+            var coleccion = elementosProveidos.AsEnumerable();
+            List<DataRow> filas = coleccion.ToList<DataRow>();
+
+            var x = from fila in filas
+                    select fila.Field<string>("Nombre de elemento");
+
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            comboBox1.ResetText();
+
+            comboBox1.DataSource = x.ToList<string>();            
+        }
+
+        private bool EstaSeleccionadoItemDeComboBox(ComboBox miComboBox)
+        {
+            if (miComboBox.SelectedIndex >= 0)
+                return true;
+            else
+                return false;
+        }
         //------------------Events
 
 
         private void button1_Click(object sender, EventArgs e)
         {
             bool seCapturoTitulo = TieneAlgoMasQueEspaciosEnBlanco(textBox4.Text);
-            bool seCapturoDetalles = TieneAlgoMasQueEspaciosEnBlanco(textBox5.Text);
+            bool seSeleccionoElementoProveido = EstaSeleccionadoItemDeComboBox(comboBox1);
             bool seCapturoImporte = TieneAlgoMasQueEspaciosEnBlanco(textBox6.Text);
             bool seCapturoFactura = TieneAlgoMasQueEspaciosEnBlanco(textBox7.Text);
 
-            if(seCapturoTitulo && seCapturoDetalles && seCapturoImporte)
+            if(seCapturoTitulo && seSeleccionoElementoProveido && seCapturoImporte)  //seCapturoDetalles, aqui hiba
             {
                 decimal importeDecimal;
                 bool importeEstaEnFormatoValido = Decimal.TryParse(textBox6.Text, out importeDecimal);
@@ -176,7 +209,7 @@ namespace CapaPresentacion
                     {
                         int n = dataGridView1.Rows.Add();
                         dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
-                        dataGridView1.Rows[n].Cells[2].Value = textBox5.Text;
+                        dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
                         dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
                         dataGridView1.Rows[n].Cells[4].Value = (seCapturoFactura) ? textBox7.Text.Trim() : "";
 
@@ -194,7 +227,7 @@ namespace CapaPresentacion
             else
             {
                 MostrarMensajeSiNoSeCapturo("Proveedor", seCapturoTitulo);
-                MostrarMensajeSiNoSeCapturo("Detalles", seCapturoDetalles);
+                MostrarMensajeSiNoSeCapturo("Detalles", seSeleccionoElementoProveido);
                 MostrarMensajeSiNoSeCapturo("Importe", seCapturoImporte);
             }
         }
@@ -282,16 +315,39 @@ namespace CapaPresentacion
             }
         }
 
+
+
         private void button3_Click(object sender, EventArgs e)
         {
             FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
             frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
 
             textBox4.Text = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
+            if(frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado > 0)
+            {
+                try
+                {
+                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado);
+                    CargarElementosProveidosEnComboBox(elementosProveidos);
+                }
+
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+                }
+            }
+
+            else
+            {
+                comboBox1.DataSource = null;
+                comboBox1.Items.Clear();
+                comboBox1.ResetText();
+            }
 
             frmBuscarYSeleccionarNombreProveedor.Dispose();
-
         }
+
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -315,5 +371,8 @@ namespace CapaPresentacion
             frmBuscarYSeleccionarNombreProveedor.Dispose();
 
         }
+
+
+
     }
 }

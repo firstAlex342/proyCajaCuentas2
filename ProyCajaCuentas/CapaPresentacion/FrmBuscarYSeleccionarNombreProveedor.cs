@@ -14,12 +14,19 @@ namespace CapaPresentacion
     public partial class FrmBuscarYSeleccionarNombreProveedor : Form
     {
         private string nombreProveeedorSeleccionado;
+        private int idProveedorSeleccionado;
 
         //------------Properties
         public string NombreProveeedorSeleccionado
         {
             set { nombreProveeedorSeleccionado = value; }
             get { return nombreProveeedorSeleccionado; }
+        }
+
+        public int IdProveedorSeleccionado
+        {
+            set { idProveedorSeleccionado = value; }
+            get { return idProveedorSeleccionado; }
         }
 
 
@@ -29,6 +36,7 @@ namespace CapaPresentacion
             InitializeComponent();
 
             this.NombreProveeedorSeleccionado = "";
+            this.IdProveedorSeleccionado = 0;
             CrearColumnasParaDataGridViewNombreDeProveedoresActivos();
 
             try
@@ -59,6 +67,8 @@ namespace CapaPresentacion
             return (clsProveedor.Proveedor_BuscarXNombreYQueEstenActivos());
         }
 
+
+
         //--------------------------Utils
         private void CrearColumnasParaDataGridViewNombreDeProveedoresActivos()
         {
@@ -68,6 +78,7 @@ namespace CapaPresentacion
 
 
             dataGridView1.Columns.Add(chk);
+            dataGridView1.Columns.Add("Id", "Id");
             dataGridView1.Columns.Add("Proveedor", "Nombre de proveedor");
             dataGridView1.Columns.Add("DireccionSupmza", "Supermanzana");
             dataGridView1.Columns.Add("DireccionManzana", "Manzana");
@@ -88,6 +99,9 @@ namespace CapaPresentacion
             dataGridView1.Columns[7].ReadOnly = true;
             dataGridView1.Columns[8].ReadOnly = true;
             dataGridView1.Columns[9].ReadOnly = true;
+            dataGridView1.Columns[10].ReadOnly = true;
+
+            dataGridView1.Columns[1].Visible = false;
         }
 
         private void LLenarDataGridConDatos(DataTable datosDeProveedorTable)
@@ -97,15 +111,16 @@ namespace CapaPresentacion
 
             Action<DataRow> AniadirADataGrid = fila => {
                 int n = dataGridView1.Rows.Add();
-                dataGridView1.Rows[n].Cells[1].Value = fila.Field<string>("Nombre");  //Extraer el nombre de la datatable y asignarlo al grid
-                dataGridView1.Rows[n].Cells[2].Value = fila.Field<string>("DireccionSupmza");
-                dataGridView1.Rows[n].Cells[3].Value = fila.Field<string>("DireccionManzana");
-                dataGridView1.Rows[n].Cells[4].Value = fila.Field<string>("DireccionLote");
-                dataGridView1.Rows[n].Cells[5].Value = fila.Field<string>("DireccionCalle");
-                dataGridView1.Rows[n].Cells[6].Value = fila.Field<string>("DireccionComplemento");
-                dataGridView1.Rows[n].Cells[7].Value = fila.Field<string>("Telefono");
-                dataGridView1.Rows[n].Cells[8].Value = fila.Field<string>("Celular");
-                dataGridView1.Rows[n].Cells[9].Value = fila.Field<string>("CorreoElectronico");
+                dataGridView1.Rows[n].Cells[1].Value = fila.Field<int>("Id");
+                dataGridView1.Rows[n].Cells[2].Value = fila.Field<string>("Nombre");  //Extraer el nombre de la datatable y asignarlo al grid
+                dataGridView1.Rows[n].Cells[3].Value = fila.Field<string>("DireccionSupmza");
+                dataGridView1.Rows[n].Cells[4].Value = fila.Field<string>("DireccionManzana");
+                dataGridView1.Rows[n].Cells[5].Value = fila.Field<string>("DireccionLote");
+                dataGridView1.Rows[n].Cells[6].Value = fila.Field<string>("DireccionCalle");
+                dataGridView1.Rows[n].Cells[7].Value = fila.Field<string>("DireccionComplemento");
+                dataGridView1.Rows[n].Cells[8].Value = fila.Field<string>("Telefono");
+                dataGridView1.Rows[n].Cells[9].Value = fila.Field<string>("Celular");
+                dataGridView1.Rows[n].Cells[10].Value = fila.Field<string>("CorreoElectronico");
             };
 
             listDataRows.ForEach(AniadirADataGrid);
@@ -197,7 +212,8 @@ namespace CapaPresentacion
 
                 else
                 {
-                    this.NombreProveeedorSeleccionado = filaSeleccionada.Cells[1].EditedFormattedValue.ToString();
+                    this.NombreProveeedorSeleccionado = filaSeleccionada.Cells[2].EditedFormattedValue.ToString();
+                    this.IdProveedorSeleccionado = Int32.Parse(filaSeleccionada.Cells[1].EditedFormattedValue.ToString());
                 }
 
                 this.Visible = false;
