@@ -162,7 +162,6 @@ namespace CapaPresentacion
 
         private void CargarElementosProveidosEnComboBox(DataTable elementosProveidos)
         {
-            //https://www.c-sharpcorner.com/UploadFile/0f68f2/programmatically-binding-datasource-to-combobox-in-multiple/
             var coleccion = elementosProveidos.AsEnumerable();
             List<DataRow> filas = coleccion.ToList<DataRow>();
 
@@ -193,7 +192,7 @@ namespace CapaPresentacion
             bool seCapturoImporte = TieneAlgoMasQueEspaciosEnBlanco(textBox6.Text);
             bool seCapturoFactura = TieneAlgoMasQueEspaciosEnBlanco(textBox7.Text);
 
-            if(seCapturoTitulo && seSeleccionoElementoProveido && seCapturoImporte)  //seCapturoDetalles, aqui hiba
+            if(seCapturoTitulo && seSeleccionoElementoProveido && seCapturoImporte)  
             {
                 decimal importeDecimal;
                 bool importeEstaEnFormatoValido = Decimal.TryParse(textBox6.Text, out importeDecimal);
