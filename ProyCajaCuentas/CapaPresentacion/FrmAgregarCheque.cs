@@ -199,22 +199,31 @@ namespace CapaPresentacion
 
                 if(importeEstaEnFormatoValido && EsPositivo(textBox6.Text) )
                 {
-                    if (seCapturoFactura && ExisteFacturaEnGrid(textBox7.Text))
-                    {
-                        MessageBox.Show("Ya capturo la factura " + textBox7.Text, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
+                    //Estas lineas comentadas permiten insertar una factura si no existe en el datagrid, se comento para evitar ello.
+                    //if (seCapturoFactura && ExisteFacturaEnGrid(textBox7.Text))
+                    //{
+                    //    MessageBox.Show("Ya capturo la factura " + textBox7.Text, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    //}
 
-                    else
-                    {
-                        int n = dataGridView1.Rows.Add();
-                        dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
-                        dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
-                        dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
-                        dataGridView1.Rows[n].Cells[4].Value = (seCapturoFactura) ? textBox7.Text.Trim() : "";
+                    //else
+                    //{
+                    //    int n = dataGridView1.Rows.Add();
+                    //    dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
+                    //    dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
+                    //    dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
+                    //    dataGridView1.Rows[n].Cells[4].Value = (seCapturoFactura) ? textBox7.Text.Trim() : "";
 
-                        LimpiarGroupBoxAniadirConceptos();
-                        textBox3.Text = (SumarContenidoEnGrid()).ToString();
-                    }
+                    //    LimpiarGroupBoxAniadirConceptos();
+                    //    textBox3.Text = (SumarContenidoEnGrid()).ToString();
+                    //}
+                    int n = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
+                    dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
+                    dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
+                    dataGridView1.Rows[n].Cells[4].Value = (seCapturoFactura) ? textBox7.Text.Trim() : "";
+
+                    LimpiarGroupBoxAniadirConceptos();
+                    textBox3.Text = (SumarContenidoEnGrid()).ToString();
                 }
 
                 else
