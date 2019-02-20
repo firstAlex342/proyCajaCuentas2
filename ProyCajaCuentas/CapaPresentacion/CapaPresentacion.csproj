@@ -121,6 +121,12 @@
       <DependentUpon>CRReporteSociosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmBeneficiarioChequeCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBeneficiarioChequeCrear.Designer.cs">
+      <DependentUpon>FrmBeneficiarioChequeCrear.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmProveedorAgregarElemento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -513,6 +519,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBeneficiarioChequeCrear.resx">
+      <DependentUpon>FrmBeneficiarioChequeCrear.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedorAgregarElemento.resx">
       <DependentUpon>FrmProveedorAgregarElemento.cs</DependentUpon>
