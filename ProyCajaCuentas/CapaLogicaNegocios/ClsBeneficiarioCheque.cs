@@ -53,6 +53,14 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public DataTable BeneficiarioCheque_Select_Activos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@parametroNoNecesario", 1));
+
+            return (CLSManejador.Listado("BeneficiarioCheque_Select_Activos", lst));
+        }
+
 
 
         //-----------properties

@@ -91,3 +91,4 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.csproj.CopyComplete
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.exe
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.pdb
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBeneficiarioChequeVer.resources

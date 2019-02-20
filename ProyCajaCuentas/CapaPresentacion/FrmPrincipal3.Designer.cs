@@ -150,6 +150,7 @@
             this.metroTile31.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile31.UseSelectable = true;
             this.metroTile31.UseTileImage = true;
+            this.metroTile31.Click += new System.EventHandler(this.metroTile31_Click);
             // 
             // metroTile29
             // 

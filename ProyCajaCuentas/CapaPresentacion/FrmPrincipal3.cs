@@ -297,6 +297,12 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opción: Beneficiario de cheque, nuevo*/}
             else
             { metroTile30.Enabled = false; }
+
+            respuesta = EsActivoModuloController(35) ? true : false;
+            if(respuesta)
+            { /*Permanece habilitada la opción: Beneficiario de cheque, Ver todos*/}
+            else
+            { metroTile31.Enabled = false; }
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -497,6 +503,11 @@ namespace CapaPresentacion
         private void metroTile30_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmBeneficiarioChequeCrear());
+        }
+
+        private void metroTile31_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmBeneficiarioChequeVer());
         }
     }
 }
