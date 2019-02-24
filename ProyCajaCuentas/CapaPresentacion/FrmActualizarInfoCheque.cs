@@ -472,12 +472,11 @@ namespace CapaPresentacion
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
-            frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
+            FrmBeneficiarioChequeBuscarYSeleccionar frmBeneficiarioChequeBuscarYSeleccionar = new FrmBeneficiarioChequeBuscarYSeleccionar();
+            frmBeneficiarioChequeBuscarYSeleccionar.ShowDialog(this);
 
-            textBox2.Text = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
-
-            frmBuscarYSeleccionarNombreProveedor.Dispose();
+            textBox2.Text = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
+            frmBeneficiarioChequeBuscarYSeleccionar.Dispose();
         }
     }
 }
