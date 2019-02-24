@@ -105,11 +105,15 @@ namespace CapaPresentacion
         {
             Func<DataGridViewRow, bool> delegado = fila =>
             {
-                DataGridViewCheckBoxCell miCheckBox = (DataGridViewCheckBoxCell) fila.Cells[0];
-                if (miCheckBox.Value.ToString() == "True")
-                    return (true);
-                else
-                    return (false);
+                if(fila.Cells[0].Value != null)
+                {
+                    DataGridViewCheckBoxCell miCheckBox = (DataGridViewCheckBoxCell)fila.Cells[0];
+                    if (miCheckBox.Value.ToString() == "True")
+                        return (true);
+                    else
+                        return (false);
+                }
+                return false;
             };
 
 

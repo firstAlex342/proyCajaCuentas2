@@ -61,6 +61,23 @@ namespace CapaLogicaNegocios
             return (CLSManejador.Listado("BeneficiarioCheque_Select_Activos", lst));
         }
 
+        public System.String BeneficiarioCheque_UpdateActivoACero()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@idBeneficiarioCheque", this.Id));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("BeneficiarioCheque_UpdateActivoACero", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[2].Valor.ToString();
+            return (mensaje);
+        }
 
 
         //-----------properties

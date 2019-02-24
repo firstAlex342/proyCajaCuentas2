@@ -127,6 +127,12 @@
     <Compile Include="FrmBeneficiarioChequeCrear.Designer.cs">
       <DependentUpon>FrmBeneficiarioChequeCrear.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBeneficiarioChequeEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBeneficiarioChequeEliminar.Designer.cs">
+      <DependentUpon>FrmBeneficiarioChequeEliminar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBeneficiarioChequeVer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -528,6 +534,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBeneficiarioChequeCrear.resx">
       <DependentUpon>FrmBeneficiarioChequeCrear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBeneficiarioChequeEliminar.resx">
+      <DependentUpon>FrmBeneficiarioChequeEliminar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBeneficiarioChequeVer.resx">
       <DependentUpon>FrmBeneficiarioChequeVer.cs</DependentUpon>
