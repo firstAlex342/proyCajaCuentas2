@@ -230,7 +230,7 @@ namespace CapaPresentacion
                         else
                         {
                             int idProveedor = Int32.Parse(filaSeleccionada.Cells[1].EditedFormattedValue.ToString());
-                            string mensaje = Proveedor_ProveeElemento_ElementoProveido_createController(textBox1.Text, idProveedor, ClsLogin.Id);
+                            string mensaje = Proveedor_ProveeElemento_ElementoProveido_createController(textBox1.Text.Trim(), idProveedor, ClsLogin.Id);
 
                             if (mensaje.Contains("ok"))
                             {

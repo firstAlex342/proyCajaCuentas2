@@ -50,7 +50,7 @@ namespace CapaPresentacion
 
                     if(seCapturoBeneficiario)
                     {
-                        string mensaje = BeneficiarioCheque_createController(textBox1.Text, ClsLogin.Id);
+                        string mensaje = BeneficiarioCheque_createController(textBox1.Text.Trim(), ClsLogin.Id);
                         if (mensaje.Contains("ok"))
                         {
                             MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
