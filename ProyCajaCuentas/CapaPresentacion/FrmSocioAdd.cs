@@ -77,7 +77,7 @@ namespace CapaPresentacion
                 DialogResult res = MessageBox.Show(this, "¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
-                    string respuesta = Socio_createController(textBox1.Text, textBox8.Text,textBox2.Text,
+                    string respuesta = Socio_createController(textBox1.Text.Trim(), textBox8.Text,textBox2.Text,
                         textBox3.Text, textBox9.Text, textBox10.Text, textBox4.Text, 
                         textBox11.Text, textBox5.Text, textBox12.Text, textBox6.Text, textBox13.Text,
                         textBox7.Text, textBox14.Text, ClsLogin.Id);
