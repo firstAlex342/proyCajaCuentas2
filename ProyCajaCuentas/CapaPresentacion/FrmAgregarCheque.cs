@@ -263,7 +263,7 @@ namespace CapaPresentacion
                             {
                                 DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
 
-                                string mensaje = ChequeInfoBasico_createController(textBox1.Text, textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
+                                string mensaje = ChequeInfoBasico_createController(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
                                 fechaDeCobroParam, dataGridView1, ClsLogin.Id);
                                 
                                 

@@ -235,7 +235,7 @@ namespace CapaPresentacion
         {
             try
             {
-                DataTable infoChequeTabla = Cheque_BuscarDetallesChequeController(textBox1.Text);
+                DataTable infoChequeTabla = Cheque_BuscarDetallesChequeController(textBox1.Text.Trim());
 
                 if(infoChequeTabla.Rows.Count > 0)
                 {
@@ -372,7 +372,7 @@ namespace CapaPresentacion
                             {
                                 DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
 
-                                string mensaje = Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(textBox1.Text, textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
+                                string mensaje = Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
                                 fechaDeCobroParam, dataGridView1, ClsLogin.Id);
 
 
