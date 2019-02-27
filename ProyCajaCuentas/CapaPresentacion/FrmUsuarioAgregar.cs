@@ -73,7 +73,7 @@ namespace CapaPresentacion
         {
             try
             {
-                int idGenerado = Usuario_createController(textBox1.Text, textBox2.Text, textBox3.Text, ClsLogin.Id);
+                int idGenerado = Usuario_createController(textBox1.Text.Trim(), textBox2.Text.Trim(), textBox3.Text.Trim(), ClsLogin.Id);
                 DataTable listaDeTodosLosModulos = ObtenerListaDeTodosLosModulosController();
                 DarAccesoAModulosAUsuarioController(idGenerado, listaDeTodosLosModulos);
 
