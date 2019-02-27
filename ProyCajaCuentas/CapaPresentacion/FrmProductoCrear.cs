@@ -57,7 +57,7 @@ namespace CapaPresentacion
                     bool capturoNombreDelProducto = TieneAlgoMasQueEspaciosEnBlanco(textBox1.Text);
                     if (capturoNombreDelProducto)
                     {
-                        string mensaje = Producto_Producto_createController(textBox1.Text, "", ClsLogin.Id);
+                        string mensaje = Producto_Producto_createController(textBox1.Text.Trim(), "", ClsLogin.Id);
                         if (mensaje.Contains("ok"))
                         {
                             StringBuilder texto = new StringBuilder();
