@@ -133,8 +133,8 @@ namespace CapaPresentacion
                 {
                     int idUsuarioBuscado = Int32.Parse(textBox4.Text);
 
-                    string respuesta = Usuario_ActualizarController(idUsuarioBuscado, textBox3.Text, textBox1.Text,
-                        textBox2.Text, ClsLogin.Id);
+                    string respuesta = Usuario_ActualizarController(idUsuarioBuscado, textBox3.Text.Trim(), textBox1.Text.Trim(),
+                        textBox2.Text.Trim(), ClsLogin.Id);
 
                     if (respuesta.Contains("ok"))
                     {
