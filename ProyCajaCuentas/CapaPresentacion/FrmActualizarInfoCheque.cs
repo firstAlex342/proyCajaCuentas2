@@ -19,9 +19,20 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             CrearColumnasParaDataGridViewConceptosEnCheque();
+
+            try
+            {
+                if (EsActivoModuloController(37))  { /*Se puede modificar cualquier cosa del cheque*/ }
+                else { EstablecerReadOnlyEnAlgunosControles(); /* Se puede modificar solo la fecha de cobro*/}
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
 
-        //----------------Methods
+        //----------------Controllers
         public DataTable Cheque_BuscarDetallesChequeController(string numChequeBuscado)
         {
             ClsCheque clsCheque = new ClsCheque();
@@ -60,6 +71,21 @@ namespace CapaPresentacion
             clsProveedor.Id = idProveedor;
 
             return (clsProveedor.Proveedor_BuscarElementosProveidosActivos());
+        }
+
+        public bool EsActivoModuloController(int idModuloBuscado)
+        {
+            var lista = ClsLogin.ModulosALosQueTieneAccesoUsuario.AsEnumerable();
+            DataRow filaBuscada = lista.FirstOrDefault(s =>
+            (s.Field<int>(1) == idModuloBuscado) && (s.Field<bool>(2) == true));
+
+            if (filaBuscada != null)
+            {
+                return true;
+            }
+
+            else
+                return false;
         }
 
         //--------------------Utils
@@ -228,6 +254,21 @@ namespace CapaPresentacion
                 return true;
             else
                 return false;
+        }
+
+
+        private void EstablecerReadOnlyEnAlgunosControles()
+        {
+            textBox2.ReadOnly = true;
+            button6.Enabled = false;
+            dateTimePicker1.Enabled = false;
+            textBox4.ReadOnly = true;
+            button3.Enabled = false;
+            comboBox1.Enabled = false;
+            textBox6.ReadOnly = true;
+            textBox7.ReadOnly = true;
+            button1.Enabled = false;
+            dataGridView1.Columns[0].Visible = false;
         }
 
         //------------------Events
