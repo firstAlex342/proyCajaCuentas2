@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using CapaLogicaNegocios;
 
 namespace CapaPresentacion
@@ -84,6 +85,9 @@ namespace CapaPresentacion
             }
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
