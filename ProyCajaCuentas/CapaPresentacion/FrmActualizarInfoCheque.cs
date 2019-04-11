@@ -164,6 +164,7 @@ namespace CapaPresentacion
             comboBox1.ResetText();
             textBox6.Text = "";
             textBox7.Text = "";
+            radioButton3.Checked = true;
         }
 
         private void LimpiarGroupBoxDatosDeCheque()
@@ -264,6 +265,8 @@ namespace CapaPresentacion
             dateTimePicker1.Enabled = false;
             textBox4.ReadOnly = true;
             button3.Enabled = false;
+            radioButton3.Enabled = false;
+            radioButton4.Enabled = false;
             comboBox1.Enabled = false;
             textBox6.ReadOnly = true;
             textBox7.ReadOnly = true;
@@ -327,11 +330,23 @@ namespace CapaPresentacion
         private void button1_Click(object sender, EventArgs e)
         {
             bool seCapturoTitulo = TieneAlgoMasQueEspaciosEnBlanco(textBox4.Text);
+            bool quiereElegirDetalles = radioButton3.Checked == true ? true : false;
             bool seSeleccionoElementoProveido = EstaSeleccionadoItemDeComboBox(comboBox1);
             bool seCapturoImporte = TieneAlgoMasQueEspaciosEnBlanco(textBox6.Text);
             bool seCapturoFactura = TieneAlgoMasQueEspaciosEnBlanco(textBox7.Text);
 
-            if (seCapturoTitulo && seSeleccionoElementoProveido && seCapturoImporte)
+            bool filtro = false;
+            if (quiereElegirDetalles)
+            {
+                filtro = seCapturoTitulo && seSeleccionoElementoProveido && seCapturoImporte;
+            }
+
+            else
+            {
+                filtro = seCapturoTitulo && seCapturoImporte;
+            }
+
+            if (filtro)
             {
                 decimal importeDecimal;
                 bool importeEstaEnFormatoValido = Decimal.TryParse(textBox6.Text, out importeDecimal);
@@ -356,7 +371,16 @@ namespace CapaPresentacion
                     //}
                     int n = dataGridView1.Rows.Add();
                     dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
-                    dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
+                    if(quiereElegirDetalles)
+                    {
+                        dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
+                    }
+
+                    else
+                    {
+                        dataGridView1.Rows[n].Cells[2].Value = String.Empty;
+                    }
+
                     dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
                     dataGridView1.Rows[n].Cells[4].Value = (seCapturoFactura) ? textBox7.Text.Trim() : "";
 
@@ -373,7 +397,11 @@ namespace CapaPresentacion
             else
             {
                MostrarMensajeSiNoSeCapturo("Proveedor", seCapturoTitulo);
-               MostrarMensajeSiNoSeCapturo("Detalles", seSeleccionoElementoProveido);
+               if(quiereElegirDetalles)
+               {
+                    MostrarMensajeSiNoSeCapturo("Detalles", seSeleccionoElementoProveido);
+
+               }
                MostrarMensajeSiNoSeCapturo("Importe", seCapturoImporte);
             }
         }
@@ -518,6 +546,19 @@ namespace CapaPresentacion
 
             textBox2.Text = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
             frmBeneficiarioChequeBuscarYSeleccionar.Dispose();
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton3.Checked == false)
+            {   //entonces radioButton 4 esta seleccionado
+                comboBox1.Enabled = false;
+            }
+
+            if (radioButton3.Checked == true)
+            {
+                comboBox1.Enabled = true;
+            }
         }
     }
 }

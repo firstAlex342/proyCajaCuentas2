@@ -55,6 +55,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -205,7 +207,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(231, 22);
-            this.textBox3.TabIndex = 8;
+            this.textBox3.TabIndex = 9;
             // 
             // dateTimePicker1
             // 
@@ -213,7 +215,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 97);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(262, 22);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 10;
             // 
             // dateTimePicker2
             // 
@@ -222,7 +224,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(271, 97);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(262, 22);
-            this.dateTimePicker2.TabIndex = 10;
+            this.dateTimePicker2.TabIndex = 11;
             // 
             // radioButton1
             // 
@@ -255,7 +257,7 @@
             this.button6.Location = new System.Drawing.Point(539, 33);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(34, 23);
-            this.button6.TabIndex = 11;
+            this.button6.TabIndex = 8;
             this.button6.Text = "+";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -279,22 +281,25 @@
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 5;
+            this.tableLayoutPanel3.ColumnCount = 6;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Controls.Add(this.label5, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label6, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label7, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label8, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label6, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label7, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.label8, 5, 0);
             this.tableLayoutPanel3.Controls.Add(this.textBox4, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox6, 3, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox7, 4, 1);
-            this.tableLayoutPanel3.Controls.Add(this.button1, 4, 2);
+            this.tableLayoutPanel3.Controls.Add(this.textBox6, 4, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textBox7, 5, 1);
+            this.tableLayoutPanel3.Controls.Add(this.button1, 5, 2);
             this.tableLayoutPanel3.Controls.Add(this.button3, 1, 1);
-            this.tableLayoutPanel3.Controls.Add(this.comboBox1, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.comboBox1, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.radioButton3, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.radioButton4, 3, 2);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 18);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
@@ -318,7 +323,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(245, 5);
+            this.label6.Location = new System.Drawing.Point(285, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 1;
@@ -328,7 +333,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(447, 5);
+            this.label7.Location = new System.Drawing.Point(487, 5);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 16);
             this.label7.TabIndex = 2;
@@ -356,10 +361,10 @@
             // textBox6
             // 
             this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(447, 31);
+            this.textBox6.Location = new System.Drawing.Point(487, 31);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(196, 22);
-            this.textBox6.TabIndex = 6;
+            this.textBox6.Size = new System.Drawing.Size(156, 22);
+            this.textBox6.TabIndex = 10;
             // 
             // textBox7
             // 
@@ -368,7 +373,7 @@
             this.textBox7.MaxLength = 50;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(158, 22);
-            this.textBox7.TabIndex = 7;
+            this.textBox7.TabIndex = 11;
             // 
             // button1
             // 
@@ -376,7 +381,7 @@
             this.button1.Location = new System.Drawing.Point(702, 68);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 28);
-            this.button1.TabIndex = 8;
+            this.button1.TabIndex = 12;
             this.button1.Text = "Añadir";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -387,7 +392,7 @@
             this.button3.Location = new System.Drawing.Point(205, 31);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(34, 23);
-            this.button3.TabIndex = 9;
+            this.button3.TabIndex = 6;
             this.button3.Text = "+";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -397,10 +402,35 @@
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(245, 32);
+            this.comboBox1.Location = new System.Drawing.Point(285, 32);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(196, 24);
-            this.comboBox1.TabIndex = 10;
+            this.comboBox1.TabIndex = 8;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(265, 36);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(14, 13);
+            this.radioButton3.TabIndex = 7;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(385, 72);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(96, 20);
+            this.radioButton4.TabIndex = 9;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Sin detalles";
+            this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -544,5 +574,7 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }

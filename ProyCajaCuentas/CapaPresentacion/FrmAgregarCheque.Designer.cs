@@ -205,7 +205,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(231, 22);
-            this.textBox3.TabIndex = 8;
+            this.textBox3.TabIndex = 9;
             // 
             // dateTimePicker1
             // 
@@ -213,7 +213,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 97);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(262, 22);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 10;
             // 
             // dateTimePicker2
             // 
@@ -222,7 +222,7 @@
             this.dateTimePicker2.Location = new System.Drawing.Point(271, 97);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(262, 22);
-            this.dateTimePicker2.TabIndex = 10;
+            this.dateTimePicker2.TabIndex = 11;
             this.dateTimePicker2.Visible = false;
             // 
             // radioButton1
@@ -258,7 +258,7 @@
             this.button4.Location = new System.Drawing.Point(539, 33);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(34, 23);
-            this.button4.TabIndex = 11;
+            this.button4.TabIndex = 8;
             this.button4.Text = "+";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
