@@ -205,11 +205,11 @@
     <Compile Include="FrmBuscarYSeleccionarNombreProveedor.Designer.cs">
       <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCancelarChequeCapturado.cs">
+    <Compile Include="FrmEliminarChequeCapturado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCancelarChequeCapturado.Designer.cs">
-      <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
+    <Compile Include="FrmEliminarChequeCapturado.Designer.cs">
+      <DependentUpon>FrmEliminarChequeCapturado.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCrearTarifaAProducto.cs">
       <SubType>Form</SubType>
@@ -652,8 +652,8 @@
     <EmbeddedResource Include="FrmBuscarYSeleccionarNombreProveedor.resx">
       <DependentUpon>FrmBuscarYSeleccionarNombreProveedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCancelarChequeCapturado.resx">
-      <DependentUpon>FrmCancelarChequeCapturado.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEliminarChequeCapturado.resx">
+      <DependentUpon>FrmEliminarChequeCapturado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal3.resx">
       <DependentUpon>FrmPrincipal3.cs</DependentUpon>

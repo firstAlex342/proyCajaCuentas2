@@ -11,10 +11,10 @@ using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class FrmCancelarChequeCapturado : Form
+    public partial class FrmEliminarChequeCapturado : Form
     {
         //------------------constructor
-        public FrmCancelarChequeCapturado()
+        public FrmEliminarChequeCapturado()
         {
             InitializeComponent();
         }
@@ -46,7 +46,7 @@ namespace CapaPresentacion
                         StringBuilder texto = new StringBuilder();
                         texto.Append("El cheque número ");
                         texto.Append(textBox1.Text);
-                        texto.Append(" ha sido cancelado exitosamente");
+                        texto.Append(" ha sido eliminado exitosamente");
 
                         MessageBox.Show(texto.ToString(), "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         textBox1.Text = "";

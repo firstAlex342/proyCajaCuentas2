@@ -504,7 +504,7 @@
             this.metroTile10.Size = new System.Drawing.Size(121, 97);
             this.metroTile10.Style = MetroFramework.MetroColorStyle.Purple;
             this.metroTile10.TabIndex = 13;
-            this.metroTile10.Text = "Cancelar cheque ";
+            this.metroTile10.Text = "Eliminar cheque ";
             this.metroTile10.TileImage = global::CapaPresentacion.Properties.Resources.cancelar;
             this.metroTile10.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile10.UseSelectable = true;

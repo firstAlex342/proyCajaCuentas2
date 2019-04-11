@@ -192,7 +192,7 @@ namespace CapaPresentacion
 
             respuesta = EsActivoModuloController(15) ? true : false;
             if(respuesta)
-            { /*Permanece habilitada la opcion cancelar cheque capturado*/   }
+            { /*Permanece habilitada la opcion eliminar cheque capturado*/   }
             else { metroTile10.Enabled = false; }
 
 
@@ -373,7 +373,7 @@ namespace CapaPresentacion
 
         private void metroTile10_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmCancelarChequeCapturado());
+            AbrirFormulario(new FrmEliminarChequeCapturado());
         }
 
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)

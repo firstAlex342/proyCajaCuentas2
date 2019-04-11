@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmCancelarChequeCapturado
+    partial class FrmEliminarChequeCapturado
     {
         /// <summary>
         /// Required designer variable.
@@ -66,7 +66,7 @@
             this.groupBox1.Size = new System.Drawing.Size(871, 184);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Cancelar cheque capturado";
+            this.groupBox1.Text = "Eliminar cheque capturado";
             // 
             // tableLayoutPanel2
             // 
@@ -91,11 +91,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 42);
+            this.label1.Location = new System.Drawing.Point(45, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 16);
+            this.label1.Size = new System.Drawing.Size(184, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Número de cheque a cancelar";
+            this.label1.Text = "Número de cheque a eliminar";
             // 
             // textBox1
             // 
@@ -116,14 +116,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FrmCancelarChequeCapturado
+            // FrmEliminarChequeCapturado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 228);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FrmCancelarChequeCapturado";
-            this.Text = "FrmCancelarChequeCapturado";
+            this.Name = "FrmEliminarChequeCapturado";
+            this.Text = "FrmEliminarChequeCapturado";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
