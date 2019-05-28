@@ -309,6 +309,13 @@ namespace CapaPresentacion
             { /* Permanece habilitada la opción: Beneficiario de cheque, Eliminar */}
             else
             { metroTile29.Enabled = false; }
+
+            respuesta = EsActivoModuloController(38) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opción: Informe egresos / ingresos, Informe mensual*/}
+            else
+            {  metroTile32.Enabled = false; }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -519,6 +526,11 @@ namespace CapaPresentacion
         private void metroTile29_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmBeneficiarioChequeEliminar());
+        }
+
+        private void metroTile32_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmVisorReporteEgresosIngresosMensual());
         }
     }
 }

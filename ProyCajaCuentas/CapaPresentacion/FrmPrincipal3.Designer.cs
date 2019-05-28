@@ -74,6 +74,7 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile32 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroTile32);
             this.metroPanel1.Controls.Add(this.metroTile31);
             this.metroPanel1.Controls.Add(this.metroTile29);
             this.metroPanel1.Controls.Add(this.metroTile30);
@@ -766,6 +768,20 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // metroTile32
+            // 
+            this.metroTile32.ActiveControl = null;
+            this.metroTile32.Location = new System.Drawing.Point(154, 2710);
+            this.metroTile32.Name = "metroTile32";
+            this.metroTile32.Size = new System.Drawing.Size(121, 97);
+            this.metroTile32.TabIndex = 39;
+            this.metroTile32.Text = " Informe mensual";
+            this.metroTile32.TileImage = global::CapaPresentacion.Properties.Resources.reportar;
+            this.metroTile32.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile32.UseSelectable = true;
+            this.metroTile32.UseTileImage = true;
+            this.metroTile32.Click += new System.EventHandler(this.metroTile32_Click);
+            // 
             // FrmPrincipal3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,5 +848,6 @@
         private MetroFramework.Controls.MetroTile metroTile29;
         private MetroFramework.Controls.MetroTile metroTile30;
         private MetroFramework.Controls.MetroLabel metroLabel9;
+        private MetroFramework.Controls.MetroTile metroTile32;
     }
 }

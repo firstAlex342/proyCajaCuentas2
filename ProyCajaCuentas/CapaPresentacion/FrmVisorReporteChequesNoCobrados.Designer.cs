@@ -73,7 +73,7 @@
             this.groupBox1.Size = new System.Drawing.Size(843, 100);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar cheques capturados y no cobrados";
+            this.groupBox1.Text = "Buscar cheques no cobrados";
             // 
             // tableLayoutPanel2
             // 

@@ -103,6 +103,12 @@
       <DependentUpon>CRReporteEgresosIngresos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteEgresosIngresosMensual.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteEgresosIngresosMensual.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRReporteProductosEnReciboListaProductos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,6 +168,12 @@
     </Compile>
     <Compile Include="FrmBeneficiarioChequeVer.Designer.cs">
       <DependentUpon>FrmBeneficiarioChequeVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVisorReporteEgresosIngresosMensual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVisorReporteEgresosIngresosMensual.Designer.cs">
+      <DependentUpon>FrmVisorReporteEgresosIngresosMensual.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProveedorAgregarElemento.cs">
       <SubType>Form</SubType>
@@ -541,6 +553,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteEgresosIngresos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteEgresosIngresosMensual.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteEgresosIngresosMensual.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteProductosEnReciboListaProductos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductos.cs</LastGenOutput>
@@ -579,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBeneficiarioChequeVer.resx">
       <DependentUpon>FrmBeneficiarioChequeVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVisorReporteEgresosIngresosMensual.resx">
+      <DependentUpon>FrmVisorReporteEgresosIngresosMensual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedorAgregarElemento.resx">
       <DependentUpon>FrmProveedorAgregarElemento.cs</DependentUpon>
