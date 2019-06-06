@@ -46,6 +46,7 @@
     <Compile Include="ClsCaja.cs" />
     <Compile Include="ClsCheque.cs" />
     <Compile Include="ClsChequeInfoBasico.cs" />
+    <Compile Include="ClsInicialTotalDeChequesCobradosDePeriodosAnteriores.cs" />
     <Compile Include="ClsPagoBasico.cs" />
     <Compile Include="ClsCuentaPorPagar.cs" />
     <Compile Include="ClsLogin.cs" />

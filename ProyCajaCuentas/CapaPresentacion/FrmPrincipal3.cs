@@ -316,6 +316,13 @@ namespace CapaPresentacion
             else
             {  metroTile32.Enabled = false; }
 
+            respuesta = EsActivoModuloController(39) ? true : false;
+            if(respuesta)
+            { /*Permanece habilitada la opción: Informe egresos / ingresos, Total inicial de 
+                cheques cobrados de periodos anteriores*/ }
+            else
+            {  metroTile33.Enabled = false;   }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -531,6 +538,11 @@ namespace CapaPresentacion
         private void metroTile32_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmVisorReporteEgresosIngresosMensual());
+        }
+
+        private void metroTile33_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmChequesCobradosDePeriodosAnterioresTotalInicial());
         }
     }
 }
