@@ -17,8 +17,18 @@ namespace CapaPresentacion
         public FrmChequesCobradosDePeriodosAnterioresTotalInicial()
         {
             InitializeComponent();
-            DataTable res = InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivoController();
-            MostrarInicialTotalDeChequesCobradosDePeriodosAnteriores(textBox1, res);
+            PersonalizarMiDateTimePicker();
+
+            try
+            {
+                DataTable res = InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivoController();
+                MostrarInicialTotalDeChequesCobradosDePeriodosAnteriores(textBox1, dateTimePicker1, res);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
 
         //---------------------Controllers
@@ -30,28 +40,43 @@ namespace CapaPresentacion
             return (clsInicialTotalDeChequesCobradosDePeriodosAnteriores.InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivo());
         }
 
-        private string InicialTotalDeChequesCobradosDePeriodosAnteriores_UpdateController(decimal total, int idUsuarioOperador)
+        private string InicialTotalDeChequesCobradosDePeriodosAnteriores_UpdateController(decimal total, DateTime fechaDePeriodoInicial, int idUsuarioOperador)
         {
             ClsInicialTotalDeChequesCobradosDePeriodosAnteriores clsInicialTotalDeChequesCobradosDePeriodosAnteriores;
             clsInicialTotalDeChequesCobradosDePeriodosAnteriores = new ClsInicialTotalDeChequesCobradosDePeriodosAnteriores();
 
             clsInicialTotalDeChequesCobradosDePeriodosAnteriores.Total = total;
+            clsInicialTotalDeChequesCobradosDePeriodosAnteriores.FechaDePeriodoInicial = fechaDePeriodoInicial;
             clsInicialTotalDeChequesCobradosDePeriodosAnteriores.IdUsuarioModifico = idUsuarioOperador;
             return (clsInicialTotalDeChequesCobradosDePeriodosAnteriores.InicialTotalDeChequesCobradosDePeriodosAnteriores_Update());
         }
 
 
         //----------------------Methods
-        private void MostrarInicialTotalDeChequesCobradosDePeriodosAnteriores(TextBox destinoTextBox, DataTable inicialTotalDeChequesCobradosDePeriodosAnteriores)
+        private void MostrarInicialTotalDeChequesCobradosDePeriodosAnteriores(TextBox destinoTextBox, DateTimePicker fechaDePeriodoInicialDateTimePicker, DataTable inicialTotalDeChequesCobradosDePeriodosAnteriores)
         {
             var res = inicialTotalDeChequesCobradosDePeriodosAnteriores.AsEnumerable();
             List<DataRow> listaElementos = res.ToList<DataRow>();  //Esa lista solo contiene un elemento o esta vacia
 
             DataRow filaUnica = listaElementos.SingleOrDefault<DataRow>();
             if (filaUnica != null)
+            {
                 destinoTextBox.Text = (filaUnica.Field<decimal>("Total")).ToString();
+                fechaDePeriodoInicialDateTimePicker.Value = filaUnica.Field<DateTime>("FechaDePeriodoInicial");
+            }
+
             else
+            {
                 destinoTextBox.Text = "0.0000";
+                fechaDePeriodoInicialDateTimePicker.Value = DateTimePicker.MinimumDateTime;
+            }
+        }
+
+        private void PersonalizarMiDateTimePicker()
+        {
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "MM/yyyy";
+            dateTimePicker1.ShowUpDown = true;
         }
 
         //----------------------Events
@@ -66,7 +91,7 @@ namespace CapaPresentacion
                     bool cantidadEstaEnFormatoValido = Decimal.TryParse(textBox1.Text, out cantidadDecimal);
                     if(cantidadEstaEnFormatoValido)
                     {
-                        string mensaje = InicialTotalDeChequesCobradosDePeriodosAnteriores_UpdateController(cantidadDecimal, ClsLogin.Id);
+                        string mensaje = InicialTotalDeChequesCobradosDePeriodosAnteriores_UpdateController(cantidadDecimal, dateTimePicker1.Value, ClsLogin.Id);
                         if(mensaje.Contains("ok"))
                         {
                             MessageBox.Show("Registro guardado exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);

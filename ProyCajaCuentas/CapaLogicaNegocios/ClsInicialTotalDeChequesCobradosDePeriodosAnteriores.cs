@@ -13,6 +13,7 @@ namespace CapaLogicaNegocios
         //--------------Properties
         public int Id { set; get; }
         public decimal Total { set; get; }
+        public DateTime FechaDePeriodoInicial { set; get; }
         public int IdUsuarioAlta { set; get; }
         public DateTime FechaAlta { set; get; }
         public int IdUsuarioModifico { set; get; }
@@ -26,6 +27,7 @@ namespace CapaLogicaNegocios
         {
             this.Id = 0;
             this.Total = 0.0m;
+            this.FechaDePeriodoInicial = DateTime.MinValue;
             this.IdUsuarioAlta = 0;
             this.FechaAlta = DateTime.MinValue;
             this.IdUsuarioModifico = 0;
@@ -51,6 +53,7 @@ namespace CapaLogicaNegocios
 
             //Parametros de entrada
             lst.Add(new ClsParametros("@total", this.Total));
+            lst.Add(new ClsParametros("@fechaDePeriodoInicial", this.FechaDePeriodoInicial));
             lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
 
             //Parametro de salida
@@ -58,7 +61,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("InicialTotalDeChequesCobradosDePeriodosAnteriores_update", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[2].Valor.ToString();
+            mensaje = lst[3].Valor.ToString();
 
             return (mensaje);          
         }

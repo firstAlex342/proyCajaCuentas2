@@ -36,32 +36,32 @@ namespace CapaPresentacion
             return (clsMovsEnCaja.MovsEnCaja_SumarPagoDeTodosProductos());
         }
 
-        private DataTable Cheque_RecuperarDetallesDeChequesCapturadosActivosController(DateTime fechaInicio, DateTime fechaFin) 
+        private DataTable Cheque_SumarImporteDeChequesActivosController(DateTime fechaInicio, DateTime fechaFin)
         {
             ClsCheque clsCheque = new ClsCheque();
             clsCheque.FechaAlta = fechaInicio;
             clsCheque.FechaModificacion = fechaFin;
 
-            return (clsCheque.Cheque_RecuperarDetallesDeChequesCapturadosActivos());
+            return (clsCheque.Cheque_SumarImporteDeChequesActivos());
         }
 
-        private DataTable Cheque_RecuperarDetallesDeChequesNoCobradosController(DateTime fechaInicio, DateTime fechaFin) 
+        private DataTable Cheque_SumarImporteDeChequesCobradosController(DateTime fechaInicio, DateTime fechaFin)
         {
             ClsCheque clsCheque = new ClsCheque();
             clsCheque.FechaAlta = fechaInicio;
             clsCheque.FechaModificacion = fechaFin;
 
-            return (clsCheque.Cheque_RecuperarDetallesDeChequesNoCobrados());
+            return (clsCheque.Cheque_SumarImporteDeChequesCobrados());
         }
 
-       private DataTable Cheque_RecuperarDetallesDeChequesCobradosController(DateTime fechaInicio, DateTime fechaFin) 
-       {
+        private DataTable Cheque_SumarImporteDeChequesNoCobradosController(DateTime fechaInicio, DateTime fechaFin)
+        {
             ClsCheque clsCheque = new ClsCheque();
             clsCheque.FechaAlta = fechaInicio;
             clsCheque.FechaModificacion = fechaFin;
 
-            return (clsCheque.Cheque_RecuperarDetallesDeChequesCobrados());
-       }
+            return (clsCheque.Cheque_SumarImporteDeChequesNoCobrados());
+        }
 
 
         private DataTable Bancos_BuscarPeriodoActivoController(int anio, string mes) 
@@ -74,25 +74,52 @@ namespace CapaPresentacion
         }
 
 
-        //--------------------Utils
-        private void MostrarEnTextBoxSumaDeTodosLosChequeNoCobrados(DataTable tabla, TextObject textBox) 
+        private DataTable InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivoController()
         {
-            Func<DataRow, decimal> funcion = item =>
-            {
-                return (item.Field<decimal>("Importe"));
-            };
+            ClsInicialTotalDeChequesCobradosDePeriodosAnteriores clsInicialTotalDeChequesCobradosDePeriodosAnteriores;
+            clsInicialTotalDeChequesCobradosDePeriodosAnteriores = new ClsInicialTotalDeChequesCobradosDePeriodosAnteriores();
 
-            textBox.Text = tabla.AsEnumerable().Sum(funcion).ToString();
+            return (clsInicialTotalDeChequesCobradosDePeriodosAnteriores.InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivo());
         }
 
 
-        private void MostrarEnTextBoxSumaDeChequesCobradosDePeriodosAnteriores(DataTable tabla, TextObject textBox) 
+        //--------------------Utils
+        private void MostrarEnTextBoxSumaDeTodosLosChequeNoCobrados(DataTable tabla, TextObject textBox) 
         {
-            Func<DataRow, decimal> funcion = item => {
-                return (item.Field<decimal>("Importe"));
-            };
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosCheques;
+            bool sePudoExtraerLaSuma;
 
-            textBox.Text = tabla.AsEnumerable().Sum(funcion).ToString();
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaTodosLosCheques);
+
+            if (sePudoExtraerLaSuma)
+                textBox.Text = sumaTodosLosCheques.ToString();
+            else
+                textBox.Text = "0.0000";
+        }
+
+
+        private void MostrarEnTextBoxSumaDeChequesCobradosDePeriodosAnteriores(DataTable tabla, TextObject textBox, 
+            decimal inicialTotalDeChequesCobradosDePeriodosAnteriores, DateTime fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores,
+            RangoFechasUsadasEnReporte rango) 
+        {           
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaDeCheques = 0.0m;
+            bool sePudoExtraerLaSuma = false;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaDeCheques);
+           
+            if(rango.FechaInicio >= fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores)
+            {
+                textBox.Text = (sumaDeCheques + inicialTotalDeChequesCobradosDePeriodosAnteriores).ToString();
+            }
+
+            else
+            {
+                textBox.Text = sumaDeCheques.ToString();
+            }
         }
 
 
@@ -112,14 +139,17 @@ namespace CapaPresentacion
 
         private void MostrarEnTextBoxSumaDeTodosLosCheques(DataTable tabla, TextObject textBox) 
         {
-            Func<DataRow, decimal> funcion = item =>
-            {
-                return item.Field<decimal>("Importe");
-            };
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosCheques;
+            bool sePudoExtraerLaSuma;
 
-            decimal sumaDeConceptos = tabla.AsEnumerable().Sum(funcion);
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaTodosLosCheques);
 
-            textBox.Text = sumaDeConceptos.ToString();
+            if (sePudoExtraerLaSuma)
+                textBox.Text = sumaTodosLosCheques.ToString();
+            else
+                textBox.Text = "0.0000";
         }
 
 
@@ -147,7 +177,7 @@ namespace CapaPresentacion
             if (sePudoExtraerLaSuma)
                 textBox.Text = sumaTodosLosProductos.ToString();
             else
-                textBox.Text = "0";
+                textBox.Text = "0.0000";
         }
 
         private Hashtable GenerarParametrosParaReporte() 
@@ -650,6 +680,31 @@ namespace CapaPresentacion
             return (comboBox.SelectedIndex > -1);
         }
 
+        private decimal ExtraerTotalInicialDeChequesCobradosDePeriodosAnteriores(DataTable inicialTotalDeChequesCobradosDePeriodosAnteriores)
+        {
+            var res = inicialTotalDeChequesCobradosDePeriodosAnteriores.AsEnumerable();
+            List<DataRow> listaElementos = res.ToList<DataRow>();  //Esa lista solo contiene un elemento o esta vacia
+
+            DataRow filaUnica = listaElementos.SingleOrDefault<DataRow>();
+            if (filaUnica != null)
+                return( filaUnica.Field<decimal>("Total") );
+            else
+                return( 0.0m );
+        }
+
+        private DateTime ExtraerFechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores(DataTable inicialTotalDeChequesCobradosDePeriodosAnteriores)
+        {
+            var res = inicialTotalDeChequesCobradosDePeriodosAnteriores.AsEnumerable();
+            List<DataRow> listaElementos = res.ToList<DataRow>();  //Esa lista solo contiene un elemento o esta vacia
+
+            DataRow filaUnica = listaElementos.SingleOrDefault<DataRow>();
+            if (filaUnica != null)
+                return (filaUnica.Field<DateTime>("FechaDePeriodoInicial"));
+            else
+                return (DateTime.MinValue);
+        }
+
+
         //----------------------Events
         private void button1_Click(object sender, EventArgs e)
         {
@@ -663,6 +718,10 @@ namespace CapaPresentacion
                     Hashtable tablaConTextObjectsDeCrystalReport = ObtenerTextObjectsDeCrystalReport(crReporteEgresosIngresos);
                     TextObject textObjectTitulo = crReporteEgresosIngresos.ReportDefinition.ReportObjects["Text1"] as TextObject;
                     PonerTituloAReporte(textObjectTitulo, "Reporte ingresos - egresos " + comboBox1.SelectedItem.ToString());
+
+                    DataTable totalInicialDeChequesCobradosDePeriodosAnterioresTable = InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivoController();
+                    decimal inicialTotalDeChequesCobradosDePeriodosAnteriores = ExtraerTotalInicialDeChequesCobradosDePeriodosAnteriores(totalInicialDeChequesCobradosDePeriodosAnterioresTable);
+                    DateTime fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores = ExtraerFechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores(totalInicialDeChequesCobradosDePeriodosAnterioresTable);
 
                     List<string> mesesConAnioElegido = MezclarMesesConAnioElegido(comboBox1.SelectedItem.ToString());
                     Action<string> FuncionParaCadaItem = item =>
@@ -683,22 +742,23 @@ namespace CapaPresentacion
                         TextObject textObject2 = (TextObject)tablaConTextObjectsDeCrystalReport[llave2];
                         MostrarEnTextBoxSumaDeTodosLosProductos(sumaDeProductosDelMes, textObject2);
 
-
-                        DataTable chequesCapturadosActivos = Cheque_RecuperarDetallesDeChequesCapturadosActivosController(rango.FechaInicio, rango.FechaFin);
+                        DataTable sumaDeImporteDeChequesDePeriodo = Cheque_SumarImporteDeChequesActivosController(rango.FechaInicio, rango.FechaFin);
                         string llave3 = QuitarAnioYUnirConTexto(item, "gastos_");
                         TextObject textObject3 = (TextObject)tablaConTextObjectsDeCrystalReport[llave3];
-                        MostrarEnTextBoxSumaDeTodosLosCheques(chequesCapturadosActivos, textObject3);
+                        MostrarEnTextBoxSumaDeTodosLosCheques(sumaDeImporteDeChequesDePeriodo, textObject3);
 
                         DateTime fechaCentinelaInicio = new DateTime(2000, 1, 1, 0, 1, 0);
-                        DataTable chequesCobradosDePeriodosAnteriores = Cheque_RecuperarDetallesDeChequesCobradosController(fechaCentinelaInicio, rango.UltimoDiaDeMesAnterior);
+                        DataTable sumaDeChequesCobradosDePeriodosAnteriores = Cheque_SumarImporteDeChequesCobradosController(fechaCentinelaInicio, rango.UltimoDiaDeMesAnterior);
                         string llave4 = QuitarAnioYUnirConTexto(item, "chequesCobradosDePeriodosAnteriores_");
                         TextObject textObject4 = (TextObject)tablaConTextObjectsDeCrystalReport[llave4];
-                        MostrarEnTextBoxSumaDeChequesCobradosDePeriodosAnteriores(chequesCobradosDePeriodosAnteriores, textObject4);
+                        MostrarEnTextBoxSumaDeChequesCobradosDePeriodosAnteriores(sumaDeChequesCobradosDePeriodosAnteriores, textObject4, 
+                            inicialTotalDeChequesCobradosDePeriodosAnteriores, fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores,rango);
 
-                        DataTable chequesNoCobradosEnPeriodo = Cheque_RecuperarDetallesDeChequesNoCobradosController(rango.FechaInicio, rango.FechaFin);
+                       
+                        DataTable sumaDeChequesNoCobradosDePeriodo = Cheque_SumarImporteDeChequesNoCobradosController(rango.FechaInicio, rango.FechaFin);
                         string llave5 = QuitarAnioYUnirConTexto(item, "chequesNoCobradosEnElPeriodo_");
                         TextObject textObject5 = (TextObject)tablaConTextObjectsDeCrystalReport[llave5];
-                        MostrarEnTextBoxSumaDeTodosLosChequeNoCobrados(chequesNoCobradosEnPeriodo, textObject5);
+                        MostrarEnTextBoxSumaDeTodosLosChequeNoCobrados(sumaDeChequesNoCobradosDePeriodo, textObject5);
 
                         string llave6 = QuitarAnioYUnirConTexto(item, "saldoRealDeRetirosEstadoDeCuenta_");
                         TextObject textObject6 = (TextObject)tablaConTextObjectsDeCrystalReport[llave6];

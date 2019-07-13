@@ -94,5 +94,32 @@ namespace CapaLogicaNegocios
 
             return CLSManejador.Listado("Cheque_RecuperarDetallesDeChequesCobrados", lst);
         }
+
+        public DataTable Cheque_SumarImporteDeChequesActivos()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("Cheque_SumarImporteDeChequesActivos", lst));
+        }
+
+        public DataTable Cheque_SumarImporteDeChequesCobrados()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("Cheque_SumarImporteDeChequesCobrados", lst));
+        }
+
+        public DataTable Cheque_SumarImporteDeChequesNoCobrados()
+        {
+            List<ClsParametros> lst = new List<ClsParametros>();
+            lst.Add(new ClsParametros("@fechaInicio", this.FechaAlta));
+            lst.Add(new ClsParametros("@fechaFin", this.FechaModificacion));
+
+            return (CLSManejador.Listado("Cheque_SumarImporteDeChequesNoCobrados", lst));
+        }
     }
 }
