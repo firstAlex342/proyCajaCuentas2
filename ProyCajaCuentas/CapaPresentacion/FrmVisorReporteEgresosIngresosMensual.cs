@@ -335,7 +335,7 @@ namespace CapaPresentacion
             if (sePudoExtraerLaSuma)
                 textBox.Text = sumaTodosLosProductos.ToString();
             else
-                textBox.Text = "0";
+                textBox.Text = "0.0000";
         }
 
         private void MostrarEnTextBoxSumaDeTodosLosCheques(DataTable tabla, TextObject textBox)
@@ -364,6 +364,9 @@ namespace CapaPresentacion
 
             //la tabla contiene una unica fila con un valor diferente de 0 ó null
             sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaDeCheques);
+
+            if(sePudoExtraerLaSuma == false)
+            { sumaDeCheques = 0.0000m; }
 
             if (rango.FechaInicio >= fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores)
             {
