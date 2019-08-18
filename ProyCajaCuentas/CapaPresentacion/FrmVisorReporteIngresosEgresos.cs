@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Collections;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 
 namespace CapaPresentacion
 {
@@ -629,6 +630,422 @@ namespace CapaPresentacion
             return (tablaHash);
         }
 
+        private Hashtable ObtenerFormulaFieldDefinitionDeCR_ParaExportar(CRReporteEgresosIngresosParaExportar cRReporteEgresosIngresosParaExportar)
+        {
+            Hashtable tablaHash = new Hashtable();
+            FormulaFieldDefinition formulaFieldDefinition;
+
+            //Enero
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency1"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency2"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency3"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency4"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency5"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency6"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency7"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_enero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency8"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_enero", formulaFieldDefinition);
+
+            //Febrero
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency9"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency10"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency11"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency12"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency13"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency14"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency15"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_febrero", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency16"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_febrero", formulaFieldDefinition);
+
+
+            //marzo
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency17"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency18"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency19"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency20"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency21"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency22"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency23"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_marzo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency24"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_marzo", formulaFieldDefinition);
+
+
+            //Abril
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency25"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency26"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency27"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency28"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency29"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency30"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency31"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_abril", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency32"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_abril", formulaFieldDefinition);
+
+            //Mayo
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency33"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency34"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency35"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency36"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency37"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency38"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency39"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_mayo", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency40"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_mayo", formulaFieldDefinition);
+
+
+            //Junio
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency41"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency42"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency43"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency44"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency45"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency46"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency47"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_junio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency48"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_junio", formulaFieldDefinition);
+
+
+            //julio
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency49"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency50"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency51"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency52"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency53"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency54"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency55"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_julio", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency56"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_julio", formulaFieldDefinition);
+
+
+            //agosto
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency57"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency58"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency59"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency60"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency61"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency62"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency63"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_agosto", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency64"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_agosto", formulaFieldDefinition);
+
+
+            //septiembre
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency65"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency66"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency67"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency68"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency69"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency70"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency71"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_septiembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency72"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_septiembre", formulaFieldDefinition);
+
+
+            //Octubre
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency73"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency74"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency75"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency76"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency77"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency78"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency79"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_octubre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency80"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_octubre", formulaFieldDefinition);
+
+
+            //Noviembre
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency81"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency82"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency83"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency84"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency85"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency86"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency87"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_noviembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency88"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_noviembre", formulaFieldDefinition);
+
+
+            //Diciembre
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency89"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency90"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency91"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency92"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency93"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency94"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency95"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria_diciembre", formulaFieldDefinition);
+
+            formulaFieldDefinition = cRReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency96"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta_diciembre", formulaFieldDefinition);
+
+            return (tablaHash);
+        }
+
+        private void MostrarEnFormulaFieldDefinitionDisponibleEnBancos(DataTable periodo, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = periodo.AsEnumerable().Single();
+            formulaFieldDefinition.Text = filaUnica.Field<decimal>("DisponibleEnBancos").ToString();
+        }
+
+        private void MostrarEnFormulaFieldDefinitionDisponibleEnBancosReal(DataTable periodo, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = periodo.AsEnumerable().Single();
+            formulaFieldDefinition.Text = filaUnica.Field<decimal>("DisponibleEnBancosReal").ToString();
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeTodosLosProductos(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosProductos;
+            bool sePudoExtraerLaSuma;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma del pago de todos los productos"].ToString(), out sumaTodosLosProductos);
+
+            if (sePudoExtraerLaSuma)
+                formulaFieldDefinition.Text = sumaTodosLosProductos.ToString();
+            else
+                formulaFieldDefinition.Text = "0.0000";
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeTodosLosCheques(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosCheques;
+            bool sePudoExtraerLaSuma;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaTodosLosCheques);
+
+            if (sePudoExtraerLaSuma)
+                formulaFieldDefinition.Text = sumaTodosLosCheques.ToString();
+            else
+                formulaFieldDefinition.Text = "0.0000";
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeChequesCobradosDePeriodosAnteriores(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition,
+            decimal inicialTotalDeChequesCobradosDePeriodosAnteriores, DateTime fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores,
+            RangoFechasUsadasEnReporte rango)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaDeCheques = 0.0m;
+            bool sePudoExtraerLaSuma = false;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaDeCheques);
+
+            if (sePudoExtraerLaSuma == false)
+            {
+                sumaDeCheques = 0.0000m;
+            }
+
+            if (rango.FechaInicio >= fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores)
+            {
+                formulaFieldDefinition.Text = (sumaDeCheques + inicialTotalDeChequesCobradosDePeriodosAnteriores).ToString();
+            }
+
+            else
+            {
+                formulaFieldDefinition.Text = sumaDeCheques.ToString();
+            }
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeTodosLosChequesNoCobrados(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosCheques;
+            bool sePudoExtraerLaSuma;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaTodosLosCheques);
+
+            if (sePudoExtraerLaSuma)
+                formulaFieldDefinition.Text = sumaTodosLosCheques.ToString();
+            else
+                formulaFieldDefinition.Text = "0.0000";
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSaldoRealDeRetirosEstadoDeCuenta(FormulaFieldDefinition gastos, 
+            FormulaFieldDefinition chequesCobradosDePeriodosAnteriores, FormulaFieldDefinition chequesNoCobradosEnElPeriodo,
+            FormulaFieldDefinition destino)
+        {
+            decimal suma = Decimal.Parse(gastos.Text) + Decimal.Parse(chequesCobradosDePeriodosAnteriores.Text) - Decimal.Parse(chequesNoCobradosEnElPeriodo.Text);
+            destino.Text = suma.ToString();
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSaldoDisponibleEnCuentaBancaria(FormulaFieldDefinition totalIngresos, FormulaFieldDefinition saldoRealRetirosEstadoDeCuenta, FormulaFieldDefinition disponibleEnBancosDePeriodo, FormulaFieldDefinition destino)
+        {
+            decimal suma = Decimal.Parse(totalIngresos.Text) + Decimal.Parse(saldoRealRetirosEstadoDeCuenta.Text);
+            destino.Text = (Decimal.Parse(disponibleEnBancosDePeriodo.Text) - suma).ToString();
+        }
+
+
         private void CargarComboBoxAnios()
         {
             comboBox1.Items.Add("2018");
@@ -677,7 +1094,7 @@ namespace CapaPresentacion
 
         private void PonerTituloAReporte(TextObject textObject, string texto)
         {
-            textObject.Text = texto;
+            textObject.Text = texto; 
         }
 
         private bool EstaSeleccionadoComboBox(ComboBox comboBox)
@@ -707,6 +1124,27 @@ namespace CapaPresentacion
                 return (filaUnica.Field<DateTime>("FechaDePeriodoInicial"));
             else
                 return (DateTime.MinValue);
+        }
+
+        private void ConfigurarOpcionesDeRPTParaExportacion(CRReporteEgresosIngresosParaExportar reporte, string nomArchivo)
+        {
+            // Declare variables and get the export options.
+            ExportOptions exportOpts = new ExportOptions();
+            ExcelFormatOptions excelFormatOpts = new ExcelFormatOptions();
+            DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
+            exportOpts = reporte.ExportOptions;
+            // Set the excel format options.
+            excelFormatOpts.ExcelUseConstantColumnWidth = false;
+            excelFormatOpts.ShowGridLines = true;
+
+            //exportOpts.ExportFormatType = ExportFormatType.ExcelRecord;
+            exportOpts.ExportFormatType = ExportFormatType.Excel;
+            exportOpts.FormatOptions = excelFormatOpts;
+            // Set the disk file options and export.
+            exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;
+            //diskOpts.DiskFileName = "miotroreporttttte.xls";
+            diskOpts.DiskFileName = nomArchivo;
+            exportOpts.DestinationOptions = diskOpts;
         }
 
 
@@ -795,6 +1233,105 @@ namespace CapaPresentacion
         private void FrmVisorReporteIngresosEgresos_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (EstaSeleccionadoComboBox(comboBox1))
+                    {
+                        Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
+                        CRReporteEgresosIngresosParaExportar crReporteEgresosIngresosParaExportar = new CRReporteEgresosIngresosParaExportar();
+                        Hashtable tablaConFormulaFieldDefinitionDeCrystalReport = ObtenerFormulaFieldDefinitionDeCR_ParaExportar(crReporteEgresosIngresosParaExportar);
+                        TextObject textObjectTitulo = crReporteEgresosIngresosParaExportar.ReportDefinition.ReportObjects["Text132"] as TextObject;
+                        PonerTituloAReporte(textObjectTitulo, "Reporte ingresos - egresos " + comboBox1.SelectedItem.ToString());
+
+                        //FormulaFieldDefinition fx = crReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency1"] as FormulaFieldDefinition;
+                        //fx.Text = "98.0060";
+
+                        //Asi se accede a FieldObject
+                        //crReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundCurrency1"].Text = "560";
+                        //crReporteEgresosIngresosParaExportar.DataDefinition.FormulaFields["UnboundNumber1"].Text = "569";
+
+
+                        DataTable totalInicialDeChequesCobradosDePeriodosAnterioresTable = InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivoController();
+                        decimal inicialTotalDeChequesCobradosDePeriodosAnteriores = ExtraerTotalInicialDeChequesCobradosDePeriodosAnteriores(totalInicialDeChequesCobradosDePeriodosAnterioresTable);
+                        DateTime fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores = ExtraerFechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores(totalInicialDeChequesCobradosDePeriodosAnterioresTable);
+
+                        List<string> mesesConAnioElegido = MezclarMesesConAnioElegido(comboBox1.SelectedItem.ToString());
+                        Action<string> FuncionParaCadaItem = item =>
+                        {
+                            RangoFechasUsadasEnReporte rango = (RangoFechasUsadasEnReporte)parametrosFechaInicioFechaFin[item];
+
+                            DataTable periodoBancos = Bancos_BuscarPeriodoActivoController(rango.FechaInicio.Year, rango.NombreMes);
+                            string llave = QuitarAnioYUnirConTexto(item, "disponibleEnBancos_");
+                            FormulaFieldDefinition formulaFieldDefinition = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave];
+                            MostrarEnFormulaFieldDefinitionDisponibleEnBancos(periodoBancos, formulaFieldDefinition);
+
+                            
+                            string llaveX = QuitarAnioYUnirConTexto(item, "saldoRealEnCuenta_");
+                            FormulaFieldDefinition formulaFieldDefinitionX = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llaveX];
+                            MostrarEnFormulaFieldDefinitionDisponibleEnBancosReal(periodoBancos, formulaFieldDefinitionX);
+
+                            DataTable sumaDeProductosDelMes = MovsEnCaja_SumarPagoDeTodosProductosController(rango.FechaInicio, rango.FechaFin);
+                            string llave2 = QuitarAnioYUnirConTexto(item, "totalIngresos_");
+                            FormulaFieldDefinition formulaFieldDefinition2 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave2];
+                            MostrarEnFormulaFieldDefinitionSumaDeTodosLosProductos(sumaDeProductosDelMes, formulaFieldDefinition2);
+
+                            DataTable sumaDeImporteDeChequesDePeriodo = Cheque_SumarImporteDeChequesActivosController(rango.FechaInicio, rango.FechaFin);
+                            string llave3 = QuitarAnioYUnirConTexto(item, "gastos_");
+                            FormulaFieldDefinition formulaFieldDefinition3 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave3];
+                            MostrarEnFormulaFieldDefinitionSumaDeTodosLosCheques(sumaDeImporteDeChequesDePeriodo, formulaFieldDefinition3);
+
+                            DateTime fechaCentinelaInicio = new DateTime(2000, 1, 1, 0, 1, 0);
+                            DataTable sumaDeChequesCobradosDePeriodosAnteriores = Cheque_SumarImporteDeChequesCobradosController(fechaCentinelaInicio, rango.UltimoDiaDeMesAnterior);
+                            string llave4 = QuitarAnioYUnirConTexto(item, "chequesCobradosDePeriodosAnteriores_");
+                            FormulaFieldDefinition formulaFieldDefinition4 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave4];
+                            MostrarEnFormulaFieldDefinitionSumaDeChequesCobradosDePeriodosAnteriores(sumaDeChequesCobradosDePeriodosAnteriores, formulaFieldDefinition4,
+                                inicialTotalDeChequesCobradosDePeriodosAnteriores, fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores, rango);
+
+
+                            DataTable sumaDeChequesNoCobradosDePeriodo = Cheque_SumarImporteDeChequesNoCobradosController(rango.FechaInicio, rango.FechaFin);
+                            string llave5 = QuitarAnioYUnirConTexto(item, "chequesNoCobradosEnElPeriodo_");
+                            FormulaFieldDefinition formulaFieldDefinition5 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave5];
+                            MostrarEnFormulaFieldDefinitionSumaDeTodosLosChequesNoCobrados(sumaDeChequesNoCobradosDePeriodo, formulaFieldDefinition5);
+
+
+                            string llave6 = QuitarAnioYUnirConTexto(item, "saldoRealDeRetirosEstadoDeCuenta_");
+                            FormulaFieldDefinition formulaFieldDefinition6 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave6];
+                            MostrarEnFormulaFieldDefinitionSaldoRealDeRetirosEstadoDeCuenta(formulaFieldDefinition3, formulaFieldDefinition4,
+                                formulaFieldDefinition5, formulaFieldDefinition6);
+
+
+                            string llave7 = QuitarAnioYUnirConTexto(item, "saldoDisponibleEnCuentaBancaria_");
+                            FormulaFieldDefinition formulaFieldDefinition7 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport[llave7];
+                            MostrarEnFormulaFieldDefinitionSaldoDisponibleEnCuentaBancaria(formulaFieldDefinition2, formulaFieldDefinition6,
+                                formulaFieldDefinition, formulaFieldDefinition7);
+                            
+                        };
+
+                        mesesConAnioElegido.ForEach(FuncionParaCadaItem);
+                        ConfigurarOpcionesDeRPTParaExportacion(crReporteEgresosIngresosParaExportar, saveFileDialog1.FileName);
+                        crReporteEgresosIngresosParaExportar.Export();
+
+                        MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Seleccione un año", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
     }
 
