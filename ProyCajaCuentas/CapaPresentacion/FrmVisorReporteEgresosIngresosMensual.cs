@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Collections;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
 using CapaLogicaNegocios;
 
 namespace CapaPresentacion
@@ -439,6 +440,164 @@ namespace CapaPresentacion
                 return (DateTime.MinValue);
         }
 
+        private Hashtable ObtenerFormulaFieldDefinitionDeCR(CRReporteEgresosIngresosMensualParaExportar crReporte)
+        {
+            Hashtable tablaHash = new Hashtable();
+            FormulaFieldDefinition formulaFieldDefinition;
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency6"] as FormulaFieldDefinition;
+            tablaHash.Add("disponibleEnBancos", formulaFieldDefinition);
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency7"] as FormulaFieldDefinition;
+            tablaHash.Add("totalIngresos", formulaFieldDefinition);
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency1"] as FormulaFieldDefinition;
+            tablaHash.Add("gastos", formulaFieldDefinition);
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency2"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesCobradosDePeriodosAnteriores", formulaFieldDefinition);
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency3"] as FormulaFieldDefinition;
+            tablaHash.Add("chequesNoCobradosEnElPeriodo", formulaFieldDefinition);
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency4"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealDeRetirosEstadoDeCuenta", formulaFieldDefinition);
+
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency8"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoDisponibleEnCuentaBancaria", formulaFieldDefinition);
+
+            formulaFieldDefinition = crReporte.DataDefinition.FormulaFields["UnboundCurrency9"] as FormulaFieldDefinition;
+            tablaHash.Add("saldoRealEnCuenta", formulaFieldDefinition);
+
+
+            return (tablaHash);
+        }
+
+        private void MostrarEnFormulaFieldDefinitionDisponibleEnBancos(DataTable periodo, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = periodo.AsEnumerable().Single();
+            formulaFieldDefinition.Text = filaUnica.Field<decimal>("DisponibleEnBancos").ToString();
+        }
+
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeTodosLosProductos(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosProductos;
+            bool sePudoExtraerLaSuma;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma del pago de todos los productos"].ToString(), out sumaTodosLosProductos);
+
+            if (sePudoExtraerLaSuma)
+                formulaFieldDefinition.Text = sumaTodosLosProductos.ToString();
+            else
+                formulaFieldDefinition.Text = "0.0000";
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeTodosLosCheques(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosCheques;
+            bool sePudoExtraerLaSuma;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaTodosLosCheques);
+
+            if (sePudoExtraerLaSuma)
+                formulaFieldDefinition.Text = sumaTodosLosCheques.ToString();
+            else
+                formulaFieldDefinition.Text = "0.0000";
+        }
+
+
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeChequesCobradosDePeriodosAnteriores(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition,
+            decimal inicialTotalDeChequesCobradosDePeriodosAnteriores, DateTime fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores,
+            RangoFechasUsadasEnReporte rango)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaDeCheques = 0.0m;
+            bool sePudoExtraerLaSuma = false;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaDeCheques);
+
+            if (sePudoExtraerLaSuma == false)
+            { sumaDeCheques = 0.0000m; }
+
+            if (rango.FechaInicio >= fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores)
+            {
+                formulaFieldDefinition.Text = (sumaDeCheques + inicialTotalDeChequesCobradosDePeriodosAnteriores).ToString();
+            }
+
+            else
+            {
+                formulaFieldDefinition.Text = sumaDeCheques.ToString();
+            }
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSumaDeTodosLosChequeNoCobrados(DataTable tabla, FormulaFieldDefinition formulaFieldDefinition)
+        {
+            DataRow filaUnica = tabla.Rows[0];
+            decimal sumaTodosLosCheques;
+            bool sePudoExtraerLaSuma;
+
+            //la tabla contiene una unica fila con un valor diferente de 0 ó null
+            sePudoExtraerLaSuma = Decimal.TryParse(filaUnica["suma de importes"].ToString(), out sumaTodosLosCheques);
+
+            if (sePudoExtraerLaSuma)
+                formulaFieldDefinition.Text = sumaTodosLosCheques.ToString();
+            else
+                formulaFieldDefinition.Text = "0.0000";
+        }
+
+
+        private void MostrarEnFormulaFieldDefinitionSaldoRealDeRetirosEstadoDeCuenta(FormulaFieldDefinition suma1FormulaFieldDefinition,
+            FormulaFieldDefinition suma2FormulaFieldDefinition, FormulaFieldDefinition restaFormulaFieldDefinition, 
+            FormulaFieldDefinition destinoFormulaFieldDefinition)
+        {
+            decimal suma = Decimal.Parse(suma1FormulaFieldDefinition.Text) + Decimal.Parse(suma2FormulaFieldDefinition.Text) - Decimal.Parse(restaFormulaFieldDefinition.Text);
+            destinoFormulaFieldDefinition.Text = suma.ToString();
+        }
+
+        private void MostrarEnFormulaFieldDefinitionSaldoDisponibleEnCuentaBancaria(FormulaFieldDefinition totalIngresos, FormulaFieldDefinition saldoRealRetirosEstadoDeCuenta, FormulaFieldDefinition disponibleEnBancosDePeriodo, FormulaFieldDefinition destino)
+        {
+            //TextObject totalIngresos, TextObject saldoRealRetirosEstadoDeCuenta, TextObject disponibleEnBancosDePeriodo, TextObject destino
+            decimal suma = Decimal.Parse(totalIngresos.Text) + Decimal.Parse(saldoRealRetirosEstadoDeCuenta.Text);
+            destino.Text = (Decimal.Parse(disponibleEnBancosDePeriodo.Text) - suma).ToString();
+        }
+
+
+        private void MostrarEnFormulaFieldDefinitionDisponibleEnBancosReal(DataTable periodo, FormulaFieldDefinition formulaFielDefinition)
+        {
+            DataRow filaUnica = periodo.AsEnumerable().Single();
+            formulaFielDefinition.Text = filaUnica.Field<decimal>("DisponibleEnBancosReal").ToString();
+        }
+
+
+        private void ConfigurarOpcionesDeRPTParaExportacion(CRReporteEgresosIngresosMensualParaExportar reporte, string nomArchivo)
+        {
+            // Declare variables and get the export options.
+            ExportOptions exportOpts = new ExportOptions();
+            ExcelFormatOptions excelFormatOpts = new ExcelFormatOptions();
+            DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
+            exportOpts = reporte.ExportOptions;
+            // Set the excel format options.
+            excelFormatOpts.ExcelUseConstantColumnWidth = false;
+            excelFormatOpts.ShowGridLines = true;
+
+            //exportOpts.ExportFormatType = ExportFormatType.ExcelRecord;
+            exportOpts.ExportFormatType = ExportFormatType.Excel;
+            exportOpts.FormatOptions = excelFormatOpts;
+            // Set the disk file options and export.
+            exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;
+            //diskOpts.DiskFileName = "miotroreporttttte.xls";
+            diskOpts.DiskFileName = nomArchivo;
+            exportOpts.DestinationOptions = diskOpts;
+        }
+
 
         //-------------------------Events
         private void button1_Click(object sender, EventArgs e)
@@ -520,6 +679,91 @@ namespace CapaPresentacion
             }
 
             catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (EstaSeleccionadoComboBoxAnioYComBoBoxMes())
+                    {
+                        Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
+                        CRReporteEgresosIngresosMensualParaExportar reporte = new CRReporteEgresosIngresosMensualParaExportar();
+                        reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                        Hashtable tablaConFormulaFieldDefinitionDeCrystalReport = ObtenerFormulaFieldDefinitionDeCR(reporte);
+                        TextObject textObjectTitulo = reporte.ReportDefinition.ReportObjects["Text1"] as TextObject;
+                        PonerTituloAReporte(textObjectTitulo, "Reporte ingresos - egresos " + comboBox2.SelectedItem.ToString() + " " + comboBox1.SelectedItem.ToString());
+
+                        DataTable totalInicialDeChequesCobradosDePeriodosAnterioresTable = InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivoController();
+                        decimal inicialTotalDeChequesCobradosDePeriodosAnteriores = ExtraerTotalInicialDeChequesCobradosDePeriodosAnteriores(totalInicialDeChequesCobradosDePeriodosAnterioresTable);
+                        DateTime fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores = ExtraerFechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores(totalInicialDeChequesCobradosDePeriodosAnterioresTable);
+
+                        List<string> mesConAnioElegido = MezclarAnioConMesElegido(comboBox1, comboBox2);
+
+                        Action<string> FuncionParaCadaItem = item =>
+                        {
+                            RangoFechasUsadasEnReporte rango = (RangoFechasUsadasEnReporte)parametrosFechaInicioFechaFin[item];
+
+                            DataTable periodoBancos = Bancos_BuscarPeriodoActivoController(rango.FechaInicio.Year, rango.NombreMes);
+                            FormulaFieldDefinition formulaFieldDefinition = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["disponibleEnBancos"];
+                            MostrarEnFormulaFieldDefinitionDisponibleEnBancos(periodoBancos, formulaFieldDefinition);
+
+                            DataTable sumaDeProductosDelMes = MovsEnCaja_SumarPagoDeTodosProductosController(rango.FechaInicio, rango.FechaFin);
+                            FormulaFieldDefinition formulaFieldDefinition2 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["totalIngresos"];
+                            MostrarEnFormulaFieldDefinitionSumaDeTodosLosProductos(sumaDeProductosDelMes, formulaFieldDefinition2);
+
+                            reporte.SetParameterValue("@fechaInicio", rango.FechaInicio, reporte.Subreports[0].Name.ToString());
+                            reporte.SetParameterValue("@fechaFin", rango.FechaFin, reporte.Subreports[0].Name.ToString());
+
+                            DataTable sumaDeImporteDeChequesDePeriodo = Cheque_SumarImporteDeChequesActivosController(rango.FechaInicio, rango.FechaFin);
+                            FormulaFieldDefinition formulaFieldDefinition3 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["gastos"];
+                            MostrarEnFormulaFieldDefinitionSumaDeTodosLosCheques(sumaDeImporteDeChequesDePeriodo, formulaFieldDefinition3);
+
+                            DateTime fechaCentinelaInicio = new DateTime(2000, 1, 1, 0, 1, 0);
+                            DataTable sumaDeChequesCobradosDePeriodosAnteriores = Cheque_SumarImporteDeChequesCobradosController(fechaCentinelaInicio, rango.UltimoDiaDeMesAnterior);
+                            FormulaFieldDefinition formulaFieldDefinition4 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["chequesCobradosDePeriodosAnteriores"];
+                            MostrarEnFormulaFieldDefinitionSumaDeChequesCobradosDePeriodosAnteriores(sumaDeChequesCobradosDePeriodosAnteriores, formulaFieldDefinition4,
+                                inicialTotalDeChequesCobradosDePeriodosAnteriores, fechaDePeriodoInicialDeChequesCobradosDePeriodosAnteriores, rango);
+
+
+                            DataTable sumaDeChequesNoCobradosDePeriodo = Cheque_SumarImporteDeChequesNoCobradosController(rango.FechaInicio, rango.FechaFin);
+                            FormulaFieldDefinition formulaFieldDefinition5 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["chequesNoCobradosEnElPeriodo"];
+                            MostrarEnFormulaFieldDefinitionSumaDeTodosLosChequeNoCobrados(sumaDeChequesNoCobradosDePeriodo, formulaFieldDefinition5);
+
+                            FormulaFieldDefinition formulaFieldDefinition6 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["saldoRealDeRetirosEstadoDeCuenta"];
+                            MostrarEnFormulaFieldDefinitionSaldoRealDeRetirosEstadoDeCuenta(formulaFieldDefinition3, formulaFieldDefinition4, formulaFieldDefinition5, formulaFieldDefinition6);
+
+                            reporte.SetParameterValue("@fechaInicio", rango.FechaInicio, reporte.Subreports[1].Name.ToString());
+                            reporte.SetParameterValue("@fechaFin", rango.FechaFin, reporte.Subreports[1].Name.ToString());
+
+                            FormulaFieldDefinition formulaFieldDefinition7 = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["saldoDisponibleEnCuentaBancaria"];
+                            MostrarEnFormulaFieldDefinitionSaldoDisponibleEnCuentaBancaria(formulaFieldDefinition2, formulaFieldDefinition6, formulaFieldDefinition, formulaFieldDefinition7);
+
+
+                            FormulaFieldDefinition formulaFieldDefinitionX = (FormulaFieldDefinition)tablaConFormulaFieldDefinitionDeCrystalReport["saldoRealEnCuenta"];
+                            MostrarEnFormulaFieldDefinitionDisponibleEnBancosReal(periodoBancos, formulaFieldDefinitionX);
+                        };
+
+                        mesConAnioElegido.ForEach(FuncionParaCadaItem);
+                        ConfigurarOpcionesDeRPTParaExportacion(reporte, saveFileDialog1.FileName);
+                        reporte.Export();
+
+                        MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Seleccione un año y un mes", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }

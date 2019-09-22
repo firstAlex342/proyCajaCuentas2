@@ -97,6 +97,12 @@
       <DependentUpon>CRReporteChequesNoCobradosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteEgresosIngresosMensualParaExportar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteEgresosIngresosMensualParaExportar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRReporteEgresosIngresosParaExportar.cs">
       <DependentUpon>CRReporteEgresosIngresosParaExportar.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -560,6 +566,10 @@
     <EmbeddedResource Include="CRReporteChequesNoCobradosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesNoCobradosParaExportar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteEgresosIngresosMensualParaExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteEgresosIngresosMensualParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRReporteEgresosIngresosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
