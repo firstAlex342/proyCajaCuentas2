@@ -323,6 +323,8 @@ namespace CapaPresentacion
             else
             {  metroTile33.Enabled = false;   }
 
+            //el modulo 40 es el boton Informe egresos-ingresos, exportar a excel
+            //el modulo 41 es el boton Informe egresos-ingresos mensual, exportar a excel
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()

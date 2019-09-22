@@ -24,6 +24,17 @@ namespace CapaPresentacion
             InitializeComponent();
             CargarComboBoxAnios();
             SelectFirtsElementInComboBox();
+
+            try
+            {
+                if (EsActivoModuloController(40)) { /*El button exportar a excel esta habilitado*/ }
+                else { DeshabilitarButtonExportarAExcel(); /* Se deshabilita botón exportar a excel*/}
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
 
         //------------------Methods
@@ -83,6 +94,21 @@ namespace CapaPresentacion
             return (clsInicialTotalDeChequesCobradosDePeriodosAnteriores.InicialTotalDeChequesCobradosDePeriodosAnteriores_BuscarActivo());
         }
 
+
+        public bool EsActivoModuloController(int idModuloBuscado)
+        {
+            var lista = ClsLogin.ModulosALosQueTieneAccesoUsuario.AsEnumerable();
+            DataRow filaBuscada = lista.FirstOrDefault(s =>
+            (s.Field<int>(1) == idModuloBuscado) && (s.Field<bool>(2) == true));
+
+            if (filaBuscada != null)
+            {
+                return true;
+            }
+
+            else
+                return false;
+        }
 
         //--------------------Utils
         private void MostrarEnTextBoxSumaDeTodosLosChequeNoCobrados(DataTable tabla, TextObject textBox) 
@@ -1147,6 +1173,11 @@ namespace CapaPresentacion
             exportOpts.DestinationOptions = diskOpts;
         }
 
+
+        private void DeshabilitarButtonExportarAExcel()
+        {
+            button2.Enabled = false;
+        }
 
         //----------------------Events
         private void button1_Click(object sender, EventArgs e)

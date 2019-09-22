@@ -25,6 +25,17 @@ namespace CapaPresentacion
             SelectFirtsElementInComboBoxAnios();
             CargarComboBoxMeses();
             SelectFirstElementInComboBoxMeses();
+
+            try
+            {
+                if (EsActivoModuloController(41)) { /*El button exportar a excel esta habilitado*/ }
+                else { DeshabilitarButtonExportarAExcel(); /* Se deshabilita botón exportar a excel*/}
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
 
         //--------------------------Controllers
@@ -80,6 +91,21 @@ namespace CapaPresentacion
             clsCheque.FechaModificacion = fechaFin;
 
             return (clsCheque.Cheque_SumarImporteDeChequesNoCobrados());
+        }
+
+        public bool EsActivoModuloController(int idModuloBuscado)
+        {
+            var lista = ClsLogin.ModulosALosQueTieneAccesoUsuario.AsEnumerable();
+            DataRow filaBuscada = lista.FirstOrDefault(s =>
+            (s.Field<int>(1) == idModuloBuscado) && (s.Field<bool>(2) == true));
+
+            if (filaBuscada != null)
+            {
+                return true;
+            }
+
+            else
+                return false;
         }
 
         //----------------------Methods
@@ -596,6 +622,12 @@ namespace CapaPresentacion
             //diskOpts.DiskFileName = "miotroreporttttte.xls";
             diskOpts.DiskFileName = nomArchivo;
             exportOpts.DestinationOptions = diskOpts;
+        }
+
+
+        private void DeshabilitarButtonExportarAExcel()
+        {
+            button2.Enabled = false;
         }
 
 
