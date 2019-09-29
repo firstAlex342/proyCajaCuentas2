@@ -279,6 +279,46 @@ namespace CapaPresentacion
             RangoFechasUsadasEnReporte noviembre2022 = new RangoFechasUsadasEnReporte(2022, 11, 1, 2022, 11, DateTime.DaysInMonth(2022, 11), "noviembre");
             RangoFechasUsadasEnReporte diciembre2022 = new RangoFechasUsadasEnReporte(2022, 12, 1, 2022, 12, DateTime.DaysInMonth(2022, 12), "diciembre");
 
+            RangoFechasUsadasEnReporte enero2023 = new RangoFechasUsadasEnReporte(2023, 1, 1, 2023, 1, DateTime.DaysInMonth(2023, 1), "enero");
+            RangoFechasUsadasEnReporte febrero2023 = new RangoFechasUsadasEnReporte(2023, 2, 1, 2023, 2, DateTime.DaysInMonth(2023, 2), "febrero");
+            RangoFechasUsadasEnReporte marzo2023 = new RangoFechasUsadasEnReporte(2023, 3, 1, 2023, 3, DateTime.DaysInMonth(2023, 3), "marzo");
+            RangoFechasUsadasEnReporte abril2023 = new RangoFechasUsadasEnReporte(2023, 4, 1, 2023, 4, DateTime.DaysInMonth(2023, 4), "abril");
+            RangoFechasUsadasEnReporte mayo2023 = new RangoFechasUsadasEnReporte(2023, 5, 1, 2023, 5, DateTime.DaysInMonth(2023, 5), "mayo");
+            RangoFechasUsadasEnReporte junio2023 = new RangoFechasUsadasEnReporte(2023, 6, 1, 2023, 6, DateTime.DaysInMonth(2023, 6), "junio");
+            RangoFechasUsadasEnReporte julio2023 = new RangoFechasUsadasEnReporte(2023, 7, 1, 2023, 7, DateTime.DaysInMonth(2023, 7), "julio");
+            RangoFechasUsadasEnReporte agosto2023 = new RangoFechasUsadasEnReporte(2023, 8, 1, 2023, 8, DateTime.DaysInMonth(2023, 8), "agosto");
+            RangoFechasUsadasEnReporte septiembre2023 = new RangoFechasUsadasEnReporte(2023, 9, 1, 2023, 9, DateTime.DaysInMonth(2023, 9), "septiembre");
+            RangoFechasUsadasEnReporte octubre2023 = new RangoFechasUsadasEnReporte(2023, 10, 1, 2023, 10, DateTime.DaysInMonth(2023, 10), "octubre");
+            RangoFechasUsadasEnReporte noviembre2023 = new RangoFechasUsadasEnReporte(2023, 11, 1, 2023, 11, DateTime.DaysInMonth(2023, 11), "noviembre");
+            RangoFechasUsadasEnReporte diciembre2023 = new RangoFechasUsadasEnReporte(2023, 12, 1, 2023, 12, DateTime.DaysInMonth(2023, 12), "diciembre");
+
+            RangoFechasUsadasEnReporte enero2024 = new RangoFechasUsadasEnReporte(2024, 1, 1, 2024, 1, DateTime.DaysInMonth(2024, 1), "enero");
+            RangoFechasUsadasEnReporte febrero2024 = new RangoFechasUsadasEnReporte(2024, 2, 1, 2024, 2, DateTime.DaysInMonth(2024, 2), "febrero");
+            RangoFechasUsadasEnReporte marzo2024 = new RangoFechasUsadasEnReporte(2024, 3, 1, 2024, 3, DateTime.DaysInMonth(2024, 3), "marzo");
+            RangoFechasUsadasEnReporte abril2024 = new RangoFechasUsadasEnReporte(2024, 4, 1, 2024, 4, DateTime.DaysInMonth(2024, 4), "abril");
+            RangoFechasUsadasEnReporte mayo2024 = new RangoFechasUsadasEnReporte(2024, 5, 1, 2024, 5, DateTime.DaysInMonth(2024, 5), "mayo");
+            RangoFechasUsadasEnReporte junio2024 = new RangoFechasUsadasEnReporte(2024, 6, 1, 2024, 6, DateTime.DaysInMonth(2024, 6), "junio");
+            RangoFechasUsadasEnReporte julio2024 = new RangoFechasUsadasEnReporte(2024, 7, 1, 2024, 7, DateTime.DaysInMonth(2024, 7), "julio");
+            RangoFechasUsadasEnReporte agosto2024 = new RangoFechasUsadasEnReporte(2024, 8, 1, 2024, 8, DateTime.DaysInMonth(2024, 8), "agosto");
+            RangoFechasUsadasEnReporte septiembre2024 = new RangoFechasUsadasEnReporte(2024, 9, 1, 2024, 9, DateTime.DaysInMonth(2024, 9), "septiembre");
+            RangoFechasUsadasEnReporte octubre2024 = new RangoFechasUsadasEnReporte(2024, 10, 1, 2024, 10, DateTime.DaysInMonth(2024, 10), "octubre");
+            RangoFechasUsadasEnReporte noviembre2024 = new RangoFechasUsadasEnReporte(2024, 11, 1, 2024, 11, DateTime.DaysInMonth(2024, 11), "noviembre");
+            RangoFechasUsadasEnReporte diciembre2024 = new RangoFechasUsadasEnReporte(2024, 12, 1, 2024, 12, DateTime.DaysInMonth(2024, 12), "diciembre");
+
+            RangoFechasUsadasEnReporte enero2025 = new RangoFechasUsadasEnReporte(2025, 1, 1, 2025, 1, DateTime.DaysInMonth(2025, 1), "enero");
+            RangoFechasUsadasEnReporte febrero2025 = new RangoFechasUsadasEnReporte(2025, 2, 1, 2025, 2, DateTime.DaysInMonth(2025, 2), "febrero");
+            RangoFechasUsadasEnReporte marzo2025 = new RangoFechasUsadasEnReporte(2025, 3, 1, 2025, 3, DateTime.DaysInMonth(2025, 3), "marzo");
+            RangoFechasUsadasEnReporte abril2025 = new RangoFechasUsadasEnReporte(2025, 4, 1, 2025, 4, DateTime.DaysInMonth(2025, 4), "abril");
+            RangoFechasUsadasEnReporte mayo2025 = new RangoFechasUsadasEnReporte(2025, 5, 1, 2025, 5, DateTime.DaysInMonth(2025, 5), "mayo");
+            RangoFechasUsadasEnReporte junio2025 = new RangoFechasUsadasEnReporte(2025, 6, 1, 2025, 6, DateTime.DaysInMonth(2025, 6), "junio");
+            RangoFechasUsadasEnReporte julio2025 = new RangoFechasUsadasEnReporte(2025, 7, 1, 2025, 7, DateTime.DaysInMonth(2025, 7), "julio");
+            RangoFechasUsadasEnReporte agosto2025 = new RangoFechasUsadasEnReporte(2025, 8, 1, 2025, 8, DateTime.DaysInMonth(2025, 8), "agosto");
+            RangoFechasUsadasEnReporte septiembre2025 = new RangoFechasUsadasEnReporte(2025, 9, 1, 2025, 9, DateTime.DaysInMonth(2025, 9), "septiembre");
+            RangoFechasUsadasEnReporte octubre2025 = new RangoFechasUsadasEnReporte(2025, 10, 1, 2025, 10, DateTime.DaysInMonth(2025, 10), "octubre");
+            RangoFechasUsadasEnReporte noviembre2025 = new RangoFechasUsadasEnReporte(2025, 11, 1, 2025, 11, DateTime.DaysInMonth(2025, 11), "noviembre");
+            RangoFechasUsadasEnReporte diciembre2025 = new RangoFechasUsadasEnReporte(2025, 12, 1, 2025, 12, DateTime.DaysInMonth(2025, 12), "diciembre");
+
+
             Hashtable tablaHash = new Hashtable();
             tablaHash.Add("enero2018", enero2018);
             tablaHash.Add("febrero2018", febrero2018);
@@ -344,6 +384,45 @@ namespace CapaPresentacion
             tablaHash.Add("octubre2022", octubre2022);
             tablaHash.Add("noviembre2022", noviembre2022);
             tablaHash.Add("diciembre2022", diciembre2022);
+
+            tablaHash.Add("enero2023", enero2023);
+            tablaHash.Add("febrero2023", febrero2023);
+            tablaHash.Add("marzo2023", marzo2023);
+            tablaHash.Add("abril2023", abril2023);
+            tablaHash.Add("mayo2023", mayo2023);
+            tablaHash.Add("junio2023", junio2023);
+            tablaHash.Add("julio2023", julio2023);
+            tablaHash.Add("agosto2023", agosto2023);
+            tablaHash.Add("septiembre2023", septiembre2023);
+            tablaHash.Add("octubre2023", octubre2023);
+            tablaHash.Add("noviembre2023", noviembre2023);
+            tablaHash.Add("diciembre2023", diciembre2023);
+
+            tablaHash.Add("enero2024", enero2024);
+            tablaHash.Add("febrero2024", febrero2024);
+            tablaHash.Add("marzo2024", marzo2024);
+            tablaHash.Add("abril2024", abril2024);
+            tablaHash.Add("mayo2024", mayo2024);
+            tablaHash.Add("junio2024", junio2024);
+            tablaHash.Add("julio2024", julio2024);
+            tablaHash.Add("agosto2024", agosto2024);
+            tablaHash.Add("septiembre2024", septiembre2024);
+            tablaHash.Add("octubre2024", octubre2024);
+            tablaHash.Add("noviembre2024", noviembre2024);
+            tablaHash.Add("diciembre2024", diciembre2024);
+
+            tablaHash.Add("enero2025", enero2025);
+            tablaHash.Add("febrero2025", febrero2025);
+            tablaHash.Add("marzo2025", marzo2025);
+            tablaHash.Add("abril2025", abril2025);
+            tablaHash.Add("mayo2025", mayo2025);
+            tablaHash.Add("junio2025", junio2025);
+            tablaHash.Add("julio2025", julio2025);
+            tablaHash.Add("agosto2025", agosto2025);
+            tablaHash.Add("septiembre2025", septiembre2025);
+            tablaHash.Add("octubre2025", octubre2025);
+            tablaHash.Add("noviembre2025", noviembre2025);
+            tablaHash.Add("diciembre2025", diciembre2025);
 
             return (tablaHash);
         }
@@ -1079,6 +1158,9 @@ namespace CapaPresentacion
             comboBox1.Items.Add("2020");
             comboBox1.Items.Add("2021");
             comboBox1.Items.Add("2022");
+            comboBox1.Items.Add("2023");
+            comboBox1.Items.Add("2024");
+            comboBox1.Items.Add("2025");
         }
 
         private void SelectFirtsElementInComboBox()
