@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile33 = new MetroFramework.Controls.MetroTile();
             this.metroTile32 = new MetroFramework.Controls.MetroTile();
             this.metroTile31 = new MetroFramework.Controls.MetroTile();
             this.metroTile29 = new MetroFramework.Controls.MetroTile();
@@ -75,7 +76,6 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile33 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -140,6 +140,21 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroTile33
+            // 
+            this.metroTile33.ActiveControl = null;
+            this.metroTile33.Location = new System.Drawing.Point(24, 2818);
+            this.metroTile33.Name = "metroTile33";
+            this.metroTile33.Size = new System.Drawing.Size(251, 97);
+            this.metroTile33.Style = MetroFramework.MetroColorStyle.Purple;
+            this.metroTile33.TabIndex = 40;
+            this.metroTile33.Text = "Total inicial de cheques cobrados de periodos anteriores";
+            this.metroTile33.TileImage = global::CapaPresentacion.Properties.Resources.reportar;
+            this.metroTile33.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile33.UseSelectable = true;
+            this.metroTile33.UseTileImage = true;
+            this.metroTile33.Click += new System.EventHandler(this.metroTile33_Click);
             // 
             // metroTile32
             // 
@@ -447,7 +462,7 @@
             this.metroTile15.Size = new System.Drawing.Size(236, 97);
             this.metroTile15.Style = MetroFramework.MetroColorStyle.Red;
             this.metroTile15.TabIndex = 18;
-            this.metroTile15.Text = "Cheques capturados en periodo";
+            this.metroTile15.Text = "Cheques de periodo";
             this.metroTile15.TileImage = global::CapaPresentacion.Properties.Resources.investigacion;
             this.metroTile15.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.metroTile15.UseSelectable = true;
@@ -783,21 +798,6 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // metroTile33
-            // 
-            this.metroTile33.ActiveControl = null;
-            this.metroTile33.Location = new System.Drawing.Point(24, 2818);
-            this.metroTile33.Name = "metroTile33";
-            this.metroTile33.Size = new System.Drawing.Size(251, 97);
-            this.metroTile33.Style = MetroFramework.MetroColorStyle.Purple;
-            this.metroTile33.TabIndex = 40;
-            this.metroTile33.Text = "Total inicial de cheques cobrados de periodos anteriores";
-            this.metroTile33.TileImage = global::CapaPresentacion.Properties.Resources.reportar;
-            this.metroTile33.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile33.UseSelectable = true;
-            this.metroTile33.UseTileImage = true;
-            this.metroTile33.Click += new System.EventHandler(this.metroTile33_Click);
             // 
             // FrmPrincipal3
             // 

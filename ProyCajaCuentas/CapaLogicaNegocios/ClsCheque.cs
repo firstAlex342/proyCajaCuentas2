@@ -21,6 +21,7 @@ namespace CapaLogicaNegocios
         public DateTime FechaModificacion { set; get; }
         public int IdUsuarioModifico { set; get; }
         public bool Activo { set; get;  }
+        public bool UsarEnCalculosReporteEgresosIngresos { set; get; }
         public ClsManejador CLSManejador { set; get; }
 
         //-----------------Constructor
@@ -37,6 +38,7 @@ namespace CapaLogicaNegocios
             this.FechaModificacion = DateTime.MinValue;
             this.IdUsuarioModifico = 0;
             this.Activo = true;
+            this.UsarEnCalculosReporteEgresosIngresos = true;
 
             this.CLSManejador = new ClsManejador();
         }

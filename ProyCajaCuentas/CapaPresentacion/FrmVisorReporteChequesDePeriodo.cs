@@ -14,10 +14,10 @@ using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class FrmVisorReporteChequesCapturados : Form
+    public partial class FrmVisorReporteChequesDePeriodo : Form
     {
         //----------------Constructor
-        public FrmVisorReporteChequesCapturados()
+        public FrmVisorReporteChequesDePeriodo()
         {
             InitializeComponent();
         }

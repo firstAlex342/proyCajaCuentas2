@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmVisorReporteChequesCapturados
+    partial class FrmVisorReporteChequesDePeriodo
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@
             this.groupBox1.Size = new System.Drawing.Size(843, 100);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar cheques capturados cobrados y no cobrados";
+            this.groupBox1.Text = "Buscar cheques de periodo cobrados y no cobrados";
             // 
             // tableLayoutPanel2
             // 
@@ -184,14 +184,14 @@
             this.saveFileDialog1.RestoreDirectory = true;
             this.saveFileDialog1.Title = "Guardar como";
             // 
-            // FrmVisorReporteChequesCapturados
+            // FrmVisorReporteChequesDePeriodo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(878, 450);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FrmVisorReporteChequesCapturados";
-            this.Text = "VisorReporteChequesCapturados";
+            this.Name = "FrmVisorReporteChequesDePeriodo";
+            this.Text = "FrmVisorReporteChequesDePeriodo";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

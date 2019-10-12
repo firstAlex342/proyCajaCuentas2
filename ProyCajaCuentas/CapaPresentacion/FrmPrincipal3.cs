@@ -208,7 +208,7 @@ namespace CapaPresentacion
 
             respuesta = EsActivoModuloController(18) ? true : false;
             if (respuesta)
-            {   /*Permanece habilitada la opcion cheques capturados en el periodo*/  }
+            {   /*Permanece habilitada la opcion cheques de periodo*/  }
             else { metroTile15.Enabled = false; }
 
 
@@ -443,7 +443,7 @@ namespace CapaPresentacion
 
         private void metroTile15_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmVisorReporteChequesCapturados());
+            AbrirFormulario(new FrmVisorReporteChequesDePeriodo());
         }
 
         private void FrmPrincipal3_Load(object sender, EventArgs e)
