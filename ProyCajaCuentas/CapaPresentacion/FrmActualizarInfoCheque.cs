@@ -41,7 +41,8 @@ namespace CapaPresentacion
         }
 
         public string Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(string numCheque, string beneficiario, decimal cantidad,
-            DateTime fechaDeCheque, DateTime fechaDeCobro, DataGridView dataGrid, int idUsuarioOperador)
+            DateTime fechaDeCheque, DateTime fechaDeCobro, DataGridView dataGrid,
+            bool usarEnCalculosReporteEgresosIngresos, int idUsuarioOperador)
         {
             string mensaje = "";
 
@@ -51,6 +52,7 @@ namespace CapaPresentacion
             clsChequeInfoBasico.Cantidad = cantidad;
             clsChequeInfoBasico.FechaDeCheque = fechaDeCheque;
             clsChequeInfoBasico.FechaDeCobro = fechaDeCobro;
+            clsChequeInfoBasico.UsarEnCalculosReporteEgresosIngresos = usarEnCalculosReporteEgresosIngresos;
             clsChequeInfoBasico.IdUsuarioOperador = idUsuarioOperador;
 
             IEnumerable<DataGridViewRow> filas = dataGrid.Rows.Cast<DataGridViewRow>();
@@ -114,6 +116,7 @@ namespace CapaPresentacion
             }
 
             AniadirFilasADataGridViewDesde(infoChequeTabla);
+            MostrarSiSePuedeUsarChequeEnCalculosReporteIngresosEgresos(fila.Field<bool>("UsarEnCalculosReporteEgresosIngresos"));
         }
 
         private void CrearColumnasParaDataGridViewConceptosEnCheque()
@@ -180,6 +183,13 @@ namespace CapaPresentacion
         private void LimpiarGroupBoxDescripcion()
         {
             dataGridView1.Rows.Clear();
+        }
+
+        private void LimpiarGroupBoxUsarEnCalculoReporteIngresosEgresos()
+        {
+            comboBox2.DataSource = null;
+            comboBox2.Items.Clear();
+            comboBox2.ResetText();
         }
 
 
@@ -272,6 +282,22 @@ namespace CapaPresentacion
             textBox7.ReadOnly = true;
             button1.Enabled = false;
             dataGridView1.Columns[0].Visible = false;
+            comboBox2.Enabled = false;
+        }
+
+
+        private void MostrarSiSePuedeUsarChequeEnCalculosReporteIngresosEgresos(bool UsarEnCalculosReporteEgresosIngresos)
+        {
+            List<string> opciones = new List<string>();
+            opciones.Add("Si");
+            opciones.Add("No");
+
+            comboBox2.DataSource = opciones;
+
+            if (UsarEnCalculosReporteEgresosIngresos)
+                comboBox2.SelectedIndex = 0;
+            else
+                comboBox2.SelectedIndex = 1;
         }
 
         //------------------Events
@@ -288,8 +314,10 @@ namespace CapaPresentacion
                     LimpiarGroupBoxDatosDeCheque();
                     LimpiarGroupBoxAniadirConceptos();
                     LimpiarGroupBoxDescripcion();
+                    LimpiarGroupBoxUsarEnCalculoReporteIngresosEgresos();
 
-                    
+
+
                     MostrarInfoEnPantalla(infoChequeTabla);
                     textBox1.ReadOnly = true;
                     button2.Enabled = true;
@@ -440,9 +468,10 @@ namespace CapaPresentacion
                             if (cantidadEstaEnFormatoValido && EsPositivo(textBox3.Text) )
                             {
                                 DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
+                                bool usarEnCalculosReporteEgresosIngresos = (comboBox2.SelectedIndex == 0) ? true : false;
 
                                 string mensaje = Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
-                                fechaDeCobroParam, dataGridView1, ClsLogin.Id);
+                                fechaDeCobroParam, dataGridView1, usarEnCalculosReporteEgresosIngresos, ClsLogin.Id);
 
 
                                 if (mensaje.Contains("ok"))
@@ -452,6 +481,7 @@ namespace CapaPresentacion
                                     LimpiarGroupBoxDatosDeCheque();
                                     LimpiarGroupBoxAniadirConceptos();
                                     LimpiarGroupBoxDescripcion();
+                                    LimpiarGroupBoxUsarEnCalculoReporteIngresosEgresos();
 
                                     textBox1.ReadOnly = false;
                                     button2.Enabled = false;
@@ -501,6 +531,7 @@ namespace CapaPresentacion
                 LimpiarGroupBoxDatosDeCheque();
                 LimpiarGroupBoxAniadirConceptos();
                 LimpiarGroupBoxDescripcion();
+                LimpiarGroupBoxUsarEnCalculoReporteIngresosEgresos();
 
                 textBox1.ReadOnly = false;
                 button2.Enabled = false;

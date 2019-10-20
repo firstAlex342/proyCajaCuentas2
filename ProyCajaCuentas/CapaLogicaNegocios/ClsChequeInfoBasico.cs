@@ -15,6 +15,7 @@ namespace CapaLogicaNegocios
         private decimal cantidad;
         private DateTime fechaDeCheque;
         private DateTime fechaDeCobro;
+        private bool usarEnCalculosReporteEgresosIngresos;
         private int idUsuarioOperador;
 
         private DataTable listaConceptosEnCheque;
@@ -28,6 +29,7 @@ namespace CapaLogicaNegocios
             this.Cantidad = 0.0m;
             this.FechaDeCheque = new DateTime();
             this.FechaDeCobro = new DateTime();
+            this.UsarEnCalculosReporteEgresosIngresos = true;
             this.ListaConceptosEnCheque = MakeDataTable();
             this.IdUsuarioOperador = 0;
 
@@ -71,6 +73,7 @@ namespace CapaLogicaNegocios
             lst.Add(new ClsParametros("@cantidad", this.Cantidad));
             lst.Add(new ClsParametros("@fechaDeCheque", this.FechaDeCheque));
             lst.Add(new ClsParametros("@fechaDeCobro", this.FechaDeCobro));
+            lst.Add(new ClsParametros("@usarEnCalculosReporteEgresosIngresos", this.UsarEnCalculosReporteEgresosIngresos));
             lst.Add(new ClsParametros("@conceptosEnCheque", this.ListaConceptosEnCheque));
             lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioOperador));
 
@@ -80,7 +83,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("Cheque__DescripcionDeCheque_ConceptoEnCheque_Update", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[7].Valor.ToString();
+            mensaje = lst[8].Valor.ToString();
 
             return (mensaje);
         }
@@ -150,6 +153,12 @@ namespace CapaLogicaNegocios
         {
             set { idUsuarioOperador = value; }
             get { return idUsuarioOperador; }
+        }
+
+        public bool UsarEnCalculosReporteEgresosIngresos
+        {
+            set { usarEnCalculosReporteEgresosIngresos = value; }
+            get { return usarEnCalculosReporteEgresosIngresos;  }
         }
     }
 }
