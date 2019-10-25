@@ -61,12 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRReporteChequesCapturadosParaExportar - Copia.cs">
-      <DependentUpon>CRReporteChequesCapturadosParaExportar - Copia.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="CRReporteChequesCobradosParaExportar.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -549,10 +543,6 @@
     <Compile Include="FrmVisorReporteChequesDePeriodo.Designer.cs">
       <DependentUpon>FrmVisorReporteChequesDePeriodo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CRReporteChequesCapturadosParaExportar - Copia.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CRReporteChequesCapturadosParaExportar - Copia.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteChequesCobradosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesCobradosParaExportar.cs</LastGenOutput>
