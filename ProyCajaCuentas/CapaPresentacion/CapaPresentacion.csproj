@@ -79,16 +79,16 @@
       <DependentUpon>CRReporteChequesCapturadosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CRReporteChequesNoCobrados.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CRReporteChequesNoCobrados.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CRReporteChequesCobrados.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRReporteChequesCobrados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRReporteChequesNoCobrados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteChequesNoCobrados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CRReporteChequesNoCobradosParaExportar.cs">
@@ -555,13 +555,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesCapturadosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CRReporteChequesNoCobrados.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CRReporteChequesNoCobrados.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteChequesCobrados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesCobrados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteChequesNoCobrados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteChequesNoCobrados.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRReporteChequesNoCobradosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
