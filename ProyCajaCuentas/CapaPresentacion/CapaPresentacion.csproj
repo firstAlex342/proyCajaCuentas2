@@ -61,12 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CRReporteChequesCobradosParaExportar.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CRReporteChequesCobradosParaExportar.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CRReporteChequesCapturados.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +77,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRReporteChequesCobrados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRReporteChequesCobradosParaExportar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteChequesCobradosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CRReporteChequesNoCobrados.cs">
@@ -543,10 +543,6 @@
     <Compile Include="FrmVisorReporteChequesDePeriodo.Designer.cs">
       <DependentUpon>FrmVisorReporteChequesDePeriodo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CRReporteChequesCobradosParaExportar.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CRReporteChequesCobradosParaExportar.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteChequesCapturados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesCapturados.cs</LastGenOutput>
@@ -558,6 +554,10 @@
     <EmbeddedResource Include="CRReporteChequesCobrados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesCobrados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteChequesCobradosParaExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteChequesCobradosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRReporteChequesNoCobrados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
