@@ -168,6 +168,8 @@ namespace CapaPresentacion
 
             catch (Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarButtonsYDateTimePicker();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
@@ -204,6 +206,8 @@ namespace CapaPresentacion
 
             catch (Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarButtonsYDateTimePicker();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
