@@ -714,13 +714,51 @@ namespace CapaPresentacion
         }
 
 
+        private void InhabilitarComboBoxYButtons()
+        {
+            comboBox1.Enabled = false;
+            comboBox2.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+        }
+
+        private void HabilitarComboBoxYButtons()
+        {
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = EsActivoModuloController(41) ? true : false;
+        }
+
+        private void IniciarProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Style = ProgressBarStyle.Marquee;
+        }
+
+        private void DetenerProgressBar()
+        {
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 100;
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            progressBar1.Visible = false;
+        }
+
+
+
+
         //-------------------------Events
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
                 if (EstaSeleccionadoComboBoxAnioYComBoBoxMes())
                 {
+                    InhabilitarComboBoxYButtons();
+                    IniciarProgressBar();
+
                     Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
                     CRReporteEgresosIngresosMensual reporteEgresosIngresosMensual = new CRReporteEgresosIngresosMensual();
                     reporteEgresosIngresosMensual.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
@@ -784,22 +822,28 @@ namespace CapaPresentacion
 
                     mesConAnioElegido.ForEach(FuncionParacadaItem);
                     crystalReportViewer1.ReportSource = reporteEgresosIngresosMensual;
+                  
+                    await Task.Delay(10);
+                    DetenerProgressBar();
+                    HabilitarComboBoxYButtons();                   
                 }
 
                 else
                 {
                     MessageBox.Show("Seleccione un año y un mes", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-
             }
 
             catch(Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarComboBoxYButtons();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+
+        private async void button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -807,6 +851,9 @@ namespace CapaPresentacion
                 {
                     if (EstaSeleccionadoComboBoxAnioYComBoBoxMes())
                     {
+                        InhabilitarComboBoxYButtons();
+                        IniciarProgressBar();
+
                         Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
                         CRReporteEgresosIngresosMensualParaExportar reporte = new CRReporteEgresosIngresosMensualParaExportar();
                         reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
@@ -868,6 +915,9 @@ namespace CapaPresentacion
                         ConfigurarOpcionesDeRPTParaExportacion(reporte, saveFileDialog1.FileName);
                         reporte.Export();
 
+                        await Task.Delay(10);
+                        DetenerProgressBar();
+                        HabilitarComboBoxYButtons();
                         MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -880,6 +930,8 @@ namespace CapaPresentacion
 
             catch (Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarComboBoxYButtons();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
