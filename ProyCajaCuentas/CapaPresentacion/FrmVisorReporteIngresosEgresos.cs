@@ -1261,14 +1261,48 @@ namespace CapaPresentacion
             button2.Enabled = false;
         }
 
+
+        private void InhabilitarComboBoxYButtons()
+        {
+            comboBox1.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+        }
+
+        private void HabilitarComboBoxYButtons()
+        {
+            comboBox1.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = true;
+        }
+
+        private void IniciarProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Style = ProgressBarStyle.Marquee;
+        }
+
+        private void DetenerProgressBar()
+        {
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 100;
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            progressBar1.Visible = false;
+        }
+
         //----------------------Events
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
 
             try
             {
                 if( EstaSeleccionadoComboBox(comboBox1) )
                 {
+                    InhabilitarComboBoxYButtons();
+                    IniciarProgressBar();
+
                     Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
                     CRReporteEgresosIngresos crReporteEgresosIngresos = new CRReporteEgresosIngresos();
                     Hashtable tablaConTextObjectsDeCrystalReport = ObtenerTextObjectsDeCrystalReport(crReporteEgresosIngresos);
@@ -1328,6 +1362,10 @@ namespace CapaPresentacion
 
                     mesesConAnioElegido.ForEach(FuncionParaCadaItem);
                     crystalReportViewer1.ReportSource = crReporteEgresosIngresos;
+
+                    await Task.Delay(10);
+                    DetenerProgressBar();
+                    HabilitarComboBoxYButtons();
                 }
 
                 else
@@ -1339,16 +1377,19 @@ namespace CapaPresentacion
 
             catch(Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarComboBoxYButtons();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
 
         private void FrmVisorReporteIngresosEgresos_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
 
             try
@@ -1357,6 +1398,9 @@ namespace CapaPresentacion
                 {
                     if (EstaSeleccionadoComboBox(comboBox1))
                     {
+                        InhabilitarComboBoxYButtons();
+                        IniciarProgressBar();
+
                         Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
                         CRReporteEgresosIngresosParaExportar crReporteEgresosIngresosParaExportar = new CRReporteEgresosIngresosParaExportar();
                         Hashtable tablaConFormulaFieldDefinitionDeCrystalReport = ObtenerFormulaFieldDefinitionDeCR_ParaExportar(crReporteEgresosIngresosParaExportar);
@@ -1431,6 +1475,9 @@ namespace CapaPresentacion
                         ConfigurarOpcionesDeRPTParaExportacion(crReporteEgresosIngresosParaExportar, saveFileDialog1.FileName);
                         crReporteEgresosIngresosParaExportar.Export();
 
+                        await Task.Delay(10);
+                        DetenerProgressBar();
+                        HabilitarComboBoxYButtons();
                         MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
@@ -1443,6 +1490,8 @@ namespace CapaPresentacion
 
             catch(Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarComboBoxYButtons();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
