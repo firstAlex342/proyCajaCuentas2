@@ -1273,7 +1273,7 @@ namespace CapaPresentacion
         {
             comboBox1.Enabled = true;
             button1.Enabled = true;
-            button2.Enabled = true;
+            button2.Enabled = EsActivoModuloController(40) ? true : false;
         }
 
         private void IniciarProgressBar()
