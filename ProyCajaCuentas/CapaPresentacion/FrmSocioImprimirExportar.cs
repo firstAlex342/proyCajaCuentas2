@@ -22,21 +22,59 @@ namespace CapaPresentacion
         }
 
         //---------------controllers
-        public DataTable Socio_BuscarTodosActivosController()
+        public async Task<DataTable> Socio_BuscarTodosActivosControllerAsync()
         {
             ClsSocio clsSocio = new ClsSocio();
-            return (clsSocio.Socio_BuscarTodosActivos());           
+            DataTable respuesta = clsSocio.Socio_BuscarTodosActivos();
+
+            await Task.Delay(10);
+            return (respuesta);
+        }
+
+
+        //-----------------methods
+        private void IniciarProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Style = ProgressBarStyle.Marquee;
+        }
+
+        private void DetenerProgressBar()
+        {
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 100;
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            progressBar1.Visible = false;
+        }
+
+        private void DeshabilitarButtons()
+        {
+            button1.Enabled = false;
+            button2.Enabled = false;
+        }
+
+        private void HabilitarButtons()
+        {
+            button1.Enabled = true;
+            button2.Enabled = true;
         }
 
         //-------------Events
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                DataTable sociosTabla = Socio_BuscarTodosActivosController();
+                DeshabilitarButtons();
+                IniciarProgressBar();
+
+                DataTable sociosTabla = await Socio_BuscarTodosActivosControllerAsync();
                 if(sociosTabla.Rows.Count == 0)
                 {
                     crystalReportViewer1.ReportSource = null;
+                    DetenerProgressBar();
+                    HabilitarButtons();
                     MessageBox.Show("Se encontraron cero socios", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -46,21 +84,29 @@ namespace CapaPresentacion
                     crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
                     crReporte.SetParameterValue("@parametroNoNecesario", true);
                     crystalReportViewer1.ReportSource = crReporte;
+
+                    DetenerProgressBar();
+                    HabilitarButtons();
                 }
             }
 
             catch(Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarButtons();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    DeshabilitarButtons();
+                    IniciarProgressBar();
+
                     string nomArchivo = saveFileDialog1.FileName;
 
                     //http://aspalliance.com/478_Exporting_to_Excel_in_Crystal_Reports_NET__Perfect_Excel_Exports.3
@@ -88,6 +134,9 @@ namespace CapaPresentacion
                     exportOpts.DestinationOptions = diskOpts;
                     reporte.Export();
 
+                    await Task.Delay(10);
+                    DetenerProgressBar();
+                    HabilitarButtons();
                     MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -95,6 +144,8 @@ namespace CapaPresentacion
 
             catch(Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarButtons();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
