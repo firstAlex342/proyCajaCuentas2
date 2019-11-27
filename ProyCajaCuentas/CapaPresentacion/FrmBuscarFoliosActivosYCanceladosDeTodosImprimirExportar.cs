@@ -23,13 +23,15 @@ namespace CapaPresentacion
         }
 
         //----------------Methods controller
-        private DataTable Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetalladoController(DateTime fechaInicio, DateTime fechaFin)
+        private async Task<DataTable> Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetalladoControllerAsync(DateTime fechaInicio, DateTime fechaFin)
         {
             ClsSocio clsSocio = new ClsSocio();
             clsSocio.FechaAlta = fechaInicio;
             clsSocio.FechaModificacion = fechaFin;
 
-            return (clsSocio.Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetallado());
+            DataTable respuesta = clsSocio.Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetallado();
+            await Task.Delay(10);
+            return (respuesta);
         }
 
         //------------------------Utils
@@ -39,11 +41,49 @@ namespace CapaPresentacion
         }
 
 
+        private void IniciarProgressBar()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 30;
+            progressBar1.Style = ProgressBarStyle.Marquee;
+        }
+
+        private void DetenerProgressBar()
+        {
+            progressBar1.Value = 0;
+            progressBar1.MarqueeAnimationSpeed = 100;
+            progressBar1.Style = ProgressBarStyle.Blocks;
+            progressBar1.Visible = false;
+        }
+
+        private void DeshabilitarButtonsYDateTimePicker()
+        {
+            dateTimePicker1.Enabled = false;
+            dateTimePicker2.Enabled = false;
+            dateTimePicker3.Enabled = false;
+            button1.Enabled = false;
+            button2.Enabled = false;
+        }
+
+        private void HabilitarButtonsYDateTimePicker()
+        {
+            dateTimePicker1.Enabled = true;
+            dateTimePicker2.Enabled = true;
+            dateTimePicker3.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = true;
+        }
+
+
         //-----------------Events
-        private void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                DeshabilitarButtonsYDateTimePicker();
+                IniciarProgressBar();
+
                 DateTime fechaInicio;
                 DateTime fechaFin;
 
@@ -65,10 +105,12 @@ namespace CapaPresentacion
                         dateTimePicker3.Value.Day, 23, 59, 58);
                 }
 
-                DataTable res = Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetalladoController(fechaInicio, fechaFin);
+                DataTable res = await Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetalladoControllerAsync(fechaInicio, fechaFin);
                 if (res.Rows.Count == 0)
                 {
                     crystalReportViewer1.ReportSource = null;
+                    DetenerProgressBar();
+                    HabilitarButtonsYDateTimePicker();
                     MessageBox.Show("Se encontraron cero capturas en el rango de fechas solicitado", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -82,11 +124,16 @@ namespace CapaPresentacion
                     TextObject periodoDeBusquedaTextObject = crReporte.ReportDefinition.ReportObjects["Text6"] as TextObject;
                     periodoDeBusquedaTextObject.Text = "periodo " + MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
                     crystalReportViewer1.ReportSource = crReporte;
+
+                    DetenerProgressBar();
+                    HabilitarButtonsYDateTimePicker();
                 }
             }
 
             catch (Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarButtonsYDateTimePicker();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
@@ -110,7 +157,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private  async void button2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -137,6 +184,9 @@ namespace CapaPresentacion
 
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
+                    DeshabilitarButtonsYDateTimePicker();
+                    IniciarProgressBar();
+
                     string nomArchivo = saveFileDialog1.FileName;
 
                     //http://aspalliance.com/478_Exporting_to_Excel_in_Crystal_Reports_NET__Perfect_Excel_Exports.3
@@ -170,12 +220,17 @@ namespace CapaPresentacion
                     exportOpts.DestinationOptions = diskOpts;
                     reporte.Export();
 
+                    await Task.Delay(10);
+                    DetenerProgressBar();
+                    HabilitarButtonsYDateTimePicker();
                     MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
             catch (Exception ex)
             {
+                DetenerProgressBar();
+                HabilitarButtonsYDateTimePicker();
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
