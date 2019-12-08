@@ -97,6 +97,18 @@
       <DependentUpon>CRReporteChequesNoCobradosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteEgresosIngresosMensualAgrupXElementoDProveedor1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteEgresosIngresosMensualAgrupXElementoDProveedor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRReporteEgresosIngresosMensualAgrupXElementoDProveedorPExportar.cs">
+      <DependentUpon>CRReporteEgresosIngresosMensualAgrupXElementoDProveedorPExportar.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="CRReporteEgresosIngresosMensualParaExportar.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +300,12 @@
     </Compile>
     <Compile Include="FrmSocioImprimirExportar.Designer.cs">
       <DependentUpon>FrmSocioImprimirExportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor.Designer.cs">
+      <DependentUpon>FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmVisorReporteIngresosEgresos.cs">
       <SubType>Form</SubType>
@@ -567,6 +585,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteChequesNoCobradosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteEgresosIngresosMensualAgrupXElementoDProveedor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteEgresosIngresosMensualAgrupXElementoDProveedor1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteEgresosIngresosMensualAgrupXElementoDProveedorPExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteEgresosIngresosMensualAgrupXElementoDProveedorPExportar.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteEgresosIngresosMensualParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteEgresosIngresosMensualParaExportar.cs</LastGenOutput>
@@ -669,6 +695,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSocioImprimirExportar.resx">
       <DependentUpon>FrmSocioImprimirExportar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor.resx">
+      <DependentUpon>FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVisorReporteIngresosEgresos.resx">
       <DependentUpon>FrmVisorReporteIngresosEgresos.cs</DependentUpon>

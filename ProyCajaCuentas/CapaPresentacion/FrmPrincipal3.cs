@@ -325,6 +325,15 @@ namespace CapaPresentacion
 
             //el modulo 40 es el boton Informe egresos-ingresos, exportar a excel
             //el modulo 41 es el boton Informe egresos-ingresos mensual, exportar a excel
+
+
+            respuesta = EsActivoModuloController(42) ? true : false;
+            if (respuesta)
+            { /*Permanece habilitada la opción: Informe x elementos de proveedor */
+            }
+            else
+            { metroTile34.Enabled = false; }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -545,6 +554,12 @@ namespace CapaPresentacion
         private void metroTile33_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmChequesCobradosDePeriodosAnterioresTotalInicial());
+        }
+
+
+        private void metroTile34_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor());
         }
     }
 }
