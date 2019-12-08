@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile34 = new MetroFramework.Controls.MetroTile();
             this.metroTile33 = new MetroFramework.Controls.MetroTile();
             this.metroTile32 = new MetroFramework.Controls.MetroTile();
             this.metroTile31 = new MetroFramework.Controls.MetroTile();
@@ -86,6 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.metroPanel1.AutoScroll = true;
             this.metroPanel1.BackColor = System.Drawing.Color.White;
+            this.metroPanel1.Controls.Add(this.metroTile34);
             this.metroPanel1.Controls.Add(this.metroTile33);
             this.metroPanel1.Controls.Add(this.metroTile32);
             this.metroPanel1.Controls.Add(this.metroTile31);
@@ -133,7 +135,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(16, 177);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(297, 543);
+            this.metroPanel1.Size = new System.Drawing.Size(284, 543);
             this.metroPanel1.Style = MetroFramework.MetroColorStyle.Teal;
             this.metroPanel1.TabIndex = 0;
             this.metroPanel1.VerticalScrollbar = true;
@@ -141,10 +143,25 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // metroTile34
+            // 
+            this.metroTile34.ActiveControl = null;
+            this.metroTile34.Location = new System.Drawing.Point(24, 2818);
+            this.metroTile34.Name = "metroTile34";
+            this.metroTile34.Size = new System.Drawing.Size(251, 97);
+            this.metroTile34.Style = MetroFramework.MetroColorStyle.Lime;
+            this.metroTile34.TabIndex = 41;
+            this.metroTile34.Text = "Informe x elementos de proveedor";
+            this.metroTile34.TileImage = global::CapaPresentacion.Properties.Resources.reportar;
+            this.metroTile34.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile34.UseSelectable = true;
+            this.metroTile34.UseTileImage = true;
+            this.metroTile34.Click += new System.EventHandler(this.metroTile34_Click_1);
+            // 
             // metroTile33
             // 
             this.metroTile33.ActiveControl = null;
-            this.metroTile33.Location = new System.Drawing.Point(24, 2818);
+            this.metroTile33.Location = new System.Drawing.Point(24, 2929);
             this.metroTile33.Name = "metroTile33";
             this.metroTile33.Size = new System.Drawing.Size(251, 97);
             this.metroTile33.Style = MetroFramework.MetroColorStyle.Purple;
@@ -867,5 +884,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroTile metroTile32;
         private MetroFramework.Controls.MetroTile metroTile33;
+        private MetroFramework.Controls.MetroTile metroTile34;
     }
 }

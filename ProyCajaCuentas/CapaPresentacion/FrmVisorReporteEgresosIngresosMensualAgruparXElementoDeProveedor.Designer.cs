@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class FrmVisorReporteEgresosIngresosMensual
+    partial class FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor
     {
         /// <summary>
         /// Required designer variable.
@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(952, 469);
-            this.tableLayoutPanel1.TabIndex = 21;
+            this.tableLayoutPanel1.TabIndex = 22;
             // 
             // crystalReportViewer1
             // 
@@ -153,7 +153,7 @@
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(48, 18);
+            this.comboBox1.Location = new System.Drawing.Point(48, 19);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(177, 24);
             this.comboBox1.TabIndex = 18;
@@ -173,7 +173,7 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(276, 18);
+            this.comboBox2.Location = new System.Drawing.Point(276, 19);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(177, 24);
             this.comboBox2.TabIndex = 20;
@@ -206,14 +206,14 @@
             this.saveFileDialog1.RestoreDirectory = true;
             this.saveFileDialog1.Title = "Guardar como";
             // 
-            // FrmVisorReporteEgresosIngresosMensual
+            // FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 493);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "FrmVisorReporteEgresosIngresosMensual";
-            this.Text = "FrmReporteEgresosIngresosMensual";
+            this.Name = "FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor";
+            this.Text = "FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -234,7 +234,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
