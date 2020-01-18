@@ -334,6 +334,13 @@ namespace CapaPresentacion
             else
             { metroTile34.Enabled = false; }
 
+
+            respuesta = EsActivoModuloController(44) ? true : false;
+            if(respuesta)
+            {/*Permance habilitada la opción: Activos y cancelados de socio*/ }
+            else
+            { metroTile35.Enabled = false; }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -560,6 +567,11 @@ namespace CapaPresentacion
         private void metroTile34_Click_1(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmVisorReporteEgresosIngresosMensualAgruparXElementoDeProveedor());
+        }
+
+        private void metroTile35_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar());
         }
     }
 }

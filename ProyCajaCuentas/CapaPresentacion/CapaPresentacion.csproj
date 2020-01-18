@@ -139,6 +139,12 @@
       <DependentUpon>CRReporteProductosEnReciboListaProductos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRReporteSocios.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,6 +198,12 @@
     </Compile>
     <Compile Include="FrmBeneficiarioChequeVer.Designer.cs">
       <DependentUpon>FrmBeneficiarioChequeVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.Designer.cs">
+      <DependentUpon>FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmChequesCobradosDePeriodosAnterioresTotalInicial.cs">
       <SubType>Form</SubType>
@@ -613,6 +625,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CRReporteSocios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteSocios.cs</LastGenOutput>
@@ -647,6 +663,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBeneficiarioChequeVer.resx">
       <DependentUpon>FrmBeneficiarioChequeVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.resx">
+      <DependentUpon>FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChequesCobradosDePeriodosAnterioresTotalInicial.resx">
       <DependentUpon>FrmChequesCobradosDePeriodosAnterioresTotalInicial.cs</DependentUpon>

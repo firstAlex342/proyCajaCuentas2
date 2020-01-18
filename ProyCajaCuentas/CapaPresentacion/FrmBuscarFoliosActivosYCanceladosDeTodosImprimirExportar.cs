@@ -34,6 +34,7 @@ namespace CapaPresentacion
             return (respuesta);
         }
 
+
         //------------------------Utils
         private string MuestraFechaDeBusquedaSinLaHora(DateTime fecha)
         {
