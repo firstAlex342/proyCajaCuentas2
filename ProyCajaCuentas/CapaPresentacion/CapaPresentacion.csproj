@@ -145,6 +145,12 @@
       <DependentUpon>CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteProductosEnReciboListaProductosDSocioActivosCanceladosParaExportar.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteProductosEnReciboListaProductosDSocioActivosCanceladosParaExportar.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CRReporteSocios.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -628,6 +634,10 @@
     <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteProductosEnReciboListaProductosDSocioActivosCancelados.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteProductosEnReciboListaProductosDSocioActivosCanceladosParaExportar.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteProductosEnReciboListaProductosDSocioActivosCanceladosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CRReporteSocios.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
