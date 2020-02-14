@@ -44,6 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -222,6 +223,7 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "Exportar a excel";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // crystalReportViewer1
             // 
@@ -250,6 +252,14 @@
             this.progressBar1.Size = new System.Drawing.Size(949, 20);
             this.progressBar1.TabIndex = 3;
             this.progressBar1.Visible = false;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "xls";
+            this.saveFileDialog1.Filter = "xls files (*.xls)|*.xls|All files (*.*)|*.*";
+            this.saveFileDialog1.InitialDirectory = "c:\\";
+            this.saveFileDialog1.RestoreDirectory = true;
+            this.saveFileDialog1.Title = "Guardar como";
             // 
             // FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar
             // 
@@ -285,5 +295,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
