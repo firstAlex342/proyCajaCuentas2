@@ -69,6 +69,7 @@ namespace CapaPresentacion
             dateTimePicker3.Enabled = false;
             button1.Enabled = false;
             button2.Enabled = false;
+            textBox1.Enabled = false;
         }
 
         private void HabilitarButtonsYDateTimePicker()
@@ -78,6 +79,7 @@ namespace CapaPresentacion
             dateTimePicker3.Enabled = true;
             button1.Enabled = true;
             button2.Enabled = true;
+            textBox1.Enabled = true;
         }
 
 
@@ -154,6 +156,88 @@ namespace CapaPresentacion
 
                     DetenerProgressBar();
                     HabilitarButtonsYDateTimePicker();
+                }
+            }
+
+            catch (Exception ex)
+            {
+                DetenerProgressBar();
+                HabilitarButtonsYDateTimePicker();
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fechaInicio;
+                DateTime fechaFin;
+
+                if (radioButton1.Checked == true)
+                {
+                    fechaInicio = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
+                        dateTimePicker1.Value.Day, 0, 1, 0);
+
+                    fechaFin = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month,
+                        dateTimePicker1.Value.Day, 23, 59, 58);
+                }
+
+                else
+                {
+                    fechaInicio = new DateTime(dateTimePicker2.Value.Year, dateTimePicker2.Value.Month,
+                        dateTimePicker2.Value.Day, 0, 1, 0);
+
+                    fechaFin = new DateTime(dateTimePicker3.Value.Year, dateTimePicker3.Value.Month,
+                        dateTimePicker3.Value.Day, 23, 59, 58);
+                }
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    DeshabilitarButtonsYDateTimePicker();
+                    IniciarProgressBar();
+
+                    string nomArchivo = saveFileDialog1.FileName;
+
+                    //http://aspalliance.com/478_Exporting_to_Excel_in_Crystal_Reports_NET__Perfect_Excel_Exports.3
+                    //https://www.c-sharpcorner.com/UploadFile/mahesh/savefiledialog-in-C-Sharp/
+                    CRReporteProductosEnReciboListaProductosDSocioActivosCanceladosParaExportar reporte = new CRReporteProductosEnReciboListaProductosDSocioActivosCanceladosParaExportar();
+                    reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    reporte.SetParameterValue("@fechaInicio", fechaInicio);
+                    reporte.SetParameterValue("@fechaFin", fechaFin);
+                    reporte.SetParameterValue("@numeroLicenciaBuscada", textBox1.Text);
+
+                    //Ponerle las fechas de busqueda al reporte
+                    TextObject periodoDeBusquedaTextObject = reporte.ReportDefinition.ReportObjects["Text29"] as TextObject;
+                    periodoDeBusquedaTextObject.Text = MuestraFechaDeBusquedaSinLaHora(fechaInicio) + " a " + MuestraFechaDeBusquedaSinLaHora(fechaFin);
+
+                    //Poner el numero de licencia al reporte
+                    TextObject numLicTextObject = reporte.ReportDefinition.ReportObjects["Text30"] as TextObject;
+                    numLicTextObject.Text = "Número de licencia " + textBox1.Text;
+
+                    // Declare variables and get the export options.
+                    ExportOptions exportOpts = new ExportOptions();
+                    ExcelFormatOptions excelFormatOpts = new ExcelFormatOptions();
+                    DiskFileDestinationOptions diskOpts = new DiskFileDestinationOptions();
+                    exportOpts = reporte.ExportOptions;
+                    // Set the excel format options.
+                    excelFormatOpts.ExcelUseConstantColumnWidth = false;
+                    excelFormatOpts.ShowGridLines = true;
+
+                    //exportOpts.ExportFormatType = ExportFormatType.ExcelRecord;
+                    exportOpts.ExportFormatType = ExportFormatType.Excel;
+                    exportOpts.FormatOptions = excelFormatOpts;
+                    // Set the disk file options and export.
+                    exportOpts.ExportDestinationType = ExportDestinationType.DiskFile;
+                    //diskOpts.DiskFileName = "miotroreporttttte.xls";
+                    diskOpts.DiskFileName = nomArchivo;
+                    exportOpts.DestinationOptions = diskOpts;
+                    reporte.Export();
+
+                    await Task.Delay(10);
+                    DetenerProgressBar();
+                    HabilitarButtonsYDateTimePicker();
+                    MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
