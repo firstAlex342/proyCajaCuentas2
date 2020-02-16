@@ -400,7 +400,18 @@ namespace CapaPresentacion
         {
             FrmBeneficiarioChequeBuscarYSeleccionar frmBeneficiarioChequeBuscarYSeleccionar = new FrmBeneficiarioChequeBuscarYSeleccionar();
             frmBeneficiarioChequeBuscarYSeleccionar.ShowDialog(this);
-            textBox2.Text = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
+
+            if( frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado.Length > 0)
+            {
+                //Escogio algo, mostrarlo en el textbox
+                textBox2.Text = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
+            }
+
+            else
+            {
+                //No escogio algo, dejar el textBox como esta
+            }
+
             frmBeneficiarioChequeBuscarYSeleccionar.Dispose();
         }
 
