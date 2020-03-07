@@ -1,3 +1,4 @@
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaPresentacion.exe
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
@@ -22,7 +23,6 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\stdole.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaLogicaNegocios.pdb

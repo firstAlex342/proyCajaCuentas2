@@ -224,8 +224,23 @@ namespace CapaPresentacion
             conceptoNoUsadoTextObject.Text = "";
             conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text17"] as TextObject;
             conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text28"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text30"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text31"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text32"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text33"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text34"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
+            conceptoNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text35"] as TextObject;
+            conceptoNoUsadoTextObject.Text = "";
 
-            
+
+
             TextObject totalNoUsadoTextObject;
             totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text19"] as TextObject;
             totalNoUsadoTextObject.Text = "";
@@ -238,11 +253,24 @@ namespace CapaPresentacion
             totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text23"] as TextObject;
             totalNoUsadoTextObject.Text = "";
             totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text24"] as TextObject;
+            totalNoUsadoTextObject.Text = "";    //del 36 al 42
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text36"] as TextObject;
+            totalNoUsadoTextObject.Text = "";
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text37"] as TextObject;
+            totalNoUsadoTextObject.Text = "";
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text38"] as TextObject;
+            totalNoUsadoTextObject.Text = "";
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text39"] as TextObject;
+            totalNoUsadoTextObject.Text = "";
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text40"] as TextObject;
+            totalNoUsadoTextObject.Text = "";
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text41"] as TextObject;
+            totalNoUsadoTextObject.Text = "";
+            totalNoUsadoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text42"] as TextObject;
             totalNoUsadoTextObject.Text = "";
 
-
             //--------Establecer la fecha que irá en el reporte
-            if(infoUsuarioTable.Rows.Count == 1)
+            if (infoUsuarioTable.Rows.Count == 1)
             {
                 var res = from s in infoUsuarioTable.AsEnumerable()
                           select s;
@@ -449,12 +477,34 @@ namespace CapaPresentacion
             conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text17"] as TextObject;
             tablaHash.Add("6", conceptoTextObject);
 
+            
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text28"] as TextObject;
+            tablaHash.Add("7", conceptoTextObject);
+
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text30"] as TextObject;
+            tablaHash.Add("8", conceptoTextObject);
+
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text31"] as TextObject;
+            tablaHash.Add("9", conceptoTextObject);
+
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text32"] as TextObject;
+            tablaHash.Add("10", conceptoTextObject);
+
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text33"] as TextObject;
+            tablaHash.Add("11", conceptoTextObject);
+
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text34"] as TextObject;
+            tablaHash.Add("12", conceptoTextObject);
+
+            conceptoTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text35"] as TextObject;
+            tablaHash.Add("13", conceptoTextObject);
+
             return (tablaHash);
         }
 
         private void AsignarVacioAEtiquetasQueContienen(Hashtable tablaHash, string textoABuscar)
         {
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i <= 13; i++)
             {
                 TextObject objetoTextObject = (TextObject)tablaHash[i.ToString()];
                 if (objetoTextObject.Text.Contains(textoABuscar))
@@ -490,6 +540,28 @@ namespace CapaPresentacion
 
             totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text24"] as TextObject;
             totalesHashtable.Add("6", totalTextObject);
+
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text36"] as TextObject;
+            totalesHashtable.Add("7", totalTextObject);
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text37"] as TextObject;
+            totalesHashtable.Add("8", totalTextObject);
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text38"] as TextObject;
+            totalesHashtable.Add("9", totalTextObject);
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text39"] as TextObject;
+            totalesHashtable.Add("10", totalTextObject);
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text40"] as TextObject;
+            totalesHashtable.Add("11", totalTextObject);
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text41"] as TextObject;
+            totalesHashtable.Add("12", totalTextObject);
+
+            totalTextObject = crListaProductosPagados.ReportDefinition.ReportObjects["Text42"] as TextObject;
+            totalesHashtable.Add("13", totalTextObject);
 
             return (totalesHashtable);
         }

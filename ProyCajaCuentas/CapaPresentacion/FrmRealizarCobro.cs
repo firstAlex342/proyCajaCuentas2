@@ -559,19 +559,19 @@ namespace CapaPresentacion
 
                             if(esOkAfiliacionActiva)
                             {
-                                if( EstaEnFormatoNumerico(textBox17.Text) )
+                                if( EstaEnFormatoNumerico(textBox17.Text.Trim()) )
                                 {
-                                    if (ExisteFolioReciboListaProductosController(textBox17.Text) == false)
+                                    if (ExisteFolioReciboListaProductosController(textBox17.Text.Trim()) == false)
                                     {
                                         bool esOkReciboLicencia = true;
                                         if (textBox18.Enabled == true)
                                         {
-                                            if (EstaEnFormatoNumerico(textBox18.Text))
+                                            if (EstaEnFormatoNumerico(textBox18.Text.Trim()))
                                             {
-                                                if (ExisteFolioReciboLicenciaController(textBox18.Text))
+                                                if (ExisteFolioReciboLicenciaController(textBox18.Text.Trim()))
                                                 {
                                                     esOkReciboLicencia = false;
-                                                    MessageBox.Show("El folio licencia " + textBox18.Text + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                                    MessageBox.Show("El folio licencia " + textBox18.Text.Trim() + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                                 }
                                             }
 
@@ -586,14 +586,14 @@ namespace CapaPresentacion
 
                                         if (esOkReciboLicencia)
                                         {
-                                            string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows, textBox17.Text, textBox18.Text);
+                                            string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows, textBox17.Text.Trim(), textBox18.Text.Trim());
                                             if (respuesta.Contains("ok"))
                                             {
                                                 MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                                 //La siguiente linea es para obtener la fecha que ira en el recibo
                                                 DataTable infoUsuarioTable = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
-                                                EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable, textBox17.Text, textBox18.Text);
+                                                EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable, textBox17.Text.Trim(), textBox18.Text.Trim());
 
                                                 dataGridView1.Rows.Clear();
                                                 label7.Text = "0.0";
@@ -619,7 +619,7 @@ namespace CapaPresentacion
 
                                     else
                                     {
-                                        MessageBox.Show("El folio de pago " + textBox17.Text + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        MessageBox.Show("El folio de pago " + textBox17.Text.Trim() + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     }
                                 }
 
