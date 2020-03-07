@@ -3,7 +3,6 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegoc
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.pdb
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\bin\Debug\CapaAccesoDatos.dll.config
-C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csprojAssemblyReference.cache
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csproj.CoreCompileInputs.cache
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.csproj.CopyComplete
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaLogicaNegocios\obj\Debug\CapaLogicaNegocios.dll

@@ -183,6 +183,16 @@ namespace CapaPresentacion
             else
                 return false;
         }
+
+        private bool EstaEnFormatoNumerico(string texto)
+        {
+            decimal numero;
+            bool respuesta;
+
+            respuesta = Decimal.TryParse(texto, out numero);
+
+            return (respuesta);
+        }
         //------------------Events
 
 
@@ -286,32 +296,40 @@ namespace CapaPresentacion
                             decimal cantidadDecimal;
                             bool cantidadEstaEnFormatoValido = Decimal.TryParse(textBox3.Text, out cantidadDecimal);
 
-                            if(cantidadEstaEnFormatoValido && EsPositivo(textBox3.Text) )
+                            if(EstaEnFormatoNumerico(textBox1.Text))
                             {
-                                DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
-
-                                string mensaje = ChequeInfoBasico_createController(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
-                                fechaDeCobroParam, dataGridView1, ClsLogin.Id);
-                                
-                                
-                                if(mensaje.Contains("ok") )
+                                if (cantidadEstaEnFormatoValido && EsPositivo(textBox3.Text))
                                 {
-                                    MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
 
-                                    LimpiarGroupBoxDatosDeCheque();
-                                    LimpiarGroupBoxAniadirConceptos();
-                                    LimpiarGroupBoxDescripcion();
+                                    string mensaje = ChequeInfoBasico_createController(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
+                                    fechaDeCobroParam, dataGridView1, ClsLogin.Id);
+
+
+                                    if (mensaje.Contains("ok"))
+                                    {
+                                        MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                        LimpiarGroupBoxDatosDeCheque();
+                                        LimpiarGroupBoxAniadirConceptos();
+                                        LimpiarGroupBoxDescripcion();
+                                    }
+
+                                    else
+                                    {
+                                        MessageBox.Show(mensaje, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    }
                                 }
 
                                 else
                                 {
-                                    MessageBox.Show(mensaje, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MessageBox.Show("Introduzca un valor adecuado para la cantidad del cheque", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                 }
                             }
 
                             else
                             {
-                                MessageBox.Show("Introduzca un valor adecuado para la cantidad del cheque", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MessageBox.Show("Introduza un valor adecuado para el número del cheque", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
 
