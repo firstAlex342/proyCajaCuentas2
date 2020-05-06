@@ -341,6 +341,13 @@ namespace CapaPresentacion
             else
             { metroTile35.Enabled = false; }
 
+
+            respuesta = EsActivoModuloController(45) ? true : false;
+            if (respuesta)
+            {/*Permance habilitada la opción: Consultar folios de recibo de pago - productos pagados y no pagados*/ }
+            else
+            { metroTile36.Enabled = false; }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -572,6 +579,11 @@ namespace CapaPresentacion
         private void metroTile35_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar());
+        }
+
+        private void metroTile36_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmSocioBuscarProductosPagadosYNoPagados());
         }
     }
 }
