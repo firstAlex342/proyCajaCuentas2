@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -181,6 +196,12 @@
       <DependentUpon>CRReporteSociosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CRReporteSociosProductosPagadosYNoPagados.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRReporteSociosProductosPagadosYNoPagados.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmBeneficiarioChequeBuscarYSeleccionar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +231,12 @@
     </Compile>
     <Compile Include="FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.Designer.cs">
       <DependentUpon>FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSocioBuscarProductosPagadosYNoPagados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSocioBuscarProductosPagadosYNoPagados.Designer.cs">
+      <DependentUpon>FrmSocioBuscarProductosPagadosYNoPagados.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmChequesCobradosDePeriodosAnterioresTotalInicial.cs">
       <SubType>Form</SubType>
@@ -659,6 +686,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteSociosParaExportar.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRReporteSociosProductosPagadosYNoPagados.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRReporteSociosProductosPagadosYNoPagados.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
     </EmbeddedResource>
@@ -676,6 +707,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.resx">
       <DependentUpon>FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSocioBuscarProductosPagadosYNoPagados.resx">
+      <DependentUpon>FrmSocioBuscarProductosPagadosYNoPagados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmChequesCobradosDePeriodosAnterioresTotalInicial.resx">
       <DependentUpon>FrmChequesCobradosDePeriodosAnterioresTotalInicial.cs</DependentUpon>
@@ -914,6 +948,18 @@
     <None Include="Resources\colaboracion.png" />
     <None Include="Resources\jefe.png" />
     <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

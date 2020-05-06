@@ -1,4 +1,4 @@
-C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteChequesDePeriodo.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaPresentacion.exe.config
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaPresentacion.exe
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaPresentacion.pdb
@@ -23,6 +23,7 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\stdole.dll
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\bin\Debug\CapaLogicaNegocios.pdb
@@ -35,6 +36,7 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBeneficiarioChequeEliminar.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBeneficiarioChequeVer.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar.resources
+C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmSocioBuscarProductosPagadosYNoPagados.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmChequesCobradosDePeriodosAnterioresTotalInicial.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteEgresosIngresosMensual.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmProveedorAgregarElemento.resources
@@ -58,7 +60,6 @@ C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacio
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmUsuarioActualizar.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmUsuarioAgregar.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmUsuarioAsignarPrivilegios.resources
-C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteChequesDePeriodo.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteChequesCobrados.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmVisorReporteChequesNoCobrados.resources
 C:\Users\cruz\Documents\GitHub\reposCajaCuentas2\ProyCajaCuentas\CapaPresentacion\obj\Debug\CapaPresentacion.FrmBuscarYSeleccionarNombreProveedor.resources
