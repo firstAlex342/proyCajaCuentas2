@@ -64,6 +64,8 @@ namespace CapaPresentacion
 
         private void DeshabilitarButtonsYDateTimePicker()
         {
+            radioButton1.Enabled = false;
+            radioButton2.Enabled = false;
             dateTimePicker1.Enabled = false;
             dateTimePicker2.Enabled = false;
             dateTimePicker3.Enabled = false;
@@ -74,9 +76,23 @@ namespace CapaPresentacion
 
         private void HabilitarButtonsYDateTimePicker()
         {
-            dateTimePicker1.Enabled = true;
-            dateTimePicker2.Enabled = true;
-            dateTimePicker3.Enabled = true;
+            radioButton1.Enabled = true;
+            radioButton2.Enabled = true;
+
+            if(radioButton1.Checked == true)
+            {
+                dateTimePicker1.Enabled = true;
+                dateTimePicker2.Enabled = false;
+                dateTimePicker3.Enabled = false;
+            }
+
+            else if(radioButton2.Checked == true)
+            {
+                dateTimePicker1.Enabled = false;
+                dateTimePicker2.Enabled = true;
+                dateTimePicker3.Enabled = true;
+            }
+
             button1.Enabled = true;
             button2.Enabled = true;
             textBox1.Enabled = true;
