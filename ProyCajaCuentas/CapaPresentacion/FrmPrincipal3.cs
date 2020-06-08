@@ -65,7 +65,8 @@ namespace CapaPresentacion
             metroComboBox1.Items.Add("Editar tarifas de producto");
             metroComboBox1.Items.Add("Agregar usuario");
             metroComboBox1.Items.Add("Modificar usuario");
-            metroComboBox1.Items.Add("Privilegios de usuario");           
+            metroComboBox1.Items.Add("Privilegios de usuario");
+            metroComboBox1.Items.Add("Editar datos de conexión");
         }
 
         private void AbrirFormulario(object formHijo)
@@ -348,6 +349,13 @@ namespace CapaPresentacion
             else
             { metroTile36.Enabled = false; }
 
+
+            respuesta = EsActivoModuloController(47) ? true : false;
+            if (respuesta)
+            { /*Permancede habilitada en el combobox el item "Editar datos de conexión*/}
+            else
+            { metroComboBox1.Items.Remove("Editar datos de conexión");  }
+
         }
 
         private void MostrarUsuarioDeSesionEnMetroLabel()
@@ -447,6 +455,11 @@ namespace CapaPresentacion
                 else if (metroComboBox1.SelectedItem.ToString() == "Privilegios de usuario")
                 {
                     AbrirFormulario(new FrmUsuarioAsignarPrivilegios());
+                }
+
+                else if (metroComboBox1.SelectedItem.ToString() == "Editar datos de conexión")
+                {
+                    AbrirFormulario(new FrmConfigurarInfoConexion());
                 }
 
                 metroComboBox1.SelectedIndex = 0;

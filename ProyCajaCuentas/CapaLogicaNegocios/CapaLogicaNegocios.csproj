@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
     <Compile Include="ClsCaja.cs" />
     <Compile Include="ClsCheque.cs" />
     <Compile Include="ClsChequeInfoBasico.cs" />
+    <Compile Include="ClsEnlaceToAppConfig.cs" />
     <Compile Include="ClsInicialTotalDeChequesCobradosDePeriodosAnteriores.cs" />
     <Compile Include="ClsPagoBasico.cs" />
     <Compile Include="ClsCuentaPorPagar.cs" />
