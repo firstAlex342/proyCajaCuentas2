@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 
 
@@ -24,7 +25,8 @@ namespace CapaAccesoDatos
         //SqlConnection Conexion = new SqlConnection("Data source =CC-PC\\SQLEXPRESS; Initial Catalog =TGC; User Id =sa; password=sqlserver");
         //SqlConnection Conexion = new SqlConnection("Data source = LAPTOP-QIDIFK7G,49172; Initial Catalog = tgcontrol; User Id = sa; password=sqlserver.2018");
         //SqlConnection Conexion = new SqlConnection("Data source = tcp:RECEPCION-PC,49172; Initial Catalog = totalgym; User Id = sa; password=sqlserver.2018");
-        SqlConnection Conexion = new SqlConnection(@"Data source = CRUZ2-THINK; Initial Catalog = DBCajaCuentas2; User Id = sa; password=modomixto");
+        //SqlConnection Conexion = new SqlConnection(@"Data source = CRUZ2-THINK; Initial Catalog = DBCajaCuentas2; User Id = sa; password=modomixto");
+        SqlConnection Conexion;
 
         //Settings1 conexionDatos = new Settings1();
 
@@ -37,6 +39,13 @@ namespace CapaAccesoDatos
 
         //    return Conexion;
         //}
+
+        //----------------Constructor
+        public ClsManejador()
+        {
+            Conexion = new SqlConnection(ObtenerCadenaConexionAppConfig());
+        }
+
 
         public bool cambiarDatosConexion(string usuario, string password, string bd, string servidor)
         {
@@ -167,6 +176,33 @@ namespace CapaAccesoDatos
                 throw Ex;
             }
             return dt;
+        }
+
+
+
+        /// <summary>
+        /// Lee el App.config  ubicado en la capa de presentacion
+        /// </summary>
+        /// <returns>Regresa la cadena de conexión</returns>
+        private string ObtenerCadenaConexionAppConfig()
+        {
+            SqlConnectionStringBuilder str = new SqlConnectionStringBuilder();
+            str["Data Source"] = ConfigurationManager.AppSettings["servidor"];
+            str["Initial Catalog"] = ConfigurationManager.AppSettings["nombreBd"];
+            str["User Id"] = ConfigurationManager.AppSettings["username"];
+            str["password"] = ConfigurationManager.AppSettings["password"];
+
+            return (str.ConnectionString);
+        }
+
+
+        /// <summary>
+        /// Regresa la cadena de conexión que tiene almacenado dentro de la propiedad Conexion.ConnectionString
+        /// </summary>
+        /// <returns></returns>
+        public string ObtenerCadenaConexionDeCapaAccesoDatos()
+        {
+            return (Conexion.ConnectionString);
         }
     }
 }

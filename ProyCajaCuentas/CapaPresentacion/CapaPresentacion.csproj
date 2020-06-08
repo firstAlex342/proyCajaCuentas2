@@ -208,6 +208,12 @@
       <DependentUpon>CRReporteSociosProductosPagadosYNoPagadosParaExportar.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmConfigurarInfoConexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigurarInfoConexion.Designer.cs">
+      <DependentUpon>FrmConfigurarInfoConexion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBeneficiarioChequeBuscarYSeleccionar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -699,6 +705,9 @@
     <EmbeddedResource Include="CRReporteSociosProductosPagadosYNoPagadosParaExportar.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRReporteSociosProductosPagadosYNoPagadosParaExportar.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigurarInfoConexion.resx">
+      <DependentUpon>FrmConfigurarInfoConexion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarInfoCheque.resx">
       <DependentUpon>FrmActualizarInfoCheque.cs</DependentUpon>
