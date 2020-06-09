@@ -34,6 +34,7 @@
             this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,6 +134,7 @@
             // 
             // metroPanel1
             // 
+            this.metroPanel1.Controls.Add(this.metroButton2);
             this.metroPanel1.Controls.Add(this.metroTextBox2);
             this.metroPanel1.Controls.Add(this.metroButton1);
             this.metroPanel1.Controls.Add(this.metroLabel1);
@@ -148,6 +150,16 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Location = new System.Drawing.Point(16, 203);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(75, 23);
+            this.metroButton2.TabIndex = 5;
+            this.metroButton2.Text = "Conexión";
+            this.metroButton2.UseSelectable = true;
+            this.metroButton2.Click += new System.EventHandler(this.metroButton2_Click);
             // 
             // FrmInicioSesion
             // 
@@ -171,5 +183,6 @@
         private MetroFramework.Controls.MetroTextBox metroTextBox2;
         private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroButton metroButton2;
     }
 }

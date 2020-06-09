@@ -30,8 +30,27 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
-
         }//constructor parameterless
+
+
+        public FrmConfigurarInfoConexion(bool modo)
+        {
+            InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            
+
+            try
+            {
+                textBox5.Text = ObtenerCadenaConexionAppController();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
 
         //----------------------------------Methods
 
