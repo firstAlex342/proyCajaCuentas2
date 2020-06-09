@@ -117,9 +117,23 @@ namespace CapaPresentacion
                 }
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                StringBuilder errorMessages = new StringBuilder();
+                for (int i = 0; i < ex.Errors.Count; i++)
+                {
+                    errorMessages.Append("Index #" + i + "\n" +
+                        "Message: " + ex.Errors[i].ToString() + "\n" +
+                        "LineNumber: " + ex.Errors[i].LineNumber + "\n" +
+                        "Source: " + ex.Errors[i].Source + "\n" +
+                        "Procedure: " + ex.Errors[i].Procedure + "\n");
+                }
+                MessageBox.Show(errorMessages.ToString(), "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             catch (Exception ex)
             {
-                MetroMessageBox.Show(this, ex.Message + " " + ex.Source);
+                MetroMessageBox.Show(this, ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
@@ -127,6 +141,21 @@ namespace CapaPresentacion
         {
 
            
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FrmConfigurarInfoConexion  frmConfigurarInfoConexion = new FrmConfigurarInfoConexion(false);
+                frmConfigurarInfoConexion.ShowDialog();
+                frmConfigurarInfoConexion.Dispose();
+            }
+
+            catch(Exception ex)
+            {
+                MetroMessageBox.Show(this, ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
     }
 }
