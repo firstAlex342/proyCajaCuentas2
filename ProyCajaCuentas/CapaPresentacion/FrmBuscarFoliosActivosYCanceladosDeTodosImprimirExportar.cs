@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.Data.SqlClient;
 using CapaLogicaNegocios;
 
 namespace CapaPresentacion
@@ -32,6 +33,13 @@ namespace CapaPresentacion
             DataTable respuesta = clsSocio.Socio_BuscarFoliosActivos_Y_CanceladosDeTodosEnReciboListaProductosDetallado();
             await Task.Delay(10);
             return (respuesta);
+        }
+
+
+        private string ObtenerCadenaConexionAppController()
+        {
+            ClsEnlaceToAppConfig clsEnlaceToAppConfig = new ClsEnlaceToAppConfig();
+            return (clsEnlaceToAppConfig.ObtenerCadenaConexionAppConfig());
         }
 
 
@@ -133,8 +141,11 @@ namespace CapaPresentacion
 
                 else
                 {
+                    SqlConnectionStringBuilder sqlStrBuilder = new SqlConnectionStringBuilder(ObtenerCadenaConexionAppController());
+
                     CRReporteProductosEnReciboListaProductosActivosYCancelados crReporte = new CRReporteProductosEnReciboListaProductosActivosYCancelados();
-                    crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    //crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    crReporte.SetDatabaseLogon(sqlStrBuilder.UserID, sqlStrBuilder.Password, sqlStrBuilder.DataSource, sqlStrBuilder.InitialCatalog);
                     crReporte.SetParameterValue("@fechaInicio", fechaInicio);
                     crReporte.SetParameterValue("@fechaFin", fechaFin);
 
@@ -206,10 +217,12 @@ namespace CapaPresentacion
 
                     string nomArchivo = saveFileDialog1.FileName;
 
+                    SqlConnectionStringBuilder sqlStrBuilder = new SqlConnectionStringBuilder(ObtenerCadenaConexionAppController());
                     //http://aspalliance.com/478_Exporting_to_Excel_in_Crystal_Reports_NET__Perfect_Excel_Exports.3
                     //https://www.c-sharpcorner.com/UploadFile/mahesh/savefiledialog-in-C-Sharp/
                     CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar reporte = new CRReporteProductosEnReciboListaProductosActivosYCanceladosParaExportar();
-                    reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    //reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    reporte.SetDatabaseLogon(sqlStrBuilder.UserID, sqlStrBuilder.Password, sqlStrBuilder.DataSource, sqlStrBuilder.InitialCatalog);
                     reporte.SetParameterValue("@fechaInicio", fechaInicio);
                     reporte.SetParameterValue("@fechaFin", fechaFin);
 
