@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.Data.SqlClient;
 using CapaLogicaNegocios;
 
 namespace CapaPresentacion
@@ -30,9 +31,12 @@ namespace CapaPresentacion
 
         private async Task<int> CargarCRViewerAsync(DateTime fechaInicio, DateTime fechaFin)
         {
+            SqlConnectionStringBuilder sqlStrBuilder = new SqlConnectionStringBuilder(ObtenerCadenaConexionAppController());
+
             //https://www.codeproject.com/Articles/10173/Loading-Crystal-Report-reports-which-use-Stored-Pr
             CRReporteChequesNoCobrados crReporte = new CRReporteChequesNoCobrados();
-            crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+            //crReporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+            crReporte.SetDatabaseLogon(sqlStrBuilder.UserID, sqlStrBuilder.Password, sqlStrBuilder.DataSource, sqlStrBuilder.InitialCatalog);
             crReporte.SetParameterValue("@fechaInicio", fechaInicio);
             crReporte.SetParameterValue("@fechaFin", fechaFin);
 
@@ -78,10 +82,13 @@ namespace CapaPresentacion
 
         private async Task<int> GenerarReporteExcelAsync(DateTime fechaInicio, DateTime fechaFin, string nomArchivo)
         {
+            SqlConnectionStringBuilder sqlStrBuilder = new SqlConnectionStringBuilder(ObtenerCadenaConexionAppController());
+
             //http://aspalliance.com/478_Exporting_to_Excel_in_Crystal_Reports_NET__Perfect_Excel_Exports.3
             //https://www.c-sharpcorner.com/UploadFile/mahesh/savefiledialog-in-C-Sharp/
             CRReporteChequesNoCobradosParaExportar reporte = new CRReporteChequesNoCobradosParaExportar();
-            reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+            //reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+            reporte.SetDatabaseLogon(sqlStrBuilder.UserID, sqlStrBuilder.Password, sqlStrBuilder.DataSource, sqlStrBuilder.InitialCatalog);
             reporte.SetParameterValue("@fechaInicio", fechaInicio);
             reporte.SetParameterValue("@fechaFin", fechaFin);
 
@@ -124,6 +131,13 @@ namespace CapaPresentacion
             DataTable res = clsCheque.Cheque_RecuperarDetallesDeChequesNoCobrados();
             await Task.Delay(200);
             return (res);
+        }
+
+
+        private string ObtenerCadenaConexionAppController()
+        {
+            ClsEnlaceToAppConfig clsEnlaceToAppConfig = new ClsEnlaceToAppConfig();
+            return (clsEnlaceToAppConfig.ObtenerCadenaConexionAppConfig());
         }
 
         //---------------------------Events

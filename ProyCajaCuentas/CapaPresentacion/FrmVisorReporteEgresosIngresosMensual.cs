@@ -11,6 +11,7 @@ using System.Collections;
 using CrystalDecisions.ReportSource;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.Data.SqlClient;
 using CapaLogicaNegocios;
 
 namespace CapaPresentacion
@@ -106,6 +107,12 @@ namespace CapaPresentacion
 
             else
                 return false;
+        }
+
+        private string ObtenerCadenaConexionAppController()
+        {
+            ClsEnlaceToAppConfig clsEnlaceToAppConfig = new ClsEnlaceToAppConfig();
+            return (clsEnlaceToAppConfig.ObtenerCadenaConexionAppConfig());
         }
 
         //----------------------Methods
@@ -759,9 +766,12 @@ namespace CapaPresentacion
                     InhabilitarComboBoxYButtons();
                     IniciarProgressBar();
 
+                    SqlConnectionStringBuilder sqlStrBuilder = new SqlConnectionStringBuilder(ObtenerCadenaConexionAppController());
+
                     Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
                     CRReporteEgresosIngresosMensual reporteEgresosIngresosMensual = new CRReporteEgresosIngresosMensual();
-                    reporteEgresosIngresosMensual.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    //reporteEgresosIngresosMensual.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                    reporteEgresosIngresosMensual.SetDatabaseLogon(sqlStrBuilder.UserID, sqlStrBuilder.Password, sqlStrBuilder.DataSource, sqlStrBuilder.InitialCatalog);
                     Hashtable tablaConTextObjectsDeCrystalReport = ObtenerTextObjectsDeCrystalReport(reporteEgresosIngresosMensual);
                     TextObject textObjectTitulo = reporteEgresosIngresosMensual.ReportDefinition.ReportObjects["Text13"] as TextObject;
                     PonerTituloAReporte(textObjectTitulo, "Reporte ingresos - egresos " + comboBox2.SelectedItem.ToString() + " " + comboBox1.SelectedItem.ToString());
@@ -854,9 +864,12 @@ namespace CapaPresentacion
                         InhabilitarComboBoxYButtons();
                         IniciarProgressBar();
 
+                        SqlConnectionStringBuilder sqlStrBuilder = new SqlConnectionStringBuilder(ObtenerCadenaConexionAppController());
+
                         Hashtable parametrosFechaInicioFechaFin = GenerarParametrosParaReporte();
                         CRReporteEgresosIngresosMensualParaExportar reporte = new CRReporteEgresosIngresosMensualParaExportar();
-                        reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                        //reporte.SetDatabaseLogon("sa", "modomixto", "CRUZ2-THINK", "DBCajaCuentas2");
+                        reporte.SetDatabaseLogon(sqlStrBuilder.UserID, sqlStrBuilder.Password, sqlStrBuilder.DataSource, sqlStrBuilder.InitialCatalog);
                         Hashtable tablaConFormulaFieldDefinitionDeCrystalReport = ObtenerFormulaFieldDefinitionDeCR(reporte);
                         TextObject textObjectTitulo = reporte.ReportDefinition.ReportObjects["Text1"] as TextObject;
                         PonerTituloAReporte(textObjectTitulo, "Reporte ingresos - egresos " + comboBox2.SelectedItem.ToString() + " " + comboBox1.SelectedItem.ToString());
