@@ -29,13 +29,14 @@ namespace CapaPresentacion
         }
 
 
-        private string Socio_updateController( string numeroLicencia, string nombreComercial, string direccionSupmza,
+        private string Socio_updateController(int id, string numeroLicencia, string nombreComercial, string direccionSupmza,
     string direccionManzana, string direccionLote, string direccionCalle, string direccionComplemento,
     string propietarioPatente, string rFCPropietario, string comodatario, string rFCComodatario,
     string telefono, string celular, string correoElectronico, int idUsuarioOperador
     )
         {
-            ClsSocio clsSocio = new ClsSocio();           
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Id = id;
             clsSocio.NumeroLicencia = numeroLicencia;
             clsSocio.NombreComercial = nombreComercial;
             clsSocio.DireccionSupmza = direccionSupmza;
@@ -79,6 +80,7 @@ namespace CapaPresentacion
         {
             DataRow filaUnica = (infoSocio.AsEnumerable()).Single();
 
+            textBox16.Text = filaUnica["Id"].ToString();
             textBox2.Text = filaUnica["NumeroLicencia"].ToString();
             textBox9.Text = filaUnica["NombreComercial"].ToString();
             textBox3.Text = filaUnica["DireccionSupmza"].ToString();
@@ -132,7 +134,7 @@ namespace CapaPresentacion
                 if (res == DialogResult.Yes)
                 {
                     
-                    string respuesta = Socio_updateController(textBox2.Text, textBox9.Text, textBox3.Text, textBox4.Text,
+                    string respuesta = Socio_updateController(Int32.Parse(textBox16.Text), textBox2.Text, textBox9.Text, textBox3.Text, textBox4.Text,
                         textBox10.Text, textBox11.Text, textBox5.Text, textBox12.Text, 
                         textBox6.Text, textBox13.Text, textBox7.Text, textBox14.Text,
                         textBox8.Text, textBox15.Text, ClsLogin.Id);

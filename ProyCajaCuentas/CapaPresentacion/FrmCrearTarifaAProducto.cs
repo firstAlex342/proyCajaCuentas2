@@ -26,7 +26,15 @@ namespace CapaPresentacion
                 AniadirNombresProductoAGrid(res);
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -67,6 +75,14 @@ namespace CapaPresentacion
             return (clsProductoPosee.ProductoPosee_create());
         }
 
+        public string ProductoPosee_Tarifa_Create_Controller(int idProducto, decimal cantidad, int idUsuarioOperador)
+        {
+            ClsProductoPosee clsProductoPosee = new ClsProductoPosee();
+            clsProductoPosee.IdProducto = idProducto;
+            clsProductoPosee.IdUsuarioAlta = idUsuarioOperador;
+
+           return( clsProductoPosee.ProductoPosee_Tarifa_Create(cantidad) );
+        }
 
         //-----------------------------Utils
         private void MostrarProductosEnGrid(DataTable productosTable)
@@ -137,11 +153,21 @@ namespace CapaPresentacion
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
+
 
         private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -197,10 +223,7 @@ namespace CapaPresentacion
                     else
                     {
                         int idProducto = Int32.Parse(filaSeleccionada.Cells[1].EditedFormattedValue.ToString());
-                        DataTable respuestaTabla = Tarifa_createController(Decimal.Parse(textBox1.Text), ClsLogin.Id);
-                        DataRow filaUnica = respuestaTabla.AsEnumerable().Single();
-                        int idTarifa = filaUnica.Field<int>("IdTarifaNuevaCreada");
-                        string mensaje = ProductoPosee_createController(idProducto, idTarifa, ClsLogin.Id);
+                        string mensaje = ProductoPosee_Tarifa_Create_Controller(idProducto, Decimal.Parse(textBox1.Text), ClsLogin.Id);
 
                         if (mensaje.Contains("ok"))
                         {
@@ -217,6 +240,14 @@ namespace CapaPresentacion
              
             }
 
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
 
             catch (Exception ex)
             {

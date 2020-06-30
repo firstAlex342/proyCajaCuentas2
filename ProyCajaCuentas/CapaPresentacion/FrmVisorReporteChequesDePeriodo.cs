@@ -30,7 +30,7 @@ namespace CapaPresentacion
             clsCheque.FechaAlta = fechaInicio;
             clsCheque.FechaModificacion = fechaFin;
 
-            DataTable res =  clsCheque.Cheque_RecuperarDetallesDeChequesCapturadosActivos();
+            DataTable res = clsCheque.Cheque_RecuperarDetallesDeChequesCapturadosActivos();
             await Task.Delay(200);
             return (res);
         }

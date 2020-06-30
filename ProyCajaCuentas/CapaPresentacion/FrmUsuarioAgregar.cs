@@ -36,6 +36,18 @@ namespace CapaPresentacion
             return (idGenerado);
         }
 
+
+        public string Usuario_AccesoAModulo_CreateController(string nombre, string usuario, string password, int idUsuarioOperador)
+        {
+            ClsUsuario clsUsuario = new ClsUsuario();
+            clsUsuario.Nombre = nombre;
+            clsUsuario.Usuario = usuario;
+            clsUsuario.Password = password;
+            clsUsuario.IdUsuarioAlta = idUsuarioOperador;
+
+            return (clsUsuario.Usuario_AccesoAModulo_Create());
+        }
+
         private DataTable ObtenerListaDeTodosLosModulosController()
         {
             ClsModulo clsModulo = new ClsModulo();
@@ -73,13 +85,26 @@ namespace CapaPresentacion
         {
             try
             {
-                int idGenerado = Usuario_createController(textBox1.Text.Trim(), textBox2.Text.Trim(), textBox3.Text.Trim(), ClsLogin.Id);
-                DataTable listaDeTodosLosModulos = ObtenerListaDeTodosLosModulosController();
-                DarAccesoAModulosAUsuarioController(idGenerado, listaDeTodosLosModulos);
 
-                MessageBox.Show("Nuevo usuario agregado exitosamente", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult res = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(res == DialogResult.Yes)
+                {
+                    string mensaje = Usuario_AccesoAModulo_CreateController(textBox1.Text.Trim(), textBox2.Text.Trim(), textBox3.Text.Trim(), ClsLogin.Id);
+                    if (mensaje.Contains("ok"))
+                    {
+                        MessageBox.Show("Nuevo usuario agregado exitosamente", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarTextBoxes();
+                    }
 
-                LimpiarTextBoxes();
+                }             
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)

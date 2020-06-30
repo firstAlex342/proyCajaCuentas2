@@ -23,13 +23,21 @@ namespace CapaPresentacion
                 MostrarNombreUsuarioPassActivoDeTodos(tabla);
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
 
-        //------------Methods
+        //------------Controllers
         public DataTable RecuperarIdNombreUsuarioPassActivoDeTodosController()
         {
             ClsUsuario clsUsuario = new ClsUsuario();
@@ -56,7 +64,15 @@ namespace CapaPresentacion
             return (clsAccesoAModulo.AccesoAModulo_update());
         }
 
-        //---------------utils
+
+        private string AccesoAModulo_Update_CollectionController(int idUsuarioAActualizar, DataTable listaIdModulosYEstados)
+        {
+            ClsAccesoAModulo clsAccesoAModulo = new ClsAccesoAModulo();
+            clsAccesoAModulo.IdUsuario = idUsuarioAActualizar;
+            return (clsAccesoAModulo.AccesoAModulo_Update_Collection(listaIdModulosYEstados));
+        }
+
+        //---------------Utils
         public void MostrarNombreUsuarioPassActivoDeTodos(DataTable tabla)
         {
             dataGridView1.DataSource = tabla;
@@ -77,6 +93,9 @@ namespace CapaPresentacion
             dataGridView2.Columns[4].ReadOnly = true;
         }
 
+
+
+        //----------------------Events
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -88,6 +107,14 @@ namespace CapaPresentacion
                     DataTable miTabla = AccesoAModulo_Modulo_InnerJoinController(Int32.Parse(idUsuarioEnTexto));
 
                     MostrarEnGridModulosALosQueTieneAcceso(miTabla);
+                }
+
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    ClsMyException clsMyException = new ClsMyException();
+                    string res = clsMyException.FormarTextoDeSqlException(ex);
+                    dataGridView2.DataSource = null;
+                    MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
 
                 catch (Exception ex)
@@ -104,26 +131,52 @@ namespace CapaPresentacion
                 DialogResult res = MessageBox.Show( "¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res == DialogResult.Yes)
                 {
+                    DataTable listaIdModulosYEstados = new DataTable();
+                    listaIdModulosYEstados.Columns.Add("IdModulo", typeof(int));
+                    listaIdModulosYEstados.Columns.Add("Estado", typeof(bool));
+
+
+                    IEnumerable<DataGridViewRow> filasGrid = dataGridView2.Rows.Cast<DataGridViewRow>();
+                    DataGridViewRow fila = filasGrid.First<DataGridViewRow>();  //First lanza excepcion si esta vacia la lista
+                    int idUsuario = Int32.Parse(fila.Cells[0].EditedFormattedValue.ToString());
+
                     DataGridViewRowCollection collection = dataGridView2.Rows;
                     foreach (DataGridViewRow row in collection)
-                    {
-                        int idUsuario = 0;
+                    {                       
                         int idModulo = 0;
                         bool estado = false;
 
-                        idUsuario = Int32.Parse(row.Cells[0].EditedFormattedValue.ToString());
                         idModulo = Int32.Parse(row.Cells[1].EditedFormattedValue.ToString());
                         estado = bool.Parse(row.Cells[2].EditedFormattedValue.ToString());
 
-                        string respuesta = AccesoAModulo_update(idUsuario, idModulo, estado);
+                        listaIdModulosYEstados.Rows.Add(idModulo, estado);
                     }
 
-                    MessageBox.Show(this, "Registro guardado exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    string respuesta = AccesoAModulo_Update_CollectionController(idUsuario, listaIdModulosYEstados);
+                    if(respuesta.Contains("ok"))
+                    {
+                        MessageBox.Show(this, "Registro guardado exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
+                    else
+                    {
+                        MessageBox.Show(this, respuesta, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DataTable tabla = RecuperarIdNombreUsuarioPassActivoDeTodosController();
+                        MostrarNombreUsuarioPassActivoDeTodos(tabla);
+                        dataGridView2.DataSource = null;
+                    }
+                }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }

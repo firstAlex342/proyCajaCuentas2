@@ -298,5 +298,7 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
+
     }
 }

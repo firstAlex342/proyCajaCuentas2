@@ -123,5 +123,26 @@ namespace CapaLogicaNegocios
 
             return (CLSManejador.Listado("Usuario_SumarContenidosDeFolio", lst));
         }
+
+        public string Usuario_AccesoAModulo_Create()
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@nombre", this.Nombre));
+            lst.Add(new ClsParametros("@usuario", this.Usuario));
+            lst.Add(new ClsParametros("@password", this.Password));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("Usuario_AccesoAModulo_Create", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[4].Valor.ToString();
+
+            return (mensaje);
+        }
     }
 }

@@ -110,66 +110,84 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (radioButton1.Checked)
+            try
             {
-                //buscar por direccion
-                DataTable respuesta = Socio_BuscarXDireccionController(textBox1.Text);
-                MostrarEnGridResultadoDeBusqueda(respuesta);
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+                if (radioButton1.Checked)
+                {
+                    //buscar por direccion
+                    DataTable respuesta = Socio_BuscarXDireccionController(textBox1.Text);
+                    MostrarEnGridResultadoDeBusqueda(respuesta);
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
 
+                }
+
+                else if (radioButton2.Checked)
+                {
+                    //Buscar por propietario patente
+                    DataTable respuesta = Socio_BuscarXPropietarioPatenteController(textBox1.Text);
+                    MostrarEnGridResultadoDeBusqueda(respuesta);
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+
+                }
+
+                else if (radioButton3.Checked)
+                {
+                    //Buscar por RFC Propietario
+                    DataTable respuesta = Socio_BuscarXRFCPropietarioController(textBox1.Text);
+                    MostrarEnGridResultadoDeBusqueda(respuesta);
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+
+                }
+
+                else if (radioButton4.Checked)
+                {
+                    //buscar por comodatario
+                    DataTable respuesta = Socio_BuscarXComodatarioController(textBox1.Text);
+                    MostrarEnGridResultadoDeBusqueda(respuesta);
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+
+                }
+
+                else if (radioButton5.Checked)
+                {
+                    //buscar por rfc comodatario
+                    DataTable respuesta = Socio_BuscarXRFCComodatarioController(textBox1.Text);
+                    MostrarEnGridResultadoDeBusqueda(respuesta);
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+
+                }
+
+                else if (radioButton6.Checked)
+                {
+                    //buscar por licencia
+                    DataTable respuesta = Socio_BuscarXLicenciaController(textBox1.Text);
+                    MostrarEnGridResultadoDeBusqueda(respuesta);
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+                }
+
+                else if (radioButton7.Checked)
+                {
+                    //buscar todos
+                    DataTable respuesta = Socio_BuscarTodosActivosController();
+                    dataGridView1.DataSource = respuesta;
+                    label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+                }
             }
 
-            else if (radioButton2.Checked)
+            catch (System.Data.SqlClient.SqlException ex)
             {
-                //Buscar por propietario patente
-                DataTable respuesta = Socio_BuscarXPropietarioPatenteController(textBox1.Text);
-                MostrarEnGridResultadoDeBusqueda(respuesta);
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
 
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-            else if (radioButton3.Checked)
+            catch (Exception ex)
             {
-                //Buscar por RFC Propietario
-                DataTable respuesta = Socio_BuscarXRFCPropietarioController(textBox1.Text);
-                MostrarEnGridResultadoDeBusqueda(respuesta);
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
-
-            }
-
-            else if (radioButton4.Checked)
-            {
-                //buscar por comodatario
-                DataTable respuesta = Socio_BuscarXComodatarioController(textBox1.Text);
-                MostrarEnGridResultadoDeBusqueda(respuesta);
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
-
-            }
-
-            else if (radioButton5.Checked)
-            {
-                //buscar por rfc comodatario
-                DataTable respuesta = Socio_BuscarXRFCComodatarioController(textBox1.Text);
-                MostrarEnGridResultadoDeBusqueda(respuesta);
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
-
-            }
-
-            else if (radioButton6.Checked)
-            {
-                //buscar por licencia
-                DataTable respuesta = Socio_BuscarXLicenciaController(textBox1.Text);
-                MostrarEnGridResultadoDeBusqueda(respuesta);
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
-            }
-
-            else if(radioButton7.Checked)
-            {
-                //buscar todos
-                DataTable respuesta = Socio_BuscarTodosActivosController();
-                dataGridView1.DataSource = respuesta;
-                label2.Text = "Resultado de búsqueda: " + respuesta.Rows.Count.ToString();
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
+
     }
 }

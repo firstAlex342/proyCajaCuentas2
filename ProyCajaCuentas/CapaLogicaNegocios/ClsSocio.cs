@@ -136,6 +136,7 @@ namespace CapaLogicaNegocios
             List<ClsParametros> lst = new List<ClsParametros>();
 
             //Parametros de entrada
+            lst.Add(new ClsParametros("@Id", this.Id));
             lst.Add(new ClsParametros("@numeroLicenciaBuscada", this.NumeroLicencia));
             lst.Add(new ClsParametros("@NombreComercialNew", this.NombreComercial));
             lst.Add(new ClsParametros("@DireccionSupmzaNew", this.DireccionSupmza));
@@ -157,7 +158,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("Socio_update", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[15].Valor.ToString();
+            mensaje = lst[16].Valor.ToString();
 
             return (mensaje);
         }

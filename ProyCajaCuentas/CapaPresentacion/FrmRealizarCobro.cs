@@ -715,6 +715,8 @@ namespace CapaPresentacion
         {
 
         }
+
+
     }
 
     public class ClsProductoViewModel

@@ -25,6 +25,14 @@ namespace CapaPresentacion
                 
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
@@ -61,6 +69,29 @@ namespace CapaPresentacion
             };
 
             coleccionFilas.ToList().ForEach(funcionCambiaActivoACero);
+        }
+
+        public string  ProductoPosee_Tarifa_UpdateActivoACero_CollectionController(DataGridView grid, int idUsuarioOperador)
+        {
+            ClsTarifasYEstados clsTarifasYEstados = new ClsTarifasYEstados();
+            IEnumerable<DataGridViewRow> coleccionFilas = grid.Rows.Cast<DataGridViewRow>();
+            Action<DataGridViewRow> funcionLLenarColleccion = item =>
+            {
+                if (item.Cells[0].EditedFormattedValue.ToString() == "True")
+                    clsTarifasYEstados.AddItem(Int32.Parse(item.Cells[2].EditedFormattedValue.ToString()), false);
+
+                else
+                    clsTarifasYEstados.AddItem(Int32.Parse(item.Cells[2].EditedFormattedValue.ToString()), true);           
+            };
+
+            coleccionFilas.ToList().ForEach(funcionLLenarColleccion);
+
+
+            DataGridViewRow fila = coleccionFilas.First();
+            ClsProductoPosee clsProductoPosee = new ClsProductoPosee();   
+            clsProductoPosee.IdProducto = Int32.Parse(fila.Cells[1].EditedFormattedValue.ToString());
+            clsProductoPosee.IdUsuarioModifico = idUsuarioOperador;
+            return (clsProductoPosee.ProductoPosee_Tarifa_UpdateActivoACero_Collection(clsTarifasYEstados) );
         }
 
         //-----------------------------Utils
@@ -145,11 +176,21 @@ namespace CapaPresentacion
                 }
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -161,11 +202,22 @@ namespace CapaPresentacion
 
                     if( ExisteTarifaSeleccionadaParaEliminar(dataGridView2) )
                     {
-                        ProductoPosee_Tarifa_updateActivoACeroController(dataGridView2);
-                        MessageBox.Show("Lista de productos y sus tarifas actualizada", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        DataTable tabla = Producto_Select_Id_Nombre_DeTodosController();
-                        MostrarProductosEnGrid(tabla);
-                        dataGridView2.Rows.Clear();
+                        string mensaje = ProductoPosee_Tarifa_UpdateActivoACero_CollectionController(dataGridView2, ClsLogin.Id);
+                        if(mensaje.Contains("ok"))
+                        {
+                            MessageBox.Show("Lista de productos y sus tarifas actualizada", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DataTable tabla = Producto_Select_Id_Nombre_DeTodosController();
+                            MostrarProductosEnGrid(tabla);
+                            dataGridView2.Rows.Clear();
+                        }
+
+                        else
+                        {
+                            MessageBox.Show(mensaje, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Error);                          
+                            DataTable tabla = Producto_Select_Id_Nombre_DeTodosController();
+                            MostrarProductosEnGrid(tabla);
+                            dataGridView2.Rows.Clear();
+                        }
                     }
 
                     else
@@ -175,11 +227,20 @@ namespace CapaPresentacion
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -189,6 +250,15 @@ namespace CapaPresentacion
                 MostrarProductosEnGrid(tabla);
                 dataGridView2.Rows.Clear();
             }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
 
             catch (Exception ex)
             {

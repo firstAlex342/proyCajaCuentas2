@@ -49,6 +49,7 @@
     <Compile Include="ClsChequeInfoBasico.cs" />
     <Compile Include="ClsEnlaceToAppConfig.cs" />
     <Compile Include="ClsInicialTotalDeChequesCobradosDePeriodosAnteriores.cs" />
+    <Compile Include="ClsMyException.cs" />
     <Compile Include="ClsPagoBasico.cs" />
     <Compile Include="ClsCuentaPorPagar.cs" />
     <Compile Include="ClsLogin.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="ClsMovimientoSocioProducto.cs" />
     <Compile Include="ClsProductoPosee.cs" />
     <Compile Include="ClsTarifa.cs" />
+    <Compile Include="ClsTarifasYEstados.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="ConvertNumALetras\ConversorATextoMonedaPesos.cs" />
     <Compile Include="ConvertNumALetras\ReglaConstruccionCadenaATexto.cs" />

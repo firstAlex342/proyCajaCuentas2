@@ -90,5 +90,43 @@ namespace CapaLogicaNegocios
 
             return (mensaje);
         }
+
+
+        public string ProductoPosee_Tarifa_UpdateActivoACero_Collection(ClsTarifasYEstados tarifasYEstados)
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@idProducto", this.IdProducto));
+            lst.Add(new ClsParametros("@idYEstadoTarifas", tarifasYEstados.MisTarifasYEstados));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioModifico));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("ProductoPosee_Tarifa_UpdateActivoACero_Collection", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[3].Valor.ToString();
+            return (mensaje);
+        }
+
+        public string ProductoPosee_Tarifa_Create(decimal cantidad)
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            lst.Add(new ClsParametros("@idProducto", this.IdProducto));
+            lst.Add(new ClsParametros("@cantidad",cantidad));
+            lst.Add(new ClsParametros("@idUsuarioOperador", this.IdUsuarioAlta));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("ProductoPosee_Tarifa_Create", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[3].Valor.ToString();
+
+            return (mensaje);
+        }
     }
 }
