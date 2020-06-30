@@ -78,5 +78,24 @@ namespace CapaLogicaNegocios
             return (mensaje);
         }
 
+        public string AccesoAModulo_Update_Collection(DataTable listaIdModulosYEstados)
+        {
+            string mensaje = "";
+            List<ClsParametros> lst = new List<ClsParametros>();
+
+            //Parametros de entrada
+            lst.Add(new ClsParametros("@idUsuarioAActualizar", this.IdUsuario));
+            lst.Add(new ClsParametros("@idModulosYEstado", listaIdModulosYEstados));
+
+            //Parametro de salida
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            CLSManejador.Ejecutar_sp("AccesoAModulo_Update_Collection", lst);
+
+            //Regresar el valor almacenado en el parametro de salida
+            mensaje = lst[2].Valor.ToString();
+
+            return (mensaje);
+        }
+
     }
 }

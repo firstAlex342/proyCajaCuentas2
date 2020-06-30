@@ -60,13 +60,13 @@
             this.tableLayoutPanel2.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.crystalReportViewer1, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.progressBar1, 0, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(17, 12);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 58F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(955, 531);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(881, 462);
             this.tableLayoutPanel2.TabIndex = 5;
             // 
             // groupBox1
@@ -78,7 +78,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(949, 163);
+            this.groupBox1.Size = new System.Drawing.Size(875, 155);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar folios de pago";
@@ -104,24 +104,25 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 3, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(16, 21);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(5, 21);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(916, 136);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(867, 128);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // radioButton1
             // 
-            this.radioButton1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 41);
+            this.radioButton1.Location = new System.Drawing.Point(3, 38);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(47, 20);
+            this.radioButton1.Size = new System.Drawing.Size(124, 20);
             this.radioButton1.TabIndex = 1;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Dia";
@@ -131,84 +132,88 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(140, 40);
+            this.dateTimePicker1.Location = new System.Drawing.Point(133, 37);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(268, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(254, 22);
             this.dateTimePicker1.TabIndex = 7;
             // 
             // radioButton2
             // 
-            this.radioButton2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 75);
+            this.radioButton2.Location = new System.Drawing.Point(3, 70);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(100, 20);
+            this.radioButton2.Size = new System.Drawing.Size(124, 20);
             this.radioButton2.TabIndex = 2;
             this.radioButton2.Text = "Entre fechas";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 111);
+            this.label2.Location = new System.Drawing.Point(3, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 16);
+            this.label2.Size = new System.Drawing.Size(124, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "A partir de";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Location = new System.Drawing.Point(140, 108);
+            this.dateTimePicker2.Location = new System.Drawing.Point(133, 101);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(268, 22);
+            this.dateTimePicker2.Size = new System.Drawing.Size(254, 22);
             this.dateTimePicker2.TabIndex = 8;
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(593, 111);
+            this.label3.Location = new System.Drawing.Point(393, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 16);
+            this.label3.Size = new System.Drawing.Size(210, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Hasta";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // dateTimePicker3
             // 
             this.dateTimePicker3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker3.Enabled = false;
-            this.dateTimePicker3.Location = new System.Drawing.Point(643, 108);
+            this.dateTimePicker3.Location = new System.Drawing.Point(609, 101);
             this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(270, 22);
+            this.dateTimePicker3.Size = new System.Drawing.Size(255, 22);
             this.dateTimePicker3.TabIndex = 9;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Location = new System.Drawing.Point(3, 8);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 16);
+            this.label1.Size = new System.Drawing.Size(124, 16);
             this.label1.TabIndex = 12;
             this.label1.Text = "Número de licencia";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(140, 6);
+            this.textBox1.Location = new System.Drawing.Point(133, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(268, 22);
+            this.textBox1.Size = new System.Drawing.Size(254, 22);
             this.textBox1.TabIndex = 13;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(414, 4);
+            this.button1.Location = new System.Drawing.Point(393, 0);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(223, 25);
+            this.button1.Size = new System.Drawing.Size(210, 32);
             this.button1.TabIndex = 10;
             this.button1.Text = "Buscar";
             this.button1.UseVisualStyleBackColor = true;
@@ -217,9 +222,10 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(643, 4);
+            this.button2.Location = new System.Drawing.Point(609, 0);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(270, 25);
+            this.button2.Size = new System.Drawing.Size(255, 32);
             this.button2.TabIndex = 11;
             this.button2.Text = "Exportar a excel";
             this.button2.UseVisualStyleBackColor = true;
@@ -233,7 +239,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 225);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 193);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
@@ -241,15 +248,15 @@
             this.crystalReportViewer1.ShowLogo = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(949, 303);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(875, 269);
             this.crystalReportViewer1.TabIndex = 2;
             // 
             // progressBar1
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(3, 185);
+            this.progressBar1.Location = new System.Drawing.Point(3, 167);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(949, 20);
+            this.progressBar1.Size = new System.Drawing.Size(875, 20);
             this.progressBar1.TabIndex = 3;
             this.progressBar1.Visible = false;
             // 
@@ -265,7 +272,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 555);
+            this.ClientSize = new System.Drawing.Size(891, 469);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Name = "FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar";
             this.Text = "FrmBuscarFoliosActivosYCanceladosDeSocioImprimirExportar";

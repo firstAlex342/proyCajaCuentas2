@@ -46,9 +46,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(22, 22);
+            this.groupBox1.Location = new System.Drawing.Point(7, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(871, 277);
+            this.groupBox1.Size = new System.Drawing.Size(836, 361);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Total inicial de cheques cobrados de periodos anteriores";
@@ -73,33 +73,33 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(776, 180);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(741, 264);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 6);
+            this.label1.Location = new System.Drawing.Point(3, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 32);
+            this.label1.Size = new System.Drawing.Size(253, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Total inicial de cheques cobrados de periodos anteriores";
             // 
             // textBox1
             // 
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(3, 56);
+            this.textBox1.Location = new System.Drawing.Point(3, 88);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 22);
+            this.textBox1.Size = new System.Drawing.Size(253, 22);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(545, 123);
+            this.button1.Location = new System.Drawing.Point(521, 186);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(228, 23);
+            this.button1.Size = new System.Drawing.Size(217, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -108,18 +108,18 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(274, 56);
+            this.dateTimePicker1.Location = new System.Drawing.Point(262, 88);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(265, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(253, 22);
             this.dateTimePicker1.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(274, 14);
+            this.label2.Location = new System.Drawing.Point(262, 25);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(265, 16);
+            this.label2.Size = new System.Drawing.Size(253, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Fecha de periodo inicial";
             // 
@@ -127,7 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 321);
+            this.ClientSize = new System.Drawing.Size(855, 385);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmChequesCobradosDePeriodosAnterioresTotalInicial";
             this.Text = "FrmChequesCobradosDePeriodosAnterioresTotalInicial";

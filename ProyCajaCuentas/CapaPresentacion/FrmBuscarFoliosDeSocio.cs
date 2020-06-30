@@ -255,10 +255,7 @@ namespace CapaPresentacion
             
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
-        }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
@@ -283,5 +280,7 @@ namespace CapaPresentacion
         {
 
         }
+
+
     }
 }

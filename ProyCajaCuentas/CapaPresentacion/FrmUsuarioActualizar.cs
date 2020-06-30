@@ -113,7 +113,15 @@ namespace CapaPresentacion
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -146,9 +154,18 @@ namespace CapaPresentacion
 
                     else
                     {
-                        MessageBox.Show(this, "Error en FrmUsuarioActualizar", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, respuesta, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }                   
                 }
+            }
+
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)
@@ -156,6 +173,7 @@ namespace CapaPresentacion
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

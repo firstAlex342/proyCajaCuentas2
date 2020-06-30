@@ -55,13 +55,13 @@
             this.tableLayoutPanel1.Controls.Add(this.crystalReportViewer1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.progressBar1, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(952, 469);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(847, 361);
             this.tableLayoutPanel1.TabIndex = 21;
             // 
             // crystalReportViewer1
@@ -72,7 +72,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 142);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(3, 108);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
@@ -82,7 +83,7 @@
             this.crystalReportViewer1.ShowLogo = false;
             this.crystalReportViewer1.ShowParameterPanelButton = false;
             this.crystalReportViewer1.ShowRefreshButton = false;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(946, 324);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(841, 253);
             this.crystalReportViewer1.TabIndex = 19;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -95,7 +96,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(946, 87);
+            this.groupBox1.Size = new System.Drawing.Size(841, 66);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generar reporte mensual";
@@ -124,14 +125,14 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(917, 60);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(812, 39);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 22);
+            this.label1.Location = new System.Drawing.Point(5, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 16);
             this.label1.TabIndex = 0;
@@ -140,9 +141,9 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(504, 18);
+            this.button1.Location = new System.Drawing.Point(447, 8);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 23);
+            this.button1.Size = new System.Drawing.Size(156, 23);
             this.button1.TabIndex = 3;
             this.button1.Text = "Generar";
             this.button1.UseVisualStyleBackColor = true;
@@ -153,16 +154,16 @@
             this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(48, 19);
+            this.comboBox1.Location = new System.Drawing.Point(43, 9);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 24);
+            this.comboBox1.Size = new System.Drawing.Size(156, 24);
             this.comboBox1.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(236, 22);
+            this.label2.Location = new System.Drawing.Point(205, 11);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 19;
@@ -173,17 +174,17 @@
             this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(276, 19);
+            this.comboBox2.Location = new System.Drawing.Point(245, 9);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(177, 24);
+            this.comboBox2.Size = new System.Drawing.Size(156, 24);
             this.comboBox2.TabIndex = 20;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(732, 18);
+            this.button2.Location = new System.Drawing.Point(649, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 23);
+            this.button2.Size = new System.Drawing.Size(160, 23);
             this.button2.TabIndex = 21;
             this.button2.Text = "Exportar a excel";
             this.button2.UseVisualStyleBackColor = true;
@@ -192,9 +193,9 @@
             // progressBar1
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.Location = new System.Drawing.Point(3, 104);
+            this.progressBar1.Location = new System.Drawing.Point(3, 78);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(946, 23);
+            this.progressBar1.Size = new System.Drawing.Size(841, 23);
             this.progressBar1.TabIndex = 21;
             this.progressBar1.Visible = false;
             // 
@@ -210,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 493);
+            this.ClientSize = new System.Drawing.Size(855, 385);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmVisorReporteEgresosIngresosMensual";
             this.Text = "FrmReporteEgresosIngresosMensual";

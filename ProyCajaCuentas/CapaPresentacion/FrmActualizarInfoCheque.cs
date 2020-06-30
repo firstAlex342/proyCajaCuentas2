@@ -599,5 +599,7 @@ namespace CapaPresentacion
                 comboBox1.Enabled = true;
             }
         }
+
+
     }
 }

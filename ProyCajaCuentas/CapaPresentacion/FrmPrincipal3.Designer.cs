@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal3));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroTile36 = new MetroFramework.Controls.MetroTile();
             this.metroTile35 = new MetroFramework.Controls.MetroTile();
             this.metroTile34 = new MetroFramework.Controls.MetroTile();
             this.metroTile33 = new MetroFramework.Controls.MetroTile();
@@ -78,7 +79,6 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroTile36 = new MetroFramework.Controls.MetroTile();
             this.metroPanel1.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +146,21 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroTile36
+            // 
+            this.metroTile36.ActiveControl = null;
+            this.metroTile36.Location = new System.Drawing.Point(24, 1224);
+            this.metroTile36.Name = "metroTile36";
+            this.metroTile36.Size = new System.Drawing.Size(266, 97);
+            this.metroTile36.Style = MetroFramework.MetroColorStyle.Brown;
+            this.metroTile36.TabIndex = 43;
+            this.metroTile36.Text = "Productos pagados y no pagados";
+            this.metroTile36.TileImage = global::CapaPresentacion.Properties.Resources.exportar;
+            this.metroTile36.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.metroTile36.UseSelectable = true;
+            this.metroTile36.UseTileImage = true;
+            this.metroTile36.Click += new System.EventHandler(this.metroTile36_Click);
             // 
             // metroTile35
             // 
@@ -834,21 +849,6 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // metroTile36
-            // 
-            this.metroTile36.ActiveControl = null;
-            this.metroTile36.Location = new System.Drawing.Point(24, 1224);
-            this.metroTile36.Name = "metroTile36";
-            this.metroTile36.Size = new System.Drawing.Size(266, 97);
-            this.metroTile36.Style = MetroFramework.MetroColorStyle.Brown;
-            this.metroTile36.TabIndex = 43;
-            this.metroTile36.Text = "Productos pagados y no pagados";
-            this.metroTile36.TileImage = global::CapaPresentacion.Properties.Resources.exportar;
-            this.metroTile36.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile36.UseSelectable = true;
-            this.metroTile36.UseTileImage = true;
-            this.metroTile36.Click += new System.EventHandler(this.metroTile36_Click);
             // 
             // FrmPrincipal3
             // 

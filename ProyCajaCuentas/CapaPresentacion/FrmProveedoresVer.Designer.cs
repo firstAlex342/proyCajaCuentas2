@@ -52,7 +52,7 @@
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(922, 520);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(871, 421);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // groupBox2
@@ -65,7 +65,7 @@
             this.groupBox2.Location = new System.Drawing.Point(3, 6);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(916, 511);
+            this.groupBox2.Size = new System.Drawing.Size(865, 412);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Proveedores";
@@ -84,7 +84,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(883, 484);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(832, 385);
             this.tableLayoutPanel4.TabIndex = 1;
             // 
             // dataGridView1
@@ -101,14 +101,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(877, 429);
+            this.dataGridView1.Size = new System.Drawing.Size(826, 340);
             this.dataGridView1.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 451);
+            this.label2.Location = new System.Drawing.Point(3, 357);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 16);
             this.label2.TabIndex = 1;
