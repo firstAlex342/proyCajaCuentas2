@@ -480,5 +480,98 @@ namespace CapaPresentacion
                 comboBox1.SelectedIndex = 0;
             }
         }
+
+        private void tabPage13_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmRealizarCobro)panel7.Tag).LimpiarYReinicializarListBox1ListBox2TarifasTodosProductosTxtBox2TxtBox3();              
+            }
+
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage37_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmBeneficiarioChequeEliminar)panel31.Tag).ReinicializarDataGrid();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage38_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmBeneficiarioChequeVer)panel32.Tag).ReinicializarDataGrid();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage32_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmProveedorEliminar)panel26.Tag).ReinicializarDataGrid();
+            }
+
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage33_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmProveedoresVer)panel27.Tag).ReinicializarDataGrid();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage34_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmProveedorAgregarElemento)panel28.Tag).ReinicializarDatagrids();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage35_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmProveedorEditarElemento)panel29.Tag).ReinicializarDataGrids();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
     }
 }

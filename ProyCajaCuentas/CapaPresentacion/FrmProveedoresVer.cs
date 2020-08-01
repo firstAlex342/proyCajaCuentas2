@@ -22,7 +22,15 @@ namespace CapaPresentacion
             {
                 DataTable datosDeProveedorTable = Proveedor_SelectTodosActivosController();
                 LLenarDataGridConDatos(datosDeProveedorTable);
-                label2.Text = label2.Text + " " + datosDeProveedorTable.Rows.Count.ToString();
+                label2.Text =  "Elementos encontrados " + datosDeProveedorTable.Rows.Count.ToString();
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)
@@ -53,6 +61,16 @@ namespace CapaPresentacion
             dataGridView1.Columns[7].HeaderText = "Teléfono";
             dataGridView1.Columns[8].HeaderText = "Celular";
             dataGridView1.Columns[9].HeaderText = "Correo eléctronico";
+        }
+
+
+        public void ReinicializarDataGrid()
+        {
+            dataGridView1.DataSource = null;
+
+            DataTable datosDeProveedorTable = Proveedor_SelectTodosActivosController();
+            LLenarDataGridConDatos(datosDeProveedorTable);
+            label2.Text =  "Elementos encontrados " + datosDeProveedorTable.Rows.Count.ToString();
         }
     }
 }

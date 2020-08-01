@@ -25,7 +25,15 @@ namespace CapaPresentacion
                 MostrarEnLabelNumeroDeElementos(beneficiarios);
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -56,6 +64,12 @@ namespace CapaPresentacion
             label2.Text = strBuilder.ToString();
         }
 
+        public void ReinicializarDataGrid()
+        {
+            DataTable beneficiarios = BeneficiarioCheque_Select_ActivosController();
+            MostrarEnGridBeneficiarios(beneficiarios);
+            MostrarEnLabelNumeroDeElementos(beneficiarios);
+        }
 
 
     }

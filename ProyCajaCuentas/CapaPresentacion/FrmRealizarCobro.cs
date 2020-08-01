@@ -16,7 +16,7 @@ namespace CapaPresentacion
     {
 
         //-----------Properties
-        private int IdCajaDelDia { set; get; }
+        private DataTable InfoCajaDelDia { set; get; }
         private DataTable TarifasDeTodosProductos { set; get; }
 
 
@@ -28,10 +28,9 @@ namespace CapaPresentacion
 
             try
             {
-                InicializarIdCajaDelDiaController();
+                InicializarInfoCajaDelDiaController();
                 MostrarProductos( Producto_Select_Id_Nombre_DeTodosController());
-                this.TarifasDeTodosProductos = ProductoPosee_innerjoin_Tarifas_DeTodosController();
-       
+                this.TarifasDeTodosProductos = ProductoPosee_innerjoin_Tarifas_DeTodosController();       
             }
 
             catch(Exception ex)
@@ -85,18 +84,14 @@ namespace CapaPresentacion
 
 
 
-        private void InicializarIdCajaDelDiaController()
+        private void InicializarInfoCajaDelDiaController()
         {
             DataTable res = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
 
             if (res.Rows.Count == 1)
             {
                 //En res esta la caja del dia 
-                var coleccion = from s in res.AsEnumerable()
-                                select s;
-
-                DataRow unicaFila = coleccion.First();
-                this.IdCajaDelDia = unicaFila.Field<int>(1);   //En la columna 1 de res..
+                this.InfoCajaDelDia = res;
             }
 
             else if (res.Rows.Count > 1)
@@ -111,7 +106,8 @@ namespace CapaPresentacion
                 //El dia de hoy aún no tiene caja aún por lo tanto se le crea
                 int idCajaNueva = Caja_CreateController(ClsLogin.Id);
                 OperaCaja_CreateController(ClsLogin.Id, idCajaNueva);
-                this.IdCajaDelDia = idCajaNueva;
+
+                this.InfoCajaDelDia = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
             }
         }
 
@@ -140,12 +136,12 @@ namespace CapaPresentacion
             foreach(DataGridViewRow fila in filas)
             {
                 ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)fila.Cells[1].Value;
-                decimal tarifa = Decimal.Parse(fila.Cells[2].EditedFormattedValue.ToString());
+                ClsTarifaViewModel clsTarifaViewModel = (ClsTarifaViewModel)fila.Cells[2].Value;
                 decimal descuento = Decimal.Parse(fila.Cells[3].EditedFormattedValue.ToString());
                 decimal cantidadAPagar = Decimal.Parse(fila.Cells[4].EditedFormattedValue.ToString());
 
-                clsPagoBasico.AddProductoAPagar(clsProductoViewModel.Id, tarifa, "campo no usado", descuento, cantidadAPagar);
-                
+                clsPagoBasico.AddProductoAPagar(clsProductoViewModel.Id, clsTarifaViewModel.Id, clsTarifaViewModel.Cantidad , 
+                    "campo no usado", descuento, cantidadAPagar);               
             }
 
             string respuesta = clsPagoBasico.MovsEnCaja_PagoProducto_DetallesProductosEnPago_create();
@@ -190,6 +186,14 @@ namespace CapaPresentacion
             return (res);
         }
 
+        public DataTable Socio_BuscarXIdController(int idSocioABuscar)
+        {
+            ClsSocio clsSocio = new ClsSocio();
+            clsSocio.Id = idSocioABuscar;
+
+            return (clsSocio.Socio_BuscarXId());
+        }
+
 
         //------------Utils
         private void MostrarEnTxtBoxesInfoSocio(DataTable infoSocio)
@@ -199,6 +203,7 @@ namespace CapaPresentacion
 
             //En este punto ya se que solo tiene una fila la DataTable
             DataRow unicaFila = coleccion.First();
+            textBox19.Text = (unicaFila.Field<int>("Id")).ToString();
             textBox4.Text = unicaFila.Field<string>("NombreComercial");
             textBox5.Text = unicaFila.Field<string>("DireccionSupmza");
             textBox6.Text = unicaFila.Field<string>("DireccionLote");
@@ -246,14 +251,13 @@ namespace CapaPresentacion
             dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-        private void AddFilaADataGridView_ProductosAPagar(ClsProductoViewModel clsProductoViewModel, decimal tarifa, decimal descuento,  decimal cantidadAPagar)
+        private void AddFilaADataGridView_ProductosAPagar(ClsProductoViewModel clsProductoViewModel, ClsTarifaViewModel clsTarifaViewModel, decimal descuento,  decimal cantidadAPagar)
         {
             int n = dataGridView1.Rows.Add();
             dataGridView1.Rows[n].Cells[1].Value = clsProductoViewModel;
-            dataGridView1.Rows[n].Cells[2].Value = tarifa;
+            dataGridView1.Rows[n].Cells[2].Value = clsTarifaViewModel;
             dataGridView1.Rows[n].Cells[3].Value = descuento;
             dataGridView1.Rows[n].Cells[4].Value = cantidadAPagar;
-
         }
 
         private decimal CalcularSumaTotalEnDataGridView()
@@ -301,6 +305,7 @@ namespace CapaPresentacion
             textBox14.Text = "";
             textBox15.Text = "";
             textBox16.Text = "";
+            textBox19.Text = "";
         }
 
         private void EnviarImpresion(DataRow filaUnica, DataGridViewRowCollection filas, string totalAPagar,DataTable infoUsuarioTable,
@@ -355,6 +360,33 @@ namespace CapaPresentacion
         }
 
 
+        public void LimpiarYReinicializarListBox1ListBox2TarifasTodosProductosTxtBox2TxtBox3()
+        {
+            listBox1.SelectedIndex = -1;
+            listBox1.Items.Clear();
+
+            listBox2.SelectedIndex = -1;
+            listBox2.Items.Clear();
+
+            textBox2.Text = String.Empty;
+            textBox3.Text = String.Empty;
+
+            try
+            {
+                MostrarProductos(Producto_Select_Id_Nombre_DeTodosController());
+                this.TarifasDeTodosProductos = ProductoPosee_innerjoin_Tarifas_DeTodosController();
+            }
+
+            catch (Exception ex)
+            {
+                tableLayoutPanel1.Enabled = false;
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+
+
+
         //--------------------Events
         private void button1_Click(object sender, EventArgs e)
         {
@@ -370,12 +402,12 @@ namespace CapaPresentacion
                 if (listBox1Seleccionado && listBox2Seleccionado && textBox3ConContenido && textBox2Vacio)
                 {
                     ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)listBox1.SelectedItem;
-                    decimal tarifaElegida = (decimal)listBox2.SelectedItem;
+                    ClsTarifaViewModel clsTarifaViewModel = (ClsTarifaViewModel)listBox2.SelectedItem;
                     decimal cantidadAPagar = Decimal.Parse(textBox3.Text);
 
                     if (ExisteProductoEnDataGridView (clsProductoViewModel) == false)
                     {
-                        AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, 0.0m, cantidadAPagar);
+                        AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, clsTarifaViewModel, 0.0m, cantidadAPagar);
                         label7.Text = CalcularSumaTotalEnDataGridView().ToString();
 
                         if(EsAfiliacion(clsProductoViewModel))
@@ -393,13 +425,13 @@ namespace CapaPresentacion
                 else if (listBox1Seleccionado && listBox2Seleccionado && textBox3ConContenido && (textBox2Vacio == false))
                 {
                     ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)listBox1.SelectedItem;
-                    decimal tarifaElegida = (decimal)listBox2.SelectedItem;
+                    ClsTarifaViewModel clsTarifaViewModel = (ClsTarifaViewModel)listBox2.SelectedItem;
                     decimal descuento = Decimal.Parse(textBox2.Text);
                     decimal cantidadAPagar = Decimal.Parse(textBox3.Text);
 
                     if(ExisteProductoEnDataGridView(clsProductoViewModel) == false)
                     {
-                        AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, tarifaElegida, descuento, cantidadAPagar);
+                        AddFilaADataGridView_ProductosAPagar(clsProductoViewModel, clsTarifaViewModel, descuento, cantidadAPagar);
                         label7.Text = CalcularSumaTotalEnDataGridView().ToString();
                         if (EsAfiliacion(clsProductoViewModel))
                         {
@@ -429,7 +461,7 @@ namespace CapaPresentacion
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if( listBox1.SelectedIndex > -1)
+            if (listBox1.SelectedIndex > -1)
             {
                 listBox2.SelectedItem = null;
                 listBox2.Items.Clear();
@@ -437,26 +469,28 @@ namespace CapaPresentacion
                 textBox2.Text = "";
 
                 ClsProductoViewModel clsProductoViewModel = (ClsProductoViewModel)listBox1.SelectedItem;
-                List<decimal> listaTarifas = new List<decimal>();
+                List<ClsTarifaViewModel> listaTarifas = new List<ClsTarifaViewModel>();
 
                 var res = from s in TarifasDeTodosProductos.AsEnumerable()
                           where s.Field<int>("IdProducto") == clsProductoViewModel.Id
-                          select s.Field<decimal>("Cantidad");
+                          select new ClsTarifaViewModel { Id = s.Field<int>("IdTarifa"), Cantidad = s.Field<decimal>("Cantidad"), CampoAMostrar = "Cantidad" };
 
-                listaTarifas = res.ToList<decimal>();
+                listaTarifas = res.ToList<ClsTarifaViewModel>();
+                Action<ClsTarifaViewModel> Funcion = s =>
+                {
+                    listBox2.Items.Add(s);
+                };
 
-                foreach (var item in listaTarifas)
-                    listBox2.Items.Add(item);
-
+                listaTarifas.ForEach(Funcion);
             }
-
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listBox2.SelectedIndex > -1)
             {
-                decimal tarifaElegida = (decimal)listBox2.SelectedItem;
+                ClsTarifaViewModel clsTarifaElegidaViewModel = (ClsTarifaViewModel)listBox2.SelectedItem;
+                decimal tarifaElegida = (decimal)clsTarifaElegidaViewModel.Cantidad;
                 textBox3.Text = tarifaElegida.ToString();
                 textBox2.Text = "";
             }
@@ -477,7 +511,8 @@ namespace CapaPresentacion
 
                     if(esNumero)
                     {
-                        decimal tarifaElegida = (decimal)listBox2.SelectedItem;
+                        ClsTarifaViewModel clsTarifaViewModelSeleccionado = (ClsTarifaViewModel)listBox2.SelectedItem;
+                        decimal tarifaElegida = (decimal)clsTarifaViewModelSeleccionado.Cantidad;
 
                         if (descuento >= 0m && descuento <= tarifaElegida)
                         {
@@ -496,12 +531,12 @@ namespace CapaPresentacion
                         textBox2.Text = ""; //Despues de esta linea se vuelve a disparar el evento textBox2_TextChanged
                         MessageBox.Show("Entrada no numerica", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-
                 }
 
                 else
                 {
-                    textBox3.Text = ((decimal)listBox2.SelectedItem).ToString();
+                    ClsTarifaViewModel clsTarifaViewModelSeleccionado = (ClsTarifaViewModel)listBox2.SelectedItem;
+                    textBox3.Text = (clsTarifaViewModelSeleccionado.Cantidad).ToString();
                 }
             }
 
@@ -510,145 +545,6 @@ namespace CapaPresentacion
 
 
 
-        private void button2_Click(object sender, EventArgs e)
-        {          
-            try
-            {
-                if(dataGridView1.Rows.Count >=1)
-                {
-                    DialogResult res = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (res == DialogResult.Yes)
-                    {
-                        DataTable infoDeSocio = Socio_BuscarXLicenciaController(textBox1.Text);
-                        int idSocio;
-                        if (infoDeSocio.Rows.Count == 1)
-                        {
-                            var x = (from s in infoDeSocio.AsEnumerable()
-                                     select s).ToList();
-
-                            DataRow filaUnica = x.First();
-                            idSocio = filaUnica.Field<int>("Id");  //Recupero de la datatable el valor de la columna IdSocio
-
-
-                            bool esOkAfiliacionActiva = true;
-                            bool tieneAfiliacionActiva = Socio_BuscarAfiliacionActivaController( filaUnica.Field<string>("NumeroLicencia"));                            
-                            if(tieneAfiliacionActiva)
-                            {
-                                if (ExisteAfiliacionEnDataGrid())
-                                {
-                                    esOkAfiliacionActiva = false;
-                                    MessageBox.Show("El socio ya realizo un pago de afiliación para el periodo actual", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                }
-
-                                else
-                                { esOkAfiliacionActiva = true; }
-                            }
-
-                            else
-                            {
-                                if(ExisteAfiliacionEnDataGrid())
-                                    esOkAfiliacionActiva = true;
-                                else
-                                {
-                                    esOkAfiliacionActiva = false;
-                                    MessageBox.Show("El socio no tiene un pago de afiliación vigente para el periodo actual", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                }
-                            }
-                                
-
-
-                            if(esOkAfiliacionActiva)
-                            {
-                                if( EstaEnFormatoNumerico(textBox17.Text.Trim()) )
-                                {
-                                    if (ExisteFolioReciboListaProductosController(textBox17.Text.Trim()) == false)
-                                    {
-                                        bool esOkReciboLicencia = true;
-                                        if (textBox18.Enabled == true)
-                                        {
-                                            if (EstaEnFormatoNumerico(textBox18.Text.Trim()))
-                                            {
-                                                if (ExisteFolioReciboLicenciaController(textBox18.Text.Trim()))
-                                                {
-                                                    esOkReciboLicencia = false;
-                                                    MessageBox.Show("El folio licencia " + textBox18.Text.Trim() + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                                }
-                                            }
-
-                                            else
-                                            {
-                                                esOkReciboLicencia = false;
-                                                MessageBox.Show("Capture el folio licencia, por ejemplo: 1343 ó 0345", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                            }
-                                        }
-
-
-
-                                        if (esOkReciboLicencia)
-                                        {
-                                            string respuesta = GuardarPagoBasicoDelSocioController(this.IdCajaDelDia, idSocio, Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows, textBox17.Text.Trim(), textBox18.Text.Trim());
-                                            if (respuesta.Contains("ok"))
-                                            {
-                                                MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                                                //La siguiente linea es para obtener la fecha que ira en el recibo
-                                                DataTable infoUsuarioTable = OperaCaja_BuscarCajasDelDiaDelUsuarioController(ClsLogin.Id);
-                                                EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, infoUsuarioTable, textBox17.Text.Trim(), textBox18.Text.Trim());
-
-                                                dataGridView1.Rows.Clear();
-                                                label7.Text = "0.0";
-                                                textBox1.Text = "";
-                                                listBox1.SelectedIndex = -1;
-                                                listBox2.SelectedIndex = -1; listBox2.Items.Clear();
-                                                textBox2.Text = "";
-                                                textBox3.Text = "";
-                                                LimpiarTextBoxesInfoSocio();
-
-                                                textBox17.Text = "";  //Son los textBox y el label donde se capturan folios
-                                                textBox18.Text = "";
-                                                label22.Enabled = false;
-                                                textBox18.Enabled = false;
-                                            }
-
-                                            else
-                                            {
-                                                throw new ArgumentException("No se pudo realizar la operación");
-                                            }
-                                        }
-                                    }
-
-                                    else
-                                    {
-                                        MessageBox.Show("El folio de pago " + textBox17.Text.Trim() + " ya se encuentra en uso", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    }
-                                }
-
-                                else
-                                {
-                                    MessageBox.Show("Capture el folio del recibo de pago, por ejemplo: 02345 ó 04567","Reglas de operación",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                                }
-                            }                            
-                        }
-
-                        else
-                        {
-                            string mensaje = "Se encontro " + infoDeSocio.Rows.Count.ToString() + " coincidencias para la licencia " + textBox1.Text;
-                            MessageBox.Show(mensaje, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        }
-                    }
-                }
-
-                else
-                {
-                    MessageBox.Show("Necesitas capturar algún producto", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
-            }
-        }
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
@@ -706,17 +602,136 @@ namespace CapaPresentacion
             }
         }
 
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
 
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(dataGridView1.Rows.Count >= 1)
+                {
+                    DialogResult res = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(res ==DialogResult.Yes)
+                    {
+                            bool existeIdSocioEnTextBox = EstaEnFormatoNumerico(textBox19.Text);
+                            if (existeIdSocioEnTextBox)
+                            {
+                                DataTable infoDeSocio = Socio_BuscarXIdController(Int32.Parse(textBox19.Text));
+                                if(infoDeSocio.Rows.Count == 1)
+                                {
+                                        var x = (from s in infoDeSocio.AsEnumerable()
+                                                 select s).ToList();
+
+                                        DataRow filaUnica = x.First(); //Recupero la información del Socio
+
+                                    if (EstaEnFormatoNumerico(textBox17.Text.Trim()))
+                                    {
+                                        bool esOkReciboLicencia = (textBox18.Enabled == true) ? EstaEnFormatoNumerico(textBox18.Text.Trim()) : true;
+                                        if (esOkReciboLicencia)
+                                        {
+                                            var m = (from item in InfoCajaDelDia.AsEnumerable()
+                                                     select item).ToList();
+                                            var m1 = m.First(); //Recupero la fila
+
+                                            string respuesta = GuardarPagoBasicoDelSocioController(m1.Field<int>("IdCaja"), Int32.Parse(textBox19.Text), Decimal.Parse(label7.Text), ClsLogin.Id, dataGridView1.Rows, textBox17.Text.Trim(), textBox18.Text.Trim());
+                                            if (respuesta.Contains("ok"))
+                                            {
+                                                MessageBox.Show("Registros guardados exitosamente", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                                //InfoCajaDelDia lo utiliza EnviarImpresion, porque de ahi sala la fecha que ira en la impresion                                          
+                                                EnviarImpresion(filaUnica, dataGridView1.Rows, label7.Text, InfoCajaDelDia, textBox17.Text.Trim(), textBox18.Text.Trim());
+
+                                                dataGridView1.Rows.Clear();
+                                                label7.Text = "0.0";
+                                                textBox1.Text = "";
+                                                listBox1.SelectedIndex = -1;
+                                                listBox2.SelectedIndex = -1; listBox2.Items.Clear();
+                                                textBox2.Text = "";
+                                                textBox3.Text = "";
+                                                LimpiarTextBoxesInfoSocio();
+
+                                                textBox17.Text = "";  //Son los textBox y el label donde se capturan folios
+                                                textBox18.Text = "";
+                                                label22.Enabled = false;
+                                                textBox18.Enabled = false;
+                                            }
+
+                                            else
+                                            {
+                                                MessageBox.Show(respuesta, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                            }
+                                        }
+
+                                        else
+                                        {
+                                            MessageBox.Show("Capture el folio licencia, por ejemplo: 1343 ó 0345", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Capture el folio del recibo de pago, por ejemplo: 02345 ó 04567", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    }
+                                }
+
+                                else
+                                {
+                                    MessageBox.Show("No se encuentra disponible el socio", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                }
+
+                            }
+
+                            else
+                            {
+                                MessageBox.Show("Capture un número de licencia", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("Necesitas capturar algún producto", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
 
-        private void textBox17_TextChanged(object sender, EventArgs e)
+
+
+        private void button2_Click(object sender, EventArgs e)
         {
+            DialogResult res = MessageBox.Show("¿Esta usted seguro que desea cancelar la edición actual?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if(res == DialogResult.Yes)
+            {
+                dataGridView1.Rows.Clear();
+                label7.Text = "0.0";
+                textBox1.Text = "";
+                listBox1.SelectedIndex = -1;
+                listBox2.SelectedIndex = -1; listBox2.Items.Clear();
+                textBox2.Text = "";
+                textBox3.Text = "";
+                LimpiarTextBoxesInfoSocio();
+
+                textBox17.Text = "";  //Son los textBox y el label donde se capturan folios
+                textBox18.Text = "";
+                label22.Enabled = false;
+                textBox18.Enabled = false;
+            }
         }
-
-
     }
 
     public class ClsProductoViewModel
@@ -766,6 +781,57 @@ namespace CapaPresentacion
                 texto += " FechaModificacion = " + this.FechaModificacion.ToString();
                 texto += " Activo = " + this.Activo.ToString();
                 return (texto);
+            }
+        }
+    }
+
+
+    public class ClsTarifaViewModel
+    {
+        public int Id { set; get; }
+        public decimal Cantidad { set; get; }
+        public int IdUsuarioAlta { set; get; }
+        public DateTime FechaAlta { set; get; }
+        public int IdUsuarioModifico { set; get; }
+        public DateTime FechaModificacion { set; get; }
+        public bool Activo { set; get; }
+
+        public string CampoAMostrar { set; get; }
+
+        //--------------Constructor
+        public ClsTarifaViewModel()
+        {
+            this.Id = 0;
+            this.Cantidad = 0.0M;
+            this.IdUsuarioAlta = 0;
+            this.FechaAlta = new DateTime();
+            this.IdUsuarioModifico = 0;
+            this.FechaModificacion = new DateTime();
+            this.Activo = true;
+
+            this.CampoAMostrar = String.Empty;
+        }
+
+
+        public override string ToString()
+        {
+            if( this.CampoAMostrar.Equals("Cantidad") )
+            {
+                return (this.Cantidad.ToString());
+            }
+
+            else
+            {
+                StringBuilder str = new StringBuilder();
+                str.Append("Id = " + this.Id.ToString() + " ");
+                str.Append("Cantidad = " + this.Cantidad.ToString()+ " ");
+                str.Append("IdUsuarioAlta = " + this.IdUsuarioAlta.ToString() + " ");
+                str.Append("FechaAlta = " + this.FechaAlta.ToString() + " ");
+                str.Append("IdUsuarioModifico = " + this.IdUsuarioModifico.ToString() + " ");
+                str.Append("FechaModificacion = " + this.FechaModificacion.ToString() + " ");
+                str.Append("Activo = " + this.Activo.ToString() + " ");
+
+                return (str.ToString());
             }
         }
     }

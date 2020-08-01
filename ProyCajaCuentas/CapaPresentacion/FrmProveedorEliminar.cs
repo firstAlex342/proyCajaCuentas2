@@ -25,6 +25,14 @@ namespace CapaPresentacion
                 LLenarDataGridConDatos(datosDeProveedorTable);
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
@@ -117,6 +125,13 @@ namespace CapaPresentacion
             return( filas.SingleOrDefault(buscaCasillaSeleccionada)  );           
         }
 
+
+        public void ReinicializarDataGrid()
+        {
+            dataGridView1.Rows.Clear();
+            DataTable datosDeProveedorTable = Proveedor_SelectTodosActivosController();
+            LLenarDataGridConDatos(datosDeProveedorTable);
+        }
 
 
         //--------------------------Events

@@ -26,8 +26,15 @@ namespace CapaPresentacion
                 AniadirNombresProveedorAGrid(res);
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
 
-            catch(Exception ex)
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source);
             }
@@ -134,6 +141,18 @@ namespace CapaPresentacion
 
             bool res = cad.Length > 0 ? true : false;
             return (res);
+        }
+
+
+        public void ReinicializarDatagrids()
+        {
+            dataGridView1.DataSource = null;
+            dataGridView2.DataSource = null;
+            dataGridView3.Rows.Clear();
+
+            DataTable res = Proveedor_SelectTodosActivosController();
+            MostrarProveedoresEnDataGrid(res);
+            AniadirNombresProveedorAGrid(res);
         }
 
         //--------------------Events
@@ -250,6 +269,14 @@ namespace CapaPresentacion
                         MessageBox.Show("Necesita capturar algún nombre para el elemento", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)

@@ -10,6 +10,7 @@ namespace CapaLogicaNegocios
 {
     public class ClsChequeInfoBasico
     {
+        private int idCheque;
         private string numCheque;
         private string beneficiario;
         private decimal cantidad;
@@ -24,6 +25,7 @@ namespace CapaLogicaNegocios
         //-----------------Constructor
         public ClsChequeInfoBasico()
         {
+            this.IdCheque = 0;
             this.NumCheque = String.Empty;
             this.Beneficiario = String.Empty;
             this.Cantidad = 0.0m;
@@ -68,6 +70,7 @@ namespace CapaLogicaNegocios
             List<ClsParametros> lst = new List<ClsParametros>();
 
             //Parametros de entrada
+            lst.Add(new ClsParametros("@idChequeOriginal", this.IdCheque));
             lst.Add(new ClsParametros("@numChequeAActualizar", this.NumCheque));
             lst.Add(new ClsParametros("@beneficiario", this.Beneficiario));
             lst.Add(new ClsParametros("@cantidad", this.Cantidad));
@@ -83,7 +86,7 @@ namespace CapaLogicaNegocios
             CLSManejador.Ejecutar_sp("Cheque__DescripcionDeCheque_ConceptoEnCheque_Update", lst);
 
             //Regresar el valor almacenado en el parametro de salida
-            mensaje = lst[8].Valor.ToString();
+            mensaje = lst[9].Valor.ToString();
 
             return (mensaje);
         }
@@ -107,6 +110,12 @@ namespace CapaLogicaNegocios
         }
 
         //---------------Properties
+        public int IdCheque
+        {
+            set { idCheque = value; }
+            get { return idCheque; }
+        }
+
         public string NumCheque
         {
             set { numCheque = value; }

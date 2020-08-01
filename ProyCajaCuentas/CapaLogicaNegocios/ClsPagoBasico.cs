@@ -53,7 +53,7 @@ namespace CapaLogicaNegocios
 
 
             //Parametro de salida
-            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 50));
+            lst.Add(new ClsParametros("@mensaje", SqlDbType.VarChar, 100));
             CLSManejador.Ejecutar_sp("MovsEnCaja_PagoProducto_DetallesProductosEnPago_create", lst);
 
             //Regresar el valor almacenado en el parametro de salida
@@ -63,15 +63,16 @@ namespace CapaLogicaNegocios
         }
 
 
-        public void AddProductoAPagar(int idProducto, decimal tarifaElegida, string tipoDescuento, decimal cantidadDescuento, decimal cantidadPagada)
+        public void AddProductoAPagar(int idProducto, int idTarifa, decimal tarifaElegida, string tipoDescuento, decimal cantidadDescuento, decimal cantidadPagada)
         {
-            this.ListaProductosAPagar.Rows.Add(idProducto, tarifaElegida, tipoDescuento, cantidadDescuento, cantidadPagada);
+            this.ListaProductosAPagar.Rows.Add(idProducto, idTarifa, tarifaElegida, tipoDescuento, cantidadDescuento, cantidadPagada);
         }
 
         private DataTable MakeTable()
         {
             DataTable tabla = new DataTable();
             tabla.Columns.Add("idProducto", typeof(int));
+            tabla.Columns.Add("idTarifa", typeof(int));
             tabla.Columns.Add("tarifaElegida", typeof(decimal));
             tabla.Columns.Add("tipoDescuento", typeof(string));
             tabla.Columns.Add("cantidadDescuento", typeof(decimal));

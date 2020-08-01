@@ -56,8 +56,6 @@ namespace CapaPresentacion
                 DialogResult respuesta = MessageBox.Show("¿Esta usted seguro que desea continuar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
-                    if(SePuedeCancelarFolioReciboListaProductosController(textBox1.Text))
-                    {
                         //Proceder a cancelarlo
                         string res = CancelarFolioReciboListaProductosController(textBox1.Text, ClsLogin.Id);
                         if (res.Contains("ok"))
@@ -74,17 +72,19 @@ namespace CapaPresentacion
                         else
                         {
                             MessageBox.Show(res, "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("El folio " + textBox1.Text + " no se encuentra disponible" , "Reglas de operación", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                    }
+                        }                    
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }

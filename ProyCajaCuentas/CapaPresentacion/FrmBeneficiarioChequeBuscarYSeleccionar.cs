@@ -85,7 +85,8 @@ namespace CapaPresentacion
                 IEnumerable<DataGridViewRow> coleccionFilas = dataGridView1.Rows.Cast<DataGridViewRow>();
                 var x = coleccionFilas.ToList<DataGridViewRow>();
 
-                Func<DataGridViewRow, bool> BuscarFilaSeleccionada = item => {
+                Func<DataGridViewRow, bool> BuscarFilaSeleccionada = item =>
+                {
                     if (item.Cells[0].Value != null)
                     {
                         DataGridViewCheckBoxCell celda = (DataGridViewCheckBoxCell)item.Cells[0];
@@ -111,7 +112,7 @@ namespace CapaPresentacion
                     this.IdBeneficiarioChequeSeleccionado = Int32.Parse(filaSeleccionada.Cells[1].EditedFormattedValue.ToString());
                 }
 
-                this.Visible = false;
+                this.Visible = false;   
             }
 
 

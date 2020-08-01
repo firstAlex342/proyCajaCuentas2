@@ -25,7 +25,15 @@ namespace CapaPresentacion
                 CrearColumnasEnGridParaSeleccionarElemento();
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -123,7 +131,7 @@ namespace CapaPresentacion
             return (x.SingleOrDefault(delegado));
         }
 
-        private void ReinicializarDataGrids()
+        public void ReinicializarDataGrids()
         {
             DataTable datosDeProveedores = Proveedor_SelectTodosActivosController();
             MostrarProveedoresEnDataGrid(datosDeProveedores);
@@ -233,7 +241,15 @@ namespace CapaPresentacion
                 }//if
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
