@@ -220,11 +220,10 @@ namespace CapaPresentacion
             }
 
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
-
         }
     }
 }

@@ -38,7 +38,7 @@ namespace CapaPresentacion
             clsChequeInfoBasico.IdUsuarioOperador = idUsuarioOperador;
 
             IEnumerable<DataGridViewRow> filas = dataGrid.Rows.Cast<DataGridViewRow>();
-            filas.ToList().ForEach(item =>
+            filas.ToList().ForEach(item => 
             clsChequeInfoBasico.AddConceptoAListaConceptosEnCheque(item.Cells[1].EditedFormattedValue.ToString(),
             item.Cells[2].EditedFormattedValue.ToString(), item.Cells[4].EditedFormattedValue.ToString(),
             Decimal.Parse(item.Cells[3].EditedFormattedValue.ToString())
@@ -168,7 +168,7 @@ namespace CapaPresentacion
 
             var x = from fila in filas
                     select fila.Field<string>("Nombre de elemento");
-
+            
             comboBox1.DataSource = null;
             comboBox1.Items.Clear();
             comboBox1.ResetText();
@@ -240,15 +240,15 @@ namespace CapaPresentacion
                     //    textBox3.Text = (SumarContenidoEnGrid()).ToString();
                     //}
                     int n = dataGridView1.Rows.Add();
-                    dataGridView1.Rows[n].Cells[1].Value = textBox4.Text;
+                    dataGridView1.Rows[n].Cells[1].Value = textBox4.Text; 
                     if(quiereElegirDetalles)
                     {
-                        dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString();
+                        dataGridView1.Rows[n].Cells[2].Value = comboBox1.SelectedItem.ToString(); 
                     }
 
                     else
                     {
-                        dataGridView1.Rows[n].Cells[2].Value = String.Empty;
+                        dataGridView1.Rows[n].Cells[2].Value = String.Empty; 
                     }
                     
                     dataGridView1.Rows[n].Cells[3].Value = textBox6.Text;
@@ -302,8 +302,8 @@ namespace CapaPresentacion
                                 {
                                     DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
 
-                                    string mensaje = ChequeInfoBasico_createController(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
-                                    fechaDeCobroParam, dataGridView1, ClsLogin.Id);
+                                    string mensaje = ChequeInfoBasico_createController(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value, 
+                                        fechaDeCobroParam, dataGridView1, ClsLogin.Id);
 
 
                                     if (mensaje.Contains("ok"))
@@ -374,13 +374,18 @@ namespace CapaPresentacion
         {
             FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
             frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
+            string nombreProveedorSeleccionado = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
+            int idProveedorSeleccionado = frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado;
 
-            textBox4.Text = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
-            if(frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado > 0)
+            frmBuscarYSeleccionarNombreProveedor.Dispose();
+            Activate();   
+            
+            if (idProveedorSeleccionado > 0)
             {
                 try
                 {
-                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado);
+                    textBox4.Text = nombreProveedorSeleccionado;
+                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(idProveedorSeleccionado);
                     CargarElementosProveidosEnComboBox(elementosProveidos);
                 }
 
@@ -389,15 +394,6 @@ namespace CapaPresentacion
                     MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
                 }
             }
-
-            else
-            {
-                comboBox1.DataSource = null;
-                comboBox1.Items.Clear();
-                comboBox1.ResetText();
-            }
-
-            frmBuscarYSeleccionarNombreProveedor.Dispose();
         }
 
 
@@ -418,19 +414,16 @@ namespace CapaPresentacion
         {
             FrmBeneficiarioChequeBuscarYSeleccionar frmBeneficiarioChequeBuscarYSeleccionar = new FrmBeneficiarioChequeBuscarYSeleccionar();
             frmBeneficiarioChequeBuscarYSeleccionar.ShowDialog(this);
-
-            if( frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado.Length > 0)
-            {
-                //Escogio algo, mostrarlo en el textbox
-                textBox2.Text = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
-            }
-
-            else
-            {
-                //No escogio algo, dejar el textBox como esta
-            }
-
+            string nombreBeneficiarioSeleccionado = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
+            int idBeneficiarioSeleccionado = frmBeneficiarioChequeBuscarYSeleccionar.IdBeneficiarioChequeSeleccionado;
             frmBeneficiarioChequeBuscarYSeleccionar.Dispose();
+            Activate();
+            //https://stackoverflow.com/questions/9344205/why-calling-hide-in-a-child-forms-formclosing-event-handler-hides-the-parent-fo
+            //https://social.msdn.microsoft.com/Forums/windows/en-US/46553c32-4f66-4b6e-8b8e-2bb5766dc06e/after-hide-a-model-form-parent-form-may-change-zorder-and-become-nontopmost-form-for-a-while-or?forum=winforms
+            if (idBeneficiarioSeleccionado > 0)
+            {
+                textBox2.Text = nombreBeneficiarioSeleccionado;
+            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
@@ -446,6 +439,17 @@ namespace CapaPresentacion
             }
         }
 
-
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("¿Esta usted seguro que desea cancelar?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                LimpiarGroupBoxDatosDeCheque();
+                LimpiarGroupBoxAniadirConceptos();
+                LimpiarGroupBoxDescripcion();
+            }
+        }
     }
+
+
 }

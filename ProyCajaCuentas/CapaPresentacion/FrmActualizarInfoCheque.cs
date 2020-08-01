@@ -26,7 +26,15 @@ namespace CapaPresentacion
                 else { EstablecerReadOnlyEnAlgunosControles(); /* Se puede modificar solo la fecha de cobro*/}
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -40,13 +48,14 @@ namespace CapaPresentacion
             return (clsCheque.Cheque_BuscarDetallesCheque());
         }
 
-        public string Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(string numCheque, string beneficiario, decimal cantidad,
+        public string Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(int idCheque, string numCheque, string beneficiario, decimal cantidad,
             DateTime fechaDeCheque, DateTime fechaDeCobro, DataGridView dataGrid,
             bool usarEnCalculosReporteEgresosIngresos, int idUsuarioOperador)
         {
             string mensaje = "";
 
             ClsChequeInfoBasico clsChequeInfoBasico = new ClsChequeInfoBasico();
+            clsChequeInfoBasico.IdCheque = idCheque;
             clsChequeInfoBasico.NumCheque = numCheque;
             clsChequeInfoBasico.Beneficiario = beneficiario;
             clsChequeInfoBasico.Cantidad = cantidad;
@@ -95,6 +104,7 @@ namespace CapaPresentacion
         {
             DataRow fila = (infoChequeTabla.AsEnumerable()).First<DataRow>();
 
+            textBox5.Text = fila.Field<int>(0).ToString();
             textBox1.Text = fila.Field<string>("NumCheque");
             textBox2.Text = fila.Field<string>("Beneficiario");
             textBox3.Text = fila.Field<decimal>("Cantidad").ToString();
@@ -178,6 +188,7 @@ namespace CapaPresentacion
             dateTimePicker1.Value = DateTime.Now;
             radioButton2.Checked = true;
             dateTimePicker2.Value = DateTime.Now;
+            textBox5.Text = "";
         }
 
         private void LimpiarGroupBoxDescripcion()
@@ -336,7 +347,15 @@ namespace CapaPresentacion
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -470,7 +489,7 @@ namespace CapaPresentacion
                                 DateTime fechaDeCobroParam = (radioButton2.Checked == true) ? SqlDateTime.MinValue.Value : dateTimePicker2.Value;
                                 bool usarEnCalculosReporteEgresosIngresos = (comboBox2.SelectedIndex == 0) ? true : false;
 
-                                string mensaje = Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
+                                string mensaje = Cheque__DescripcionDeCheque_ConceptoEnCheque_Update(Int32.Parse(textBox5.Text), textBox1.Text.Trim(), textBox2.Text, cantidadDecimal, dateTimePicker1.Value,
                                 fechaDeCobroParam, dataGridView1, usarEnCalculosReporteEgresosIngresos, ClsLogin.Id);
 
 
@@ -515,6 +534,14 @@ namespace CapaPresentacion
                 {
                     MessageBox.Show("Necesitas capturar algún concepto", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)

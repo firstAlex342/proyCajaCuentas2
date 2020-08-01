@@ -180,6 +180,14 @@ namespace CapaPresentacion
                 }                
             }
 
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
             catch (Exception ex)
             {
                 DetenerProgressBar();
@@ -216,6 +224,14 @@ namespace CapaPresentacion
                     HabilitarButtonsYDateTimePicker();
                     MessageBox.Show("Exportacion lista", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)

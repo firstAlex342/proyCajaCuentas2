@@ -366,6 +366,7 @@
             this.tabPage13.TabIndex = 0;
             this.tabPage13.Text = "Realizar cobro";
             this.tabPage13.UseVisualStyleBackColor = true;
+            this.tabPage13.Enter += new System.EventHandler(this.tabPage13_Enter);
             // 
             // panel7
             // 
@@ -841,6 +842,7 @@
             this.tabPage32.TabIndex = 2;
             this.tabPage32.Text = "Eliminar";
             this.tabPage32.UseVisualStyleBackColor = true;
+            this.tabPage32.Enter += new System.EventHandler(this.tabPage32_Enter);
             // 
             // panel26
             // 
@@ -861,6 +863,7 @@
             this.tabPage33.TabIndex = 3;
             this.tabPage33.Text = "Ver todos";
             this.tabPage33.UseVisualStyleBackColor = true;
+            this.tabPage33.Enter += new System.EventHandler(this.tabPage33_Enter);
             // 
             // panel27
             // 
@@ -881,6 +884,7 @@
             this.tabPage34.TabIndex = 4;
             this.tabPage34.Text = "Agregar producto ó servicio";
             this.tabPage34.UseVisualStyleBackColor = true;
+            this.tabPage34.Enter += new System.EventHandler(this.tabPage34_Enter);
             // 
             // panel28
             // 
@@ -901,6 +905,7 @@
             this.tabPage35.TabIndex = 5;
             this.tabPage35.Text = "Editar producto ó servicio";
             this.tabPage35.UseVisualStyleBackColor = true;
+            this.tabPage35.Enter += new System.EventHandler(this.tabPage35_Enter);
             // 
             // panel29
             // 
@@ -968,6 +973,7 @@
             this.tabPage37.TabIndex = 1;
             this.tabPage37.Text = "Eliminar";
             this.tabPage37.UseVisualStyleBackColor = true;
+            this.tabPage37.Enter += new System.EventHandler(this.tabPage37_Enter);
             // 
             // panel31
             // 
@@ -988,6 +994,7 @@
             this.tabPage38.TabIndex = 2;
             this.tabPage38.Text = "Ver todos";
             this.tabPage38.UseVisualStyleBackColor = true;
+            this.tabPage38.Enter += new System.EventHandler(this.tabPage38_Enter);
             // 
             // panel32
             // 
