@@ -24,7 +24,15 @@ namespace CapaPresentacion
                 MostrarEnGridPeriodos(res);
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
@@ -81,6 +89,15 @@ namespace CapaPresentacion
             textBox4.Text = "";
             textBox5.Text = "";
         }
+
+
+        public void ReinicializarDataGridYDemas()
+        {
+            LimpiarGroupBoxDetalles();
+            DataTable tabla = Bancos_SelectActivosController();
+            MostrarEnGridPeriodos(tabla);
+        }
+
         //-----------------Events
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -97,8 +114,32 @@ namespace CapaPresentacion
 
         private void button2_Click(object sender, EventArgs e)
         {
-            LimpiarGroupBoxDetalles();
+
+            try
+            {
+                DialogResult res = MessageBox.Show("¿Esta usted seguro que desea cancelar la operación actual?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(res == DialogResult.Yes)
+                {
+                    LimpiarGroupBoxDetalles();
+                    DataTable tabla = Bancos_SelectActivosController();
+                    MostrarEnGridPeriodos(tabla);
+                }
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -132,7 +173,15 @@ namespace CapaPresentacion
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
             }
