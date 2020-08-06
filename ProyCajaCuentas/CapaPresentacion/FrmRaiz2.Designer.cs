@@ -48,12 +48,6 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.panel11 = new System.Windows.Forms.Panel();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.tabPage19 = new System.Windows.Forms.TabPage();
@@ -137,9 +131,6 @@
             this.tabPage14.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabControl4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage19.SuspendLayout();
             this.tabPage20.SuspendLayout();
@@ -415,9 +406,6 @@
             this.tabControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl4.Controls.Add(this.tabPage5);
-            this.tabControl4.Controls.Add(this.tabPage6);
-            this.tabControl4.Controls.Add(this.tabPage7);
             this.tabControl4.Controls.Add(this.tabPage8);
             this.tabControl4.Controls.Add(this.tabPage19);
             this.tabControl4.Controls.Add(this.tabPage20);
@@ -430,68 +418,6 @@
             this.tabControl4.SelectedIndex = 0;
             this.tabControl4.Size = new System.Drawing.Size(860, 461);
             this.tabControl4.TabIndex = 0;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.panel9);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(852, 428);
-            this.tabPage5.TabIndex = 0;
-            this.tabPage5.Text = "De Socio";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // panel9
-            // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel9.Location = new System.Drawing.Point(7, 7);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(839, 415);
-            this.panel9.TabIndex = 0;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.panel10);
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(852, 428);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "De todos los socios";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // panel10
-            // 
-            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel10.Location = new System.Drawing.Point(7, 7);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(839, 415);
-            this.panel10.TabIndex = 0;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.panel11);
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(852, 428);
-            this.tabPage7.TabIndex = 2;
-            this.tabPage7.Text = "Cancelados";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // panel11
-            // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.Location = new System.Drawing.Point(4, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(845, 422);
-            this.panel11.TabIndex = 0;
             // 
             // tabPage8
             // 
@@ -1061,6 +987,7 @@
             this.tabPage40.TabIndex = 1;
             this.tabPage40.Text = "Modificar saldo";
             this.tabPage40.UseVisualStyleBackColor = true;
+            this.tabPage40.Enter += new System.EventHandler(this.tabPage40_Enter);
             // 
             // panel34
             // 
@@ -1270,9 +1197,6 @@
             this.tabPage14.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage19.ResumeLayout(false);
             this.tabPage20.ResumeLayout(false);
@@ -1339,9 +1263,6 @@
         private System.Windows.Forms.TabPage tabPage17;
         private System.Windows.Forms.TabPage tabPage18;
         private System.Windows.Forms.TabControl tabControl4;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage19;
         private System.Windows.Forms.TabPage tabPage20;
@@ -1381,9 +1302,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;

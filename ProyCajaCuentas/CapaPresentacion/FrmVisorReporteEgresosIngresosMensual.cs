@@ -844,7 +844,15 @@ namespace CapaPresentacion
                 }
             }
 
-            catch(Exception ex)
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+            catch (Exception ex)
             {
                 DetenerProgressBar();
                 HabilitarComboBoxYButtons();
@@ -939,6 +947,14 @@ namespace CapaPresentacion
                         MessageBox.Show("Seleccione un año y un mes", "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                 }
+            }
+
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                ClsMyException clsMyException = new ClsMyException();
+                string res = clsMyException.FormarTextoDeSqlException(ex);
+
+                MessageBox.Show(res, "Reglas de operación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             catch (Exception ex)

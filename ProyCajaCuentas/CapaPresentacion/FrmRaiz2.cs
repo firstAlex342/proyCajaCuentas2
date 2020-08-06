@@ -76,9 +76,6 @@ namespace CapaPresentacion
             CargarPanelConForm(panel6, new FrmSocioImprimirExportar());
             CargarPanelConForm(panel7, new FrmRealizarCobro());
             CargarPanelConForm(panel8, new FrmCancelarFolioReciboDePago()); 
-            CargarPanelConForm(panel9, new FrmBuscarFoliosDeSocio());  
-            CargarPanelConForm(panel10, new FrmBuscarFoliosDeTodos()); 
-            CargarPanelConForm(panel11, new FrmBuscarFoliosCanceladosDeTodos());
             CargarPanelConForm(panel12, new FrmSumarFoliosDePagoPorUsuario());
             CargarPanelConForm(panel13, new FrmSumarProductosPorProducto());
             CargarPanelConForm(panel14, new FrmBuscarFoliosActivosDeTodosImprimirExportar()); 
@@ -174,7 +171,7 @@ namespace CapaPresentacion
             if (respuesta)
             {   /*Permanece habilitada la opcion agregar socio*/  }
             else
-            { panel3.Enabled = false; }
+            { panel3.Visible = false; }
 
 
             //Habilitar / deshabilitar la opcion buscar socio del menu
@@ -182,7 +179,7 @@ namespace CapaPresentacion
             if (respuesta)
             {   /*Permanece habilitada la opcion buscar socio*/  }
             else
-            { panel5.Enabled = false; }
+            { panel5.Visible = false; }
 
 
             //Habilitar / deshabilitar la opcion Actualizar socio del menu
@@ -190,7 +187,7 @@ namespace CapaPresentacion
             if (respuesta)
             { /*Permanece habilitada la opcion actualizar socio */  }
             else
-            { panel4.Enabled = false; }
+            { panel4.Visible = false; }
 
 
 
@@ -198,168 +195,168 @@ namespace CapaPresentacion
             respuesta = EsActivoModuloController(8) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion Abrir caja, del menu*/}
-            else { panel7.Enabled = false; }
+            else { panel7.Visible = false; }
+
+            //En este menu , nunca se cargan los modulos 9, 10 y 12
+            //respuesta = EsActivoModuloController(9) ? true : false;
+            //if (respuesta)
+            //{ /*Permanece habilitada la opcion Buscar folios de recibo de pago de socio*/}
+            //else { panel9.Enabled = false; }
 
 
-            respuesta = EsActivoModuloController(9) ? true : false;
-            if (respuesta)
-            { /*Permanece habilitada la opcion Buscar folios de recibo de pago de socio*/}
-            else { panel9.Enabled = false; }
-
-
-            respuesta = EsActivoModuloController(10) ? true : false;
-            if (respuesta)
-            { /*Permanece habilitada la opcion Buscar folios de recibo de pago de todos los socios*/}
-            else { panel10.Enabled = false; }
+            //respuesta = EsActivoModuloController(10) ? true : false;
+            //if (respuesta)
+            //{ /*Permanece habilitada la opcion Buscar folios de recibo de pago de todos los socios*/}
+            //else { panel10.Enabled = false; }
 
 
             respuesta = EsActivoModuloController(11) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion Cancelar folio de recibo de pago */}
-            else { panel8.Enabled = false; }
+            else { panel8.Visible = false;   }
 
-
-            respuesta = EsActivoModuloController(12) ? true : false;
-            if (respuesta)
-            { /*Permanece habilitada la opcion Buscar folios de pago cancelados */}
-            else { panel11.Enabled = false; }
+            // En este modulo nunca se cargan los modulos 9, 10 y 12
+            //respuesta = EsActivoModuloController(12) ? true : false;
+            //if (respuesta)
+            //{ /*Permanece habilitada la opcion Buscar folios de pago cancelados */}
+            //else { panel11.Enabled = false; }
 
 
             respuesta = EsActivoModuloController(13) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion Gastos (lo de capturar info de cheques) */}
-            else { panel18.Enabled = false; }
+            else { panel18.Visible = false; }
 
 
             respuesta = EsActivoModuloController(14) ? true : false;
             if (respuesta)
             {  /*Permanece habilitada la opcion modificar gastos */}
-            else { panel19.Enabled = false; }
+            else { panel19.Visible = false; }
 
             respuesta = EsActivoModuloController(15) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion eliminar cheque capturado*/   }
-            else { panel20.Enabled = false; }
+            else { panel20.Visible = false; }
 
 
             respuesta = EsActivoModuloController(16) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion cheques no cobrados en el periodo*/ }
-            else { panel21.Enabled = false; }
+            else { panel21.Visible= false; }
 
             respuesta = EsActivoModuloController(17) ? true : false;
             if (respuesta)
             {  /*Permance habilitada la opcion cheques cobrados en el periodo*/ }
-            else { panel22.Enabled = false; }
+            else { panel22.Visible = false; }
 
             respuesta = EsActivoModuloController(18) ? true : false;
             if (respuesta)
             {   /*Permanece habilitada la opcion cheques de periodo*/  }
-            else { panel23.Enabled = false; }
+            else { panel23.Visible = false; }
 
             respuesta = EsActivoModuloController(19) ? true : false;
             if (respuesta)
             {   /*Permanece habilitada la opcion insertar proveedor*/  }
-            else { panel24.Enabled = false; }
+            else { panel24.Visible = false; }
 
             respuesta = EsActivoModuloController(20) ? true : false;
             if (respuesta)
             {   /*Permanece habilitada la opcion actualizar proveedor*/  }
-            else { panel25.Enabled = false; }
+            else { panel25.Visible = false; }
 
             respuesta = EsActivoModuloController(21) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion eliminar proveedor*/ }
-            else { panel26.Enabled = false; }
+            else { panel26.Visible = false; }
 
             respuesta = EsActivoModuloController(22) ? true : false;
             if (respuesta)
             {  /*Permanece habilitada la opcion ver proveedores*/  }
-            else { panel27.Enabled = false; }
+            else { panel27.Visible = false; }
 
             respuesta = EsActivoModuloController(23) ? true : false;
             if (respuesta)
             {   /*Permanece habilitada la opcion sumar folios de usuario*/ }
-            else { panel12.Enabled = false; }
+            else { panel12.Visible = false; }
 
 
             respuesta = EsActivoModuloController(24) ? true : false;
             if (respuesta)
             {   /*Permanece habilitada la opcion ver informe egresos- ingresos*/ }
-            else { panel35.Enabled = false; }
+            else { panel35.Visible = false; }
 
             respuesta = EsActivoModuloController(25) ? true : false;
             if (respuesta)
             {  /*Permanece habilitada la opción sumar productos*/}
-            else { panel13.Enabled = false; }
+            else { panel13.Visible = false; }
 
             respuesta = EsActivoModuloController(26) ? true : false;
             if (respuesta)
             {    /*Permanece habilitada la opción Bancos - crear periodo*/ }
-            else { panel33.Enabled = false; }
+            else { panel33.Visible = false; }
 
 
             respuesta = EsActivoModuloController(28) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion Bancos - modificar saldo*/}
-            else { panel34.Enabled = false; }
+            else { panel34.Visible = false; }
 
             respuesta = EsActivoModuloController(29) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opcion: Consultar folios de recibo de pago , imprimir exportar activos*/}
-            else { panel14.Enabled = false; }
+            else { panel14.Visible = false; }
 
 
             respuesta = EsActivoModuloController(30) ? true : false;
             if (respuesta)
             { /* Permanece habilitada la opción: Socio, imprimir exportar*/}
             else
-            { panel6.Enabled = false; }
+            { panel6.Visible = false; }
 
             respuesta = EsActivoModuloController(31) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opción: Consular folios de recibo de pago, imprimir-exportar activos y cancelados*/}
             else
-            { panel15.Enabled = false; }
+            { panel15.Visible= false; }
 
 
             respuesta = EsActivoModuloController(32) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opción: Proveedor, agregar producto o servicio*/}
             else
-            { panel28.Enabled = false; }
+            { panel28.Visible = false; }
 
 
             respuesta = EsActivoModuloController(33) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opción: Proveedor, editar producto o servicio*/}
             else
-            { panel29.Enabled = false; }
+            { panel29.Visible = false; }
 
 
             respuesta = EsActivoModuloController(34) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opción: Beneficiario de cheque, nuevo*/}
             else
-            { panel30.Enabled = false; }
+            { panel30.Visible = false; }
 
             respuesta = EsActivoModuloController(35) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opción: Beneficiario de cheque, Ver todos*/}
             else
-            { panel32.Enabled = false; }
+            { panel32.Visible = false; }
 
             respuesta = EsActivoModuloController(36) ? true : false;
             if (respuesta)
             { /* Permanece habilitada la opción: Beneficiario de cheque, Eliminar */}
             else
-            { panel31.Enabled = false; }
+            { panel31.Visible = false; }
 
             respuesta = EsActivoModuloController(38) ? true : false;
             if (respuesta)
             { /*Permanece habilitada la opción: Informe egresos / ingresos, Informe mensual*/}
             else
-            { panel36.Enabled = false; }
+            { panel36.Visible  = false; }
 
             respuesta = EsActivoModuloController(39) ? true : false;
             if (respuesta)
@@ -367,7 +364,7 @@ namespace CapaPresentacion
                 cheques cobrados de periodos anteriores*/
             }
             else
-            { panel38.Enabled = false; }
+            { panel38.Visible = false; }
 
             //el modulo 40 es el boton Informe egresos-ingresos, exportar a excel
             //el modulo 41 es el boton Informe egresos-ingresos mensual, exportar a excel
@@ -377,21 +374,21 @@ namespace CapaPresentacion
             { /*Permanece habilitada la opción: Informe x elementos de proveedor */
             }
             else
-            { panel37.Enabled = false; }
+            { panel37.Visible = false; }
 
 
             respuesta = EsActivoModuloController(44) ? true : false;
             if (respuesta)
             {/*Permance habilitada la opción: Activos y cancelados de socio*/ }
             else
-            { panel16.Enabled = false; }
+            { panel16.Visible = false; }
 
 
             respuesta = EsActivoModuloController(45) ? true : false;
             if (respuesta)
             {/*Permance habilitada la opción: Consultar folios de recibo de pago - productos pagados y no pagados*/ }
             else
-            { panel17.Enabled = false; }
+            { panel17.Visible = false; }
 
 
             respuesta = EsActivoModuloController(47) ? true : false;
@@ -566,6 +563,19 @@ namespace CapaPresentacion
             try
             {
                 ((FrmProveedorEditarElemento)panel29.Tag).ReinicializarDataGrids();
+            }
+
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+            }
+        }
+
+        private void tabPage40_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                ((FrmBancosActualizar)panel34.Tag).ReinicializarDataGridYDemas();
             }
 
             catch(Exception ex)
