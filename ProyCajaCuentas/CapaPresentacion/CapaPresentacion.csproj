@@ -496,6 +496,8 @@
     <Compile Include="FrmRealizarCobro.Designer.cs">
       <DependentUpon>FrmRealizarCobro.cs</DependentUpon>
     </Compile>
+    <Compile Include="IConectarBeneficiarioElegido.cs" />
+    <Compile Include="IConectarProveedorEnCheque.cs" />
     <Compile Include="ventanasNoUsadas\FrmAgregarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
