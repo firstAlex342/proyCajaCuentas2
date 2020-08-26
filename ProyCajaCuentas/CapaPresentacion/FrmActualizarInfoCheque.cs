@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class FrmActualizarInfoCheque : Form
+    public partial class FrmActualizarInfoCheque :  Form, IConectarBeneficiarioElegido, IConectarProveedorEnCheque
     {
         //--------------------Constructor
         public FrmActualizarInfoCheque()
@@ -311,6 +311,29 @@ namespace CapaPresentacion
                 comboBox2.SelectedIndex = 1;
         }
 
+        void IConectarBeneficiarioElegido.MostrarBeneficiarioElegido(int idBeneficiario, string nombreBeneficiario)
+        {
+            if(idBeneficiario > 0)
+                textBox2.Text = nombreBeneficiario;
+        }
+
+        void IConectarProveedorEnCheque.MostrarNombreProveedorElegido(int idProveedorSeleccionado, string nombreProveedorSeleccionado)
+        {           
+            if(idProveedorSeleccionado > 0)
+            {               
+                try
+                {
+                    textBox4.Text = nombreProveedorSeleccionado;
+                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(idProveedorSeleccionado);
+                    CargarElementosProveidosEnComboBox(elementosProveidos);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+                }
+            }
+        }
         //------------------Events
         private void button4_Click(object sender, EventArgs e)
         {
@@ -570,48 +593,19 @@ namespace CapaPresentacion
         private void button3_Click(object sender, EventArgs e)
         {
             FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
+            frmBuscarYSeleccionarNombreProveedor.AddSubscriptor(this);
             frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
-
-            textBox4.Text = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
-            if (frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado > 0)
-            {
-                try
-                {
-                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado);
-                    CargarElementosProveidosEnComboBox(elementosProveidos);
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
-                }
-            }
-
-            else
-            {
-                comboBox1.DataSource = null;
-                comboBox1.Items.Clear();
-                comboBox1.ResetText();
-            }
-
             frmBuscarYSeleccionarNombreProveedor.Dispose();
+            Activate();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             FrmBeneficiarioChequeBuscarYSeleccionar frmBeneficiarioChequeBuscarYSeleccionar = new FrmBeneficiarioChequeBuscarYSeleccionar();
+            frmBeneficiarioChequeBuscarYSeleccionar.AddSubscriptor(this);
             frmBeneficiarioChequeBuscarYSeleccionar.ShowDialog(this);
-
-            if(frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado.Length > 0)
-            {  //escogio algo, por lo tanto mostrar lo que escogio
-                textBox2.Text = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
-            }
-
-            else
-            {  //no escogio algo, dejo el textBox tal como estaba
-            }
-
             frmBeneficiarioChequeBuscarYSeleccionar.Dispose();
+            Activate();
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)

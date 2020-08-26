@@ -12,7 +12,7 @@ using CapaLogicaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class FrmAgregarCheque : Form
+    public partial class FrmAgregarCheque : Form, IConectarBeneficiarioElegido, IConectarProveedorEnCheque 
     {
 
         //----------------constructor
@@ -193,8 +193,33 @@ namespace CapaPresentacion
 
             return (respuesta);
         }
-        //------------------Events
 
+        void IConectarBeneficiarioElegido.MostrarBeneficiarioElegido(int idBeneficiario, string nombreBeneficiario)
+        {
+            if(idBeneficiario > 0)
+                textBox2.Text = nombreBeneficiario;
+        }
+
+        void IConectarProveedorEnCheque.MostrarNombreProveedorElegido(int idProveedorSeleccionado, string nombreProveedorSeleccionado)
+        {
+            if (idProveedorSeleccionado > 0)
+            {
+                try
+                {
+                    textBox4.Text = nombreProveedorSeleccionado;
+                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(idProveedorSeleccionado);
+                    CargarElementosProveidosEnComboBox(elementosProveidos);
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
+                }
+            }
+        }
+
+
+        //------------------Events
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -373,27 +398,11 @@ namespace CapaPresentacion
         private void button3_Click(object sender, EventArgs e)
         {
             FrmBuscarYSeleccionarNombreProveedor frmBuscarYSeleccionarNombreProveedor = new FrmBuscarYSeleccionarNombreProveedor();
+            frmBuscarYSeleccionarNombreProveedor.AddSubscriptor(this);
             frmBuscarYSeleccionarNombreProveedor.ShowDialog(this);
-            string nombreProveedorSeleccionado = frmBuscarYSeleccionarNombreProveedor.NombreProveeedorSeleccionado;
-            int idProveedorSeleccionado = frmBuscarYSeleccionarNombreProveedor.IdProveedorSeleccionado;
 
             frmBuscarYSeleccionarNombreProveedor.Dispose();
-            Activate();   
-            
-            if (idProveedorSeleccionado > 0)
-            {
-                try
-                {
-                    textBox4.Text = nombreProveedorSeleccionado;
-                    DataTable elementosProveidos = Proveedor_BuscarElementosProveidosActivosController(idProveedorSeleccionado);
-                    CargarElementosProveidosEnComboBox(elementosProveidos);
-                }
-
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message + " " + ex.Source + " " + ex.StackTrace);
-                }
-            }
+            Activate();              
         }
 
 
@@ -413,17 +422,12 @@ namespace CapaPresentacion
         private void button4_Click(object sender, EventArgs e)
         {
             FrmBeneficiarioChequeBuscarYSeleccionar frmBeneficiarioChequeBuscarYSeleccionar = new FrmBeneficiarioChequeBuscarYSeleccionar();
+            frmBeneficiarioChequeBuscarYSeleccionar.AddSubscriptor(this);
             frmBeneficiarioChequeBuscarYSeleccionar.ShowDialog(this);
-            string nombreBeneficiarioSeleccionado = frmBeneficiarioChequeBuscarYSeleccionar.NombreBeneficiarioChequeSeleccionado;
-            int idBeneficiarioSeleccionado = frmBeneficiarioChequeBuscarYSeleccionar.IdBeneficiarioChequeSeleccionado;
             frmBeneficiarioChequeBuscarYSeleccionar.Dispose();
             Activate();
             //https://stackoverflow.com/questions/9344205/why-calling-hide-in-a-child-forms-formclosing-event-handler-hides-the-parent-fo
             //https://social.msdn.microsoft.com/Forums/windows/en-US/46553c32-4f66-4b6e-8b8e-2bb5766dc06e/after-hide-a-model-form-parent-form-may-change-zorder-and-become-nontopmost-form-for-a-while-or?forum=winforms
-            if (idBeneficiarioSeleccionado > 0)
-            {
-                textBox2.Text = nombreBeneficiarioSeleccionado;
-            }
         }
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)

@@ -15,6 +15,7 @@ namespace CapaPresentacion
     {
         public int IdBeneficiarioChequeSeleccionado { set; get; }
         public string NombreBeneficiarioChequeSeleccionado { set; get; }
+        public List<IConectarBeneficiarioElegido> MisSubscriptores { set; get; }
 
 
         //---------------Constructor
@@ -24,6 +25,7 @@ namespace CapaPresentacion
 
             this.IdBeneficiarioChequeSeleccionado = 0;
             this.NombreBeneficiarioChequeSeleccionado = String.Empty;
+            this.MisSubscriptores = new List<IConectarBeneficiarioElegido>();
 
             try
             {
@@ -76,6 +78,17 @@ namespace CapaPresentacion
             listaDataRows.ForEach(AniadirADataGrid);
         }
 
+        public void AddSubscriptor(IConectarBeneficiarioElegido subscriptor)
+        {
+            this.MisSubscriptores.Add(subscriptor);
+        }
+
+        private void MostrarNombreBeneficiarioSeleccionado()
+        {
+            foreach (IConectarBeneficiarioElegido subscriptor in this.MisSubscriptores)
+                subscriptor.MostrarBeneficiarioElegido(this.IdBeneficiarioChequeSeleccionado, this.NombreBeneficiarioChequeSeleccionado);
+        }
+
 
         //---------------Events
         private void button2_Click(object sender, EventArgs e)
@@ -112,7 +125,8 @@ namespace CapaPresentacion
                     this.IdBeneficiarioChequeSeleccionado = Int32.Parse(filaSeleccionada.Cells[1].EditedFormattedValue.ToString());
                 }
 
-                this.Visible = false;   
+                MostrarNombreBeneficiarioSeleccionado();
+                this.Close();
             }
 
 

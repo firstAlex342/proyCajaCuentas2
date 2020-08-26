@@ -15,6 +15,7 @@ namespace CapaPresentacion
     {
         private string nombreProveeedorSeleccionado;
         private int idProveedorSeleccionado;
+        private List<IConectarProveedorEnCheque> misSubscriptores;
 
         //------------Properties
         public string NombreProveeedorSeleccionado
@@ -29,6 +30,12 @@ namespace CapaPresentacion
             get { return idProveedorSeleccionado; }
         }
 
+        public List<IConectarProveedorEnCheque> MisSubscriptores
+        {
+            set { misSubscriptores = value; }
+            get { return misSubscriptores;  }
+        }
+
 
         //------------------constructor
         public FrmBuscarYSeleccionarNombreProveedor()
@@ -37,6 +44,7 @@ namespace CapaPresentacion
 
             this.NombreProveeedorSeleccionado = "";
             this.IdProveedorSeleccionado = 0;
+            this.MisSubscriptores = new List<IConectarProveedorEnCheque>();
             CrearColumnasParaDataGridViewNombreDeProveedoresActivos();
 
             try
@@ -126,6 +134,21 @@ namespace CapaPresentacion
             listDataRows.ForEach(AniadirADataGrid);
         }
 
+        public void AddSubscriptor(IConectarProveedorEnCheque subscriptor)
+        {
+            this.MisSubscriptores.Add(subscriptor);
+        }
+
+        public void MostrarNombreProveedorEIdSeleccionado()
+        {
+            foreach (IConectarProveedorEnCheque subscriptor in this.MisSubscriptores)
+            {
+                subscriptor.MostrarNombreProveedorElegido(this.IdProveedorSeleccionado, this.NombreProveeedorSeleccionado);
+            }
+        }
+
+        //--------------------------Events
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -207,6 +230,7 @@ namespace CapaPresentacion
                 DataGridViewRow filaSeleccionada = x.SingleOrDefault(BuscarFilaSeleccionada);
                 if(filaSeleccionada == null)
                 {
+                    this.IdProveedorSeleccionado = 0;
                     this.NombreProveeedorSeleccionado = String.Empty;
                 }
 
@@ -216,7 +240,8 @@ namespace CapaPresentacion
                     this.IdProveedorSeleccionado = Int32.Parse(filaSeleccionada.Cells[1].EditedFormattedValue.ToString());
                 }
 
-                this.Visible = false;
+                MostrarNombreProveedorEIdSeleccionado();
+                this.Close();
             }
 
 
